@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="report" />
+        <module name="sevenw" />
+        <module name="commun" />
+        <module name="serveur" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="commun" target="11" />
+      <module name="report" target="11" />
+      <module name="serveur" target="11" />
+      <module name="Seven-Wonders" target="11" />
+      <module name="sevenw" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

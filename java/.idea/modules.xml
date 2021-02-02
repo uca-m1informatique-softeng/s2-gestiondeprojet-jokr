@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Seven-Wonders.iml" filepath="$PROJECT_DIR$/Seven-Wonders.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commun/commun.iml" filepath="$PROJECT_DIR$/commun/commun.iml" />
+      <module fileurl="file://$PROJECT_DIR$/report/report.iml" filepath="$PROJECT_DIR$/report/report.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serveur/serveur.iml" filepath="$PROJECT_DIR$/serveur/serveur.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sevenw/sevenw.iml" filepath="$PROJECT_DIR$/sevenw/sevenw.iml" />
+    </modules>
+  </component>
+</project>
