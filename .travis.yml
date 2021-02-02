@@ -1,0 +1,13 @@
+language: java
+jdk:
+  - openjdk11
+install:
+  - mvn clean install -DskipTests
+script:
+  - mvn test
+  - cd java/commun
+  - mvn exec:java &
+  - cd ../serveur
+  - mvn exec:java &
+  - cd ../sevenw
+  - mvn exec:java
