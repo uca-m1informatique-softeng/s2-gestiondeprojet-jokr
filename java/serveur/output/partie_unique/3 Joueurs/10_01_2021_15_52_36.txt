@@ -1,0 +1,493 @@
+____________________     7 Wonders       ________________________
+____________________ Commencement du Jeu ________________________
+
+Fred a obtenue la merveille BABYLON et gagne 1 Bois
+Mona a obtenue la merveille OLYMPIA DE NUIT et gagne 1 Argile
+Enzo a obtenue la merveille EPHESOS DE NUIT et gagne 1 Papyrus
+
+
+########################## DEBUT Age N°1 ###########################
+
+
+--------------------- DEBUT TOUR N°1 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Fred choisit dans sa main la carte Chantier
+Carte Gratuite !
+Fred gagne les ressources : [Bois]
+
+Mona choisit dans sa main la carte Métier à Tisser
+Carte Gratuite !
+Mona gagne les ressources : [Tissu]
+
+--------------------- FIN TOUR N°1   ---------------------
+
+Fred donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+Enzo donne ses cartes à Fred
+
+--------------------- DEBUT TOUR N°2 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Fred choisit dans sa main la carte Presse
+Carte Gratuite !
+Fred gagne les ressources : [Papyrus]
+
+Mona choisit dans sa main la carte Cavité
+Carte Gratuite !
+Mona gagne les ressources : [Pierre]
+
+--------------------- FIN TOUR N°2   ---------------------
+
+Fred donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+Enzo donne ses cartes à Fred
+
+--------------------- DEBUT TOUR N°3 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Fred choisit dans sa main la carte Scriptorium
+Fred a payé via son Inventaire les ressources suivantes : [Papyrus]
+Fred gagne les ressources : [Pierre de Rosette]
+
+Mona choisit dans sa main la carte Filon
+Carte Gratuite !
+Mona gagne les ressources : [Minerai]
+
+--------------------- FIN TOUR N°3   ---------------------
+
+Fred donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+Enzo donne ses cartes à Fred
+
+--------------------- DEBUT TOUR N°4 ---------------------
+
+Fred choisit dans sa main la carte Officine
+Fred a acheter à Mona la ressource Tissu pour 2 Pièces ! 
+Fred gagne les ressources : [Compas]
+
+Mona choisit dans sa main la carte Exploitation Forestière
+Mona a payé via son Inventaire les ressources suivantes : [Pièce]
+Mona gagne les ressources : [Bois/Pierre]
+
+Enzo choisit dans sa main la carte Bassin Argileux
+Carte Gratuite !
+Enzo gagne les ressources : [Argile]
+
+--------------------- FIN TOUR N°4   ---------------------
+
+Fred donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+Enzo donne ses cartes à Fred
+
+--------------------- DEBUT TOUR N°5 ---------------------
+
+Enzo décide de construire le 1e étage de sa merveille !
+Enzo a payé via son Inventaire les ressources suivantes : [Argile]
+Enzo a acheter à Mona la ressource Argile pour 2 Pièces ! 
+Enzo gagne les ressources suivantes : Pièce
+
+
+Fred choisit dans sa main la carte Théâtre
+Carte Gratuite !
+Fred gagne les ressources : [Score, Score, Score]
+
+Mona choisit dans sa main la carte Verrerie
+Carte Gratuite !
+Mona gagne les ressources : [Verre]
+
+--------------------- FIN TOUR N°5   ---------------------
+
+Fred donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+Enzo donne ses cartes à Fred
+
+--------------------- DEBUT TOUR N°6 ---------------------
+
+Fred choisit dans sa main la carte Comptoir EST
+Carte Gratuite !
+Fred gagne les ressources : [ReducMarronDroite]
+
+Mona choisit dans sa main la carte Marché
+Carte Gratuite !
+Mona gagne les ressources : [ReducGrisDroiteGauche]
+
+Enzo choisit dans sa main la carte Tour de Garde
+Enzo a payé via son Inventaire les ressources suivantes : [Argile]
+Enzo gagne les ressources : [Bouclier]
+
+--------------------- FIN TOUR N°6   ---------------------
+
+########################## Fin Age N°1 ###########################
+
+##################### La GUERRE n°1 est déclarée ######################
+
+Fred (0 Boucliers) a engagé le combat contre Mona (0 Boucliers).
+Egalité des Boucliers, personne ne gagne.
+
+Mona (0 Boucliers) a engagé le combat contre Enzo (1 Boucliers).
+Enzo gagne la bataille et remporte 1 Pts de Victoire.
+Mona perd et remporte 1 Pts de Défaite.
+
+Enzo (1 Boucliers) a engagé le combat contre Fred (0 Boucliers).
+Enzo gagne la bataille et remporte 1 Pts de Victoire.
+Fred perd et remporte 1 Pts de Défaite
+
+##################### Fin de la GUERRE n°1 ######################
+
+
+
+########################## DEBUT Age N°2 ###########################
+
+
+--------------------- DEBUT TOUR N°1 ---------------------
+
+Enzo décide de construire le 2e étage de sa merveille !
+Enzo a acheter à Fred la ressource Bois pour 2 Pièces ! 
+Enzo a acheter à Fred la ressource Bois pour 2 Pièces ! 
+Enzo gagne les ressources suivantes : Pièce
+
+
+Fred choisit dans sa main la carte Briqueterie
+Fred a payé via son Inventaire les ressources suivantes : [Pièce]
+Fred gagne les ressources : [Argile, Argile]
+
+Mona choisit dans sa main la carte Carrière
+Mona a payé via son Inventaire les ressources suivantes : [Pièce]
+Mona gagne les ressources : [Pierre, Pierre]
+
+--------------------- FIN TOUR N°1   ---------------------
+
+Mona donne ses cartes à Fred
+Enzo donne ses cartes à Mona
+Fred donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°2 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Fred choisit dans sa main la carte Ecole
+Fred a payé via son Inventaire les ressources suivantes : [Papyrus, Bois]
+Fred gagne les ressources : [Pierre de Rosette]
+
+Mona choisit dans sa main la carte Muraille
+Mona a payé via son Inventaire les ressources suivantes : [Pierre, Pierre, Pierre]
+Mona gagne les ressources : [Bouclier, Bouclier]
+
+--------------------- FIN TOUR N°2   ---------------------
+
+Mona donne ses cartes à Fred
+Enzo donne ses cartes à Mona
+Fred donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°3 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Fred choisit dans sa main la carte Bibliothèque
+Fred a acheter à Mona la ressource Tissu pour 2 Pièces ! 
+Fred a acheter à Mona la ressource Pierre pour 1 Pièces ! 
+Fred a acheter à Mona la ressource Pierre pour 1 Pièces ! 
+Fred gagne les ressources : [Pierre de Rosette]
+
+Mona choisit dans sa main la carte Scierie
+Mona a payé via son Inventaire les ressources suivantes : [Pièce]
+Mona gagne les ressources : [Bois, Bois]
+
+--------------------- FIN TOUR N°3   ---------------------
+
+Mona donne ses cartes à Fred
+Enzo donne ses cartes à Mona
+Fred donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°4 ---------------------
+
+Fred choisit dans sa main la carte Laboratoire
+Fred a payé via son Inventaire les ressources suivantes : [Papyrus, Argile, Argile]
+Fred gagne les ressources : [Roue]
+
+Mona choisit dans sa main la carte Fonderie
+Mona a payé via son Inventaire les ressources suivantes : [Pièce]
+Mona gagne les ressources : [Minerai, Minerai]
+
+Enzo défausse sa carte et reçoit 3 pièces !
+
+--------------------- FIN TOUR N°4   ---------------------
+
+Mona donne ses cartes à Fred
+Enzo donne ses cartes à Mona
+Fred donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°5 ---------------------
+
+Fred choisit dans sa main la carte Métier à Tisser
+Carte Gratuite !
+Fred gagne les ressources : [Tissu]
+
+Mona choisit dans sa main la carte Forum
+Mona a payé via son Inventaire les ressources suivantes : [Argile]
+Mona a acheter à Fred la ressource Argile pour 2 Pièces ! 
+Mona gagne les ressources : [Verre/Papyrus/Tissu]
+
+Enzo choisit dans sa main la carte Verrerie
+Carte Gratuite !
+Enzo gagne les ressources : [Verre]
+
+--------------------- FIN TOUR N°5   ---------------------
+
+Mona donne ses cartes à Fred
+Enzo donne ses cartes à Mona
+Fred donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°6 ---------------------
+
+Enzo décide de construire le 3e étage de sa merveille !
+Enzo a payé via son Inventaire les ressources suivantes : [Verre]
+Enzo a acheter à Mona la ressource Minerai pour 2 Pièces ! 
+Enzo a acheter à Mona la ressource Minerai pour 2 Pièces ! 
+Enzo gagne les ressources suivantes : Pièce
+
+
+Fred choisit dans sa main la carte Dispensaire
+Carte chainée antérieur possédée Officine -> Construction Gratuite
+Fred gagne les ressources : [Compas]
+
+Mona choisit dans sa main la carte Aqueduc
+Mona a payé via son Inventaire les ressources suivantes : [Pierre, Pierre, Pierre]
+Mona gagne les ressources : [Score, Score, Score, Score, Score]
+
+--------------------- FIN TOUR N°6   ---------------------
+
+########################## Fin Age N°2 ###########################
+
+##################### La GUERRE n°2 est déclarée ######################
+
+Fred (0 Boucliers) a engagé le combat contre Mona (2 Boucliers).
+Mona gagne la bataille et remporte 3 Pts de Victoire.
+Fred perd et remporte 1 Pts de Défaite.
+
+Mona (2 Boucliers) a engagé le combat contre Enzo (1 Boucliers).
+Mona gagne la bataille et remporte 3 Pts de Victoire.
+Enzo perd et remporte 1 Pts de Défaite
+
+Enzo (1 Boucliers) a engagé le combat contre Fred (0 Boucliers).
+Enzo gagne la bataille et remporte 3 Pts de Victoire.
+Fred perd et remporte 1 Pts de Défaite
+
+##################### Fin de la GUERRE n°2 ######################
+
+
+
+########################## DEBUT Age N°3 ###########################
+
+
+--------------------- DEBUT TOUR N°1 ---------------------
+
+Fred choisit dans sa main la carte Guilde des Travailleurs
+Fred a payé via son Inventaire les ressources suivantes : [Argile, Bois]
+Fred a acheter à Mona la ressource Minerai pour 1 Pièces ! 
+Fred a acheter à Mona la ressource Minerai pour 1 Pièces ! 
+Fred a acheter à Mona la ressource Pierre pour 1 Pièces ! 
+Fred gagne le bonus : 1 score en fin de partie pour chaque carte de couleur marron à droite et gauche
+
+Mona choisit dans sa main la carte Guilde des Philosophes
+Mona a payé via son Inventaire les ressources suivantes : [Tissu, Argile]
+Mona a payé via ses bonus Multi-Choix les ressources suivantes : [Papyrus]
+Mona a acheter à Fred la ressource Argile pour 2 Pièces ! 
+Mona a acheter à Fred la ressource Argile pour 2 Pièces ! 
+Mona gagne le bonus : 1 score en fin de partie pour chaque carte de couleur verte à droite et gauche
+
+Enzo défausse sa carte et reçoit 3 pièces !
+
+--------------------- FIN TOUR N°1   ---------------------
+
+Fred donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+Enzo donne ses cartes à Fred
+
+--------------------- DEBUT TOUR N°2 ---------------------
+
+Fred choisit dans sa main la carte Etude
+Fred a payé via son Inventaire les ressources suivantes : [Tissu, Papyrus, Bois]
+Fred gagne les ressources : [Roue]
+
+Mona choisit dans sa main la carte Port
+Carte chainée antérieur possédée Forum -> Construction Gratuite
+Mona gagne le bonus : 1 pièce et 1 score (en fin de partie) pour chaque carte marron du joueur, et gagne donc 6 pièces !
+
+Enzo choisit dans sa main la carte Observatoire
+Enzo a payé via son Inventaire les ressources suivantes : [Verre]
+Enzo a acheter à Mona la ressource Tissu pour 2 Pièces ! 
+Enzo a acheter à Mona la ressource Minerai pour 2 Pièces ! 
+Enzo a acheter à Mona la ressource Minerai pour 2 Pièces ! 
+Enzo gagne les ressources : [Roue]
+
+--------------------- FIN TOUR N°2   ---------------------
+
+Fred donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+Enzo donne ses cartes à Fred
+
+--------------------- DEBUT TOUR N°3 ---------------------
+
+Fred choisit dans sa main la carte Université
+Fred a payé via son Inventaire les ressources suivantes : [Papyrus, Bois, Bois]
+Fred a acheter à Mona la ressource Verre pour 2 Pièces ! 
+Fred gagne les ressources : [Pierre de Rosette]
+
+Mona choisit dans sa main la carte Palace
+Mona a payé via son Inventaire les ressources suivantes : [Tissu, Verre, Minerai, Argile, Pierre, Bois]
+Mona a payé via ses bonus Multi-Choix les ressources suivantes : [Papyrus]
+Mona gagne les ressources : [Score, Score, Score, Score, Score, Score, Score, Score]
+
+Enzo choisit dans sa main la carte Atelier de Siège
+Enzo a payé via son Inventaire les ressources suivantes : [Argile]
+Enzo a acheter à Mona la ressource Argile pour 2 Pièces ! 
+Enzo a acheter à Fred la ressource Argile pour 2 Pièces ! 
+Enzo a acheter à Mona la ressource Bois pour 2 Pièces ! 
+Enzo gagne les ressources : [Bouclier, Bouclier, Bouclier]
+
+--------------------- FIN TOUR N°3   ---------------------
+
+Fred donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+Enzo donne ses cartes à Fred
+
+--------------------- DEBUT TOUR N°4 ---------------------
+
+Fred choisit dans sa main la carte Guilde des Batisseurs
+Fred a payé via son Inventaire les ressources suivantes : [Argile, Argile]
+Fred a acheter à Mona la ressource Verre pour 2 Pièces ! 
+Fred a acheter à Mona la ressource Pierre pour 1 Pièces ! 
+Fred a acheter à Mona la ressource Pierre pour 1 Pièces ! 
+Fred gagne le bonus : 1 score en fin de partie pour chaque étage de merveille à droite joueur et gauche
+
+Mona choisit dans sa main la carte Loge
+Mona a payé via son Inventaire les ressources suivantes : [Tissu, Argile]
+Mona a payé via ses bonus Multi-Choix les ressources suivantes : [Papyrus]
+Mona a acheter à Fred la ressource Argile pour 2 Pièces ! 
+Mona gagne les ressources : [Compas]
+
+Enzo choisit dans sa main la carte Jardins
+Enzo a payé via son Inventaire les ressources suivantes : [Argile]
+Enzo a acheter à Fred la ressource Argile pour 2 Pièces ! 
+Enzo a acheter à Fred la ressource Bois pour 2 Pièces ! 
+Enzo gagne les ressources : [Score, Score, Score, Score, Score]
+
+--------------------- FIN TOUR N°4   ---------------------
+
+Fred donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+Enzo donne ses cartes à Fred
+
+--------------------- DEBUT TOUR N°5 ---------------------
+
+Fred choisit dans sa main la carte Académie
+Fred a acheter à Mona la ressource Verre pour 2 Pièces ! 
+Fred a acheter à Mona la ressource Pierre pour 1 Pièces ! 
+Fred a acheter à Mona la ressource Pierre pour 1 Pièces ! 
+Fred a acheter à Mona la ressource Pierre pour 1 Pièces ! 
+Fred gagne les ressources : [Compas]
+
+Mona choisit dans sa main la carte Phare
+Mona a payé via son Inventaire les ressources suivantes : [Verre, Pierre]
+Mona gagne le bonus : 1 pièce et 1 score (en fin de partie) pour chaque carte jaune du joueur, et gagne donc 4 pièces !
+
+Enzo défausse sa carte et reçoit 3 pièces !
+
+--------------------- FIN TOUR N°5   ---------------------
+
+Fred donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+Enzo donne ses cartes à Fred
+
+--------------------- DEBUT TOUR N°6 ---------------------
+
+Fred défausse sa carte et reçoit 3 pièces !
+
+Mona choisit dans sa main la carte Panthéon
+Mona a payé via son Inventaire les ressources suivantes : [Verre, Tissu, Minerai, Argile]
+Mona a payé via ses bonus Multi-Choix les ressources suivantes : [Papyrus]
+Mona a acheter à Fred la ressource Argile pour 2 Pièces ! 
+Mona gagne les ressources : [Score, Score, Score, Score, Score, Score, Score]
+
+Enzo choisit dans sa main la carte Arène
+Enzo a acheter à Mona la ressource Minerai pour 2 Pièces ! 
+Enzo a acheter à Mona la ressource Pierre pour 2 Pièces ! 
+Enzo a acheter à Mona la ressource Pierre pour 2 Pièces ! 
+Enzo gagne le bonus : 3 pièces et 1 score (en fin de partie) pour chaque étage de la merveille du joueur, et gagne donc 9 pièces !
+
+--------------------- FIN TOUR N°6   ---------------------
+
+########################## Fin Age N°3 ###########################
+
+##################### La GUERRE n°3 est déclarée ######################
+
+Fred (0 Boucliers) a engagé le combat contre Mona (2 Boucliers).
+Mona gagne la bataille et remporte 5 Pts de Victoire.
+Fred perd et remporte 1 Pts de Défaite.
+
+Mona (2 Boucliers) a engagé le combat contre Enzo (4 Boucliers).
+Enzo gagne la bataille et remporte 5 Pts de Victoire.
+Mona perd et remporte 1 Pts de Défaite.
+
+Enzo (4 Boucliers) a engagé le combat contre Fred (0 Boucliers).
+Enzo gagne la bataille et remporte 5 Pts de Victoire.
+Fred perd et remporte 1 Pts de Défaite
+
+##################### Fin de la GUERRE n°3 ######################
+
+
+
+########################## SCORE FINAL ###########################
+
+Inventaire du joueur Fred : 
+
+Pièce	:	6		Bois	:	2		Pierre	:	0		Argile	:	2		Minerai	:	0		
+Tissu	:	1		Verre	:	0		Papyrus	:	1		Score	:	3		Bouclier:	0		
+Compas	:	3		Roue	:	2		Rosette	:	4		P.Victoire:	0		P.Défaite:	5		
+
+Fred ayant déjà 3 points grâce à son score obtient :
+	2	 points grâce à ses pièces, 
+	-5	 points via les jetons de guerre Victoire/défaite, 
+	43	 points de ses combos scientifiques
+	10	 venant du cumul des bâtiments bonus !
+Fred à au total 53 points !
+
+Inventaire de Cartes : [Chantier, Presse, Scriptorium, Officine, Théâtre, Comptoir EST, Briqueterie, Ecole, Bibliothèque, Laboratoire, Métier à Tisser, Dispensaire, Guilde des Travailleurs, Etude, Université, Guilde des Batisseurs, Académie]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Inventaire du joueur Mona : 
+
+Pièce	:	45		Bois	:	2		Pierre	:	3		Argile	:	1		Minerai	:	3		
+Tissu	:	1		Verre	:	1		Papyrus	:	0		Score	:	20		Bouclier:	2		
+Compas	:	1		Roue	:	0		Rosette	:	0		P.Victoire:	11		P.Défaite:	2		
+
+Mona ayant déjà 20 points grâce à son score obtient :
+	15	 points grâce à ses pièces, 
+	9	 points via les jetons de guerre Victoire/défaite, 
+	1	 points de ses combos scientifiques
+	10	 venant du cumul des bâtiments bonus !
+Mona à au total 55 points !
+
+Inventaire de Cartes : [Métier à Tisser, Cavité, Filon, Exploitation Forestière, Verrerie, Marché, Carrière, Muraille, Scierie, Fonderie, Forum, Aqueduc, Guilde des Philosophes, Port, Palace, Loge, Phare, Panthéon]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Inventaire du joueur Enzo : 
+
+Pièce	:	16		Bois	:	0		Pierre	:	0		Argile	:	1		Minerai	:	0		
+Tissu	:	0		Verre	:	1		Papyrus	:	1		Score	:	15		Bouclier:	4		
+Compas	:	0		Roue	:	1		Rosette	:	0		P.Victoire:	15		P.Défaite:	1		
+
+Enzo ayant déjà 15 points grâce à son score obtient :
+	5	 points grâce à ses pièces, 
+	14	 points via les jetons de guerre Victoire/défaite, 
+	1	 points de ses combos scientifiques
+	0	 venant du cumul des bâtiments bonus !
+Enzo à au total 35 points !
+
+Inventaire de Cartes : [Bassin Argileux, Tour de Garde, Verrerie, Observatoire, Atelier de Siège, Jardins, Arène]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Le Vainqueur est Mona avec 55 points !!!
+_____________________________ Fin de la partie _____________________________

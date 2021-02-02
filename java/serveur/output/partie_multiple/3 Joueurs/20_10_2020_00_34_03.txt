@@ -1,0 +1,28 @@
+
+############## Statistiques des joueurs sur 1000 parties ##############
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoire.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifique.
+   - IA Civil        : IA construisant des bâtiment civil en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+
+
+
+##### Statistiques de Enzo #####
+Enzo (IA Random) a remporté au total 2 parties sur 1000, soit un taux de victoire de 0.2%.
+Il a obtenue au maximum 45 points avec la merveille OLYMPIA DE NUIT, et avec les cartes :
+	Bassin Argileux, Presse, Exploitation Forestière, Vignoble, Ecuries, Hôtel de Ville, Sénat, Guilde des Commerçants.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 20.019 points.
+	- 7.53 points grâce aux Bâtiments civils.
+	- 0.526 points Scientifique.
+	- 2.093 points de Victoire de guerre.
+	- 3.751 points de Défaite guerre.
+
+Et au cours des 1000 parties
+

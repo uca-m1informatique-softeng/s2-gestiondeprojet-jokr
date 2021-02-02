@@ -1,0 +1,49 @@
+
+############## Statistiques pour 6 joueurs sur 5000 parties ##############
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoires.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifiques.
+   - IA Civil        : IA construisant des bâtiments civils en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+
+
+
+##### Statistiques de Enzo #####
+Enzo (IA Random) a remporté au total 4 parties sur 5000, 
+BABYLON         :	0.2680965%		OLYMPIA         :	0.0%		HALIKARNASSOS   :	0.0%		GIZAH           :	0.0%		ALEXANDRIA      :	0.0%		RHODOS          :	0.2739726%		EPHESOS         :	0.30674848%		
+BABYLON(N)      :	0.0%		OLYMPIA(N)      :	0.0%		HALIKARNASSOS(N):	0.0%		GIZAH(N)        :	0.0%		ALEXANDRIA(N)   :	0.0%		RHODOS(N)       :	0.30674848%		EPHESOS(N)      :	0.0%		
+
+
+##### Statistiques de Dora #####
+Dora (IA Scientifique) a remporté au total 3280 parties sur 5000, 
+BABYLON         :	65.27778%		OLYMPIA         :	63.85224%		HALIKARNASSOS   :	54.727795%		GIZAH           :	68.70229%		ALEXANDRIA      :	64.01099%		RHODOS          :	68.860756%		EPHESOS         :	85.582825%		
+BABYLON(N)      :	70.91413%		OLYMPIA(N)      :	58.187134%		HALIKARNASSOS(N):	52.83582%		GIZAH(N)        :	64.596275%		ALEXANDRIA(N)   :	52.105263%		RHODOS(N)       :	63.772453%		EPHESOS(N)      :	85.27778%		
+
+
+##### Statistiques de Alex #####
+Alex (IA Civil) a remporté au total 1076 parties sur 5000, 
+BABYLON         :	30.053192%		OLYMPIA         :	19.65318%		HALIKARNASSOS   :	17.553192%		GIZAH           :	22.222221%		ALEXANDRIA      :	20.771513%		RHODOS          :	24.242424%		EPHESOS         :	19.84127%		
+BABYLON(N)      :	27.113703%		OLYMPIA(N)      :	16.618076%		HALIKARNASSOS(N):	11.647727%		GIZAH(N)        :	23.163841%		ALEXANDRIA(N)   :	23.26284%		RHODOS(N)       :	23.756907%		EPHESOS(N)      :	21.10818%		
+
+
+##### Statistiques de Paul #####
+Paul (IA Monétaire) a remporté au total 192 parties sur 5000, 
+BABYLON         :	4.0650406%		OLYMPIA         :	5.0898204%		HALIKARNASSOS   :	2.688172%		GIZAH           :	3.2608695%		ALEXANDRIA      :	2.8645833%		RHODOS          :	2.4128687%		EPHESOS         :	3.7837837%		
+BABYLON(N)      :	4.9079757%		OLYMPIA(N)      :	3.0985916%		HALIKARNASSOS(N):	3.3950617%		GIZAH(N)        :	2.910053%		ALEXANDRIA(N)   :	2.670623%		RHODOS(N)       :	6.8421054%		EPHESOS(N)      :	6.060606%		
+
+
+##### Statistiques de Lucy #####
+Lucy (IA Militaire) a remporté au total 91 parties sur 5000, 
+BABYLON         :	1.5706806%		OLYMPIA         :	5.479452%		HALIKARNASSOS   :	1.4164306%		GIZAH           :	1.1331445%		ALEXANDRIA      :	0.8333333%		RHODOS          :	1.8348624%		EPHESOS         :	1.4662757%		
+BABYLON(N)      :	2.1052632%		OLYMPIA(N)      :	1.8918918%		HALIKARNASSOS(N):	1.0362694%		GIZAH(N)        :	2.3255813%		ALEXANDRIA(N)   :	0.88495576%		RHODOS(N)       :	2.7272727%		EPHESOS(N)      :	0.8108108%		
+
+
+##### Statistiques de Mona #####
+Mona (IA Merveille) a remporté au total 357 parties sur 5000, 
+BABYLON         :	6.8535824%		OLYMPIA         :	5.0898204%		HALIKARNASSOS   :	6.741573%		GIZAH           :	7.082153%		ALEXANDRIA      :	6.2330623%		RHODOS          :	6.197183%		EPHESOS         :	7.6923075%		
+BABYLON(N)      :	9.399478%		OLYMPIA(N)      :	7.799443%		HALIKARNASSOS(N):	5.0445104%		GIZAH(N)        :	10.569106%		ALEXANDRIA(N)   :	4.644809%		RHODOS(N)       :	9.041096%		EPHESOS(N)      :	7.0460706%		
+

@@ -1,0 +1,55 @@
+
+############## Statistiques pour 7 joueurs sur 20000 parties ##############
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoires.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifiques.
+   - IA Civil        : IA construisant des bâtiments civils en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+
+
+
+##### Statistiques de Enzo #####
+Enzo (IA Civil) a remporté au total 2763 parties sur 20000, 
+BABYLON         :	15.021156%		OLYMPIA         :	11.683848%		HALIKARNASSOS   :	12.603306%		GIZAH           :	14.150944%		ALEXANDRIA      :	13.119534%		RHODOS          :	15.121951%		EPHESOS         :	13.5438595%		
+BABYLON(N)      :	16.561403%		OLYMPIA(N)      :	12.987013%		HALIKARNASSOS(N):	12.898551%		GIZAH(N)        :	15.278733%		ALEXANDRIA(N)   :	12.413794%		RHODOS(N)       :	15.362319%		EPHESOS(N)      :	12.713068%		
+
+
+##### Statistiques de Dora #####
+Dora (IA Civil) a remporté au total 2957 parties sur 20000, 
+BABYLON         :	16.08579%		OLYMPIA         :	13.892617%		HALIKARNASSOS   :	15.212689%		GIZAH           :	13.375796%		ALEXANDRIA      :	13.892807%		RHODOS          :	16.26898%		EPHESOS         :	13.623395%		
+BABYLON(N)      :	15.843023%		OLYMPIA(N)      :	13.800425%		HALIKARNASSOS(N):	14.924347%		GIZAH(N)        :	13.617022%		ALEXANDRIA(N)   :	13.558156%		RHODOS(N)       :	16.836388%		EPHESOS(N)      :	16.016712%		
+
+
+##### Statistiques de Alex #####
+Alex (IA Civil) a remporté au total 2801 parties sur 20000, 
+BABYLON         :	15.782219%		OLYMPIA         :	12.621359%		HALIKARNASSOS   :	13.980717%		GIZAH           :	12.0%		ALEXANDRIA      :	13.90952%		RHODOS          :	15.5172415%		EPHESOS         :	14.632502%		
+BABYLON(N)      :	15.557218%		OLYMPIA(N)      :	13.733334%		HALIKARNASSOS(N):	12.801101%		GIZAH(N)        :	13.904494%		ALEXANDRIA(N)   :	13.246941%		RHODOS(N)       :	15.319747%		EPHESOS(N)      :	13.094418%		
+
+
+##### Statistiques de Paul #####
+Paul (IA Civil) a remporté au total 2843 parties sur 20000, 
+BABYLON         :	14.055944%		OLYMPIA         :	13.701431%		HALIKARNASSOS   :	14.858841%		GIZAH           :	13.570939%		ALEXANDRIA      :	14.306358%		RHODOS          :	17.362045%		EPHESOS         :	12.697274%		
+BABYLON(N)      :	14.913545%		OLYMPIA(N)      :	14.53168%		HALIKARNASSOS(N):	13.242321%		GIZAH(N)        :	13.702422%		ALEXANDRIA(N)   :	15.11955%		RHODOS(N)       :	13.652114%		EPHESOS(N)      :	13.248767%		
+
+
+##### Statistiques de Lucy #####
+Lucy (IA Civil) a remporté au total 2925 parties sur 20000, 
+BABYLON         :	14.5305%		OLYMPIA         :	14.584891%		HALIKARNASSOS   :	16.09993%		GIZAH           :	13.932108%		ALEXANDRIA      :	14.833948%		RHODOS          :	14.714286%		EPHESOS         :	13.877266%		
+BABYLON(N)      :	14.604463%		OLYMPIA(N)      :	14.071428%		HALIKARNASSOS(N):	12.581063%		GIZAH(N)        :	14.43299%		ALEXANDRIA(N)   :	15.564463%		RHODOS(N)       :	16.070175%		EPHESOS(N)      :	14.941741%		
+
+
+##### Statistiques de Mona #####
+Mona (IA Civil) a remporté au total 2759 parties sur 20000, 
+BABYLON         :	15.179199%		OLYMPIA         :	15.0930395%		HALIKARNASSOS   :	14.264151%		GIZAH           :	14.985994%		ALEXANDRIA      :	13.337847%		RHODOS          :	14.030261%		EPHESOS         :	13.314646%		
+BABYLON(N)      :	14.555256%		OLYMPIA(N)      :	13.744428%		HALIKARNASSOS(N):	12.464589%		GIZAH(N)        :	11.5952215%		ALEXANDRIA(N)   :	12.450331%		RHODOS(N)       :	14.285714%		EPHESOS(N)      :	13.879004%		
+
+
+##### Statistiques de Fred #####
+Fred (IA Composite) a remporté au total 2952 parties sur 20000, 
+BABYLON         :	15.811089%		OLYMPIA         :	14.304903%		HALIKARNASSOS   :	15.189003%		GIZAH           :	15.437629%		ALEXANDRIA      :	13.570392%		RHODOS          :	17.330538%		EPHESOS         :	13.561644%		
+BABYLON(N)      :	15.831518%		OLYMPIA(N)      :	15.379113%		HALIKARNASSOS(N):	11.908078%		GIZAH(N)        :	13.0927105%		ALEXANDRIA(N)   :	15.700142%		RHODOS(N)       :	16.180555%		EPHESOS(N)      :	13.314245%		
+

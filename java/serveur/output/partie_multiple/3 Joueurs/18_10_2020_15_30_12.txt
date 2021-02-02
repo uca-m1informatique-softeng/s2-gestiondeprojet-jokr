@@ -1,0 +1,40 @@
+
+####### Statistiques des joueurs sur 1000 parties #######
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoire.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifique.
+   - IA Civil        : IA construisant des bâtiment civil en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+
+Enzo (IA Random) a remporté au total 1 parties sur 1000, soit un taux de victoire de 0.1%.
+Il a obtenue au maximum : 47 points avec la merveille BABYLON, et avec les cartes :
+[Scriptorium, Exploitation Forestière, Briqueterie, Fonderie, Guilde des Philosophes, Phare, Panthéon, Hôtel de Ville]Et a obtenue en moyenne :
+   - Un score total de 20.08 points.
+   - 7.14 points grâce aux Bâtiments civils.
+   - 0.582 points Scientifique.
+   - 2.187 points de Victoire de guerre.
+   - 3.626 points de Défaite guerre.
+
+Dora (IA Scientifique) a remporté au total 542 parties sur 1000, soit un taux de victoire de 54.2%.
+Il a obtenue au maximum : 70 points avec la merveille BABYLON, et avec les cartes :
+[Scriptorium, Exploitation Forestière, Briqueterie, Fonderie, Guilde des Philosophes, Phare, Panthéon, Hôtel de Ville]Et a obtenue en moyenne :
+   - Un score total de 43.736 points.
+   - 4.666 points grâce aux Bâtiments civils.
+   - 26.498 points Scientifique.
+   - 8.614 points de Victoire de guerre.
+   - 1.63 points de Défaite guerre.
+
+Mona (IA Merveille) a remporté au total 457 parties sur 1000, soit un taux de victoire de 45.7%.
+Il a obtenue au maximum : 65 points avec la merveille BABYLON, et avec les cartes :
+[Scriptorium, Exploitation Forestière, Briqueterie, Fonderie, Guilde des Philosophes, Phare, Panthéon, Hôtel de Ville]Et a obtenue en moyenne :
+   - Un score total de 42.178 points.
+   - 20.95 points grâce aux Bâtiments civils.
+   - 3.639 points Scientifique.
+   - 10.526 points de Victoire de guerre.
+   - 1.111 points de Défaite guerre.
+
+

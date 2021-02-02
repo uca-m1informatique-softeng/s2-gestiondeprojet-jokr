@@ -1,0 +1,202 @@
+
+############## Statistiques des joueurs sur 1000 parties ##############
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoire.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifique.
+   - IA Civil        : IA construisant des bâtiment civil en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+
+
+
+##### Statistiques de Enzo #####
+Enzo (IA Random) a remporté au total 0 parties sur 1000, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum 47 points avec la merveille ALEXANDRIA DE NUIT, et avec les cartes :
+	Autel, Caravansérail, Presse, Guilde des Philosophes, Panthéon, Guilde des Décorateurs, Observatoire, Guilde des Commerçants.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 19.067 points.
+	- 4.733 points grâce aux Bâtiments civils.
+	- 0.516 points Scientifique.
+	- 1.986 points de Victoire de guerre.
+	- 3.017 points de Défaite guerre.
+
+Et au cours des 1000 parties
+Filon 			: 5.9%		Université 			: 2.9%		Cavité 			: 8.2%		Etude 			: 2.4%		Port 			: 3.2%		Tribunal 			: 3.8%		
+Autel 			: 6.4%		Académie 			: 2.5%		Jardins 			: 4.5%		Comptoir OUEST 			: 2.3%		Scierie 			: 5.1%		Forum 			: 2.3%		
+Briqueterie 			: 5.0%		Caserne 			: 3.2%		Taverne 			: 8.2%		Métier à Tisser 			: 13.8%		Place d'Armes 			: 3.7%		Chantier 			: 5.8%		
+Bassin Argileux 			: 5.7%		Sénat 			: 4.6%		Castrum 			: 2.8%		Vignoble 			: 7.6%		Guilde des Magistrats 			: 1.3%		Verrerie 			: 11.0%		
+Fonderie 			: 4.1%		Bazar 			: 6.8%		Phare 			: 2.7%		Palace 			: 1.6%		Officine 			: 3.2%		Scriptorium 			: 6.4%		
+Atelier de Siège 			: 2.1%		Statue 			: 2.8%		Bibliothèque 			: 2.2%		Palissade 			: 4.2%		Hôtel de Ville 			: 2.7%		Ecuries 			: 5.8%		
+Cirque 			: 2.2%		Guilde des Scientifiques 			: 2.1%		Exploitation Forestière 			: 4.3%		Tour de Garde 			: 4.6%		Guilde des Espions 			: 1.1%		Champs de Tir 			: 4.5%		
+Ecole 			: 2.4%		Chambre de Commerce 			: 2.4%		Guilde des Artisans 			: 1.9%		Gisement 			: 2.3%		Panthéon 			: 1.6%		Guilde des Batisseurs 			: 0.8%		
+Mine 			: 3.5%		Observatoire 			: 3.2%		Muraille 			: 3.2%		Arsenal 			: 2.7%		Marché 			: 5.0%		Presse 			: 14.3%		
+Ludus 			: 2.8%		Guilde des Philosophes 			: 0.5%		Guilde des Armateurs 			: 0.9%		Guilde des Travailleurs 			: 1.7%		Bains 			: 5.5%		Laboratoire 			: 2.0%		
+Guilde des Commerçants 			: 1.3%		Arène 			: 5.9%		Loge 			: 2.6%		Théâtre 			: 7.1%		Comptoir EST 			: 2.6%		Fosse Argileuse 			: 3.5%		
+Caravansérail 			: 3.2%		Excavation 			: 3.8%		Friche 			: 2.5%		Dispensaire 			: 2.9%		Temple 			: 3.4%		Atelier 			: 4.1%		
+Aqueduc 			: 2.7%		Carrière 			: 7.0%		Puits 			: 7.1%		Fortification 			: 3.7%		Guilde des Décorateurs 			: 1.7%		
+
+##### Statistiques de Dora #####
+Dora (IA Scientifique) a remporté au total 417 parties sur 1000, soit un taux de victoire de 41.7%.
+Il a obtenue au maximum 92 points avec la merveille BABYLON DE NUIT, et avec les cartes :
+	Comptoir EST, Friche, Puits, Officine, Cavité, Officine, Dispensaire, Forum, Caravansérail, Ecole, Dispensaire, Place d'Armes, Académie, Arène, Observatoire, Université, Etude, Loge.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 45.501 points.
+	- 3.931 points grâce aux Bâtiments civils.
+	- 29.987 points Scientifique.
+	- 8.013 points de Victoire de guerre.
+	- 1.617 points de Défaite guerre.
+
+Et au cours des 1000 parties
+Filon 			: 35.9%		Université 			: 53.5%		Cavité 			: 29.8%		Etude 			: 61.8%		Port 			: 5.8%		Tribunal 			: 3.0%		
+Comptoir OUEST 			: 52.4%		Académie 			: 41.9%		Jardins 			: 7.7%		Autel 			: 7.7%		Scierie 			: 26.1%		Forum 			: 68.7%		
+Briqueterie 			: 17.6%		Caserne 			: 10.1%		Taverne 			: 11.5%		Place d'Armes 			: 15.4%		Métier à Tisser 			: 11.8%		Chantier 			: 42.7%		
+Bassin Argileux 			: 36.4%		Sénat 			: 7.3%		Castrum 			: 15.5%		Vignoble 			: 4.9%		Guilde des Magistrats 			: 2.2%		Verrerie 			: 12.1%		
+Bazar 			: 4.7%		Fonderie 			: 21.0%		Phare 			: 6.6%		Palace 			: 4.9%		Officine 			: 53.0%		Scriptorium 			: 52.4%		
+Atelier de Siège 			: 13.1%		Statue 			: 1.7%		Palissade 			: 11.0%		Bibliothèque 			: 38.8%		Hôtel de Ville 			: 6.3%		Ecuries 			: 18.8%		
+Cirque 			: 10.7%		Guilde des Scientifiques 			: 24.9%		Exploitation Forestière 			: 2.6%		Tour de Garde 			: 9.8%		Guilde des Espions 			: 1.8%		Champs de Tir 			: 10.8%		
+Ecole 			: 60.1%		Chambre de Commerce 			: 6.4%		Guilde des Artisans 			: 2.8%		Gisement 			: 3.7%		Guilde des Batisseurs 			: 3.0%		Panthéon 			: 4.0%		
+Marché 			: 70.7%		Observatoire 			: 51.2%		Arsenal 			: 16.2%		Mine 			: 3.2%		Muraille 			: 10.6%		Presse 			: 13.6%		
+Ludus 			: 8.1%		Guilde des Philosophes 			: 0.9%		Guilde des Armateurs 			: 1.3%		Guilde des Travailleurs 			: 2.7%		Bains 			: 6.2%		Laboratoire 			: 39.8%		
+Guilde des Commerçants 			: 2.7%		Comptoir EST 			: 51.2%		Loge 			: 81.4%		Théâtre 			: 5.3%		Arène 			: 11.3%		Fosse Argileuse 			: 5.4%		
+Caravansérail 			: 81.8%		Excavation 			: 3.5%		Friche 			: 3.7%		Dispensaire 			: 71.9%		Temple 			: 4.6%		Atelier 			: 49.5%		
+Aqueduc 			: 1.7%		Fortification 			: 12.9%		Puits 			: 7.3%		Carrière 			: 12.9%		Guilde des Décorateurs 			: 3.6%		
+
+##### Statistiques de Mona #####
+Mona (IA Merveille) a remporté au total 130 parties sur 1000, soit un taux de victoire de 13.0%.
+Il a obtenue au maximum 69 points avec la merveille BABYLON DE NUIT, et avec les cartes :
+	Comptoir OUEST, Comptoir EST, Excavation, Bains, Scriptorium, Scriptorium, Forum, Ecole, Caravansérail, Presse, Ecuries, Castrum, Hôtel de Ville, Phare, Sénat, Guilde des Décorateurs, Guilde des Commerçants, Panthéon.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 38.24 points.
+	- 19.052 points grâce aux Bâtiments civils.
+	- 4.139 points Scientifique.
+	- 8.446 points de Victoire de guerre.
+	- 1.709 points de Défaite guerre.
+
+Et au cours des 1000 parties
+Filon 			: 23.3%		Cavité 			: 25.1%		Université 			: 11.5%		Etude 			: 15.4%		Port 			: 23.7%		Tribunal 			: 13.1%		
+Comptoir OUEST 			: 12.7%		Jardins 			: 38.5%		Académie 			: 12.9%		Autel 			: 35.3%		Scierie 			: 19.4%		Forum 			: 16.1%		
+Briqueterie 			: 24.9%		Taverne 			: 42.9%		Caserne 			: 18.1%		Place d'Armes 			: 22.1%		Métier à Tisser 			: 61.5%		Chantier 			: 17.7%		
+Bassin Argileux 			: 21.1%		Sénat 			: 28.9%		Castrum 			: 18.3%		Vignoble 			: 35.9%		Guilde des Magistrats 			: 8.4%		Verrerie 			: 64.8%		
+Bazar 			: 30.1%		Fonderie 			: 22.7%		Phare 			: 30.0%		Palace 			: 13.3%		Officine 			: 11.4%		Scriptorium 			: 11.2%		
+Atelier de Siège 			: 17.1%		Statue 			: 18.4%		Palissade 			: 21.1%		Bibliothèque 			: 16.0%		Hôtel de Ville 			: 27.1%		Ecuries 			: 19.3%		
+Cirque 			: 17.6%		Guilde des Scientifiques 			: 8.4%		Exploitation Forestière 			: 13.9%		Tour de Garde 			: 16.9%		Guilde des Espions 			: 7.2%		Champs de Tir 			: 13.1%		
+Ecole 			: 22.4%		Guilde des Artisans 			: 12.7%		Chambre de Commerce 			: 21.5%		Guilde des Batisseurs 			: 9.4%		Gisement 			: 15.6%		Panthéon 			: 24.6%		
+Mine 			: 15.7%		Muraille 			: 13.1%		Observatoire 			: 13.2%		Marché 			: 14.2%		Arsenal 			: 18.4%		Presse 			: 59.9%		
+Ludus 			: 37.4%		Guilde des Armateurs 			: 6.8%		Guilde des Philosophes 			: 5.0%		Guilde des Travailleurs 			: 11.5%		Bains 			: 23.3%		Laboratoire 			: 18.5%		
+Guilde des Commerçants 			: 10.2%		Théâtre 			: 35.0%		Arène 			: 38.6%		Comptoir EST 			: 12.0%		Loge 			: 13.4%		Fosse Argileuse 			: 13.6%		
+Caravansérail 			: 24.0%		Excavation 			: 15.6%		Friche 			: 14.1%		Dispensaire 			: 17.7%		Temple 			: 15.5%		Atelier 			: 13.1%		
+Aqueduc 			: 13.4%		Carrière 			: 25.3%		Fortification 			: 19.7%		Puits 			: 35.8%		Guilde des Décorateurs 			: 11.4%		
+
+##### Statistiques de Paul #####
+Paul (IA Civil) a remporté au total 218 parties sur 1000, soit un taux de victoire de 21.8%.
+Il a obtenue au maximum 66 points avec la merveille EPHESOS, et avec les cartes :
+	Autel, Autel, Bassin Argileux, Théâtre, Puits, Scierie, Caravansérail, Aqueduc, Fonderie, Panthéon, Palace, Castrum, Sénat, Sénat, Hôtel de Ville.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 41.881 points.
+	- 37.915 points grâce aux Bâtiments civils.
+	- 0.602 points Scientifique.
+	- 3.833 points de Victoire de guerre.
+	- 3.844 points de Défaite guerre.
+
+Et au cours des 1000 parties
+Filon 			: 25.3%		Cavité 			: 18.5%		Université 			: 3.3%		Etude 			: 3.9%		Port 			: 6.0%		Tribunal 			: 28.5%		
+Comptoir OUEST 			: 42.9%		Autel 			: 82.4%		Jardins 			: 75.3%		Académie 			: 3.3%		Scierie 			: 21.0%		Forum 			: 54.4%		
+Briqueterie 			: 16.7%		Caserne 			: 17.3%		Taverne 			: 6.7%		Place d'Armes 			: 14.3%		Métier à Tisser 			: 8.7%		Chantier 			: 24.2%		
+Bassin Argileux 			: 22.1%		Sénat 			: 47.4%		Castrum 			: 24.8%		Vignoble 			: 4.7%		Guilde des Magistrats 			: 1.4%		Verrerie 			: 9.2%		
+Fonderie 			: 19.2%		Bazar 			: 6.8%		Phare 			: 5.2%		Palace 			: 19.3%		Officine 			: 2.3%		Scriptorium 			: 4.3%		
+Atelier de Siège 			: 18.4%		Statue 			: 75.5%		Palissade 			: 16.4%		Bibliothèque 			: 3.6%		Hôtel de Ville 			: 45.8%		Ecuries 			: 16.3%		
+Cirque 			: 15.1%		Guilde des Scientifiques 			: 1.4%		Exploitation Forestière 			: 3.0%		Tour de Garde 			: 16.9%		Guilde des Espions 			: 1.6%		Champs de Tir 			: 10.8%		
+Ecole 			: 3.6%		Chambre de Commerce 			: 4.6%		Guilde des Artisans 			: 2.2%		Panthéon 			: 73.6%		Guilde des Batisseurs 			: 1.7%		Gisement 			: 1.4%		
+Muraille 			: 9.6%		Observatoire 			: 3.7%		Arsenal 			: 25.4%		Mine 			: 2.3%		Marché 			: 1.9%		Presse 			: 9.4%		
+Ludus 			: 5.4%		Guilde des Armateurs 			: 1.3%		Guilde des Philosophes 			: 0.9%		Guilde des Travailleurs 			: 1.8%		Bains 			: 49.2%		Laboratoire 			: 2.7%		
+Guilde des Commerçants 			: 2.7%		Théâtre 			: 81.4%		Comptoir EST 			: 43.2%		Arène 			: 5.3%		Loge 			: 1.8%		Fosse Argileuse 			: 2.6%		
+Caravansérail 			: 36.2%		Friche 			: 1.8%		Excavation 			: 1.6%		Dispensaire 			: 2.3%		Temple 			: 44.1%		Atelier 			: 2.8%		
+Aqueduc 			: 52.0%		Puits 			: 83.3%		Fortification 			: 18.5%		Carrière 			: 13.5%		Guilde des Décorateurs 			: 2.0%		
+
+##### Statistiques de Lucy #####
+Lucy (IA Militaire) a remporté au total 29 parties sur 1000, soit un taux de victoire de 2.9%.
+Il a obtenue au maximum 56 points avec la merveille OLYMPIA, et avec les cartes :
+	Théâtre, Tour de Garde, Cavité, Verrerie, Tour de Garde, Marché, Caravansérail, Forum, Fonderie, Arsenal, Ludus, Castrum, Guilde des Commerçants, Guilde des Espions, Guilde des Artisans.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 33.508 points.
+	- 5.99 points grâce aux Bâtiments civils.
+	- 1.464 points Scientifique.
+	- 16.427 points de Victoire de guerre.
+	- 0.221 points de Défaite guerre.
+
+Et au cours des 1000 parties
+Filon 			: 43.9%		Université 			: 9.7%		Cavité 			: 34.9%		Etude 			: 9.3%		Port 			: 14.1%		Tribunal 			: 6.4%		
+Comptoir OUEST 			: 41.0%		Jardins 			: 6.4%		Académie 			: 9.0%		Autel 			: 4.5%		Scierie 			: 27.4%		Forum 			: 87.7%		
+Briqueterie 			: 23.5%		Caserne 			: 62.8%		Taverne 			: 15.1%		Métier à Tisser 			: 17.4%		Place d'Armes 			: 75.7%		Chantier 			: 52.5%		
+Bassin Argileux 			: 39.7%		Sénat 			: 7.1%		Castrum 			: 62.4%		Vignoble 			: 5.4%		Guilde des Magistrats 			: 4.1%		Verrerie 			: 17.7%		
+Fonderie 			: 23.0%		Bazar 			: 5.0%		Phare 			: 15.1%		Palace 			: 8.6%		Officine 			: 7.2%		Scriptorium 			: 10.7%		
+Atelier de Siège 			: 50.0%		Statue 			: 5.3%		Palissade 			: 65.4%		Bibliothèque 			: 5.5%		Hôtel de Ville 			: 7.4%		Ecuries 			: 8.0%		
+Cirque 			: 52.8%		Guilde des Scientifiques 			: 5.5%		Exploitation Forestière 			: 5.8%		Tour de Garde 			: 60.2%		Guilde des Espions 			: 4.6%		Champs de Tir 			: 49.0%		
+Ecole 			: 6.3%		Chambre de Commerce 			: 11.0%		Guilde des Artisans 			: 4.4%		Gisement 			: 6.0%		Panthéon 			: 5.2%		Guilde des Batisseurs 			: 5.2%		
+Muraille 			: 39.2%		Arsenal 			: 63.6%		Mine 			: 5.5%		Marché 			: 5.3%		Observatoire 			: 10.1%		Presse 			: 19.1%		
+Ludus 			: 86.2%		Guilde des Armateurs 			: 5.3%		Guilde des Philosophes 			: 3.1%		Guilde des Travailleurs 			: 5.3%		Bains 			: 3.8%		Laboratoire 			: 5.7%		
+Guilde des Commerçants 			: 6.0%		Comptoir EST 			: 42.2%		Théâtre 			: 3.7%		Loge 			: 6.7%		Arène 			: 9.6%		Fosse Argileuse 			: 5.7%		
+Caravansérail 			: 67.0%		Friche 			: 4.9%		Excavation 			: 5.4%		Dispensaire 			: 4.5%		Temple 			: 5.9%		Atelier 			: 9.5%		
+Aqueduc 			: 3.1%		Carrière 			: 20.0%		Fortification 			: 9.0%		Puits 			: 4.7%		Guilde des Décorateurs 			: 6.4%		
+
+##### Statistiques de Alex #####
+Alex (IA Monétaire) a remporté au total 3 parties sur 1000, soit un taux de victoire de 0.3%.
+Il a obtenue au maximum 47 points avec la merveille EPHESOS DE NUIT, et avec les cartes :
+	Exploitation Forestière, Métier à Tisser, Presse, Verrerie, Friche, Presse, Vignoble, Fonderie, Briqueterie, Guilde des Armateurs, Chambre de Commerce, Guilde des Espions, Atelier de Siège, Chambre de Commerce, Arsenal.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 26.249 points.
+	- 3.975 points grâce aux Bâtiments civils.
+	- 0.414 points Scientifique.
+	- 3.876 points de Victoire de guerre.
+	- 3.85 points de Défaite guerre.
+
+Et au cours des 1000 parties
+Filon 			: 3.8%		Université 			: 6.4%		Cavité 			: 3.6%		Etude 			: 6.3%		Port 			: 85.1%		Tribunal 			: 2.0%		
+Comptoir OUEST 			: 15.5%		Académie 			: 4.8%		Jardins 			: 2.7%		Autel 			: 1.1%		Scierie 			: 44.4%		Forum 			: 1.0%		
+Briqueterie 			: 48.8%		Taverne 			: 93.1%		Caserne 			: 3.9%		Métier à Tisser 			: 119.2%		Place d'Armes 			: 16.8%		Bassin Argileux 			: 3.5%		
+Chantier 			: 4.2%		Sénat 			: 6.7%		Castrum 			: 14.1%		Vignoble 			: 57.6%		Guilde des Magistrats 			: 32.0%		Verrerie 			: 122.4%		
+Fonderie 			: 48.5%		Bazar 			: 62.3%		Phare 			: 86.0%		Palace 			: 5.8%		Officine 			: 1.1%		Scriptorium 			: 1.0%		
+Atelier de Siège 			: 18.7%		Statue 			: 1.2%		Bibliothèque 			: 1.6%		Palissade 			: 3.6%		Hôtel de Ville 			: 6.1%		Ecuries 			: 12.3%		
+Cirque 			: 17.4%		Guilde des Scientifiques 			: 1.9%		Exploitation Forestière 			: 28.5%		Tour de Garde 			: 3.7%		Guilde des Espions 			: 31.5%		Champs de Tir 			: 10.6%		
+Ecole 			: 1.1%		Guilde des Artisans 			: 3.8%		Chambre de Commerce 			: 82.3%		Panthéon 			: 3.6%		Gisement 			: 30.2%		Guilde des Batisseurs 			: 3.0%		
+Marché 			: 50.1%		Arsenal 			: 16.2%		Mine 			: 31.7%		Muraille 			: 9.7%		Observatoire 			: 6.1%		Presse 			: 120.8%		
+Ludus 			: 3.5%		Guilde des Philosophes 			: 31.2%		Guilde des Armateurs 			: 31.3%		Guilde des Travailleurs 			: 2.5%		Bains 			: 1.1%		Laboratoire 			: 2.1%		
+Guilde des Commerçants 			: 3.2%		Comptoir EST 			: 17.5%		Arène 			: 4.4%		Loge 			: 4.6%		Théâtre 			: 0.4%		Fosse Argileuse 			: 29.8%		
+Caravansérail 			: 1.2%		Friche 			: 35.4%		Excavation 			: 31.8%		Dispensaire 			: 0.3%		Temple 			: 2.1%		Atelier 			: 0.9%		
+Aqueduc 			: 0.9%		Carrière 			: 50.4%		Guilde des Décorateurs 			: 3.6%		Fortification 			: 32.2%		Puits 			: 0.7%		
+
+##### Statistiques de Fred #####
+Fred (IA Composite) a remporté au total 203 parties sur 1000, soit un taux de victoire de 20.3%.
+Il a obtenue au maximum 84 points avec la merveille HALIKARNASSOS DE NUIT, et avec les cartes :
+	Officine, Atelier, Atelier, Marché, Scriptorium, Officine, Dispensaire, Dispensaire, Briqueterie, Fosse Argileuse, Temple, Loge, Académie, Académie, Loge.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 40.267 points.
+	- 14.881 points grâce aux Bâtiments civils.
+	- 10.665 points Scientifique.
+	- 8.776 points de Victoire de guerre.
+	- 1.239 points de Défaite guerre.
+
+Et au cours des 1000 parties
+Filon 			: 29.9%		Université 			: 24.4%		Cavité 			: 27.4%		Etude 			: 33.4%		Port 			: 17.0%		Tribunal 			: 11.9%		
+Académie 			: 26.2%		Autel 			: 18.4%		Jardins 			: 18.0%		Comptoir OUEST 			: 28.2%		Scierie 			: 30.9%		Forum 			: 38.7%		
+Briqueterie 			: 27.1%		Taverne 			: 30.2%		Caserne 			: 23.7%		Métier à Tisser 			: 40.9%		Place d'Armes 			: 24.9%		Bassin Argileux 			: 30.3%		
+Chantier 			: 28.5%		Sénat 			: 17.7%		Castrum 			: 17.9%		Vignoble 			: 21.5%		Guilde des Magistrats 			: 4.9%		Verrerie 			: 40.1%		
+Fonderie 			: 26.9%		Bazar 			: 21.7%		Phare 			: 14.6%		Palace 			: 12.3%		Officine 			: 33.2%		Scriptorium 			: 22.2%		
+Atelier de Siège 			: 16.0%		Statue 			: 15.7%		Bibliothèque 			: 12.5%		Palissade 			: 12.4%		Hôtel de Ville 			: 16.5%		Ecuries 			: 11.4%		
+Cirque 			: 16.7%		Guilde des Scientifiques 			: 11.2%		Exploitation Forestière 			: 12.8%		Tour de Garde 			: 16.6%		Guilde des Espions 			: 4.0%		Champs de Tir 			: 12.5%		
+Ecole 			: 17.7%		Chambre de Commerce 			: 14.6%		Guilde des Artisans 			: 6.3%		Panthéon 			: 16.8%		Guilde des Batisseurs 			: 5.4%		Gisement 			: 10.2%		
+Mine 			: 10.6%		Marché 			: 33.3%		Observatoire 			: 30.6%		Muraille 			: 12.8%		Arsenal 			: 13.3%		Presse 			: 38.9%		
+Ludus 			: 18.6%		Guilde des Armateurs 			: 4.8%		Guilde des Philosophes 			: 4.6%		Guilde des Travailleurs 			: 5.6%		Bains 			: 22.7%		Laboratoire 			: 13.4%		
+Guilde des Commerçants 			: 10.0%		Comptoir EST 			: 28.4%		Loge 			: 30.6%		Théâtre 			: 20.9%		Arène 			: 20.9%		Fosse Argileuse 			: 11.3%		
+Caravansérail 			: 31.6%		Excavation 			: 11.0%		Friche 			: 9.9%		Dispensaire 			: 19.4%		Temple 			: 11.9%		Atelier 			: 24.0%		
+Aqueduc 			: 15.4%		Puits 			: 21.0%		Fortification 			: 15.3%		Carrière 			: 28.1%		Guilde des Décorateurs 			: 7.8%		

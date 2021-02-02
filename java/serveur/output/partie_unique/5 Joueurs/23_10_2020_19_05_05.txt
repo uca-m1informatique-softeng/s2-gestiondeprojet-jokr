@@ -1,0 +1,732 @@
+____________________     7 Wonders       ________________________
+____________________ Commencement du Jeu ________________________
+
+Enzo a obtenue la merveille ALEXANDRIA et gagne 1 Verre
+Dora a obtenue la merveille RHODOS et gagne 1 Minerai
+Mona a obtenue la merveille OLYMPIA et gagne 1 Argile
+Paul a obtenue la merveille HALIKARNASSOS DE NUIT et gagne 1 Tissu
+Lucy a obtenue la merveille GIZAH DE NUIT et gagne 1 Pierre
+
+
+########################## DEBUT Age N°1 ###########################
+
+
+--------------------- DEBUT TOUR N°1 ---------------------
+
+Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Presse
+Carte Gratuite !
+Dora gagne les ressources : [Papyrus]
+
+Mona choisit dans sa main la carte Marché
+Carte Gratuite !
+Mona gagne les ressources : [ReducGrisDroiteGauche]
+
+Paul choisit dans sa main la carte Bains
+Paul a acheter à Lucy la ressource Pierre pour 2 Pièces ! 
+Paul gagne les ressources : [Score, Score, Score]
+
+Lucy choisit dans sa main la carte Chantier
+Carte Gratuite !
+Lucy gagne les ressources : [Bois]
+
+--------------------- FIN TOUR N°1   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Paul
+Paul donne ses cartes à Lucy
+Lucy donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°2 ---------------------
+
+Enzo choisit dans sa main la carte Fosse Argileuse
+Enzo a payé via son Inventaire les ressources suivantes : [Pièce]
+Enzo gagne les ressources : [Argile/Minerai]
+
+Dora choisit dans sa main la carte Scriptorium
+Dora a payé via son Inventaire les ressources suivantes : [Papyrus]
+Dora gagne les ressources : [Pierre de Rosette]
+
+Mona choisit dans sa main la carte Théâtre
+Carte Gratuite !
+Mona gagne les ressources : [Score, Score, Score]
+
+Paul choisit dans sa main la carte Exploitation Forestière
+Paul a payé via son Inventaire les ressources suivantes : [Pièce]
+Paul gagne les ressources : [Bois/Pierre]
+
+Lucy choisit dans sa main la carte Comptoir OUEST
+Carte Gratuite !
+Lucy gagne les ressources : [ReducMarronGauche]
+
+--------------------- FIN TOUR N°2   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Paul
+Paul donne ses cartes à Lucy
+Lucy donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°3 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Atelier
+Dora a acheter à Enzo la ressource Verre pour 2 Pièces ! 
+Dora gagne les ressources : [Roue]
+
+Mona choisit dans sa main la carte Autel
+Carte Gratuite !
+Mona gagne les ressources : [Score, Score, Score]
+
+Paul choisit dans sa main la carte Autel
+Carte Gratuite !
+Paul gagne les ressources : [Score, Score, Score]
+
+Lucy choisit dans sa main la carte Filon
+Carte Gratuite !
+Lucy gagne les ressources : [Minerai]
+
+--------------------- FIN TOUR N°3   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Paul
+Paul donne ses cartes à Lucy
+Lucy donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°4 ---------------------
+
+Enzo choisit dans sa main la carte Chantier
+Carte Gratuite !
+Enzo gagne les ressources : [Bois]
+
+Dora choisit dans sa main la carte Cavité
+Carte Gratuite !
+Dora gagne les ressources : [Pierre]
+
+Mona choisit dans sa main la carte Cavité
+Carte Gratuite !
+Mona gagne les ressources : [Pierre]
+
+Paul choisit dans sa main la carte Bassin Argileux
+Carte Gratuite !
+Paul gagne les ressources : [Argile]
+
+Lucy défausse sa carte et reçoit 3 pièces !
+
+--------------------- FIN TOUR N°4   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Paul
+Paul donne ses cartes à Lucy
+Lucy donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°5 ---------------------
+
+Enzo décide de construire le 1e étage de sa merveille !
+Enzo a acheter à Lucy la ressource Pierre pour 2 Pièces ! 
+Enzo a acheter à Dora la ressource Pierre pour 2 Pièces ! 
+Enzo gagne les ressources suivantes : [Score, Score, Score]
+
+
+Mona décide de construire le 1e étage de sa merveille !
+Mona a payé via son Inventaire les ressources suivantes : [Pierre]
+Mona a acheter à Dora la ressource Pierre pour 2 Pièces ! 
+Mona gagne les ressources suivantes : [Score, Score, Score]
+
+
+Lucy décide de construire le 1e étage de sa merveille !
+Lucy a payé via son Inventaire les ressources suivantes : [Bois]
+Lucy a acheter à Enzo la ressource Bois pour 2 Pièces ! 
+Lucy gagne les ressources suivantes : [Score, Score, Score]
+
+
+Dora choisit dans sa main la carte Bassin Argileux
+Carte Gratuite !
+Dora gagne les ressources : [Argile]
+
+Paul choisit dans sa main la carte Palissade
+Paul a payé via ses bonus Multi-Choix les ressources suivantes : [Pierre]
+Paul gagne les ressources : [Bouclier]
+
+--------------------- FIN TOUR N°5   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Paul
+Paul donne ses cartes à Lucy
+Lucy donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°6 ---------------------
+
+Enzo décide de construire le 2e étage de sa merveille !
+Enzo a payé via ses bonus Multi-Choix les ressources suivantes : [Minerai]
+Enzo a acheter à Lucy la ressource Minerai pour 2 Pièces ! 
+Enzo gagne les ressources suivantes : [Bois/Pierre/Argile/Minerai]
+
+
+Dora choisit dans sa main la carte Gisement
+Dora a payé via son Inventaire les ressources suivantes : [Pièce]
+Dora gagne les ressources : [Bois/Minerai]
+
+Mona choisit dans sa main la carte Taverne
+Carte Gratuite !
+Mona gagne les ressources : [Pièce, Pièce, Pièce, Pièce, Pièce]
+
+Paul choisit dans sa main la carte Puits
+Carte Gratuite !
+Paul gagne les ressources : [Score, Score, Score]
+
+Lucy choisit dans sa main la carte Officine
+Lucy a acheter à Paul la ressource Tissu pour 2 Pièces ! 
+Lucy gagne les ressources : [Compas]
+
+--------------------- FIN TOUR N°6   ---------------------
+
+########################## Fin Age N°1 ###########################
+
+##################### La GUERRE n°1 est déclarée ######################
+
+Enzo (0 Boucliers) a engagé le combat contre Dora (0 Boucliers).
+Egalité des Boucliers, personne ne gagne.
+
+Dora (0 Boucliers) a engagé le combat contre Mona (0 Boucliers).
+Egalité des Boucliers, personne ne gagne.
+
+Mona (0 Boucliers) a engagé le combat contre Paul (1 Boucliers).
+Paul gagne la bataille et remporte 1 Pts de Victoire.
+Mona perd et remporte 1 Pts de Défaite.
+
+Paul (1 Boucliers) a engagé le combat contre Lucy (0 Boucliers).
+Paul gagne la bataille et remporte 1 Pts de Victoire.
+Lucy perd et remporte 1 Pts de Défaite
+
+Lucy (0 Boucliers) a engagé le combat contre Enzo (0 Boucliers).
+Egalité des Boucliers, personne ne gagne.
+
+##################### Fin de la GUERRE n°1 ######################
+
+
+
+########################## DEBUT Age N°2 ###########################
+
+
+--------------------- DEBUT TOUR N°1 ---------------------
+
+Paul décide de construire le 1e étage de sa merveille !
+Paul a payé via son Inventaire les ressources suivantes : [Argile]
+Paul a acheter à Mona la ressource Argile pour 2 Pièces ! 
+Paul gagne les ressources suivantes : [Jouer une carte de la défausse gratuitement + 2 points]
+Paul gagne 2 pièce(s) !
+
+Enzo choisit dans sa main la carte Fonderie
+Enzo a payé via son Inventaire les ressources suivantes : [Pièce]
+Enzo gagne les ressources : [Minerai, Minerai]
+
+Dora défausse sa carte et reçoit 3 pièces !
+
+Mona choisit dans sa main la carte Scierie
+Mona a payé via son Inventaire les ressources suivantes : [Pièce]
+Mona gagne les ressources : [Bois, Bois]
+
+Lucy choisit dans sa main la carte Caravansérail
+Lucy a payé via son Inventaire les ressources suivantes : [Bois]
+Lucy a acheter à Enzo la ressource Bois pour 2 Pièces ! 
+Lucy gagne les ressources : [Bois/Pierre/Argile/Minerai]
+
+Paul peut jouer gratuitement une carte de la défausse !
+Paul choisit de jouer gratuitement Comptoir EST depuis la défausse
+Paul gagne les ressources : [ReducMarronDroite]
+
+
+
+--------------------- FIN TOUR N°1   ---------------------
+
+Dora donne ses cartes à Enzo
+Mona donne ses cartes à Dora
+Paul donne ses cartes à Mona
+Lucy donne ses cartes à Paul
+Enzo donne ses cartes à Lucy
+
+--------------------- DEBUT TOUR N°2 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Mona décide de construire le 2e étage de sa merveille !
+Mona a payé via son Inventaire les ressources suivantes : [Bois, Bois]
+Mona gagne les ressources suivantes : [Jouer la première carte Age de chaque couleur]
+
+
+Dora choisit dans sa main la carte Dispensaire
+Dora a payé via son Inventaire les ressources suivantes : [Minerai]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Minerai]
+Dora a acheter à Enzo la ressource Verre pour 2 Pièces ! 
+Dora gagne les ressources : [Compas]
+
+Paul choisit dans sa main la carte Statue
+Carte chainée antérieur possédée Puits -> Construction Gratuite
+Paul gagne les ressources : [Score, Score, Score, Score]
+
+Lucy choisit dans sa main la carte Tribunal
+Lucy a payé via ses bonus Multi-Choix les ressources suivantes : [Argile]
+Lucy a acheter à Paul la ressource Tissu pour 2 Pièces ! 
+Lucy a acheter à Paul la ressource Argile pour 1 Pièces ! 
+Lucy gagne les ressources : [Score, Score, Score, Score]
+
+--------------------- FIN TOUR N°2   ---------------------
+
+Dora donne ses cartes à Enzo
+Mona donne ses cartes à Dora
+Paul donne ses cartes à Mona
+Lucy donne ses cartes à Paul
+Enzo donne ses cartes à Lucy
+
+--------------------- DEBUT TOUR N°3 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Mona décide de construire le 3e étage de sa merveille !
+Mona a payé via son Inventaire les ressources suivantes : [Argile]
+Mona a acheter à Dora la ressource Argile pour 2 Pièces ! 
+Mona a acheter à Paul la ressource Argile pour 2 Pièces ! 
+Mona gagne les ressources suivantes : [Score, Score, Score, Score, Score, Score, Score]
+
+
+Dora choisit dans sa main la carte Laboratoire
+Dora a payé via son Inventaire les ressources suivantes : [Argile, Papyrus]
+Dora a acheter à Mona la ressource Argile pour 2 Pièces ! 
+Dora gagne les ressources : [Roue]
+
+Paul choisit dans sa main la carte Briqueterie
+Paul a payé via son Inventaire les ressources suivantes : [Pièce]
+Paul gagne les ressources : [Argile, Argile]
+
+Lucy choisit dans sa main la carte Place d'Armes
+Lucy a payé via son Inventaire les ressources suivantes : [Bois, Minerai]
+Lucy a payé via ses bonus Multi-Choix les ressources suivantes : [Bois]
+Lucy gagne les ressources : [Bouclier, Bouclier]
+
+--------------------- FIN TOUR N°3   ---------------------
+
+Dora donne ses cartes à Enzo
+Mona donne ses cartes à Dora
+Paul donne ses cartes à Mona
+Lucy donne ses cartes à Paul
+Enzo donne ses cartes à Lucy
+
+--------------------- DEBUT TOUR N°4 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Forum
+Dora a payé via son Inventaire les ressources suivantes : [Argile]
+Dora a acheter à Mona la ressource Argile pour 2 Pièces ! 
+Dora gagne les ressources : [Verre/Papyrus/Tissu]
+
+Mona choisit dans sa main la carte Dispensaire
+Bonus Couleur en possession ! C'est sa première carte de cette couleur elle est donc gratuite !
+Mona gagne les ressources : [Compas]
+
+Paul choisit dans sa main la carte Aqueduc
+Carte chainée antérieur possédée Bains -> Construction Gratuite
+Paul gagne les ressources : [Score, Score, Score, Score, Score]
+
+Lucy choisit dans sa main la carte Temple
+Lucy a payé via son Inventaire les ressources suivantes : [Bois]
+Lucy a payé via ses bonus Multi-Choix les ressources suivantes : [Argile]
+Lucy a acheter à Enzo la ressource Verre pour 2 Pièces ! 
+Lucy gagne les ressources : [Score, Score, Score, Score]
+
+--------------------- FIN TOUR N°4   ---------------------
+
+Dora donne ses cartes à Enzo
+Mona donne ses cartes à Dora
+Paul donne ses cartes à Mona
+Lucy donne ses cartes à Paul
+Enzo donne ses cartes à Lucy
+
+--------------------- DEBUT TOUR N°5 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Caravansérail
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Bois]
+Dora a acheter à Enzo la ressource Bois pour 2 Pièces ! 
+Dora gagne les ressources : [Bois/Pierre/Argile/Minerai]
+
+Mona choisit dans sa main la carte Presse
+Carte Gratuite !
+Mona gagne les ressources : [Papyrus]
+
+Paul choisit dans sa main la carte Champs de Tir
+Paul a payé via ses bonus Multi-Choix les ressources suivantes : [Bois]
+Paul a acheter à Lucy la ressource Minerai pour 1 Pièces ! 
+Paul a acheter à Lucy la ressource Bois pour 1 Pièces ! 
+Paul gagne les ressources : [Bouclier, Bouclier]
+
+Lucy choisit dans sa main la carte Scierie
+Lucy a payé via son Inventaire les ressources suivantes : [Pièce]
+Lucy gagne les ressources : [Bois, Bois]
+
+--------------------- FIN TOUR N°5   ---------------------
+
+Dora donne ses cartes à Enzo
+Mona donne ses cartes à Dora
+Paul donne ses cartes à Mona
+Lucy donne ses cartes à Paul
+Enzo donne ses cartes à Lucy
+
+--------------------- DEBUT TOUR N°6 ---------------------
+
+Enzo choisit dans sa main la carte Ecole
+Enzo a payé via son Inventaire les ressources suivantes : [Bois]
+Enzo a acheter à Dora la ressource Papyrus pour 2 Pièces ! 
+Enzo gagne les ressources : [Pierre de Rosette]
+
+Dora choisit dans sa main la carte Tribunal
+Dora a payé via son Inventaire les ressources suivantes : [Argile]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Tissu, Argile]
+Dora gagne les ressources : [Score, Score, Score, Score]
+
+Mona choisit dans sa main la carte Carrière
+Mona a payé via son Inventaire les ressources suivantes : [Pièce]
+Mona gagne les ressources : [Pierre, Pierre]
+
+Paul choisit dans sa main la carte Presse
+Carte Gratuite !
+Paul gagne les ressources : [Papyrus]
+
+Lucy choisit dans sa main la carte Carrière
+Lucy a payé via son Inventaire les ressources suivantes : [Pièce]
+Lucy gagne les ressources : [Pierre, Pierre]
+
+--------------------- FIN TOUR N°6   ---------------------
+
+########################## Fin Age N°2 ###########################
+
+##################### La GUERRE n°2 est déclarée ######################
+
+Enzo (0 Boucliers) a engagé le combat contre Dora (0 Boucliers).
+Egalité des Boucliers, personne ne gagne.
+
+Dora (0 Boucliers) a engagé le combat contre Mona (0 Boucliers).
+Egalité des Boucliers, personne ne gagne.
+
+Mona (0 Boucliers) a engagé le combat contre Paul (3 Boucliers).
+Paul gagne la bataille et remporte 3 Pts de Victoire.
+Mona perd et remporte 1 Pts de Défaite.
+
+Paul (3 Boucliers) a engagé le combat contre Lucy (2 Boucliers).
+Paul gagne la bataille et remporte 3 Pts de Victoire.
+Lucy perd et remporte 1 Pts de Défaite
+
+Lucy (2 Boucliers) a engagé le combat contre Enzo (0 Boucliers).
+Lucy gagne la bataille et remporte 3 Pts de Victoire.
+Enzo perd et remporte 1 Pts de Défaite
+
+##################### Fin de la GUERRE n°2 ######################
+
+
+
+########################## DEBUT Age N°3 ###########################
+
+
+--------------------- DEBUT TOUR N°1 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Lucy décide de construire le 2e étage de sa merveille !
+Lucy a payé via son Inventaire les ressources suivantes : [Pierre, Pierre, Pierre]
+Lucy gagne les ressources suivantes : [Score, Score, Score, Score, Score]
+
+
+Dora choisit dans sa main la carte Atelier de Siège
+Dora a payé via son Inventaire les ressources suivantes : [Argile]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Argile, Bois]
+Dora a acheter à Mona la ressource Argile pour 2 Pièces ! 
+Dora gagne les ressources : [Bouclier, Bouclier, Bouclier]
+
+Mona choisit dans sa main la carte Atelier de Siège
+Bonus Couleur en possession ! C'est sa première carte de cette couleur elle est donc gratuite !
+Mona gagne les ressources : [Bouclier, Bouclier, Bouclier]
+
+Paul choisit dans sa main la carte Panthéon
+Carte chainée antérieur possédée Autel -> Construction Gratuite
+Paul gagne les ressources : [Score, Score, Score, Score, Score, Score, Score]
+
+--------------------- FIN TOUR N°1   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Paul
+Paul donne ses cartes à Lucy
+Lucy donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°2 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Lucy décide de construire le 3e étage de sa merveille !
+Lucy a payé via ses bonus Multi-Choix les ressources suivantes : [Argile]
+Lucy a acheter à Paul la ressource Argile pour 1 Pièces ! 
+Lucy a acheter à Paul la ressource Argile pour 1 Pièces ! 
+Lucy gagne les ressources suivantes : [Score, Score, Score, Score, Score]
+
+
+Dora choisit dans sa main la carte Académie
+Dora a payé via son Inventaire les ressources suivantes : [Pierre]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Verre, Pierre]
+Dora a acheter à Mona la ressource Pierre pour 2 Pièces ! 
+Dora gagne les ressources : [Compas]
+
+Mona choisit dans sa main la carte Castrum
+Mona a payé via son Inventaire les ressources suivantes : [Argile, Bois, Papyrus]
+Mona a acheter à Dora la ressource Argile pour 2 Pièces ! 
+Mona gagne les ressources : [Bouclier, Bouclier, Bouclier]
+
+Paul choisit dans sa main la carte Ludus
+Paul a payé via ses bonus Multi-Choix les ressources suivantes : [Pierre]
+Paul a acheter à Lucy la ressource Minerai pour 1 Pièces ! 
+Paul gagne le bonus : 3 pièces et 1 score (en fin de partie) pour chaque carte rouge du joueur, et gagne donc 6 pièces !
+
+--------------------- FIN TOUR N°2   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Paul
+Paul donne ses cartes à Lucy
+Lucy donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°3 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Lucy décide de construire le 4e étage de sa merveille !
+Lucy a payé via son Inventaire les ressources suivantes : [Pierre, Pierre, Pierre]
+Lucy a payé via ses bonus Multi-Choix les ressources suivantes : [Pierre]
+Lucy a acheter à Paul la ressource Papyrus pour 2 Pièces ! 
+Lucy gagne les ressources suivantes : [Score, Score, Score, Score, Score, Score, Score]
+
+
+Dora choisit dans sa main la carte Etude
+Dora a payé via son Inventaire les ressources suivantes : [Papyrus]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Tissu, Bois]
+Dora gagne les ressources : [Roue]
+
+Mona choisit dans sa main la carte Guilde des Espions
+Bonus Couleur en possession ! C'est sa première carte de cette couleur elle est donc gratuite !
+Mona gagne le bonus : 1 score en fin de partie pour chaque carte de couleur rouge à droite et gauche
+
+Paul choisit dans sa main la carte Guilde des Magistrats
+Paul a payé via son Inventaire les ressources suivantes : [Tissu]
+Paul a payé via ses bonus Multi-Choix les ressources suivantes : [Pierre]
+Paul a acheter à Lucy la ressource Bois pour 1 Pièces ! 
+Paul a acheter à Lucy la ressource Bois pour 1 Pièces ! 
+Paul a acheter à Lucy la ressource Bois pour 1 Pièces ! 
+Paul gagne le bonus : 1 score en fin de partie pour chaque carte de couleur bleue à droite et gauche
+
+--------------------- FIN TOUR N°3   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Paul
+Paul donne ses cartes à Lucy
+Lucy donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°4 ---------------------
+
+Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Université
+Dora a payé via son Inventaire les ressources suivantes : [Papyrus]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Verre, Bois, Bois]
+Dora gagne les ressources : [Pierre de Rosette]
+
+Mona choisit dans sa main la carte Arène
+Carte chainée antérieur possédée Dispensaire -> Construction Gratuite
+Mona gagne le bonus : 3 pièces et 1 score (en fin de partie) pour chaque étage de la merveille du joueur, et gagne donc 9 pièces !
+
+Paul choisit dans sa main la carte Jardins
+Paul a payé via son Inventaire les ressources suivantes : [Argile, Argile]
+Paul a payé via ses bonus Multi-Choix les ressources suivantes : [Bois]
+Paul gagne les ressources : [Score, Score, Score, Score, Score]
+
+Lucy choisit dans sa main la carte Fortification
+Lucy a payé via son Inventaire les ressources suivantes : [Pierre, Minerai]
+Lucy a payé via ses bonus Multi-Choix les ressources suivantes : [Minerai]
+Lucy a acheter à Enzo la ressource Minerai pour 2 Pièces ! 
+Lucy gagne les ressources : [Bouclier, Bouclier, Bouclier]
+
+--------------------- FIN TOUR N°4   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Paul
+Paul donne ses cartes à Lucy
+Lucy donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°5 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Cirque
+Dora a payé via son Inventaire les ressources suivantes : [Pierre, Minerai]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Pierre]
+Dora a acheter à Mona la ressource Pierre pour 2 Pièces ! 
+Dora gagne les ressources : [Bouclier, Bouclier, Bouclier]
+
+Mona choisit dans sa main la carte Loge
+Carte chainée antérieur possédée Dispensaire -> Construction Gratuite
+Mona gagne les ressources : [Compas]
+
+Paul choisit dans sa main la carte Sénat
+Paul a payé via ses bonus Multi-Choix les ressources suivantes : [Pierre]
+Paul a acheter à Lucy la ressource Minerai pour 1 Pièces ! 
+Paul a acheter à Lucy la ressource Bois pour 1 Pièces ! 
+Paul a acheter à Lucy la ressource Bois pour 1 Pièces ! 
+Paul gagne les ressources : [Score, Score, Score, Score, Score, Score]
+
+Lucy défausse sa carte et reçoit 3 pièces !
+
+--------------------- FIN TOUR N°5   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Paul
+Paul donne ses cartes à Lucy
+Lucy donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°6 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Chambre de Commerce
+Dora a payé via son Inventaire les ressources suivantes : [Argile, Papyrus]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Argile]
+Dora gagne le bonus : 2 pièces et 2 scores (en fin de partie) pour chaque carte grise du joueur, et gagne donc 2 pièces !
+
+Mona choisit dans sa main la carte Sénat
+Mona a payé via son Inventaire les ressources suivantes : [Bois, Bois, Pierre]
+Mona a acheter à Dora la ressource Minerai pour 2 Pièces ! 
+Mona gagne les ressources : [Score, Score, Score, Score, Score, Score]
+
+Paul choisit dans sa main la carte Port
+Paul a payé via son Inventaire les ressources suivantes : [Tissu]
+Paul a payé via ses bonus Multi-Choix les ressources suivantes : [Bois]
+Paul a acheter à Lucy la ressource Minerai pour 1 Pièces ! 
+Paul gagne le bonus : 1 pièce et 1 score (en fin de partie) pour chaque carte marron du joueur, et gagne donc 3 pièces !
+
+Lucy choisit dans sa main la carte Université
+Lucy a payé via son Inventaire les ressources suivantes : [Bois, Bois]
+Lucy a acheter à Enzo la ressource Verre pour 2 Pièces ! 
+Lucy a acheter à Paul la ressource Papyrus pour 2 Pièces ! 
+Lucy gagne les ressources : [Pierre de Rosette]
+
+--------------------- FIN TOUR N°6   ---------------------
+
+########################## Fin Age N°3 ###########################
+
+##################### La GUERRE n°3 est déclarée ######################
+
+Enzo (0 Boucliers) a engagé le combat contre Dora (6 Boucliers).
+Dora gagne la bataille et remporte 5 Pts de Victoire.
+Enzo perd et remporte 1 Pts de Défaite.
+
+Dora (6 Boucliers) a engagé le combat contre Mona (6 Boucliers).
+Egalité des Boucliers, personne ne gagne.
+
+Mona (6 Boucliers) a engagé le combat contre Paul (3 Boucliers).
+Mona gagne la bataille et remporte 5 Pts de Victoire.
+Paul perd et remporte 1 Pts de Défaite
+
+Paul (3 Boucliers) a engagé le combat contre Lucy (5 Boucliers).
+Lucy gagne la bataille et remporte 5 Pts de Victoire.
+Paul perd et remporte 1 Pts de Défaite.
+
+Lucy (5 Boucliers) a engagé le combat contre Enzo (0 Boucliers).
+Lucy gagne la bataille et remporte 5 Pts de Victoire.
+Enzo perd et remporte 1 Pts de Défaite
+
+##################### Fin de la GUERRE n°3 ######################
+
+Inventaire du joueur Enzo : 
+
+Pièce	:	47		Bois	:	1		Pierre	:	0		Argile	:	0		Minerai	:	2		
+Tissu	:	0		Verre	:	1		Papyrus	:	0		Score	:	3		Bouclier:	0		
+Compas	:	0		Roue	:	0		Rosette	:	1		P.Victoire:	0		P.Défaite:	3		
+
+Enzo ayant déjà 3 points grâce à son score obtient :
+	15	 points grâce à ses pièces, 
+	-3	 points via les jetons de guerre Victoire/défaite, 
+	1	 points de ses combos scientifiques
+	0	 venant du cumul des bâtiments bonus !
+Enzo à au total 16 points !
+
+Inventaire de Cartes : [Fosse Argileuse, Chantier, Fonderie, Ecole]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Inventaire du joueur Dora : 
+
+Pièce	:	4		Bois	:	0		Pierre	:	1		Argile	:	1		Minerai	:	1		
+Tissu	:	0		Verre	:	0		Papyrus	:	1		Score	:	4		Bouclier:	6		
+Compas	:	2		Roue	:	3		Rosette	:	2		P.Victoire:	5		P.Défaite:	0		
+
+Dora ayant déjà 4 points grâce à son score obtient :
+	1	 points grâce à ses pièces, 
+	5	 points via les jetons de guerre Victoire/défaite, 
+	31	 points de ses combos scientifiques
+	0	 venant du cumul des bâtiments bonus !
+Dora à au total 41 points !
+
+Inventaire de Cartes : [Presse, Scriptorium, Atelier, Cavité, Bassin Argileux, Gisement, Dispensaire, Laboratoire, Forum, Caravansérail, Tribunal, Atelier de Siège, Académie, Etude, Université, Cirque, Chambre de Commerce]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Inventaire du joueur Mona : 
+
+Pièce	:	19		Bois	:	2		Pierre	:	3		Argile	:	1		Minerai	:	0		
+Tissu	:	0		Verre	:	0		Papyrus	:	1		Score	:	22		Bouclier:	6		
+Compas	:	2		Roue	:	0		Rosette	:	0		P.Victoire:	5		P.Défaite:	2		
+
+Mona ayant déjà 22 points grâce à son score obtient :
+	6	 points grâce à ses pièces, 
+	3	 points via les jetons de guerre Victoire/défaite, 
+	4	 points de ses combos scientifiques
+	4	 venant du cumul des bâtiments bonus !
+Mona à au total 39 points !
+
+Inventaire de Cartes : [Marché, Théâtre, Autel, Cavité, Taverne, Scierie, Dispensaire, Presse, Carrière, Atelier de Siège, Castrum, Guilde des Espions, Arène, Loge, Sénat]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Inventaire du joueur Paul : 
+
+Pièce	:	11		Bois	:	0		Pierre	:	0		Argile	:	3		Minerai	:	0		
+Tissu	:	1		Verre	:	0		Papyrus	:	1		Score	:	38		Bouclier:	3		
+Compas	:	0		Roue	:	0		Rosette	:	0		P.Victoire:	8		P.Défaite:	2		
+
+Paul ayant déjà 38 points grâce à son score obtient :
+	3	 points grâce à ses pièces, 
+	6	 points via les jetons de guerre Victoire/défaite, 
+	0	 points de ses combos scientifiques
+	5	 venant du cumul des bâtiments bonus !
+Paul à au total 52 points !
+
+Inventaire de Cartes : [Bains, Exploitation Forestière, Autel, Bassin Argileux, Palissade, Puits, Comptoir EST, Statue, Briqueterie, Aqueduc, Champs de Tir, Presse, Panthéon, Ludus, Guilde des Magistrats, Jardins, Sénat, Port]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Inventaire du joueur Lucy : 
+
+Pièce	:	4		Bois	:	3		Pierre	:	3		Argile	:	0		Minerai	:	1		
+Tissu	:	0		Verre	:	0		Papyrus	:	0		Score	:	28		Bouclier:	5		
+Compas	:	1		Roue	:	0		Rosette	:	1		P.Victoire:	13		P.Défaite:	2		
+
+Lucy ayant déjà 28 points grâce à son score obtient :
+	1	 points grâce à ses pièces, 
+	11	 points via les jetons de guerre Victoire/défaite, 
+	2	 points de ses combos scientifiques
+	0	 venant du cumul des bâtiments bonus !
+Lucy à au total 42 points !
+
+Inventaire de Cartes : [Chantier, Comptoir OUEST, Filon, Officine, Caravansérail, Tribunal, Place d'Armes, Temple, Scierie, Carrière, Fortification, Université]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Le Vainqueur est Paul avec 52 points !!!
+_____________________________ Fin de la partie _____________________________

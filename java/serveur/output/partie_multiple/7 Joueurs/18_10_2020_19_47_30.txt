@@ -1,0 +1,451 @@
+
+############## Statistiques des joueurs sur 10 parties ##############
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoire.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifique.
+   - IA Civil        : IA construisant des bâtiment civil en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+
+
+##### Statistiques de Enzo #####
+Enzo (IA Random) a remporté au total 0 parties sur 10, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum 30 points avec la merveille BABYLON, et avec les cartes :
+	Fosse Argileuse, Autel, Place d'Armes, Place d'Armes, Phare, Université, Arène.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 21.2 points.
+	- 4.8 points grâce aux Bâtiments civils.
+	- 0.5 points Scientifique.
+	- 3.2 points de Victoire de guerre.
+	- 1.8 points de Défaite guerre.
+
+Et au c des 10 parties
+Filon : 10.0
+Université : 10.0
+Cirque : 10.0
+Port : 10.0
+Exploitation Forestière : 10.0
+Autel : 10.0
+Jardins : 10.0
+Briqueterie : 10.0
+Guilde des Artisans : 10.0
+Chambre de Commerce : 10.0
+Caserne : 10.0
+Place d'Armes : 30.0
+Métier à Tisser : 10.0
+Bassin Argileux : 20.0
+Sénat : 10.0
+Guilde des Armateurs : 10.0
+Verrerie : 20.0
+Fonderie : 10.0
+Phare : 10.0
+Arène : 10.0
+Comptoir EST : 10.0
+Théâtre : 10.0
+Fosse Argileuse : 10.0
+Atelier : 10.0
+Palissade : 10.0
+Carrière : 10.0
+Ecuries : 20.0
+
+##### Statistiques de Dora #####
+Dora (IA Scientifique) a remporté au total 4 parties sur 10, soit un taux de victoire de 40.0%.
+Il a obtenue au maximum 79 points avec la merveille ALEXANDRIA, et avec les cartes :
+	Filon, Marché, Filon, Bassin Argileux, Chantier, Scriptorium, Forum, Laboratoire, Laboratoire, Ecole, Dispensaire, Ecole, Guilde des Scientifiques, Université, Loge, Observatoire, Loge, Etude.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 42.7 points.
+	- 2.7 points grâce aux Bâtiments civils.
+	- 30.2 points Scientifique.
+	- 5.4 points de Victoire de guerre.
+	- 2.0 points de Défaite guerre.
+
+Et au c des 10 parties
+Filon : 50.0
+Université : 70.0
+Cavité : 40.0
+Etude : 20.0
+Port : 10.0
+Tribunal : 20.0
+Comptoir OUEST : 60.0
+Autel : 10.0
+Jardins : 10.0
+Académie : 10.0
+Scierie : 50.0
+Forum : 80.0
+Briqueterie : 10.0
+Taverne : 20.0
+Caserne : 10.0
+Métier à Tisser : 10.0
+Chantier : 80.0
+Bassin Argileux : 30.0
+Castrum : 30.0
+Verrerie : 10.0
+Fonderie : 10.0
+Bazar : 10.0
+Phare : 20.0
+Palace : 10.0
+Officine : 40.0
+Scriptorium : 20.0
+Atelier de Siège : 20.0
+Bibliothèque : 40.0
+Ecuries : 10.0
+Guilde des Scientifiques : 40.0
+Exploitation Forestière : 10.0
+Tour de Garde : 10.0
+Champs de Tir : 20.0
+Ecole : 100.0
+Guilde des Batisseurs : 10.0
+Arsenal : 10.0
+Observatoire : 40.0
+Marché : 100.0
+Muraille : 10.0
+Bains : 10.0
+Laboratoire : 60.0
+Comptoir EST : 40.0
+Arène : 10.0
+Loge : 150.0
+Caravansérail : 80.0
+Dispensaire : 60.0
+Atelier : 30.0
+Fortification : 10.0
+Carrière : 10.0
+
+##### Statistiques de Mona #####
+Mona (IA Merveille) a remporté au total 1 parties sur 10, soit un taux de victoire de 10.0%.
+Il a obtenue au maximum 48 points avec la merveille EPHESOS, et avec les cartes :
+	Atelier, Puits, Chantier, Friche, Cavité, Presse, Place d'Armes, Temple, Jardins, Université, Hôtel de Ville, Atelier de Siège, Jardins.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 38.3 points.
+	- 20.9 points grâce aux Bâtiments civils.
+	- 2.0 points Scientifique.
+	- 10.3 points de Victoire de guerre.
+	- 1.8 points de Défaite guerre.
+
+Et au c des 10 parties
+Filon : 10.0
+Cavité : 30.0
+Université : 10.0
+Etude : 10.0
+Port : 50.0
+Tribunal : 20.0
+Jardins : 40.0
+Autel : 30.0
+Académie : 10.0
+Scierie : 20.0
+Forum : 30.0
+Briqueterie : 10.0
+Taverne : 50.0
+Place d'Armes : 40.0
+Métier à Tisser : 30.0
+Bassin Argileux : 20.0
+Chantier : 30.0
+Sénat : 30.0
+Castrum : 10.0
+Vignoble : 50.0
+Verrerie : 80.0
+Fonderie : 20.0
+Bazar : 20.0
+Phare : 10.0
+Palace : 40.0
+Atelier de Siège : 30.0
+Statue : 20.0
+Palissade : 30.0
+Bibliothèque : 10.0
+Hôtel de Ville : 20.0
+Ecuries : 10.0
+Cirque : 20.0
+Guilde des Scientifiques : 10.0
+Exploitation Forestière : 10.0
+Tour de Garde : 10.0
+Champs de Tir : 30.0
+Ecole : 30.0
+Chambre de Commerce : 20.0
+Gisement : 30.0
+Panthéon : 20.0
+Muraille : 10.0
+Marché : 10.0
+Presse : 140.0
+Ludus : 50.0
+Guilde des Armateurs : 10.0
+Guilde des Philosophes : 10.0
+Guilde des Travailleurs : 10.0
+Bains : 20.0
+Guilde des Commerçants : 30.0
+Théâtre : 30.0
+Comptoir EST : 40.0
+Arène : 30.0
+Loge : 10.0
+Friche : 30.0
+Dispensaire : 10.0
+Temple : 20.0
+Atelier : 20.0
+Aqueduc : 10.0
+Puits : 60.0
+Carrière : 20.0
+Fortification : 20.0
+Guilde des Décorateurs : 10.0
+
+##### Statistiques de Paul #####
+Paul (IA Civil) a remporté au total 0 parties sur 10, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum 45 points avec la merveille RHODOS, et avec les cartes :
+	Chantier, Théâtre, Autel, Autel, Tour de Garde, Puits, Fonderie, Briqueterie, Scierie, Temple, Atelier de Siège, Sénat, Guilde des Scientifiques, Panthéon, Université.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 37.5 points.
+	- 33.0 points grâce aux Bâtiments civils.
+	- 0.6 points Scientifique.
+	- 3.9 points de Victoire de guerre.
+	- 3.4 points de Défaite guerre.
+
+Et au c des 10 parties
+Filon : 30.0
+Université : 10.0
+Cavité : 10.0
+Port : 10.0
+Tribunal : 10.0
+Autel : 70.0
+Jardins : 70.0
+Comptoir OUEST : 50.0
+Académie : 10.0
+Scierie : 30.0
+Forum : 50.0
+Briqueterie : 50.0
+Caserne : 30.0
+Taverne : 10.0
+Métier à Tisser : 10.0
+Chantier : 20.0
+Bassin Argileux : 30.0
+Sénat : 70.0
+Castrum : 10.0
+Guilde des Magistrats : 10.0
+Fonderie : 20.0
+Bazar : 10.0
+Atelier de Siège : 30.0
+Statue : 40.0
+Palissade : 20.0
+Hôtel de Ville : 50.0
+Ecuries : 30.0
+Cirque : 10.0
+Guilde des Scientifiques : 10.0
+Tour de Garde : 60.0
+Champs de Tir : 10.0
+Chambre de Commerce : 10.0
+Panthéon : 70.0
+Gisement : 10.0
+Marché : 10.0
+Arsenal : 20.0
+Muraille : 10.0
+Observatoire : 10.0
+Guilde des Philosophes : 10.0
+Bains : 40.0
+Théâtre : 100.0
+Comptoir EST : 40.0
+Fosse Argileuse : 10.0
+Caravansérail : 80.0
+Temple : 40.0
+Aqueduc : 20.0
+Puits : 60.0
+Carrière : 20.0
+Fortification : 30.0
+Guilde des Décorateurs : 10.0
+
+##### Statistiques de Lucy #####
+Lucy (IA Militaire) a remporté au total 1 parties sur 10, soit un taux de victoire de 10.0%.
+Il a obtenue au maximum 43 points avec la merveille HALIKARNASSOS, et avec les cartes :
+	Palissade, Comptoir EST, Bassin Argileux, Tour de Garde, Exploitation Forestière, Officine, Forum, Métier à Tisser, Excavation, Ludus, Ludus, Sénat, Castrum, Guilde des Commerçants.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 34.5 points.
+	- 5.6 points grâce aux Bâtiments civils.
+	- 1.2 points Scientifique.
+	- 15.8 points de Victoire de guerre.
+	- 0.4 points de Défaite guerre.
+
+Et au c des 10 parties
+Filon : 20.0
+Cirque : 30.0
+Cavité : 70.0
+Université : 10.0
+Etude : 30.0
+Guilde des Scientifiques : 10.0
+Port : 10.0
+Exploitation Forestière : 20.0
+Tour de Garde : 40.0
+Comptoir OUEST : 50.0
+Académie : 20.0
+Scierie : 20.0
+Forum : 80.0
+Champs de Tir : 30.0
+Briqueterie : 20.0
+Caserne : 70.0
+Taverne : 10.0
+Gisement : 10.0
+Place d'Armes : 120.0
+Métier à Tisser : 10.0
+Chantier : 50.0
+Bassin Argileux : 50.0
+Sénat : 20.0
+Arsenal : 70.0
+Marché : 10.0
+Muraille : 50.0
+Castrum : 80.0
+Ludus : 110.0
+Guilde des Magistrats : 10.0
+Laboratoire : 10.0
+Fonderie : 30.0
+Bazar : 10.0
+Guilde des Commerçants : 20.0
+Phare : 20.0
+Comptoir EST : 60.0
+Palace : 10.0
+Arène : 10.0
+Fosse Argileuse : 20.0
+Caravansérail : 60.0
+Excavation : 20.0
+Friche : 10.0
+Officine : 20.0
+Atelier de Siège : 20.0
+Temple : 10.0
+Palissade : 70.0
+Carrière : 40.0
+Hôtel de Ville : 10.0
+
+##### Statistiques de Alex #####
+Alex (IA Monétaire) a remporté au total 0 parties sur 10, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum 40 points avec la merveille RHODOS DE NUIT, et avec les cartes :
+	Friche, Gisement, Taverne, Excavation, Métier à Tisser, Presse, Presse, Vignoble, Briqueterie, Verrerie, Métier à Tisser, Bazar, Chambre de Commerce, Guilde des Philosophes, Phare, Port, Phare, Guilde des Armateurs.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 28.5 points.
+	- 3.1 points grâce aux Bâtiments civils.
+	- 0.5 points Scientifique.
+	- 4.9 points de Victoire de guerre.
+	- 3.3 points de Défaite guerre.
+
+Et au c des 10 parties
+Filon : 10.0
+Cirque : 70.0
+Guilde des Scientifiques : 10.0
+Port : 50.0
+Exploitation Forestière : 30.0
+Jardins : 10.0
+Comptoir OUEST : 10.0
+Scierie : 40.0
+Guilde des Espions : 30.0
+Briqueterie : 40.0
+Taverne : 130.0
+Guilde des Artisans : 10.0
+Chambre de Commerce : 70.0
+Métier à Tisser : 200.0
+Place d'Armes : 30.0
+Gisement : 30.0
+Panthéon : 10.0
+Mine : 20.0
+Marché : 40.0
+Muraille : 10.0
+Observatoire : 20.0
+Arsenal : 30.0
+Castrum : 20.0
+Presse : 160.0
+Vignoble : 40.0
+Guilde des Philosophes : 30.0
+Guilde des Armateurs : 40.0
+Guilde des Magistrats : 20.0
+Bains : 10.0
+Verrerie : 90.0
+Bazar : 70.0
+Fonderie : 50.0
+Phare : 80.0
+Comptoir EST : 10.0
+Arène : 10.0
+Fosse Argileuse : 30.0
+Caravansérail : 10.0
+Friche : 40.0
+Excavation : 10.0
+Scriptorium : 10.0
+Atelier : 10.0
+Carrière : 50.0
+Hôtel de Ville : 10.0
+Fortification : 50.0
+Ecuries : 10.0
+
+##### Statistiques de Fred #####
+Fred (IA Composite) a remporté au total 4 parties sur 10, soit un taux de victoire de 40.0%.
+Il a obtenue au maximum 49 points avec la merveille HALIKARNASSOS DE NUIT, et avec les cartes :
+	Marché, Chantier, Officine, Atelier, Atelier, Métier à Tisser, Caravansérail, Dispensaire, Bibliothèque, Caravansérail, Autel, Aqueduc, Palace, Académie, Etude, Arène.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 38.2 points.
+	- 16.4 points grâce aux Bâtiments civils.
+	- 13.2 points Scientifique.
+	- 5.1 points de Victoire de guerre.
+	- 1.5 points de Défaite guerre.
+
+Et au c des 10 parties
+Filon : 20.0
+Cavité : 10.0
+Université : 10.0
+Etude : 70.0
+Port : 30.0
+Tribunal : 30.0
+Autel : 50.0
+Jardins : 20.0
+Académie : 30.0
+Comptoir OUEST : 20.0
+Scierie : 20.0
+Forum : 20.0
+Briqueterie : 30.0
+Caserne : 20.0
+Taverne : 30.0
+Métier à Tisser : 60.0
+Chantier : 20.0
+Bassin Argileux : 10.0
+Castrum : 20.0
+Vignoble : 40.0
+Guilde des Magistrats : 10.0
+Verrerie : 60.0
+Fonderie : 40.0
+Bazar : 20.0
+Palace : 10.0
+Officine : 60.0
+Scriptorium : 20.0
+Atelier de Siège : 20.0
+Statue : 10.0
+Bibliothèque : 10.0
+Hôtel de Ville : 40.0
+Cirque : 10.0
+Exploitation Forestière : 20.0
+Tour de Garde : 20.0
+Guilde des Espions : 10.0
+Champs de Tir : 10.0
+Ecole : 20.0
+Chambre de Commerce : 30.0
+Panthéon : 20.0
+Gisement : 20.0
+Guilde des Batisseurs : 20.0
+Muraille : 10.0
+Marché : 20.0
+Mine : 30.0
+Observatoire : 40.0
+Arsenal : 20.0
+Presse : 10.0
+Bains : 20.0
+Loge : 20.0
+Arène : 40.0
+Théâtre : 10.0
+Caravansérail : 20.0
+Excavation : 30.0
+Dispensaire : 40.0
+Temple : 20.0
+Atelier : 50.0
+Aqueduc : 10.0
+Carrière : 40.0
+Fortification : 40.0
+Puits : 20.0
+
