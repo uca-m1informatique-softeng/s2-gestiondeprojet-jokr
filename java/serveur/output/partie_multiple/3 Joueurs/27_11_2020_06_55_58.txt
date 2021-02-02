@@ -1,0 +1,31 @@
+
+############## Statistiques pour 3 joueurs sur 5000 parties ##############
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoires.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifiques.
+   - IA Civil        : IA construisant des bâtiments civils en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+
+
+
+##### Statistiques de Enzo #####
+Enzo (IA Civil) a remporté au total 1680 parties sur 5000, 
+BABYLON         :	35.772358%		OLYMPIA         :	32.8877%		HALIKARNASSOS   :	34.059944%		GIZAH           :	34.513275%		ALEXANDRIA      :	31.123919%		RHODOS          :	33.062332%		EPHESOS         :	31.31579%		
+BABYLON(N)      :	34.656086%		OLYMPIA(N)      :	33.237823%		HALIKARNASSOS(N):	39.18495%		GIZAH(N)        :	28.423773%		ALEXANDRIA(N)   :	30.959753%		RHODOS(N)       :	41.47059%		EPHESOS(N)      :	30.91922%		
+
+
+##### Statistiques de Dora #####
+Dora (IA Civil) a remporté au total 1665 parties sur 5000, 
+BABYLON         :	34.07202%		OLYMPIA         :	37.665783%		HALIKARNASSOS   :	36.9146%		GIZAH           :	29.239765%		ALEXANDRIA      :	29.396326%		RHODOS          :	34.94318%		EPHESOS         :	30.5949%		
+BABYLON(N)      :	36.363636%		OLYMPIA(N)      :	34.659092%		HALIKARNASSOS(N):	35.0%		GIZAH(N)        :	29.05983%		ALEXANDRIA(N)   :	30.2521%		RHODOS(N)       :	35.59322%		EPHESOS(N)      :	32.20339%		
+
+
+##### Statistiques de Alex #####
+Alex (IA Civil) a remporté au total 1655 parties sur 5000, 
+BABYLON         :	38.935574%		OLYMPIA         :	28.808865%		HALIKARNASSOS   :	38.07229%		GIZAH           :	31.17647%		ALEXANDRIA      :	30.267063%		RHODOS          :	31.52174%		EPHESOS         :	32.080925%		
+BABYLON(N)      :	36.01108%		OLYMPIA(N)      :	34.366196%		HALIKARNASSOS(N):	31.436314%		GIZAH(N)        :	29.329609%		ALEXANDRIA(N)   :	30.172413%		RHODOS(N)       :	35.52239%		EPHESOS(N)      :	34.857143%		
+

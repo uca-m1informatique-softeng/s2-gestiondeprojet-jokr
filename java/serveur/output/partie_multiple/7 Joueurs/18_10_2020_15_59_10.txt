@@ -1,0 +1,76 @@
+
+####### Statistiques des joueurs sur 1 parties #######
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoire.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifique.
+   - IA Civil        : IA construisant des bâtiment civil en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+
+Enzo (IA Random) a remporté au total 0 parties sur 1, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum : 17 points avec la merveille BABYLON, et avec les cartes :
+[Chantier]Et a obtenue en moyenne :
+   - Un score total de 17.0 points.
+   - 0.0 points grâce aux Bâtiments civils.
+   - 0.0 points Scientifique.
+   - 0.0 points de Victoire de guerre.
+   - 3.0 points de Défaite guerre.
+
+Dora (IA Scientifique) a remporté au total 0 parties sur 1, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum : 44 points avec la merveille BABYLON, et avec les cartes :
+[Comptoir OUEST, Atelier, Marché, Gisement, Cavité, Palissade, Forum, Caravansérail, Laboratoire, Fonderie, Bibliothèque, Tribunal, Etude, Castrum, Observatoire, Etude, Phare, Guilde des Travailleurs]Et a obtenue en moyenne :
+   - Un score total de 44.0 points.
+   - 4.0 points grâce aux Bâtiments civils.
+   - 26.0 points Scientifique.
+   - 9.0 points de Victoire de guerre.
+   - 0.0 points de Défaite guerre.
+
+Mona (IA Merveille) a remporté au total 0 parties sur 1, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum : 31 points avec la merveille BABYLON, et avec les cartes :
+[Métier à Tisser, Puits, Friche, Tour de Garde, Excavation, Dispensaire, Tribunal, Caravansérail, Ecole, Dispensaire, Ludus, Loge, Guilde des Décorateurs, Arsenal, Panthéon, Guilde des Magistrats]Et a obtenue en moyenne :
+   - Un score total de 31.0 points.
+   - 14.0 points grâce aux Bâtiments civils.
+   - 10.0 points Scientifique.
+   - 1.0 points de Victoire de guerre.
+   - 1.0 points de Défaite guerre.
+
+Paul (IA Civil) a remporté au total 0 parties sur 1, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum : 26 points avec la merveille BABYLON, et avec les cartes :
+[Comptoir EST, Comptoir EST, Autel, Bassin Argileux, Taverne, Temple, Statue, Place d'Armes, Temple, Champs de Tir, Guilde des Scientifiques]Et a obtenue en moyenne :
+   - Un score total de 26.0 points.
+   - 18.0 points grâce aux Bâtiments civils.
+   - 1.0 points Scientifique.
+   - 3.0 points de Victoire de guerre.
+   - 1.0 points de Défaite guerre.
+
+Lucy (IA Militaire) a remporté au total 0 parties sur 1, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum : 19 points avec la merveille BABYLON, et avec les cartes :
+[Filon, Chantier, Comptoir OUEST, Marché, Taverne, Forum, Scierie, Place d'Armes, Champs de Tir, Forum, Métier à Tisser, Observatoire, Université, Ludus, Phare]Et a obtenue en moyenne :
+   - Un score total de 19.0 points.
+   - 0.0 points grâce aux Bâtiments civils.
+   - 2.0 points Scientifique.
+   - 3.0 points de Victoire de guerre.
+   - 1.0 points de Défaite guerre.
+
+Alex (IA Monétaire) a remporté au total 0 parties sur 1, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum : 30 points avec la merveille BABYLON, et avec les cartes :
+[Taverne, Presse, Presse, Verrerie, Bassin Argileux, Fosse Argileuse, Carrière, Verrerie, Presse, Verrerie, Bazar, Vignoble, Cirque, Port, Guilde des Armateurs, Castrum, Arène, Port]Et a obtenue en moyenne :
+   - Un score total de 30.0 points.
+   - 0.0 points grâce aux Bâtiments civils.
+   - 0.0 points Scientifique.
+   - 10.0 points de Victoire de guerre.
+   - 1.0 points de Défaite guerre.
+
+Fred (IA Composite) a remporté au total 1 parties sur 1, soit un taux de victoire de 100.0%.
+Il a obtenue au maximum : 51 points avec la merveille BABYLON, et avec les cartes :
+[Filon, Autel, Théâtre, Puits, Bains, Officine, Vignoble, Aqueduc, Statue, Caravansérail, Jardins, Panthéon, Jardins]Et a obtenue en moyenne :
+   - Un score total de 51.0 points.
+   - 51.0 points grâce aux Bâtiments civils.
+   - 1.0 points Scientifique.
+   - 0.0 points de Victoire de guerre.
+   - 1.0 points de Défaite guerre.
+
+

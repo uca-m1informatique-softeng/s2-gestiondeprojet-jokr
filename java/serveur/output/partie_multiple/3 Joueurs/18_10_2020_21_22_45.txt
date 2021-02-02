@@ -1,0 +1,55 @@
+
+############## Statistiques des joueurs sur 10000 parties ##############
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoire.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifique.
+   - IA Civil        : IA construisant des bâtiment civil en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+
+
+##### Statistiques de Enzo #####
+Enzo (IA Random) a remporté au total 26 parties sur 10000, soit un taux de victoire de 0.26%.
+Il a obtenue au maximum 50 points avec la merveille OLYMPIA, et avec les cartes :
+	Fosse Argileuse, Filon, Ecuries, Champs de Tir, Carrière, Guilde des Décorateurs, Panthéon, Phare.
+
+De plus, il a obtenue en moyenne :
+   - Un score total de 20.0915 points.
+   - 7.2785 points grâce aux Bâtiments civils.
+   - 0.5094 points Scientifique.
+   - 2.1378 points de Victoire de guerre.
+   - 3.6739 points de Défaite guerre.
+
+
+
+##### Statistiques de Dora #####
+Dora (IA Scientifique) a remporté au total 5604 parties sur 10000, soit un taux de victoire de 56.04%.
+Il a obtenue au maximum 78 points avec la merveille OLYMPIA DE NUIT, et avec les cartes :
+	Scriptorium, Marché, Chantier, Tour de Garde, Comptoir OUEST, Laboratoire, Caravansérail, Ecole, Carrière, Aqueduc, Dispensaire, Académie, Etude, Guilde des Scientifiques, Université, Observatoire, Jardins.
+
+De plus, il a obtenue en moyenne :
+   - Un score total de 44.2343 points.
+   - 4.8425 points grâce aux Bâtiments civils.
+   - 26.8402 points Scientifique.
+   - 8.7324 points de Victoire de guerre.
+   - 1.63 points de Défaite guerre.
+
+
+
+##### Statistiques de Mona #####
+Mona (IA Merveille) a remporté au total 4370 parties sur 10000, soit un taux de victoire de 43.7%.
+Il a obtenue au maximum 75 points avec la merveille RHODOS, et avec les cartes :
+	Autel, Fosse Argileuse, Comptoir OUEST, Scriptorium, Tour de Garde, Bassin Argileux, Carrière, Aqueduc, Verrerie, Ecuries, Jardins, Panthéon, Hôtel de Ville, Palace, Guilde des Philosophes.
+
+De plus, il a obtenue en moyenne :
+   - Un score total de 42.1852 points.
+   - 21.0581 points grâce aux Bâtiments civils.
+   - 3.4732 points Scientifique.
+   - 10.6306 points de Victoire de guerre.
+   - 1.1247 points de Défaite guerre.
+
+
+

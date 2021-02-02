@@ -1,0 +1,441 @@
+____________________     7 Wonders       ________________________
+____________________ Commencement du Jeu ________________________
+
+Enzo a obtenue la merveille BABYLON et gagne 1 Bois
+Dora a obtenue la merveille EPHESOS et gagne 1 Papyrus
+Mona a obtenue la merveille GIZAH DE NUIT et gagne 1 Pierre
+
+
+########################## DEBUT Age N°1 ###########################
+
+
+--------------------- DEBUT TOUR N°1 ---------------------
+
+Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Marché
+Carte Gratuite !
+Dora gagne les ressources : [ReducGrisDroiteGauche]
+
+Mona choisit dans sa main la carte Bains
+Mona a payé via son Inventaire les ressources suivantes : [Pierre]
+Mona gagne les ressources : [Score, Score, Score]
+
+--------------------- FIN TOUR N°1   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°2 ---------------------
+
+Enzo choisit dans sa main la carte Officine
+Payement Refusé
+Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Comptoir OUEST
+Carte Gratuite !
+Dora gagne les ressources : [ReducMarronGauche]
+
+Mona choisit dans sa main la carte Autel
+Carte Gratuite !
+Mona gagne les ressources : [Score, Score, Score]
+
+--------------------- FIN TOUR N°2   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°3 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Chantier
+Carte Gratuite !
+Dora gagne les ressources : [Bois]
+
+Mona choisit dans sa main la carte Théâtre
+Carte Gratuite !
+Mona gagne les ressources : [Score, Score, Score]
+
+--------------------- FIN TOUR N°3   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°4 ---------------------
+
+Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Comptoir EST
+Carte Gratuite !
+Dora gagne les ressources : [ReducMarronDroite]
+
+Mona choisit dans sa main la carte Cavité
+Carte Gratuite !
+Mona gagne les ressources : [Pierre]
+
+--------------------- FIN TOUR N°4   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°5 ---------------------
+
+Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Scriptorium
+Dora a payé via son Inventaire les ressources suivantes : [Papyrus]
+Dora gagne les ressources : [Pierre de Rosette]
+
+Mona choisit dans sa main la carte Filon
+Carte Gratuite !
+Mona gagne les ressources : [Minerai]
+
+--------------------- FIN TOUR N°5   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°6 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Fosse Argileuse
+Dora a payé via son Inventaire les ressources suivantes : [Pièce]
+Dora gagne les ressources : [Argile/Minerai]
+
+Mona choisit dans sa main la carte Caserne
+Mona a payé via son Inventaire les ressources suivantes : [Minerai]
+Mona gagne les ressources : [Bouclier]
+
+--------------------- FIN TOUR N°6   ---------------------
+
+########################## Fin Age N°1 ###########################
+
+##################### La GUERRE n°1 est déclarée ######################
+
+Enzo (0 Boucliers) a engagé le combat contre Dora (0 Boucliers).
+Egalité des Boucliers, personne ne gagne.
+
+Dora (0 Boucliers) a engagé le combat contre Mona (1 Boucliers).
+Mona gagne la bataille et remporte 1 Pts de Victoire.
+Dora perd et remporte 1 Pts de Défaite.
+
+Mona (1 Boucliers) a engagé le combat contre Enzo (0 Boucliers).
+Mona gagne la bataille et remporte 1 Pts de Victoire.
+Enzo perd et remporte 1 Pts de Défaite
+
+##################### Fin de la GUERRE n°1 ######################
+
+
+
+########################## DEBUT Age N°2 ###########################
+
+
+--------------------- DEBUT TOUR N°1 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Champs de Tir
+Dora a payé via son Inventaire les ressources suivantes : [Bois]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Minerai]
+Dora a acheter à Enzo la ressource Bois pour 1 Pièces ! 
+Dora gagne les ressources : [Bouclier, Bouclier]
+
+Mona choisit dans sa main la carte Presse
+Carte Gratuite !
+Mona gagne les ressources : [Papyrus]
+
+--------------------- FIN TOUR N°1   ---------------------
+
+Dora donne ses cartes à Enzo
+Mona donne ses cartes à Dora
+Enzo donne ses cartes à Mona
+
+--------------------- DEBUT TOUR N°2 ---------------------
+
+Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Ecole
+Dora a payé via son Inventaire les ressources suivantes : [Bois, Papyrus]
+Dora gagne les ressources : [Pierre de Rosette]
+
+Mona choisit dans sa main la carte Aqueduc
+Carte chainée antérieur possédée Bains -> Construction Gratuite
+Mona gagne les ressources : [Score, Score, Score, Score, Score]
+
+--------------------- FIN TOUR N°2   ---------------------
+
+Dora donne ses cartes à Enzo
+Mona donne ses cartes à Dora
+Enzo donne ses cartes à Mona
+
+--------------------- DEBUT TOUR N°3 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Caravansérail
+Carte chainée antérieur possédée Marché -> Construction Gratuite
+Dora gagne les ressources : [Bois/Pierre/Argile/Minerai]
+
+Mona défausse sa carte et reçoit 3 pièces !
+
+--------------------- FIN TOUR N°3   ---------------------
+
+Dora donne ses cartes à Enzo
+Mona donne ses cartes à Dora
+Enzo donne ses cartes à Mona
+
+--------------------- DEBUT TOUR N°4 ---------------------
+
+Mona décide de construire le 1e étage de sa merveille !
+Mona a acheter à Enzo la ressource Bois pour 2 Pièces ! 
+Mona a acheter à Dora la ressource Bois pour 2 Pièces ! 
+Mona gagne les ressources suivantes : [Score, Score, Score]
+
+
+Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Laboratoire
+Dora a payé via son Inventaire les ressources suivantes : [Papyrus]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Argile, Argile]
+Dora gagne les ressources : [Roue]
+
+--------------------- FIN TOUR N°4   ---------------------
+
+Dora donne ses cartes à Enzo
+Mona donne ses cartes à Dora
+Enzo donne ses cartes à Mona
+
+--------------------- DEBUT TOUR N°5 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Carrière
+Dora a payé via son Inventaire les ressources suivantes : [Pièce]
+Dora gagne les ressources : [Pierre, Pierre]
+
+Mona choisit dans sa main la carte Scierie
+Mona a payé via son Inventaire les ressources suivantes : [Pièce]
+Mona gagne les ressources : [Bois, Bois]
+
+--------------------- FIN TOUR N°5   ---------------------
+
+Dora donne ses cartes à Enzo
+Mona donne ses cartes à Dora
+Enzo donne ses cartes à Mona
+
+--------------------- DEBUT TOUR N°6 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Mona décide de construire le 2e étage de sa merveille !
+Mona a payé via son Inventaire les ressources suivantes : [Pierre, Pierre]
+Mona a acheter à Dora la ressource Pierre pour 2 Pièces ! 
+Mona gagne les ressources suivantes : [Score, Score, Score, Score, Score]
+
+
+Dora choisit dans sa main la carte Forum
+Carte chainée antérieur possédée Comptoir EST -> Construction Gratuite
+Dora gagne les ressources : [Verre/Papyrus/Tissu]
+
+--------------------- FIN TOUR N°6   ---------------------
+
+########################## Fin Age N°2 ###########################
+
+##################### La GUERRE n°2 est déclarée ######################
+
+Enzo (0 Boucliers) a engagé le combat contre Dora (2 Boucliers).
+Dora gagne la bataille et remporte 3 Pts de Victoire.
+Enzo perd et remporte 1 Pts de Défaite.
+
+Dora (2 Boucliers) a engagé le combat contre Mona (1 Boucliers).
+Dora gagne la bataille et remporte 3 Pts de Victoire.
+Mona perd et remporte 1 Pts de Défaite
+
+Mona (1 Boucliers) a engagé le combat contre Enzo (0 Boucliers).
+Mona gagne la bataille et remporte 3 Pts de Victoire.
+Enzo perd et remporte 1 Pts de Défaite
+
+##################### Fin de la GUERRE n°2 ######################
+
+
+
+########################## DEBUT Age N°3 ###########################
+
+
+--------------------- DEBUT TOUR N°1 ---------------------
+
+Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Guilde des Scientifiques
+Dora a payé via son Inventaire les ressources suivantes : [Bois]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Minerai, Minerai]
+Dora a acheter à Enzo la ressource Bois pour 1 Pièces ! 
+Dora gagne le bonus : Compas/PierreDeRosette/Roue
+
+Mona choisit dans sa main la carte Sénat
+Mona a payé via son Inventaire les ressources suivantes : [Bois, Bois, Pierre, Minerai]
+Mona gagne les ressources : [Score, Score, Score, Score, Score, Score]
+
+--------------------- FIN TOUR N°1   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°2 ---------------------
+
+Enzo choisit dans sa main la carte Loge
+Payement Refusé
+Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Université
+Dora a payé via son Inventaire les ressources suivantes : [Bois, Papyrus]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Verre, Bois]
+Dora gagne les ressources : [Pierre de Rosette]
+
+Mona défausse sa carte et reçoit 3 pièces !
+
+--------------------- FIN TOUR N°2   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°3 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Etude
+Dora a payé via son Inventaire les ressources suivantes : [Bois, Papyrus]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Tissu]
+Dora gagne les ressources : [Roue]
+
+Mona choisit dans sa main la carte Panthéon
+Carte chainée antérieur possédée Autel -> Construction Gratuite
+Mona gagne les ressources : [Score, Score, Score, Score, Score, Score, Score]
+
+--------------------- FIN TOUR N°3   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°4 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Académie
+Dora a payé via son Inventaire les ressources suivantes : [Pierre, Pierre]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Verre, Pierre]
+Dora gagne les ressources : [Compas]
+
+Mona défausse sa carte et reçoit 3 pièces !
+
+--------------------- FIN TOUR N°4   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°5 ---------------------
+
+Enzo choisit dans sa main la carte Phare
+Payement Refusé
+Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora choisit dans sa main la carte Arsenal
+Dora a payé via son Inventaire les ressources suivantes : [Bois]
+Dora a payé via ses bonus Multi-Choix les ressources suivantes : [Tissu, Minerai]
+Dora a acheter à Enzo la ressource Bois pour 1 Pièces ! 
+Dora gagne les ressources : [Bouclier, Bouclier, Bouclier]
+
+Mona défausse sa carte et reçoit 3 pièces !
+
+--------------------- FIN TOUR N°5   ---------------------
+
+Enzo donne ses cartes à Dora
+Dora donne ses cartes à Mona
+Mona donne ses cartes à Enzo
+
+--------------------- DEBUT TOUR N°6 ---------------------
+
+Payement Refusé Enzo défausse sa carte et reçoit 3 pièces !
+
+Dora défausse sa carte et reçoit 3 pièces !
+
+Mona défausse sa carte et reçoit 3 pièces !
+
+--------------------- FIN TOUR N°6   ---------------------
+
+########################## Fin Age N°3 ###########################
+
+##################### La GUERRE n°3 est déclarée ######################
+
+Enzo (0 Boucliers) a engagé le combat contre Dora (5 Boucliers).
+Dora gagne la bataille et remporte 5 Pts de Victoire.
+Enzo perd et remporte 1 Pts de Défaite.
+
+Dora (5 Boucliers) a engagé le combat contre Mona (1 Boucliers).
+Dora gagne la bataille et remporte 5 Pts de Victoire.
+Mona perd et remporte 1 Pts de Défaite
+
+Mona (1 Boucliers) a engagé le combat contre Enzo (0 Boucliers).
+Mona gagne la bataille et remporte 5 Pts de Victoire.
+Enzo perd et remporte 1 Pts de Défaite
+
+##################### Fin de la GUERRE n°3 ######################
+
+Inventaire du joueur Enzo : 
+
+Pièce	:	62		Bois	:	1		Pierre	:	0		Argile	:	0		Minerai	:	0		
+Tissu	:	0		Verre	:	0		Papyrus	:	0		Score	:	0		Bouclier:	0		
+Compas	:	0		Roue	:	0		Rosette	:	0		P.Victoire:	0		P.Défaite:	5		
+
+Enzo ayant déjà 0 points grâce à son score obtient :
+	20	 points grâce à ses pièces, 
+	-5	 points via les jetons de guerre Victoire/défaite, 
+	0	 points de ses combos scientifiques
+	0	 venant du cumul des bâtiments bonus !
+Enzo à au total 15 points !
+
+Inventaire de Cartes : []
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Inventaire du joueur Dora : 
+
+Pièce	:	7		Bois	:	1		Pierre	:	2		Argile	:	0		Minerai	:	0		
+Tissu	:	0		Verre	:	0		Papyrus	:	1		Score	:	0		Bouclier:	5		
+Compas	:	1		Roue	:	2		Rosette	:	3		P.Victoire:	16		P.Défaite:	1		
+
+Dora ayant déjà 0 points grâce à son score obtient :
+	2	 points grâce à ses pièces, 
+	15	 points via les jetons de guerre Victoire/défaite, 
+	31	 points de ses combos scientifiques
+	0	 venant du cumul des bâtiments bonus !
+Dora à au total 48 points !
+
+Inventaire de Cartes : [Marché, Comptoir OUEST, Chantier, Comptoir EST, Scriptorium, Fosse Argileuse, Champs de Tir, Ecole, Caravansérail, Laboratoire, Carrière, Forum, Guilde des Scientifiques, Université, Etude, Académie, Arsenal]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Inventaire du joueur Mona : 
+
+Pièce	:	12		Bois	:	2		Pierre	:	2		Argile	:	0		Minerai	:	1		
+Tissu	:	0		Verre	:	0		Papyrus	:	1		Score	:	35		Bouclier:	1		
+Compas	:	0		Roue	:	0		Rosette	:	0		P.Victoire:	10		P.Défaite:	2		
+
+Mona ayant déjà 35 points grâce à son score obtient :
+	4	 points grâce à ses pièces, 
+	8	 points via les jetons de guerre Victoire/défaite, 
+	0	 points de ses combos scientifiques
+	0	 venant du cumul des bâtiments bonus !
+Mona à au total 47 points !
+
+Inventaire de Cartes : [Bains, Autel, Théâtre, Cavité, Filon, Caserne, Presse, Aqueduc, Scierie, Sénat, Panthéon]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Le Vainqueur est Dora avec 48 points !!!
+_____________________________ Fin de la partie _____________________________

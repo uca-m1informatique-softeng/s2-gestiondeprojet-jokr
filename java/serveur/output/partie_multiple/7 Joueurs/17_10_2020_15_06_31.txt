@@ -1,0 +1,76 @@
+
+####### Statistiques des joueurs sur 1000 parties #######
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoire.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifique.
+   - IA Civil        : IA construisant des bâtiment civil en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+
+Enzo (IA Random) a remporté au total 1 parties sur 1000, soit un taux de victoire de 0.1%.
+Il a obtenue au maximum : 39 points et cela avec la merveille : BABYLON.
+Et a obtenue en moyenne :
+   - Un score total de 19.069 points.
+   - 4.774 points grâce aux Bâtiments civils.
+   - 0.514 points Scientifique.
+   - 2.113 points de Victoire de guerre.
+   - 2.985 points de Défaite guerre.
+
+Dora (IA Scientifique) a remporté au total 355 parties sur 1000, soit un taux de victoire de 35.5%.
+Il a obtenue au maximum : 89 points et cela avec la merveille : BABYLON.
+Et a obtenue en moyenne :
+   - Un score total de 43.863 points.
+   - 3.973 points grâce aux Bâtiments civils.
+   - 28.494 points Scientifique.
+   - 7.643 points de Victoire de guerre.
+   - 1.663 points de Défaite guerre.
+
+Mona (IA Merveille) a remporté au total 132 parties sur 1000, soit un taux de victoire de 13.2%.
+Il a obtenue au maximum : 75 points et cela avec la merveille : BABYLON.
+Et a obtenue en moyenne :
+   - Un score total de 38.321 points.
+   - 18.565 points grâce aux Bâtiments civils.
+   - 4.516 points Scientifique.
+   - 8.604 points de Victoire de guerre.
+   - 1.67 points de Défaite guerre.
+
+Paul (IA Civil) a remporté au total 244 parties sur 1000, soit un taux de victoire de 24.4%.
+Il a obtenue au maximum : 68 points et cela avec la merveille : BABYLON.
+Et a obtenue en moyenne :
+   - Un score total de 42.129 points.
+   - 37.992 points grâce aux Bâtiments civils.
+   - 0.673 points Scientifique.
+   - 3.967 points de Victoire de guerre.
+   - 3.81 points de Défaite guerre.
+
+Lucy (IA Militaire) a remporté au total 34 parties sur 1000, soit un taux de victoire de 3.4%.
+Il a obtenue au maximum : 59 points et cela avec la merveille : BABYLON.
+Et a obtenue en moyenne :
+   - Un score total de 33.383 points.
+   - 6.294 points grâce aux Bâtiments civils.
+   - 1.323 points Scientifique.
+   - 16.343 points de Victoire de guerre.
+   - 0.219 points de Défaite guerre.
+
+Alex (IA Monétaire) a remporté au total 8 parties sur 1000, soit un taux de victoire de 0.8%.
+Il a obtenue au maximum : 54 points et cela avec la merveille : BABYLON.
+Et a obtenue en moyenne :
+   - Un score total de 25.915 points.
+   - 3.636 points grâce aux Bâtiments civils.
+   - 0.475 points Scientifique.
+   - 3.914 points de Victoire de guerre.
+   - 3.822 points de Défaite guerre.
+
+Fred (IA Composite) a remporté au total 226 parties sur 1000, soit un taux de victoire de 22.6%.
+Il a obtenue au maximum : 79 points et cela avec la merveille : BABYLON.
+Et a obtenue en moyenne :
+   - Un score total de 40.417 points.
+   - 15.188 points grâce aux Bâtiments civils.
+   - 10.437 points Scientifique.
+   - 8.711 points de Victoire de guerre.
+   - 1.29 points de Défaite guerre.
+
+

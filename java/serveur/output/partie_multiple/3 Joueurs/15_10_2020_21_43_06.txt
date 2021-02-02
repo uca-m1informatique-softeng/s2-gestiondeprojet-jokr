@@ -1,0 +1,35 @@
+
+####### Statistiques des joueurs sur 1000 parties #######
+
+Description des IA :
+   - IA Random  : IA prenant des décisions aléatoire.
+   - IA Logique : IA prenant des décisions un peu plus avancé.
+
+Enzo (composite) a remporté au total 247 parties sur 1000, soit un taux de victoire de 24%.
+Et a obtenue au maximum : 68 points.
+Et a obtenue en moyenne :
+   - Un score total de 40 points.
+   - 20 points grâce aux Bâtments civils.
+   - 6 points Scientifique.
+   - 7 points de Victoire de guerre.
+   - 2 points de Défaite guerre.
+
+Dora (scientifique) a remporté au total 449 parties sur 1000, soit un taux de victoire de 44%.
+Et a obtenue au maximum : 77 points.
+Et a obtenue en moyenne :
+   - Un score total de 45 points.
+   - 7 points grâce aux Bâtments civils.
+   - 25 points Scientifique.
+   - 8 points de Victoire de guerre.
+   - 2 points de Défaite guerre.
+
+Mona (IA Merveille) a remporté au total 304 parties sur 1000, soit un taux de victoire de 30%.
+Et a obtenue au maximum : 72 points.
+Et a obtenue en moyenne :
+   - Un score total de 41 points.
+   - 24 points grâce aux Bâtments civils.
+   - 2 points Scientifique.
+   - 6 points de Victoire de guerre.
+   - 2 points de Défaite guerre.
+
+

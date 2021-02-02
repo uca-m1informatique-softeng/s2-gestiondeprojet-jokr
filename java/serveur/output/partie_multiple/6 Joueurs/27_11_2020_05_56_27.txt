@@ -1,0 +1,25 @@
+
+############## Statistiques pour 6 joueurs sur 5000 parties ##############
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoires.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifiques.
+   - IA Civil        : IA construisant des bâtiments civils en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+
+BABYLON         :	0.02%		OLYMPIA         :	0.02%		HALIKARNASSOS   :	0.02%		GIZAH           :	0.0%		ALEXANDRIA      :	0.0%		RHODOS          :	0.02%		EPHESOS         :	0.0%		
+BABYLON(N)      :	0.0%		OLYMPIA(N)      :	0.06%		HALIKARNASSOS(N):	0.0%		GIZAH(N)        :	0.04%		ALEXANDRIA(N)   :	0.0%		RHODOS(N)       :	0.04%		EPHESOS(N)      :	0.02%		
+BABYLON         :	2.04%		OLYMPIA         :	2.52%		HALIKARNASSOS   :	1.7%		GIZAH           :	2.42%		ALEXANDRIA      :	2.82%		RHODOS          :	2.56%		EPHESOS         :	2.22%		
+BABYLON(N)      :	2.44%		OLYMPIA(N)      :	2.56%		HALIKARNASSOS(N):	1.76%		GIZAH(N)        :	2.18%		ALEXANDRIA(N)   :	2.96%		RHODOS(N)       :	3.06%		EPHESOS(N)      :	2.68%		
+BABYLON         :	3.86%		OLYMPIA         :	3.36%		HALIKARNASSOS   :	3.18%		GIZAH           :	2.58%		ALEXANDRIA      :	3.84%		RHODOS          :	3.68%		EPHESOS         :	3.2%		
+BABYLON(N)      :	3.3%		OLYMPIA(N)      :	2.82%		HALIKARNASSOS(N):	2.16%		GIZAH(N)        :	2.54%		ALEXANDRIA(N)   :	3.08%		RHODOS(N)       :	3.54%		EPHESOS(N)      :	3.0%		
+BABYLON         :	0.42%		OLYMPIA         :	0.32%		HALIKARNASSOS   :	0.26%		GIZAH           :	0.34%		ALEXANDRIA      :	0.4%		RHODOS          :	0.62%		EPHESOS         :	0.18%		
+BABYLON(N)      :	0.32%		OLYMPIA(N)      :	0.3%		HALIKARNASSOS(N):	0.32%		GIZAH(N)        :	0.36%		ALEXANDRIA(N)   :	0.34%		RHODOS(N)       :	0.86%		EPHESOS(N)      :	0.32%		
+BABYLON         :	0.3%		OLYMPIA         :	0.86%		HALIKARNASSOS   :	0.4%		GIZAH           :	0.36%		ALEXANDRIA      :	0.4%		RHODOS          :	0.26%		EPHESOS         :	0.38%		
+BABYLON(N)      :	0.38%		OLYMPIA(N)      :	0.48%		HALIKARNASSOS(N):	0.28%		GIZAH(N)        :	0.34%		ALEXANDRIA(N)   :	0.22%		RHODOS(N)       :	0.32%		EPHESOS(N)      :	0.28%		
+BABYLON         :	0.8%		OLYMPIA         :	1.06%		HALIKARNASSOS   :	0.68%		GIZAH           :	0.88%		ALEXANDRIA      :	0.74%		RHODOS          :	0.82%		EPHESOS         :	0.68%		
+BABYLON(N)      :	1.1%		OLYMPIA(N)      :	0.78%		HALIKARNASSOS(N):	0.56%		GIZAH(N)        :	0.74%		ALEXANDRIA(N)   :	0.56%		RHODOS(N)       :	1.04%		EPHESOS(N)      :	0.64%		
+

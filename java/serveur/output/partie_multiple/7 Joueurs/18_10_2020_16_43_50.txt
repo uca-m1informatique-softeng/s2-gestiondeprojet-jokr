@@ -1,0 +1,90 @@
+
+####### Statistiques des joueurs sur 100 parties #######
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoire.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifique.
+   - IA Civil        : IA construisant des bâtiment civil en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+
+Enzo (IA Random) a remporté au total 0 parties sur 100, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum : 39 points avec la merveille BABYLON, et avec les cartes :
+	Taverne, Métier à Tisser, Presse, Arsenal, Guilde des Travailleurs, Arène.
+
+Et a obtenue en moyenne :
+   - Un score total de 19.06 points.
+   - 5.43 points grâce aux Bâtiments civils.
+   - 0.72 points Scientifique.
+   - 1.05 points de Victoire de guerre.
+   - 3.03 points de Défaite guerre.
+
+Dora (IA Scientifique) a remporté au total 36 parties sur 100, soit un taux de victoire de 36.0%.
+Il a obtenue au maximum : 65 points avec la merveille BABYLON, et avec les cartes :
+	Filon, Scriptorium, Fosse Argileuse, Chantier, Cavité, Scierie, Carrière, Briqueterie, Dispensaire, Ecole, Laboratoire, Guilde des Scientifiques, Observatoire, Atelier de Siège, Loge, Université, Panthéon.
+
+Et a obtenue en moyenne :
+   - Un score total de 45.63 points.
+   - 3.95 points grâce aux Bâtiments civils.
+   - 29.34 points Scientifique.
+   - 8.12 points de Victoire de guerre.
+   - 1.54 points de Défaite guerre.
+
+Mona (IA Merveille) a remporté au total 15 parties sur 100, soit un taux de victoire de 15.0%.
+Il a obtenue au maximum : 57 points avec la merveille BABYLON, et avec les cartes :
+	Palissade, Taverne, Bains, Puits, Presse, Bazar, Verrerie, Briqueterie, Bazar, Métier à Tisser, Aqueduc, Panthéon, Jardins, Atelier de Siège, Guilde des Philosophes, Panthéon, Castrum.
+
+Et a obtenue en moyenne :
+   - Un score total de 37.17 points.
+   - 17.03 points grâce aux Bâtiments civils.
+   - 4.45 points Scientifique.
+   - 8.9 points de Victoire de guerre.
+   - 1.63 points de Défaite guerre.
+
+Paul (IA Civil) a remporté au total 27 parties sur 100, soit un taux de victoire de 27.0%.
+Il a obtenue au maximum : 66 points avec la merveille BABYLON, et avec les cartes :
+	Autel, Bains, Comptoir OUEST, Filon, Puits, Statue, Forum, Temple, Muraille, Temple, Panthéon, Panthéon, Hôtel de Ville, Sénat, Hôtel de Ville.
+
+Et a obtenue en moyenne :
+   - Un score total de 42.37 points.
+   - 39.52 points grâce aux Bâtiments civils.
+   - 0.37 points Scientifique.
+   - 3.47 points de Victoire de guerre.
+   - 4.02 points de Défaite guerre.
+
+Lucy (IA Militaire) a remporté au total 4 parties sur 100, soit un taux de victoire de 4.0%.
+Il a obtenue au maximum : 49 points avec la merveille BABYLON, et avec les cartes :
+	Bassin Argileux, Marché, Chantier, Tour de Garde, Officine, Théâtre, Forum, Caravansérail, Ecuries, Caravansérail, Carrière, Castrum, Cirque, Ludus, Palace, Observatoire, Guilde des Commerçants.
+
+Et a obtenue en moyenne :
+   - Un score total de 34.06 points.
+   - 6.44 points grâce aux Bâtiments civils.
+   - 1.22 points Scientifique.
+   - 16.87 points de Victoire de guerre.
+   - 0.16 points de Défaite guerre.
+
+Alex (IA Monétaire) a remporté au total 0 parties sur 100, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum : 49 points avec la merveille BABYLON, et avec les cartes :
+	Taverne, Gisement, Excavation, Exploitation Forestière, Tour de Garde, Fonderie, Scierie, Vignoble, Presse, Bazar, Guilde des Espions, Phare, Phare, Guilde des Armateurs, Guilde des Artisans.
+
+Et a obtenue en moyenne :
+   - Un score total de 25.7 points.
+   - 4.02 points grâce aux Bâtiments civils.
+   - 0.36 points Scientifique.
+   - 4.17 points de Victoire de guerre.
+   - 3.79 points de Défaite guerre.
+
+Fred (IA Composite) a remporté au total 18 parties sur 100, soit un taux de victoire de 18.0%.
+Il a obtenue au maximum : 70 points avec la merveille BABYLON, et avec les cartes :
+	Officine, Atelier, Officine, Cavité, Scriptorium, Métier à Tisser, Carrière, Dispensaire, Ecuries, Métier à Tisser, Dispensaire, Loge, Académie, Observatoire, Loge.
+
+Et a obtenue en moyenne :
+   - Un score total de 40.45 points.
+   - 15.35 points grâce aux Bâtiments civils.
+   - 10.94 points Scientifique.
+   - 8.7 points de Victoire de guerre.
+   - 1.29 points de Défaite guerre.
+
+

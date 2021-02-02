@@ -1,0 +1,130 @@
+
+############## Statistiques des joueurs sur 1 parties ##############
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoire.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifique.
+   - IA Civil        : IA construisant des bâtiment civil en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+
+
+
+##### Statistiques de Enzo #####
+Enzo (IA Random) a remporté au total 0 parties sur 1, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum 21 points avec la merveille OLYMPIA, et avec les cartes :
+	Fosse Argileuse, Ecole, Phare, Sénat, Guilde des Artisans.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 21.0 points.
+	- 16.0 points grâce aux Bâtiments civils.
+	- 1.0 points Scientifique.
+	- 0.0 points de Victoire de guerre.
+	- 5.0 points de Défaite guerre.
+
+Et au cours des 1 parties
+Ecole 			: 100.0%		Guilde des Artisans 			: 100.0%		Phare 			: 100.0%		Fosse Argileuse 			: 100.0%		Sénat 			: 100.0%		
+
+##### Statistiques de Dora #####
+Dora (IA Scientifique) a remporté au total 0 parties sur 1, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum 42 points avec la merveille HALIKARNASSOS, et avec les cartes :
+	Comptoir OUEST, Comptoir EST, Bassin Argileux, Officine, Théâtre, Autel, Fonderie, Fonderie, Ecuries, Tribunal, Fortification, Panthéon.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 42.0 points.
+	- 20.0 points grâce aux Bâtiments civils.
+	- 1.0 points Scientifique.
+	- 13.0 points de Victoire de guerre.
+	- 1.0 points de Défaite guerre.
+
+Et au cours des 1 parties
+Fonderie 			: 200.0%		Panthéon 			: 100.0%		Comptoir EST 			: 100.0%		Bassin Argileux 			: 100.0%		Théâtre 			: 100.0%		Officine 			: 100.0%		
+Tribunal 			: 100.0%		Comptoir OUEST 			: 100.0%		Autel 			: 100.0%		Fortification 			: 100.0%		Ecuries 			: 100.0%		
+
+##### Statistiques de Mona #####
+Mona (IA Merveille) a remporté au total 0 parties sur 1, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum 34 points avec la merveille GIZAH, et avec les cartes :
+	Théâtre, Bains, Bassin Argileux, Excavation, Marché, Taverne, Forum, Aqueduc, Temple, Ecuries, Vignoble, Place d'Armes, Guilde des Batisseurs, Chambre de Commerce, Hôtel de Ville, Port, Ludus, Jardins.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 34.0 points.
+	- 26.0 points grâce aux Bâtiments civils.
+	- 0.0 points Scientifique.
+	- 6.0 points de Victoire de guerre.
+	- 3.0 points de Défaite guerre.
+
+Et au cours des 1 parties
+Bains 			: 100.0%		Théâtre 			: 100.0%		Port 			: 100.0%		Excavation 			: 100.0%		Jardins 			: 100.0%		Forum 			: 100.0%		
+Taverne 			: 100.0%		Chambre de Commerce 			: 100.0%		Place d'Armes 			: 100.0%		Guilde des Batisseurs 			: 100.0%		Temple 			: 100.0%		Bassin Argileux 			: 100.0%		
+Marché 			: 100.0%		Aqueduc 			: 100.0%		Ludus 			: 100.0%		Hôtel de Ville 			: 100.0%		Vignoble 			: 100.0%		Ecuries 			: 100.0%		
+
+
+##### Statistiques de Paul #####
+Paul (IA Civil) a remporté au total 1 parties sur 1, soit un taux de victoire de 100.0%.
+Il a obtenue au maximum 46 points avec la merveille BABYLON DE NUIT, et avec les cartes :
+	Puits, Comptoir EST, Puits, Bains, Autel, Tour de Garde, Statue, Bazar, Métier à Tisser, Aqueduc, Statue, Atelier de Siège, Atelier de Siège, Guilde des Magistrats, Panthéon, Sénat.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 46.0 points.
+	- 38.0 points grâce aux Bâtiments civils.
+	- 0.0 points Scientifique.
+	- 6.0 points de Victoire de guerre.
+	- 4.0 points de Défaite guerre.
+
+Et au cours des 1 parties
+Bains 			: 100.0%		Bazar 			: 100.0%		Comptoir EST 			: 100.0%		Tour de Garde 			: 100.0%		Autel 			: 100.0%		Métier à Tisser 			: 100.0%		
+Panthéon 			: 100.0%		Atelier de Siège 			: 200.0%		Statue 			: 200.0%		Sénat 			: 100.0%		Aqueduc 			: 100.0%		Puits 			: 200.0%		
+Guilde des Magistrats 			: 100.0%		
+
+##### Statistiques de Lucy #####
+Lucy (IA Militaire) a remporté au total 0 parties sur 1, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum 40 points avec la merveille EPHESOS, et avec les cartes :
+	Comptoir OUEST, Palissade, Filon, Atelier, Palissade, Taverne, Forum, Scierie, Briqueterie, Champs de Tir, Caravansérail, Laboratoire, Ludus, Cirque, Castrum, Arsenal, Guilde des Scientifiques, Université.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 40.0 points.
+	- 0.0 points grâce aux Bâtiments civils.
+	- 13.0 points Scientifique.
+	- 18.0 points de Victoire de guerre.
+	- 0.0 points de Défaite guerre.
+
+Et au cours des 1 parties
+Laboratoire 			: 100.0%		Filon 			: 100.0%		Cirque 			: 100.0%		Université 			: 100.0%		Guilde des Scientifiques 			: 100.0%		Caravansérail 			: 100.0%		
+Comptoir OUEST 			: 100.0%		Scierie 			: 100.0%		Forum 			: 100.0%		Champs de Tir 			: 100.0%		Briqueterie 			: 100.0%		Taverne 			: 100.0%		
+Atelier 			: 100.0%		Arsenal 			: 100.0%		Palissade 			: 200.0%		Castrum 			: 100.0%		Ludus 			: 100.0%		
+
+##### Statistiques de Alex #####
+Alex (IA Monétaire) a remporté au total 0 parties sur 1, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum 6 points avec la merveille ALEXANDRIA, et avec les cartes :
+	Friche, Verrerie, Presse, Métier à Tisser, Mine, Taverne, Verrerie, Carrière, Presse, Verrerie, Place d'Armes, Carrière, Chambre de Commerce, Observatoire, Cirque, Guilde des Décorateurs, Guilde des Philosophes, Phare.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 6.0 points.
+	- 0.0 points grâce aux Bâtiments civils.
+	- 1.0 points Scientifique.
+	- 0.0 points de Victoire de guerre.
+	- 6.0 points de Défaite guerre.
+
+Et au cours des 1 parties
+Verrerie 			: 300.0%		Cirque 			: 100.0%		Phare 			: 100.0%		Friche 			: 100.0%		Taverne 			: 100.0%		Chambre de Commerce 			: 100.0%		
+Métier à Tisser 			: 100.0%		Place d'Armes 			: 100.0%		Mine 			: 100.0%		Observatoire 			: 100.0%		Presse 			: 200.0%		Carrière 			: 200.0%		
+Guilde des Décorateurs 			: 100.0%		Guilde des Philosophes 			: 100.0%		
+
+##### Statistiques de Fred #####
+Fred (IA Composite) a remporté au total 0 parties sur 1, soit un taux de victoire de 0.0%.
+Il a obtenue au maximum 30 points avec la merveille RHODOS DE NUIT, et avec les cartes :
+	Filon, Caserne, Caserne, Cavité, Cavité, Tour de Garde, Briqueterie, Scierie, Muraille, Forum, Champs de Tir, Port, Castrum, Arène, Loge, Arène, Guilde des Espions.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 30.0 points.
+	- 3.0 points grâce aux Bâtiments civils.
+	- 1.0 points Scientifique.
+	- 18.0 points de Victoire de guerre.
+	- 0.0 points de Défaite guerre.
+
+Et au cours des 1 parties
+Filon 			: 100.0%		Cavité 			: 200.0%		Arène 			: 200.0%		Loge 			: 100.0%		Port 			: 100.0%		Tour de Garde 			: 100.0%		
+Scierie 			: 100.0%		Guilde des Espions 			: 100.0%		Forum 			: 100.0%		Champs de Tir 			: 100.0%		Briqueterie 			: 100.0%		Caserne 			: 200.0%		
+Muraille 			: 100.0%		Castrum 			: 100.0%		

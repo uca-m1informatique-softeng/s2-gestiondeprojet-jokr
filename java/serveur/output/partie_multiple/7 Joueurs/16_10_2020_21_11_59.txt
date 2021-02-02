@@ -1,0 +1,71 @@
+
+####### Statistiques des joueurs sur 1000 parties #######
+
+Description des IA :
+   - IA Random  : IA prenant des décisions aléatoire.
+   - IA Logique : IA prenant des décisions un peu plus avancé.
+
+Enzo (IA Random) a remporté au total 0 parties sur 1000, soit un taux de victoire de 0.0%.
+Et a obtenue au maximum : 42 points.
+Et a obtenue en moyenne :
+   - Un score total de 19.107 points.
+   - 4.897 points grâce aux Bâtiments civils.
+   - 0.542 points Scientifique.
+   - 2.08 points de Victoire de guerre.
+   - 2.945 points de Défaite guerre.
+
+Dora (scientifique) a remporté au total 352 parties sur 1000, soit un taux de victoire de 35.2%.
+Et a obtenue au maximum : 80 points.
+Et a obtenue en moyenne :
+   - Un score total de 43.595 points.
+   - 4.0 points grâce aux Bâtiments civils.
+   - 27.875 points Scientifique.
+   - 7.875 points de Victoire de guerre.
+   - 1.674 points de Défaite guerre.
+
+Mona (IA Merveille) a remporté au total 157 parties sur 1000, soit un taux de victoire de 15.7%.
+Et a obtenue au maximum : 64 points.
+Et a obtenue en moyenne :
+   - Un score total de 38.322 points.
+   - 18.587 points grâce aux Bâtiments civils.
+   - 4.274 points Scientifique.
+   - 9.021 points de Victoire de guerre.
+   - 1.679 points de Défaite guerre.
+
+Paul (civil) a remporté au total 210 parties sur 1000, soit un taux de victoire de 21.0%.
+Et a obtenue au maximum : 68 points.
+Et a obtenue en moyenne :
+   - Un score total de 41.466 points.
+   - 37.612 points grâce aux Bâtiments civils.
+   - 0.585 points Scientifique.
+   - 3.778 points de Victoire de guerre.
+   - 3.917 points de Défaite guerre.
+
+Lucy (militaire) a remporté au total 37 parties sur 1000, soit un taux de victoire de 3.7%.
+Et a obtenue au maximum : 56 points.
+Et a obtenue en moyenne :
+   - Un score total de 33.187 points.
+   - 6.099 points grâce aux Bâtiments civils.
+   - 1.309 points Scientifique.
+   - 16.222 points de Victoire de guerre.
+   - 0.258 points de Défaite guerre.
+
+Alex (monetaire) a remporté au total 8 parties sur 1000, soit un taux de victoire de 0.8%.
+Et a obtenue au maximum : 54 points.
+Et a obtenue en moyenne :
+   - Un score total de 26.11 points.
+   - 3.499 points grâce aux Bâtiments civils.
+   - 0.487 points Scientifique.
+   - 3.783 points de Victoire de guerre.
+   - 3.78 points de Défaite guerre.
+
+Fred (composite) a remporté au total 236 parties sur 1000, soit un taux de victoire de 23.6%.
+Et a obtenue au maximum : 80 points.
+Et a obtenue en moyenne :
+   - Un score total de 40.746 points.
+   - 15.524 points grâce aux Bâtiments civils.
+   - 10.65 points Scientifique.
+   - 8.556 points de Victoire de guerre.
+   - 1.222 points de Défaite guerre.
+
+
