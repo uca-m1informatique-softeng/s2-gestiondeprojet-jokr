@@ -1,6 +1,7 @@
 package sw_aventure.seven_wonders;
 
 import exception.NegativeNumberException;
+import sw_aventure.joueur.FacadeJoueur;
 import sw_aventure.joueur.Joueur;
 import sw_aventure.objetjeu.*;
 import metier.EnumRessources;
@@ -175,8 +176,8 @@ public class DeroulementJeu {
             for (int j = nbJoueurs-1; j>=0; j--) {
                 int i = nbJoueurs-1-j;
                 SetInventaire s = inv.get(i);
-                if (choix[i][0]==1){  // si il veut construire merveille
-                } else { // jouer ou défausser une carte sinon
+                if (choix[i][0] != 1) {  // si il ne veut pas construire sa merveille
+                    // jouer ou défausser une carte
                     Carte choixCarte = mainJoueurs.get(s.getJoueur().getId()).getMain().get(choix[i][1]);
                     if (choix[i][0]==3) { // défausser
                         s.casDefausse();

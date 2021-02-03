@@ -3,6 +3,7 @@ package sw_aventure.objetjeu;
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
+import sw_aventure.joueur.FacadeJoueur;
 import sw_aventure.seven_wonders.Plateau;
 import utils.affichage.Colors;
 import sw_aventure.joueur.Joueur;
@@ -29,7 +30,7 @@ public class Inventaire {
      */
 
     public Inventaire(int id, Strategy ia, String name) {  // Dictionnaire
-        this.joueurName = new Joueur(id,ia,name,this); // création du joueur
+        this.joueurName = FacadeJoueur.newJoueur(id,ia,name,this); // création du joueur
         listeCarte = new ArrayList<>();
         initSac();
     }

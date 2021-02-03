@@ -2,6 +2,7 @@ package sw_aventure.seven_wonders;
 
 import exception.NegativeNumberException;
 import metier.EnumRessources;
+import sw_aventure.joueur.FacadeJoueur;
 import sw_aventure.objetjeu.Carte;
 import sw_aventure.objetjeu.Construction;
 import sw_aventure.objetjeu.MainJoueur;
@@ -107,16 +108,17 @@ public class ActionDeJeu {
      * @return True si il souhaite et qu'il peut construire sa merveille / false sinon
      */
     public boolean constructionMerveille(SetInventaire s, Plateau plateau) throws NegativeNumberException {
-        Boolean constructMerveille = s.getJoueur().jouerMerveille(mainJoueurs.get(s.getJoueur().getId()).getMain(), plateau);
+        Boolean constructMerveille = FacadeJoueur.jouerMerveille(s.getJoueur(), mainJoueurs.get(s.getJoueur().getId()).getMain(), plateau);
 
         if(s.getMerveille().peutAmeliorerMerveille() && constructMerveille) {
-            int pick = s.getJoueur().constructMerveille(mainJoueurs.get(s.getJoueur().getId()).getMain(),plateau);
+            int pick = FacadeJoueur.constructMerveille(s.getJoueur(), mainJoueurs.get(s.getJoueur().getId()).getMain(),plateau);
             Carte aConstruire = s.getMerveille().getCarteAConstruire();
             if (!merveilleConstruire(aConstruire, s , plateau)){
                 paquetDefausse.add(mainJoueurs.get(s.getJoueur().getId()).getMain().get(pick));
             }
             return true;
-        }return false ;
+        }
+        return false ;
     }
 
     /**
@@ -184,14 +186,14 @@ public class ActionDeJeu {
             SetInventaire s = inv.get(i);
             if(constructionMerveille(s, plateau)){
                 choix[i][0] = 1 ; // construire merveille
-            }else{
-                int pick = s.getJoueur().choixCarte(mainJoueurs.get(s.getJoueur().getId()).getMain(), plateau);
+            } else {
+                int pick = FacadeJoueur.choixCarte(s.getJoueur(), mainJoueurs.get(s.getJoueur().getId()).getMain(), plateau);
                 Carte choixCarte = mainJoueurs.get(s.getJoueur().getId()).getMain().get(pick);
                 choix[i][1] = pick; // quelle carte jouer
-                boolean defausse = s.getJoueur().jouerdefausse(choixCarte, plateau);
-                if(defausse){
+                boolean defausse = FacadeJoueur.jouerDefausse(s.getJoueur(), choixCarte, plateau);
+                if (defausse) {
                     choix[i][0] = 3 ; // défausser
-                }else{
+                } else {
                     choix[i][0] = 2 ; // construire
                 }
             }
