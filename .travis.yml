@@ -3,10 +3,12 @@ jdk:
   - openjdk11
 script:
   - cd java
-  - mvn test
-  - cd commun
-  - mvn exec:java &
+  - mvn install
+#  - cd commun
+#  - mvn exec:java &
   - cd ../serveur
-  - mvn exec:java &
+  - java -jar serveur-1.0-jar-with-dependencies.jar
+#  - mvn exec:java &
   - cd ../sevenw
-  - mvn exec:java
+  - java -jar sevenw-1.0-jar-with-dependencies.jar
+#  - mvn exec:java
