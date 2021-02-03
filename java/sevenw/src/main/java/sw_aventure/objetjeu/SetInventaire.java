@@ -1,6 +1,7 @@
 package sw_aventure.objetjeu;
 
 import metier.Strategy;
+import sw_aventure.joueur.FacadeJoueur;
 import sw_aventure.seven_wonders.Plateau;
 import metier.EnumRessources;
 import utils.affichage.Colors;
@@ -139,7 +140,8 @@ public class SetInventaire extends Inventaire{
         List<Carte> paquetDefausse = defausse; // on copie la defausse
         boolean choisirUneCarte = true; // le joueur doit choisir une carte a jouer depuis la defausse
         while (choisirUneCarte && !paquetDefausse.isEmpty()) { // tant qu'il doit choisir et que la défausse n'est pas vide
-            int choixDuJoueur = getJoueur().jouerGratuitementDanslaDefausse(defausse, plateau); // le n° de la carte choisie
+            //int choixDuJoueur = getJoueur().jouerGratuitementDanslaDefausse(defausse, plateau); // le n° de la carte choisie
+            int choixDuJoueur = FacadeJoueur.jouerGratuitementDanslaDefausse(getJoueur(),defausse, plateau); // le n° de la carte choisie
             Carte carteDefausse = defausse.get(choixDuJoueur); // la carte en question
             LoggerSevenWonders.ajoutln(getJoueur().getName() + " choisit de jouer gratuitement " + carteDefausse.getNom() + " depuis la défausse");
             if (getListeCarte().contains(carteDefausse.getNom())) { // si il possède déjà cette carte

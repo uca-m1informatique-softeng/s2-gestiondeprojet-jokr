@@ -1,5 +1,6 @@
 package sw_aventure.joueur;
 
+import metier.EnumRessources;
 import metier.Strategy;
 import sw_aventure.objetjeu.Carte;
 import sw_aventure.objetjeu.Inventaire;
@@ -17,19 +18,42 @@ public interface FacadeJoueur {
      * @param inv L'inventaire dont le joueur dépend
      * @return Le nouveau joueur associé aux paramètres fournis
      */
-    public static Joueur newJoueur(int id, Strategy strategie, String name, Inventaire inv) {
+    static Joueur newJoueur(int id, Strategy strategie, String name, Inventaire inv) {
         return new Joueur(id, strategie, name, inv);
     }
 
     /**
-     * Étant donné un plateau et une main, renvoie la carte que le joueur choisirait
+     * Étant donné une carte et un plateau, renvoie si le joueur veut défausser la carte ou non
      * @param j le Joueur qui choisit la carte
-     * @param main la main du joueur
+     * @param carte la carte à défausser ou non
      * @param plateau le plateau sur lequel est le joueur
-     * @return l'indice de la carte renvoyée
+     * @return true si la carte est à défausser, false sinon
      */
-    public static int choixCarte(Joueur j, List<Carte> main, Plateau plateau) {
-        return j.choixCarte(main, plateau);
+    static boolean jouerDefausse(Joueur j, Carte carte, Plateau plateau) {
+        return j.jouerdefausse(carte, plateau);
+    }
+
+    /**
+     * Demande à l'IA du joueur si elle veut acheter à gauche ou à droite
+     * @param j le joueur
+     * @param ressource la ressource à acheter
+     * @param gauche l'inventaire du joueur de gauche
+     * @param droite l'inventaire du joueur de droite
+     * @return True Gauche / False Droite
+     */
+    static Boolean achatRessource(Joueur j, EnumRessources ressource, Inventaire gauche, Inventaire droite){
+        return j.achatRessource(ressource,gauche,droite);
+    }
+
+    /**
+     * Demande à l'IA du joueur quelle carte de la défausse elle souhaite jouer
+     * @param j le joueur
+     * @param paquetDefausse Le paquet de défausse
+     * @param plateau Le plateau de jeu (contenant les inventaires des autres joueur)
+     * @return Index de la carte à jouer depuis la défausse
+     */
+    static int jouerGratuitementDanslaDefausse(Joueur j, List<Carte> paquetDefausse, Plateau plateau){
+        return j.jouerGratuitementDanslaDefausse(paquetDefausse,plateau);
     }
 
     /**
@@ -39,7 +63,7 @@ public interface FacadeJoueur {
      * @param plateau le plateau sur lequel est le joueur
      * @return true si le joueur veut construire une étape, false sinon
      */
-    public static boolean jouerMerveille(Joueur j, List<Carte> main, Plateau plateau) {
+    static boolean jouerMerveille(Joueur j, List<Carte> main, Plateau plateau) {
         return j.jouerMerveille(main, plateau);
     }
 
@@ -51,18 +75,19 @@ public interface FacadeJoueur {
      * @param plateau le plateau sur lequel est le joueur
      * @return l'indice de la carte à sacrifier
      */
-    public static int constructMerveille(Joueur j, List<Carte> main, Plateau plateau) {
+    static int constructMerveille(Joueur j, List<Carte> main, Plateau plateau) {
         return j.constructMerveille(main, plateau);
     }
 
     /**
-     * Étant donné une carte et un plateau, renvoie si le joueur veut défausser la carte ou non
+     * Étant donné un plateau et une main, renvoie la carte que le joueur choisirait
      * @param j le Joueur qui choisit la carte
-     * @param carte la carte à défausser ou non
+     * @param main la main du joueur
      * @param plateau le plateau sur lequel est le joueur
-     * @return true si la carte est à défausser, false sinon
+     * @return l'indice de la carte renvoyée
      */
-    public static boolean jouerDefausse(Joueur j, Carte carte, Plateau plateau) {
-        return j.jouerdefausse(carte, plateau);
+    static int choixCarte(Joueur j, List<Carte> main, Plateau plateau) {
+        return j.choixCarte(main, plateau);
     }
+
 }
