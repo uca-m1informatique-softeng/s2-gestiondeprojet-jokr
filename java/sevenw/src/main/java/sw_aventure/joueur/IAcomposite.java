@@ -1,5 +1,5 @@
 package sw_aventure.joueur;
-import sw_aventure.objetjeu.Carte;
+import objet_commun.Carte;
 import sw_aventure.seven_wonders.Plateau;
 import java.util.List;
 import metier.Wonder;

@@ -3,7 +3,7 @@ package sw_aventure.joueur;
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Wonder;
-import sw_aventure.objetjeu.Carte;
+import objet_commun.Carte;
 import sw_aventure.objetjeu.Construction;
 import sw_aventure.seven_wonders.FacadeMoteur;
 import sw_aventure.seven_wonders.Plateau;

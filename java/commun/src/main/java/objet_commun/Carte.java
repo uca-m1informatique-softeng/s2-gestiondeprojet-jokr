@@ -1,4 +1,4 @@
-package sw_aventure.objetjeu;
+package objet_commun;
 import metier.EnumCarte;
 import metier.EnumRessources;
 

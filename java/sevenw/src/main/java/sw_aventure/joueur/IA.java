@@ -1,7 +1,6 @@
 package sw_aventure.joueur;
 
-import sw_aventure.objetjeu.Carte;
-import sw_aventure.objetjeu.Construction;
+import objet_commun.Carte;
 import sw_aventure.objetjeu.Inventaire;
 import sw_aventure.seven_wonders.FacadeMoteur;
 import sw_aventure.seven_wonders.Plateau;

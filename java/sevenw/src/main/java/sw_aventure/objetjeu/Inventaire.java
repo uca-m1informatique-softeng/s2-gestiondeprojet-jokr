@@ -1,5 +1,6 @@
 package sw_aventure.objetjeu;
 
+import objet_commun.Merveille;
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;

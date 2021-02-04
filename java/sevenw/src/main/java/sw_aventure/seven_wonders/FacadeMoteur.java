@@ -1,5 +1,6 @@
 package sw_aventure.seven_wonders;
 
+import objet_commun.Carte;
 import sw_aventure.joueur.Joueur;
 import sw_aventure.objetjeu.*;
 

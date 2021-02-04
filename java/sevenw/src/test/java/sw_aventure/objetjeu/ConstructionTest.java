@@ -1,5 +1,6 @@
 package sw_aventure.objetjeu;
 
+import objet_commun.Carte;
 import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.EnumRessources;

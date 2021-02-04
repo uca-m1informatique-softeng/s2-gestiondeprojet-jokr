@@ -1,10 +1,10 @@
 package sw_aventure.objetjeu;
 
+import objet_commun.Carte;
+import objet_commun.Merveille;
 import metier.EnumCarte;
 import metier.EnumRessources;
-import metier.Strategy;
 import metier.Wonder;
-import sw_aventure.joueur.Joueur;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -20,7 +20,6 @@ public class GenererMerveilleTest {
 
     private GenererMerveille genererMerveille;
     private ArrayList<Carte> etape;
-    private Joueur joueur;
 
     @Mock
     private GenererMerveille gMerveille;
@@ -34,9 +33,6 @@ public class GenererMerveilleTest {
     public void setup() {
         genererMerveille = new GenererMerveille();
         etape = new ArrayList<>();
-        Inventaire inv = new Inventaire(1, Strategy.RANDOM, "Enzo");
-        joueur = inv.getJoueur();
-
         gMerveille = Mockito.mock(GenererMerveille.class);
     }
 
@@ -47,8 +43,8 @@ public class GenererMerveilleTest {
      */
     @Test
     public void getMerveille() {
-        gMerveille.getMerveille(Wonder.HALIKARNASSOS, joueur);
-        Mockito.verify(gMerveille).getMerveille(Wonder.HALIKARNASSOS, joueur);
+        gMerveille.getMerveille(Wonder.HALIKARNASSOS);
+        Mockito.verify(gMerveille).getMerveille(Wonder.HALIKARNASSOS);
     }
 
 
@@ -61,9 +57,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI,EnumRessources.MINERAI,EnumRessources.TISSU), Collections.singletonList(EnumRessources.BONUSCPR)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS,EnumRessources.BOIS,EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
 
-        Merveille babylon = new Merveille(Wonder.BABYLON,EnumRessources.BOIS, etape, joueur);
+        Merveille babylon = new Merveille(Wonder.BABYLON,EnumRessources.BOIS, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.BABYLON, joueur), babylon);
+        assertEquals(genererMerveille.getMerveille(Wonder.BABYLON), babylon);
     }
 
 
@@ -76,9 +72,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS), Collections.singletonList(EnumRessources.BONUSAGECOULEUR)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE,EnumRessources.ARGILE,EnumRessources.ARGILE), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
 
-        Merveille olympia = new Merveille(Wonder.OLYMPIA,EnumRessources.ARGILE, etape, joueur);
+        Merveille olympia = new Merveille(Wonder.OLYMPIA,EnumRessources.ARGILE, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.OLYMPIA, joueur), olympia);
+        assertEquals(genererMerveille.getMerveille(Wonder.OLYMPIA), olympia);
     }
 
 
@@ -91,9 +87,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE,EnumRessources.ARGILE,EnumRessources.TISSU), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.PIERRE,EnumRessources.PIERRE,EnumRessources.PIERRE,EnumRessources.PIERRE), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
 
-        Merveille gizah = new Merveille(Wonder.GIZAH,EnumRessources.PIERRE, etape, joueur);
+        Merveille gizah = new Merveille(Wonder.GIZAH,EnumRessources.PIERRE, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.GIZAH, joueur), gizah);
+        assertEquals(genererMerveille.getMerveille(Wonder.GIZAH), gizah);
     }
 
 
@@ -106,9 +102,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE,EnumRessources.ARGILE,EnumRessources.ARGILE), Arrays.asList(EnumRessources.BOUCLIER,EnumRessources.BOUCLIER,EnumRessources.BOUCLIER)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI,EnumRessources.MINERAI,EnumRessources.MINERAI,EnumRessources.MINERAI), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
 
-        Merveille rhodos = new Merveille(Wonder.RHODOS,EnumRessources.MINERAI, etape, joueur);
+        Merveille rhodos = new Merveille(Wonder.RHODOS,EnumRessources.MINERAI, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.RHODOS, joueur), rhodos);
+        assertEquals(genererMerveille.getMerveille(Wonder.RHODOS), rhodos);
     }
 
 
@@ -121,9 +117,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI,EnumRessources.MINERAI), Collections.singletonList(EnumRessources.MULTIBPAM)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.PAPYRUS,EnumRessources.TISSU), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
 
-        Merveille alexandria = new Merveille(Wonder.ALEXANDRIA,EnumRessources.VERRE, etape,joueur);
+        Merveille alexandria = new Merveille(Wonder.ALEXANDRIA,EnumRessources.VERRE, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.ALEXANDRIA, joueur), alexandria);
+        assertEquals(genererMerveille.getMerveille(Wonder.ALEXANDRIA), alexandria);
     }
 
 
@@ -136,9 +132,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.VERRE,EnumRessources.PAPYRUS), Collections.singletonList(EnumRessources.BONUSDEFAUSSEG)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.PIERRE,EnumRessources.PIERRE,EnumRessources.PIERRE), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
 
-        Merveille halikarnassos = new Merveille(Wonder.HALIKARNASSOS,EnumRessources.TISSU, etape, joueur);
+        Merveille halikarnassos = new Merveille(Wonder.HALIKARNASSOS,EnumRessources.TISSU, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.HALIKARNASSOS, joueur), halikarnassos);
+        assertEquals(genererMerveille.getMerveille(Wonder.HALIKARNASSOS), halikarnassos);
     }
 
 
@@ -151,9 +147,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS), Arrays.asList(EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI,EnumRessources.MINERAI,EnumRessources.VERRE), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
 
-        Merveille ephesos = new Merveille(Wonder.EPHESOS,EnumRessources.PAPYRUS, etape,joueur);
+        Merveille ephesos = new Merveille(Wonder.EPHESOS,EnumRessources.PAPYRUS, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.EPHESOS, joueur), ephesos);
+        assertEquals(genererMerveille.getMerveille(Wonder.EPHESOS), ephesos);
     }
 
 
@@ -168,9 +164,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.PIERRE,EnumRessources.PIERRE), Collections.singletonList(EnumRessources.BONUS7CARTEMAIN)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE,EnumRessources.ARGILE,EnumRessources.ARGILE,EnumRessources.VERRE), Collections.singletonList(EnumRessources.BONUSCPR)));
 
-        Merveille babylon = new Merveille(Wonder.BABYLONNUIT,EnumRessources.BOIS, etape, joueur);
+        Merveille babylon = new Merveille(Wonder.BABYLONNUIT,EnumRessources.BOIS, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.BABYLONNUIT, joueur), babylon);
+        assertEquals(genererMerveille.getMerveille(Wonder.BABYLONNUIT), babylon);
     }
 
 
@@ -183,9 +179,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE,EnumRessources.ARGILE), Collections.singletonList(EnumRessources.BONUSCARTEAGEG3P)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.VERRE,EnumRessources.PAPYRUS,EnumRessources.TISSU), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
 
-        Merveille olympia = new Merveille(Wonder.OLYMPIANUIT,EnumRessources.ARGILE, etape, joueur);
+        Merveille olympia = new Merveille(Wonder.OLYMPIANUIT,EnumRessources.ARGILE, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.OLYMPIANUIT, joueur), olympia);
+        assertEquals(genererMerveille.getMerveille(Wonder.OLYMPIANUIT), olympia);
     }
 
 
@@ -199,9 +195,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE,EnumRessources.ARGILE,EnumRessources.ARGILE), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.PIERRE,EnumRessources.PIERRE,EnumRessources.PIERRE,EnumRessources.PIERRE,EnumRessources.PAPYRUS), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
 
-        Merveille gizah = new Merveille(Wonder.GIZAHNUIT,EnumRessources.PIERRE, etape, joueur);
+        Merveille gizah = new Merveille(Wonder.GIZAHNUIT,EnumRessources.PIERRE, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.GIZAHNUIT, joueur), gizah);
+        assertEquals(genererMerveille.getMerveille(Wonder.GIZAHNUIT), gizah);
     }
 
 
@@ -213,9 +209,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.PIERRE,EnumRessources.PIERRE,EnumRessources.PIERRE), Arrays.asList(EnumRessources.BOUCLIER,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI,EnumRessources.MINERAI,EnumRessources.MINERAI,EnumRessources.MINERAI), Arrays.asList(EnumRessources.BOUCLIER,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
 
-        Merveille rhodos = new Merveille(Wonder.RHODOSNUIT,EnumRessources.MINERAI, etape, joueur);
+        Merveille rhodos = new Merveille(Wonder.RHODOSNUIT,EnumRessources.MINERAI, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.RHODOSNUIT, joueur), rhodos);
+        assertEquals(genererMerveille.getMerveille(Wonder.RHODOSNUIT), rhodos);
     }
 
 
@@ -228,9 +224,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI,EnumRessources.MINERAI,EnumRessources.MINERAI), Collections.singletonList(EnumRessources.MULTIVPT)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS,EnumRessources.BOIS,EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
 
-        Merveille alexandria = new Merveille(Wonder.ALEXANDRIANUIT,EnumRessources.VERRE, etape,joueur);
+        Merveille alexandria = new Merveille(Wonder.ALEXANDRIANUIT,EnumRessources.VERRE, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.ALEXANDRIANUIT, joueur), alexandria);
+        assertEquals(genererMerveille.getMerveille(Wonder.ALEXANDRIANUIT), alexandria);
     }
 
 
@@ -243,9 +239,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.VERRE,EnumRessources.PAPYRUS), Collections.singletonList(EnumRessources.BONUSDEFAUSSEG1)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS,EnumRessources.BOIS), Collections.singletonList(EnumRessources.BONUSDEFAUSSEG)));
 
-        Merveille halikarnassos = new Merveille(Wonder.HALIKARNASSOSNUIT,EnumRessources.TISSU, etape, joueur);
+        Merveille halikarnassos = new Merveille(Wonder.HALIKARNASSOSNUIT,EnumRessources.TISSU, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.HALIKARNASSOSNUIT, joueur), halikarnassos);
+        assertEquals(genererMerveille.getMerveille(Wonder.HALIKARNASSOSNUIT), halikarnassos);
     }
 
 
@@ -258,9 +254,9 @@ public class GenererMerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS), Arrays.asList(EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI,EnumRessources.MINERAI,EnumRessources.VERRE), Arrays.asList(EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.PIECE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
 
-        Merveille ephesos = new Merveille(Wonder.EPHESOSNUIT,EnumRessources.PAPYRUS, etape,joueur);
+        Merveille ephesos = new Merveille(Wonder.EPHESOSNUIT,EnumRessources.PAPYRUS, etape);
 
-        assertEquals(genererMerveille.getMerveille(Wonder.EPHESOSNUIT, joueur), ephesos);
+        assertEquals(genererMerveille.getMerveille(Wonder.EPHESOSNUIT), ephesos);
     }
 
 
@@ -270,6 +266,6 @@ public class GenererMerveilleTest {
      */
     @Test
     public void tset() {
-        assertNull(genererMerveille.getMerveille(Wonder.STATUELIBERTE, joueur));
+        assertNull(genererMerveille.getMerveille(Wonder.STATUELIBERTE));
     }
 }
