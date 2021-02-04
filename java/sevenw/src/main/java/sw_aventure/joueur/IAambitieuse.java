@@ -5,6 +5,7 @@ import metier.EnumCarte;
 import metier.EnumRessources;
 import sw_aventure.objetjeu.Carte;
 import sw_aventure.objetjeu.Inventaire;
+import sw_aventure.seven_wonders.FacadeMoteur;
 import sw_aventure.seven_wonders.Plateau;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,10 +35,10 @@ public class IAambitieuse implements IA {
     public int choixMain(Joueur joueur , List<Carte> main, Plateau plateau,boolean prix){
         List<EnumRessources> ressourcesrecherchees = rechercheRessources(joueur,plateau);
         List<String> carteRecherchee ;
-        if(plateau.getAge()==1){
+        if(FacadeMoteur.getAge(plateau)==1){
             carteRecherchee = Collections.emptyList();
         }
-        else if(plateau.getAge()==2){
+        else if(FacadeMoteur.getAge(plateau)==2){
             carteRecherchee = Collections.emptyList();
         }
         else {
@@ -99,8 +100,8 @@ public class IAambitieuse implements IA {
      * @return les points que la carte fait gagner
      */
     public int getTotalPoints(Carte carte, Joueur joueur, Plateau plateau){
-        Inventaire gauche = plateau.joueurGauche(joueur).getInv();
-        Inventaire droit = plateau.joueurDroit(joueur).getInv();
+        Inventaire gauche = FacadeMoteur.joueurGauche(plateau,joueur).getInv();
+        Inventaire droit = FacadeMoteur.joueurDroit(plateau,joueur).getInv();
 
         int bouclierGauche = gauche.getValue(EnumRessources.BOUCLIER);
         int bouclierDroit = droit.getValue(EnumRessources.BOUCLIER);
@@ -148,10 +149,10 @@ public class IAambitieuse implements IA {
         else if(carte.getGain().get(0).equals(EnumRessources.VBONUS7COMPLETMERVEILLE) && joueur.getInv().getMerveille().getStade()==joueur.getInv().getMerveille().getEtape().size()) {
             return 7;
         }
-        else if(carte.getGain().get(0).equals(EnumRessources.BOUCLIER) && plateau.getAge()==3 && ((bouclierDroit-bouclierJoueur>=0 && bouclierDroit-bouclierJoueur<=2) && (bouclierGauche-bouclierJoueur>=0 && bouclierGauche-bouclierJoueur<=2))) {
+        else if(carte.getGain().get(0).equals(EnumRessources.BOUCLIER) && FacadeMoteur.getAge(plateau)==3 && ((bouclierDroit-bouclierJoueur>=0 && bouclierDroit-bouclierJoueur<=2) && (bouclierGauche-bouclierJoueur>=0 && bouclierGauche-bouclierJoueur<=2))) {
             return 10;
         }
-        else if(carte.getGain().get(0).equals(EnumRessources.BOUCLIER) && plateau.getAge()==3 && ((bouclierDroit-bouclierJoueur>=0 && bouclierDroit-bouclierJoueur<=2) || (bouclierGauche-bouclierJoueur>=0 && bouclierGauche-bouclierJoueur<=2))) {
+        else if(carte.getGain().get(0).equals(EnumRessources.BOUCLIER) && FacadeMoteur.getAge(plateau)==3 && ((bouclierDroit-bouclierJoueur>=0 && bouclierDroit-bouclierJoueur<=2) || (bouclierGauche-bouclierJoueur>=0 && bouclierGauche-bouclierJoueur<=2))) {
             return 5;
         }
         return 0;
@@ -164,7 +165,7 @@ public class IAambitieuse implements IA {
      */
     public List<EnumRessources> rechercheRessources(Joueur j, Plateau plateau){
         List<EnumRessources> ressourcesrecherchees= new ArrayList<>();
-        int age = plateau.getAge();
+        int age = FacadeMoteur.getAge(plateau);
         if(age==1){
             ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.BOIS);
             ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.PIERRE);
@@ -227,8 +228,8 @@ public class IAambitieuse implements IA {
      * @return un boolean
      */
     public boolean besoinDeBouclier(Joueur joueur, Plateau plateau){
-        int frontGauche = plateau.joueurGauche(joueur).getInv().getValue(EnumRessources.BOUCLIER);
-        int frontDroite = plateau.joueurDroit(joueur).getInv().getValue(EnumRessources.BOUCLIER);
+        int frontGauche = FacadeMoteur.joueurGauche(plateau,joueur).getInv().getValue(EnumRessources.BOUCLIER);
+        int frontDroite = FacadeMoteur.joueurDroit(plateau,joueur).getInv().getValue(EnumRessources.BOUCLIER);
         int frontSelf = joueur.getInv().getValue(EnumRessources.BOUCLIER);
         return frontSelf <= frontDroite || frontSelf <= frontGauche;
     }

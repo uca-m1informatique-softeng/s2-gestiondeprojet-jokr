@@ -3,6 +3,7 @@ package sw_aventure.joueur;
 import sw_aventure.objetjeu.Carte;
 import sw_aventure.objetjeu.Construction;
 import sw_aventure.objetjeu.Inventaire;
+import sw_aventure.seven_wonders.FacadeMoteur;
 import sw_aventure.seven_wonders.Plateau;
 import metier.EnumRessources;
 import metier.Wonder;
@@ -17,7 +18,6 @@ import java.security.SecureRandom;
 
 public interface IA {
 
-    Construction construction = new Construction();
     SecureRandom r = new SecureRandom();
 
     /**
@@ -50,7 +50,7 @@ public interface IA {
      * @return True défausse / false sinon
      */
     default boolean choixDefausse(Joueur j , Carte carte , Plateau plateau) {
-        return !construction.permisDeConstruction(carte , j.getInv(), plateau.joueurGauche(j).getInv(), plateau.joueurDroit(j).getInv(),plateau);
+        return !FacadeMoteur.permisDeConstruction(carte , j.getInv(), plateau.joueurGauche(j).getInv(), plateau.joueurDroit(j).getInv(),plateau);
     }
 
     /**
@@ -133,13 +133,13 @@ public interface IA {
         ArrayList<Carte> possibilites = new ArrayList<>();
         if(prix) {
             for (int i = 0; i < main.size(); i++) {
-                if (construction.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j).getInv(), plateau.joueurDroit(j).getInv(), plateau)) {
+                if (FacadeMoteur.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j).getInv(), plateau.joueurDroit(j).getInv(), plateau)) {
                     possibilites.add(main.get(i));
                 }
             }
         }else{
             for (int i = 0; i < main.size(); i++) {
-                if (!construction.laConstructionViaDoublons(main.get(i), j.getInv(), false)) {
+                if (!FacadeMoteur.laConstructionViaDoublons(main.get(i), j.getInv(), false)) {
                     possibilites.add(main.get(i));
                 }
             }
@@ -242,7 +242,7 @@ public interface IA {
      */
 
     default boolean choixConstrMerveille(Joueur j, List<Carte> main, Plateau plateau, List<Wonder> merveilles){
-        return merveilles.contains(j.getInv().getMerveille().getNom()) && j.getInv().getMerveille().peutAmeliorerMerveille() && (construction.permisDeConstruction(j.getInv().getMerveille().getCarteAConstruire(),j.getInv(), plateau.joueurGauche(j).getInv(), plateau.joueurDroit(j).getInv(),plateau));
+        return merveilles.contains(j.getInv().getMerveille().getNom()) && j.getInv().getMerveille().peutAmeliorerMerveille() && (FacadeMoteur.permisDeConstruction(j.getInv().getMerveille().getCarteAConstruire(),j.getInv(), plateau.joueurGauche(j).getInv(), plateau.joueurDroit(j).getInv(),plateau));
              // Si l'étage de la merveille est constructible par le joueur alors il décide de construire la merveille
     }
 
@@ -255,7 +255,7 @@ public interface IA {
      */
     default int choixCartePourMerveille(Joueur j, List<Carte> main, Plateau plateau){
         for(int i = 0 ; i < main.size() ; i++) {
-            if (!construction.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j).getInv(), plateau.joueurDroit(j).getInv(),plateau)) {
+            if (!FacadeMoteur.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j).getInv(), plateau.joueurDroit(j).getInv(),plateau)) {
                 return i;
             }
         }
