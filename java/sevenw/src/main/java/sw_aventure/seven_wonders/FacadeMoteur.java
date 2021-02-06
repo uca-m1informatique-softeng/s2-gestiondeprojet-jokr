@@ -1,8 +1,13 @@
 package sw_aventure.seven_wonders;
 
+import metier.EnumCarte;
+import metier.EnumRessources;
 import objet_commun.Carte;
+import objet_commun.Merveille;
 import sw_aventure.joueur.Joueur;
 import sw_aventure.objetjeu.*;
+
+import java.util.List;
 
 
 /**
@@ -72,5 +77,33 @@ public interface FacadeMoteur {
      */
     static Joueur joueurGauche(Plateau plateau, Joueur joueur) {
         return plateau.joueurGauche(joueur);
+    }
+
+    /**
+     * Retourne la Merveille d'un Inventaire
+     * @param inv l'inventaire
+     * @return la merveille
+     */
+    static Merveille getMerveille(Inventaire inv){
+        return inv.getMerveille();
+    }
+
+    /**
+     * Retourne la Liste de carte d'un inventaire
+     * @param inv l'inventaire
+     * @return la liste de carte
+     */
+    static List<EnumCarte> getListeCarte(Inventaire inv) {
+        return inv.getListeCarte();
+    }
+
+    /**
+     * Retourne la quantité d'une ressource d'un inventaire
+     * @param inv l'inventaire
+     * @param ressource la ressource
+     * @return la quantité
+     */
+    static int getValue(Inventaire inv, EnumRessources ressource){
+        return inv.getValue(ressource);
     }
 }

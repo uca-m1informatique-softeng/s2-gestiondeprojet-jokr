@@ -4,7 +4,6 @@ import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Wonder;
 import objet_commun.Carte;
-import sw_aventure.objetjeu.Construction;
 import sw_aventure.seven_wonders.FacadeMoteur;
 import sw_aventure.seven_wonders.Plateau;
 import java.util.ArrayList;
@@ -14,8 +13,6 @@ import java.util.List;
 
 
 public class IAcivil implements IA {
-
-    private final Construction construction = new Construction();
 
     /**
      * appel la méthode Choix carte dans l'interface IA pour décider quoi jouer en lui fournissant la liste de ses priorités
@@ -66,10 +63,10 @@ public class IAcivil implements IA {
             ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,2,EnumRessources.ARGILE);
             ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,2,EnumRessources.MINERAI);
 
-            if(!j.getInv().getListeCarte().contains(EnumCarte.B1)) {
+            if(!FacadeMoteur.getListeCarte(j.getInv()).contains(EnumCarte.B1)) {
                 ressourcesrecherchees = listeRessource(ressourcesrecherchees, j, 1, EnumRessources.PAPYRUS);
             }
-            if(!j.getInv().getListeCarte().contains(EnumCarte.B3)) { // si il ne possède pas la carte chainée Bains
+            if(!FacadeMoteur.getListeCarte(j.getInv()).contains(EnumCarte.B3)) { // si il ne possède pas la carte chainée Bains
                 ressourcesrecherchees = listeRessource(ressourcesrecherchees, j, 3, EnumRessources.PIERRE);
             }
         }
@@ -89,7 +86,7 @@ public class IAcivil implements IA {
         List<Wonder> merveilles = Collections.emptyList();
         if(merveilles.contains(j.getInv().getMerveille().getNom()) && Boolean.TRUE.equals(j.getInv().getMerveille().peutAmeliorerMerveille())){
             for(int i = 0 ; i < main.size() ; i++) {
-                if (construction.permisDeConstruction( j.getInv().getMerveille().getCarteAConstruire(),j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau)) {
+                if (FacadeMoteur.permisDeConstruction( FacadeMoteur.getMerveille(j.getInv()).getCarteAConstruire(),j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau)) {
                     return true; // Si l'étage de la merveille est constructible par le joueur alors il décide de construire la merveille
                 }
             }
@@ -108,7 +105,7 @@ public class IAcivil implements IA {
     @Override
     public int choixCartePourMerveille(Joueur j, List<Carte> main, Plateau plateau) {
         for (int i = 0; i < main.size(); i++) {
-            if (!construction.permisDeConstruction(main.get(i), j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau)) {
+            if (!FacadeMoteur.permisDeConstruction(main.get(i), j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau)) {
                 return i;
             }
         }

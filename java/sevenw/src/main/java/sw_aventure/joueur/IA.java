@@ -35,7 +35,7 @@ public interface IA {
      * Set la graine du SecureRandom à une valeur fixe
      * @param mySeed la valeur initale auquel on préfixe le SecureRandom
      */
-    public default void setTheSeed(int mySeed) {
+    default void setTheSeed(int mySeed) {
         r.nextBytes(new byte[8]);
         r.setSeed(mySeed);
     }
@@ -49,7 +49,7 @@ public interface IA {
      * @return True défausse / false sinon
      */
     default boolean choixDefausse(Joueur j , Carte carte , Plateau plateau) {
-        return !FacadeMoteur.permisDeConstruction(carte , j.getInv(), plateau.joueurGauche(j).getInv(), plateau.joueurDroit(j).getInv(),plateau);
+        return !FacadeMoteur.permisDeConstruction(carte , j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau);
     }
 
     /**
@@ -61,8 +61,8 @@ public interface IA {
      * @return true acheter à gauche / False à droite
      */
     default Boolean commerceAdjacent(EnumRessources ressource, Joueur j,  Inventaire gauche, Inventaire droite){
-        int reducDroite = j.getInv().getValue(EnumRessources.REDMARRONDROITE);
-        int reducGauche = j.getInv().getValue(EnumRessources.REDMARRONGAUCHE);
+        int reducDroite = FacadeMoteur.getValue(j.getInv(),EnumRessources.REDMARRONDROITE);
+        int reducGauche = FacadeMoteur.getValue(j.getInv(),EnumRessources.REDMARRONGAUCHE);
         if(reducGauche>reducDroite){ /// SI ON A UNE REDUC A GAUCHE ET PAS A DROITE ///
             return true;
         }
@@ -132,7 +132,7 @@ public interface IA {
         ArrayList<Carte> possibilites = new ArrayList<>();
         if(prix) {
             for (int i = 0; i < main.size(); i++) {
-                if (FacadeMoteur.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j).getInv(), plateau.joueurDroit(j).getInv(), plateau)) {
+                if (FacadeMoteur.permisDeConstruction(main.get(i), j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau)) {
                     possibilites.add(main.get(i));
                 }
             }
@@ -171,9 +171,9 @@ public interface IA {
      * @return le nom de la carte à jouer depuis la main
      */
     default String seDefendre(Joueur j , Plateau plateau , List<Carte> possibilites){
-        int boucliers = j.getInv().getValue(EnumRessources.BOUCLIER);
+        int boucliers = FacadeMoteur.getValue(j.getInv(),EnumRessources.BOUCLIER);
         String carte = "";
-        if ((plateau.joueurGauche(j).getInv().getValue(EnumRessources.BOUCLIER) > boucliers || plateau.joueurDroit(j).getInv().getValue(EnumRessources.BOUCLIER) > boucliers)) {
+        if ((FacadeMoteur.getValue(FacadeMoteur.joueurGauche(plateau,j).getInv(),EnumRessources.BOUCLIER) > boucliers || FacadeMoteur.getValue(FacadeMoteur.joueurDroit(plateau,j).getInv(),EnumRessources.BOUCLIER) > boucliers)) {
             for (int i = 0; i < possibilites.size(); i++) {
                 if (possibilites.get(i).getCouleur().equals(EnumRessources.ROUGE)) {
                     carte = possibilites.get(i).getNom().toString();
@@ -199,16 +199,16 @@ public interface IA {
                 return carte;
             }
         }
-        if (j.getInv().getValue(EnumRessources.BOIS) < 2) {
+        if (FacadeMoteur.getValue(j.getInv(),EnumRessources.BOIS) < 2) {
             carte = approvisionnementDeRessource(j,possibilites,EnumRessources.BOIS);
         }
-        if (carte.equals("") && j.getInv().getValue(EnumRessources.MINERAI) < 2) {
+        if (carte.equals("") && FacadeMoteur.getValue(j.getInv(),EnumRessources.MINERAI) < 2) {
             carte = approvisionnementDeRessource(j,possibilites,EnumRessources.MINERAI);
         }
-        if (carte.equals("") && j.getInv().getValue(EnumRessources.ARGILE) < 2) {
+        if (carte.equals("") && FacadeMoteur.getValue(j.getInv(),EnumRessources.ARGILE) < 2) {
             carte = approvisionnementDeRessource(j,possibilites,EnumRessources.ARGILE);
         }
-        if (carte.equals("") && j.getInv().getValue(EnumRessources.PIERRE) < 2) {
+        if (carte.equals("") && FacadeMoteur.getValue(j.getInv(),EnumRessources.PIERRE) < 2) {
             carte = approvisionnementDeRessource(j,possibilites,EnumRessources.PIERRE);
         }
         return carte;
@@ -241,7 +241,7 @@ public interface IA {
      */
 
     default boolean choixConstrMerveille(Joueur j, List<Carte> main, Plateau plateau, List<Wonder> merveilles){
-        return merveilles.contains(j.getInv().getMerveille().getNom()) && j.getInv().getMerveille().peutAmeliorerMerveille() && (FacadeMoteur.permisDeConstruction(j.getInv().getMerveille().getCarteAConstruire(),j.getInv(), plateau.joueurGauche(j).getInv(), plateau.joueurDroit(j).getInv(),plateau));
+        return merveilles.contains(FacadeMoteur.getMerveille(j.getInv()).getNom()) && FacadeMoteur.getMerveille(j.getInv()).peutAmeliorerMerveille() && (FacadeMoteur.permisDeConstruction(FacadeMoteur.getMerveille(j.getInv()).getCarteAConstruire(),j.getInv(),FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau));
              // Si l'étage de la merveille est constructible par le joueur alors il décide de construire la merveille
     }
 
@@ -254,7 +254,7 @@ public interface IA {
      */
     default int choixCartePourMerveille(Joueur j, List<Carte> main, Plateau plateau){
         for(int i = 0 ; i < main.size() ; i++) {
-            if (!FacadeMoteur.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j).getInv(), plateau.joueurDroit(j).getInv(),plateau)) {
+            if (!FacadeMoteur.permisDeConstruction(main.get(i), j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau)) {
                 return i;
             }
         }
@@ -282,7 +282,7 @@ public interface IA {
      * @return la liste modifiée ou non selon la condition
      */
     default List<EnumRessources> listeRessource(List<EnumRessources> ressourcesrecherchees, Joueur j, int nombreVoulu, EnumRessources ressource){
-        if(j.getInv().getValue(ressource)<nombreVoulu && !ressourcesrecherchees.contains(ressource)){
+        if(FacadeMoteur.getValue(j.getInv(),ressource)<nombreVoulu && !ressourcesrecherchees.contains(ressource)){
             ressourcesrecherchees.add(ressource);
         }
         return ressourcesrecherchees;
