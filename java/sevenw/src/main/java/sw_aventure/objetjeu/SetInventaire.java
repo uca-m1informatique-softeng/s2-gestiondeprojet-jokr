@@ -58,7 +58,7 @@ public class SetInventaire extends Inventaire{
      */
 
     public void casDefausse() throws NegativeNumberException {
-        LoggerSevenWonders.ajoutln(getJoueur().getName() +Colors.itStandard(" défausse")+" sa carte et reçoit"+Colors.gJaune(" 3 ")+Colors.itStandard("pièces")+" !\n");
+        LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) +Colors.itStandard(" défausse")+" sa carte et reçoit"+Colors.gJaune(" 3 ")+Colors.itStandard("pièces")+" !\n");
         increaseValue(EnumRessources.PIECE, 3);
     }
 
@@ -69,25 +69,25 @@ public class SetInventaire extends Inventaire{
     public void afficheChoixCarte(Carte carte){
         String choisit = " choisit dans sa main la carte ";
         if(carte.getCouleur().equals(EnumRessources.MARRON)){
-            LoggerSevenWonders.ajoutln(getJoueur().getName() + choisit + Colors.gBlanc(carte.getNom().toString()));
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) + choisit + Colors.gBlanc(carte.getNom().toString()));
         }
         else if(carte.getCouleur().equals(EnumRessources.GRISE)){
-            LoggerSevenWonders.ajoutln(getJoueur().getName() + choisit + Colors.gStandard(carte.getNom().toString()));
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) + choisit + Colors.gStandard(carte.getNom().toString()));
         }
         else if(carte.getCouleur().equals(EnumRessources.BLEUE)){
-            LoggerSevenWonders.ajoutln(getJoueur().getName() + choisit + Colors.gBleu(carte.getNom().toString()));
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) + choisit + Colors.gBleu(carte.getNom().toString()));
         }
         else if(carte.getCouleur().equals(EnumRessources.JAUNE)){
-            LoggerSevenWonders.ajoutln(getJoueur().getName() + choisit + Colors.gJaune(carte.getNom().toString()));
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) + choisit + Colors.gJaune(carte.getNom().toString()));
         }
         else if(carte.getCouleur().equals(EnumRessources.ROUGE)){
-            LoggerSevenWonders.ajoutln(getJoueur().getName() + choisit + Colors.gRouge(carte.getNom().toString()));
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) + choisit + Colors.gRouge(carte.getNom().toString()));
         }
         else if(carte.getCouleur().equals(EnumRessources.VERTE)){
-            LoggerSevenWonders.ajoutln(getJoueur().getName() + choisit + Colors.gVert(carte.getNom().toString()));
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) + choisit + Colors.gVert(carte.getNom().toString()));
         }
         else{
-            LoggerSevenWonders.ajoutln(getJoueur().getName() + choisit + Colors.gViolet(carte.getNom().toString()));
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) + choisit + Colors.gViolet(carte.getNom().toString()));
         }
     }
 
@@ -103,7 +103,7 @@ public class SetInventaire extends Inventaire{
             EnumRessources ressource = carte.getGain().get(i);
             increaseValue(ressource, 1);
         }
-        LoggerSevenWonders.ajoutln(getJoueur().getName() +" gagne les ressources suivantes : " + carte.getGain().get(0).toString());
+        LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) +" gagne les ressources suivantes : " + carte.getGain().get(0).toString());
         // il remporte les pièces si il y en a
         if (carte.getGain().get(0).equals(EnumRessources.BONUSDEFAUSSEG1)) {
             score = 1;
@@ -119,7 +119,7 @@ public class SetInventaire extends Inventaire{
         }
         if(score > 0) { // recevoir les pièces du bonus
             increaseValue(EnumRessources.SCORE, score);
-            LoggerSevenWonders.ajoutln(getJoueur().getName()+ " gagne "+ score + Colors.gJaune(" pièce(s) !\n"));
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur())+ " gagne "+ score + Colors.gJaune(" pièce(s) !\n"));
         }else{
             LoggerSevenWonders.ajoutln("\n");
         }
@@ -135,7 +135,7 @@ public class SetInventaire extends Inventaire{
      * @return la défausse moins potentiellement la carte jouée
      */
     public List<Carte> jouerCarteDefausse(List<Carte> defausse, Plateau plateau) throws NegativeNumberException {
-        LoggerSevenWonders.ajoutln(getJoueur().getName() + " peut jouer gratuitement une carte de la défausse !");
+        LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) + " peut jouer gratuitement une carte de la défausse !");
 
         List<Carte> paquetDefausse = defausse; // on copie la defausse
         boolean choisirUneCarte = true; // le joueur doit choisir une carte a jouer depuis la defausse
@@ -143,7 +143,7 @@ public class SetInventaire extends Inventaire{
             //int choixDuJoueur = getJoueur().jouerGratuitementDanslaDefausse(defausse, plateau); // le n° de la carte choisie
             int choixDuJoueur = FacadeJoueur.jouerGratuitementDanslaDefausse(getJoueur(),defausse, plateau); // le n° de la carte choisie
             Carte carteDefausse = defausse.get(choixDuJoueur); // la carte en question
-            LoggerSevenWonders.ajoutln(getJoueur().getName() + " choisit de jouer gratuitement " + carteDefausse.getNom() + " depuis la défausse");
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) + " choisit de jouer gratuitement " + carteDefausse.getNom() + " depuis la défausse");
             if (getListeCarte().contains(carteDefausse.getNom())) { // si il possède déjà cette carte
                 LoggerSevenWonders.ajoutln(Colors.gRouge("REFUSE carte déjà possédée veuillez ne choisir une autre"));
                 paquetDefausse.remove(choixDuJoueur); // on l'enlève du paquet copie de la defausse pour eviter qu'il se retrompe et que cela ne crée une boucle infinie si il ne peut rien jouer
@@ -187,9 +187,9 @@ public class SetInventaire extends Inventaire{
             }
             EnumRessources gain = carte.getGain().get(0);
             if(carte.getCouleur().equals(EnumRessources.VIOLETTE)){
-                LoggerSevenWonders.ajoutln(getJoueur().getName() + " gagne le bonus : " + Colors.gStandard(gain.toString()) + "\n");
+                LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) + " gagne le bonus : " + Colors.gStandard(gain.toString()) + "\n");
             }else {
-                LoggerSevenWonders.ajoutln(getJoueur().getName() + " gagne les ressources : " + carte.getGain() + "\n");
+                LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) + " gagne les ressources : " + carte.getGain() + "\n");
             }
         }
         ajoutCarteInv(carte);
@@ -202,8 +202,8 @@ public class SetInventaire extends Inventaire{
      */
     public void piecebonus(EnumRessources bonus, Plateau plateau) throws NegativeNumberException {
         int gain = 0 ;
-        Inventaire gauche = plateau.joueurGauche(getJoueur()).getInv();
-        Inventaire droit = plateau.joueurDroit(getJoueur()).getInv();
+        Inventaire gauche = FacadeJoueur.getInv(plateau.joueurGauche(getJoueur()));
+        Inventaire droit = FacadeJoueur.getInv(plateau.joueurDroit(getJoueur()));
 
         if(bonus.equals(EnumRessources.BONUS1MDJG)){
             gain = gauche.getValue(EnumRessources.MARRON)+getValue(EnumRessources.MARRON)+droit.getValue(EnumRessources.MARRON);
@@ -227,7 +227,7 @@ public class SetInventaire extends Inventaire{
             gain = (3*getMerveille().getStade());
         }
 
-        LoggerSevenWonders.ajoutln(getJoueur().getName() + " gagne le bonus : " + Colors.gStandard(bonus.toString()) + ", et gagne donc "+ gain + Colors.gJaune(" pièces !\n"));
+        LoggerSevenWonders.ajoutln(FacadeJoueur.getName(getJoueur()) + " gagne le bonus : " + Colors.gStandard(bonus.toString()) + ", et gagne donc "+ gain + Colors.gJaune(" pièces !\n"));
         increaseValue(EnumRessources.PIECE,gain);
     }
 

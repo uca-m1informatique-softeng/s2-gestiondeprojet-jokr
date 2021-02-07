@@ -212,7 +212,7 @@ public class Construction {
             }
         }
         if (!payeInv.isEmpty() && print){
-            LoggerSevenWonders.ajoutln(sInventaire.getJoueur().getName() + " a payé via son Inventaire les ressources suivantes : " + payeInv);
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(sInventaire.getJoueur())+ " a payé via son Inventaire les ressources suivantes : " + payeInv);
         }
         return aPayer;
     }
@@ -257,7 +257,7 @@ public class Construction {
         }
 
         if (!payeMulti.isEmpty() && print) {
-            LoggerSevenWonders.ajoutln(sInventaire.getJoueur().getName() + " a payé via ses bonus Multi-Choix les ressources suivantes : " + payeMulti);
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(sInventaire.getJoueur()) + " a payé via ses bonus Multi-Choix les ressources suivantes : " + payeMulti);
         }
         return aPayer;
     }
@@ -497,7 +497,8 @@ public class Construction {
         joueur.decreaseValue(EnumRessources.PIECE, prix);
         voisin.increaseValue(EnumRessources.PIECE, prix);
         if (print) {
-            LoggerSevenWonders.ajoutln(joueur.getJoueur().getName() + " a acheter à " + voisin.getJoueur().getName() + " la ressource " + ressource + " pour " + prix + " Pièces ! ");
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(joueur.getJoueur()) + " a acheter à " + FacadeJoueur.getName(voisin.getJoueur())
+                    + " la ressource " + ressource + " pour " + prix + " Pièces ! ");
         }
     }
 

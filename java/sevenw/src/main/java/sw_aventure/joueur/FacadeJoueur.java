@@ -90,4 +90,40 @@ public interface FacadeJoueur {
         return j.choixCarte(main, plateau);
     }
 
+    /**
+     * Cette méthode donne le nom d'un joueur donné
+     * @param j un joueur
+     * @return le nom du joueur
+     */
+    static String getName(Joueur j){
+        return j.getName();
+    }
+
+    /**
+     * Cette méthode donne l'ID d'un joueur donné
+     * @param j un joueur
+     * @return l'ID du joueur
+     */
+    static int getId(Joueur j){
+        return j.getId();
+    }
+
+    /**
+     * Cette méthode donne l'inventaire d'un joueur donné
+     * @param j un joueur
+     * @return l'inventaire du joueur
+     */
+    static Inventaire getInv(Joueur j){
+        return j.getInv();
+    }
+
+    /**
+     * Cette méthode donne la stratégie d'un joueur donné
+     * @param j un joueur
+     * @return la stratégie du joueur
+     */
+    static String getStrategie(Joueur j){
+        return j.getStrategie();
+    }
+
 }

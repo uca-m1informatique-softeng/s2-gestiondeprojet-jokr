@@ -5,6 +5,7 @@ import java.security.SecureRandom;
 import java.util.*;
 import exception.NegativeNumberException;
 import metier.*;
+import sw_aventure.joueur.FacadeJoueur;
 import sw_aventure.objetjeu.Merveille;
 import sw_aventure.objetjeu.*;
 import sw_aventure.joueur.Joueur;
@@ -104,7 +105,7 @@ public class SevenWonders {
             temporalite = r.nextInt(2);
             Merveille laMerveille = genererMerveille.getMerveille(merveille.get(i).get(temporalite), inv.get(i).getJoueur());
             inv.get(i).modifMerveille(laMerveille);
-            LoggerSevenWonders.ajoutln(inv.get(i).getJoueur().getName() + " a obtenue la merveille "+ merveille.get(i).get(temporalite) + " et gagne 1 "+ laMerveille.getGain());
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(inv.get(i).getJoueur()) + " a obtenue la merveille "+ merveille.get(i).get(temporalite) + " et gagne 1 "+ laMerveille.getGain());
 
             inv.get(i).increaseValue(laMerveille.getGain(),1);
         }
@@ -171,9 +172,9 @@ public class SevenWonders {
 
         JSONArray jsonArray = new JSONArray();
         for (SetInventaire s : setInv) {
-            nomJoueur = s.getJoueur().getName();
-            strategieJoueur = s.getJoueur().getStrategie();
-            inventaire = s.getJoueur().getInv().getSac();
+            nomJoueur = FacadeJoueur.getName(s.getJoueur());
+            strategieJoueur = FacadeJoueur.getStrategie(s.getJoueur());
+            inventaire = FacadeJoueur.getInv(s.getJoueur()).getSac();
             merveille = s.getMerveille().getNom().toString();
             cartes = s.getListeCarte();
             try {
