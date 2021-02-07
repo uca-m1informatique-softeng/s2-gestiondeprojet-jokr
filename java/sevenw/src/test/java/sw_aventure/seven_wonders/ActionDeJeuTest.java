@@ -1,5 +1,7 @@
 package sw_aventure.seven_wonders;
 
+import objet_commun.Carte;
+import objet_commun.Merveille;
 import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.EnumRessources;
@@ -59,7 +61,7 @@ public class ActionDeJeuTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE, EnumRessources.ARGILE), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI, EnumRessources.MINERAI, EnumRessources.TISSU), Collections.singletonList(EnumRessources.BONUSCPR)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
-        babylon = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, etape, joueur1);
+        babylon = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, etape);
 
         setInv1.modifMerveille(babylon);
         setInv2.modifMerveille(babylon);

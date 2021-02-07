@@ -1,6 +1,6 @@
 package sw_aventure.seven_wonders;
 
-import sw_aventure.objetjeu.Carte;
+import objet_commun.Carte;
 import sw_aventure.objetjeu.GenererCarte;
 import sw_aventure.objetjeu.MainJoueur;
 import io.cucumber.java8.Fr;

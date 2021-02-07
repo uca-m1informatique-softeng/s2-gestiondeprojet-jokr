@@ -1,5 +1,6 @@
 package sw_aventure.seven_wonders;
 
+import objet_commun.Carte;
 import exception.NegativeNumberException;
 import sw_aventure.joueur.Joueur;
 import sw_aventure.objetjeu.*;
@@ -11,7 +12,6 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 /**
  * toutes les étapes du jeu guerres ages etc...

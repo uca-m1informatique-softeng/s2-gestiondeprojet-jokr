@@ -1,5 +1,7 @@
 package sw_aventure.objetjeu;
 
+import objet_commun.Carte;
+
 import java.util.ArrayList;
 import java.util.List;
 

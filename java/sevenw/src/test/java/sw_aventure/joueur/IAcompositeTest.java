@@ -1,4 +1,6 @@
 package sw_aventure.joueur;
+import objet_commun.Carte;
+import objet_commun.Merveille;
 import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.EnumRessources;
@@ -69,7 +71,7 @@ public class IAcompositeTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE, EnumRessources.ARGILE), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI, EnumRessources.MINERAI, EnumRessources.TISSU), Collections.singletonList(EnumRessources.BONUSCPR)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
-        Merveille babylon = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, etape, setInv1.getJoueur());
+        Merveille babylon = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, etape);
 
 
         setInv1.modifMerveille(babylon);

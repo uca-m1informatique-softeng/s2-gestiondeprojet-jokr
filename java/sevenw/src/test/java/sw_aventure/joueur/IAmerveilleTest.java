@@ -7,9 +7,9 @@ import metier.Strategy;
 import metier.Wonder;
 import org.junit.Before;
 import org.junit.Test;
-import sw_aventure.objetjeu.Carte;
+import objet_commun.Carte;
 import sw_aventure.objetjeu.Inventaire;
-import sw_aventure.objetjeu.Merveille;
+import objet_commun.Merveille;
 import sw_aventure.objetjeu.SetInventaire;
 import sw_aventure.seven_wonders.Plateau;
 
@@ -74,7 +74,7 @@ public class IAmerveilleTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI, EnumRessources.MINERAI, EnumRessources.TISSU), Collections.singletonList(EnumRessources.BONUSCPR)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
 
-        babylon = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, etape, joueur1);
+        babylon = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, etape);
     }
 
 

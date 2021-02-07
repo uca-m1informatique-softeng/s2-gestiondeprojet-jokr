@@ -7,9 +7,9 @@ import metier.Strategy;
 import metier.Wonder;
 import org.junit.Before;
 import org.junit.Test;
-import sw_aventure.objetjeu.Carte;
+import objet_commun.Carte;
 import sw_aventure.objetjeu.Inventaire;
-import sw_aventure.objetjeu.Merveille;
+import objet_commun.Merveille;
 import sw_aventure.objetjeu.SetInventaire;
 import sw_aventure.seven_wonders.Plateau;
 
@@ -73,7 +73,7 @@ public class IAmonetaireTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE, EnumRessources.ARGILE), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS, EnumRessources.BOIS), Arrays.asList(EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI, EnumRessources.MINERAI,EnumRessources.VERRE), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
-        ephesos = new Merveille(Wonder.EPHESOS,EnumRessources.PAPYRUS, etape, joueur1);
+        ephesos = new Merveille(Wonder.EPHESOS,EnumRessources.PAPYRUS, etape);
     }
 
 

@@ -6,10 +6,10 @@ import metier.EnumRessources;
 import metier.Strategy;
 import metier.Wonder;
 import org.junit.Before;
-import sw_aventure.objetjeu.Carte;
+import objet_commun.Carte;
 import org.junit.Test;
 import sw_aventure.objetjeu.Inventaire;
-import sw_aventure.objetjeu.Merveille;
+import objet_commun.Merveille;
 import sw_aventure.objetjeu.SetInventaire;
 import sw_aventure.seven_wonders.Plateau;
 import java.util.ArrayList;
@@ -71,7 +71,7 @@ public class IAmilitaireTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE, EnumRessources.ARGILE, EnumRessources.ARGILE), Arrays.asList(EnumRessources.BOUCLIER, EnumRessources.BOUCLIER, EnumRessources.BOUCLIER)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI, EnumRessources.MINERAI, EnumRessources.MINERAI, EnumRessources.MINERAI), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
-        rhodos = new Merveille(Wonder.RHODOS, EnumRessources.MINERAI, etape, joueur1);
+        rhodos = new Merveille(Wonder.RHODOS, EnumRessources.MINERAI, etape);
     }
 
 

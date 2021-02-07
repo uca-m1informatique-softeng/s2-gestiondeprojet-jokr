@@ -1,8 +1,7 @@
-package sw_aventure.objetjeu;
+package objet_commun;
 
 import metier.EnumRessources;
 import metier.Wonder;
-import sw_aventure.joueur.Joueur;
 
 
 import java.util.List;
@@ -13,7 +12,6 @@ public class Merveille {
     private final Wonder nom;
     private final EnumRessources gain;
     private final List<Carte> etape;
-    private final Joueur joueur;
     private int stade;
 
     /**
@@ -21,22 +19,14 @@ public class Merveille {
      * @param nom le nom de la merveille
      * @param gain le gain de base de la merveille
      * @param etape le nombre d'étage de la merveille
-     * @param joueur le joueur associé à la merveille
      */
-    public Merveille(Wonder nom, EnumRessources gain, List<Carte> etape, Joueur joueur) {
+    public Merveille(Wonder nom, EnumRessources gain, List<Carte> etape) {
         this.nom = nom;
         this.gain = gain;
         this.etape = etape;
-        this.joueur = joueur;
         stade = 0;
     }
 
-    /**
-     * @return renvoie le joueur associé à la merveille
-     */
-    public Joueur getJoueur() {
-        return joueur;
-    }
 
     /**
      * Si il reste des étages de merveille à construire renvoie True sinon False

@@ -2,7 +2,8 @@ package sw_aventure.joueur;
 
 import metier.EnumRessources;
 import metier.Wonder;
-import sw_aventure.objetjeu.Carte;
+import objet_commun.Carte;
+import sw_aventure.seven_wonders.FacadeMoteur;
 import sw_aventure.seven_wonders.Plateau;
 
 import java.util.ArrayList;
@@ -24,11 +25,11 @@ public class IAscientifique  implements IA{
     public int choixMain(Joueur j, List<Carte> main, Plateau plateau,boolean prix){
         List<EnumRessources> ressourcesrecherchees = rechercheRessources(j,plateau);
         List<String> carteRecherchee;
-        if(plateau.getAge()==1) {
+        if(FacadeMoteur.getAge(plateau)==1) {
             carteRecherchee = Arrays.asList("Métier à Tisser", "Officine","Verrerie", "Atelier","Presse","Scriptorium");
         }
 
-        else if(plateau.getAge()==2) {
+        else if(FacadeMoteur.getAge(plateau)==2) {
             carteRecherchee = Arrays.asList("Dispensaire","Laboratoire","Bibliothèque","Ecole");
         }
         else {
@@ -45,7 +46,7 @@ public class IAscientifique  implements IA{
      */
     public List<EnumRessources> rechercheRessources(Joueur j, Plateau plateau){
         List<EnumRessources> ressourcesrecherchees= new ArrayList<>();
-        int age = plateau.getAge();
+        int age = FacadeMoteur.getAge(plateau);
         if(age!=3){ // les ressources primordiales pour la stratégie scientifique on ne les obtiens qu'aux tours 1 et 2
             ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.VERRE);
             ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,1,EnumRessources.PAPYRUS);

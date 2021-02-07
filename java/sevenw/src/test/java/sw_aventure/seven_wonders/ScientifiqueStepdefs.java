@@ -28,6 +28,5 @@ public class ScientifiqueStepdefs implements Fr {
         Alors("Le joueur doit obtenir grâce à ses cartes scientifique {int} point de victoire", (Integer pointVictoire) -> {
             assertEquals(inv.compteScientifique(), pointVictoire);
         });
-
     }
 }

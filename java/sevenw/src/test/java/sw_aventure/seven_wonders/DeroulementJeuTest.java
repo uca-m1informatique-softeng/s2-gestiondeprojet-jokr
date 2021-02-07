@@ -1,5 +1,7 @@
 package sw_aventure.seven_wonders;
 
+import objet_commun.Carte;
+import objet_commun.Merveille;
 import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.Strategy;
@@ -72,9 +74,9 @@ public class DeroulementJeuTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI,EnumRessources.MINERAI), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.VERRE,EnumRessources.PAPYRUS), Collections.singletonList(EnumRessources.BONUSDEFAUSSEG)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.PIERRE,EnumRessources.PIERRE,EnumRessources.PIERRE), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
-        setInv1.modifMerveille( new Merveille(Wonder.HALIKARNASSOS,EnumRessources.TISSU, etape, setInv1.getJoueur()));
-        setInv2.modifMerveille( new Merveille(Wonder.HALIKARNASSOS,EnumRessources.TISSU, etape, setInv2.getJoueur()));
-        setInv3.modifMerveille( new Merveille(Wonder.HALIKARNASSOS,EnumRessources.TISSU, etape, setInv3.getJoueur()));
+        setInv1.modifMerveille( new Merveille(Wonder.HALIKARNASSOS,EnumRessources.TISSU, etape));
+        setInv2.modifMerveille( new Merveille(Wonder.HALIKARNASSOS,EnumRessources.TISSU, etape));
+        setInv3.modifMerveille( new Merveille(Wonder.HALIKARNASSOS,EnumRessources.TISSU, etape));
 
 
         ArrayList<SetInventaire> listeSetInventaire = new ArrayList<>();

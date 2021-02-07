@@ -5,7 +5,7 @@ import java.security.SecureRandom;
 import java.util.*;
 import exception.NegativeNumberException;
 import metier.*;
-import sw_aventure.objetjeu.Merveille;
+import objet_commun.Merveille;
 import sw_aventure.objetjeu.*;
 import sw_aventure.joueur.Joueur;
 import org.json.JSONArray;
@@ -96,7 +96,7 @@ public class SevenWonders {
         int temporalite;
         for(int i = 0 ; i < inv.size() ; i++){
             temporalite = r.nextInt(2);
-            Merveille laMerveille = genererMerveille.getMerveille(merveille.get(i).get(temporalite), inv.get(i).getJoueur());
+            Merveille laMerveille = genererMerveille.getMerveille(merveille.get(i).get(temporalite));
             inv.get(i).modifMerveille(laMerveille);
             LoggerSevenWonders.ajoutln(inv.get(i).getJoueur().getName() + " a obtenue la merveille "+ merveille.get(i).get(temporalite) + " et gagne 1 "+ laMerveille.getGain());
 

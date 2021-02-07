@@ -2,7 +2,8 @@ package sw_aventure.joueur;
 
 import metier.EnumRessources;
 import metier.Wonder;
-import sw_aventure.objetjeu.Carte;
+import objet_commun.Carte;
+import sw_aventure.seven_wonders.FacadeMoteur;
 import sw_aventure.seven_wonders.Plateau;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,10 +24,10 @@ public class IAmonetaire implements IA {
     public int choixMain(Joueur j, List<Carte> main, Plateau plateau,boolean prix){
         ArrayList<EnumRessources> ressourcesRecherchee = new ArrayList<>();
         List<String> carteRecherchee ;
-        if(plateau.getAge()==1){
+        if(FacadeMoteur.getAge(plateau)==1){
             carteRecherchee = Arrays.asList("Taverne","Marché","Comptoir OUEST","Comptoir EST","Friche","Excavation","Fosse Argileuse","Exploitation Forestière","Gisement","Mine","Verrerie","Presse","Métier à Tisser") ;
         }
-        else if(plateau.getAge()==2){
+        else if(FacadeMoteur.getAge(plateau)==2){
             carteRecherchee = Arrays.asList("Vignoble","Bazar","Scierie","Carrière","Briqueterie","Fonderie","Verrerie","Presse","Métier à Tisser");
         }
         else {

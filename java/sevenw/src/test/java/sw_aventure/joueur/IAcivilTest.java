@@ -7,9 +7,9 @@ import metier.Strategy;
 import metier.Wonder;
 import org.junit.Before;
 import org.junit.Test;
-import sw_aventure.objetjeu.Carte;
+import objet_commun.Carte;
 import sw_aventure.objetjeu.Inventaire;
-import sw_aventure.objetjeu.Merveille;
+import objet_commun.Merveille;
 import sw_aventure.objetjeu.SetInventaire;
 import sw_aventure.seven_wonders.Plateau;
 
@@ -74,7 +74,7 @@ public class IAcivilTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS, EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE, EnumRessources.ARGILE,EnumRessources.TISSU), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.PIERRE, EnumRessources.PIERRE, EnumRessources.PIERRE, EnumRessources.PIERRE), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
-        gizah = new Merveille(Wonder.GIZAH, EnumRessources.PIERRE, etape, joueur1);
+        gizah = new Merveille(Wonder.GIZAH, EnumRessources.PIERRE, etape);
     }
 
 

@@ -3,7 +3,7 @@ package sw_aventure.joueur;
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
-import sw_aventure.objetjeu.Carte;
+import objet_commun.Carte;
 import sw_aventure.objetjeu.Inventaire;
 import sw_aventure.seven_wonders.Plateau;
 import org.junit.Before;
