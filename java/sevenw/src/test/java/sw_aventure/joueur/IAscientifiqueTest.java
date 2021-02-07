@@ -7,9 +7,9 @@ import metier.Strategy;
 import metier.Wonder;
 import org.junit.Before;
 import org.junit.Test;
-import sw_aventure.objetjeu.Carte;
+import objet_commun.Carte;
 import sw_aventure.objetjeu.Inventaire;
-import sw_aventure.objetjeu.Merveille;
+import objet_commun.Merveille;
 import sw_aventure.objetjeu.SetInventaire;
 import sw_aventure.seven_wonders.Plateau;
 
@@ -47,11 +47,11 @@ public class IAscientifiqueTest {
         iAscientifique = new IAscientifique();
 
         set1 = new SetInventaire(0, Strategy.SCIENTIFIQUE, "j1");
-        Merveille merveille1 = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, new ArrayList<>(), joueur1);
+        Merveille merveille1 = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, new ArrayList<>());
         set1.modifMerveille(merveille1);
 
         set2 = new SetInventaire(1, Strategy.SCIENTIFIQUE, "j2");
-        Merveille merveille2 = new Merveille(Wonder.BABYLONNUIT, EnumRessources.BOIS, new ArrayList<>(), joueur2);
+        Merveille merveille2 = new Merveille(Wonder.BABYLONNUIT, EnumRessources.BOIS, new ArrayList<>());
         set2.modifMerveille(merveille2);
         listeRessource = new ArrayList<>();
 
@@ -79,7 +79,7 @@ public class IAscientifiqueTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI, EnumRessources.MINERAI, EnumRessources.TISSU), Collections.singletonList(EnumRessources.BONUSCPR)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
 
-        babylon = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, etape, joueur1);
+        babylon = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, etape);
     }
 
 

@@ -1,5 +1,7 @@
 package sw_aventure.objetjeu;
 
+import objet_commun.Carte;
+import objet_commun.Merveille;
 import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.EnumRessources;
@@ -59,13 +61,13 @@ public class SetInventaireTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE,EnumRessources.ARGILE), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI,EnumRessources.MINERAI,EnumRessources.TISSU), Collections.singletonList(EnumRessources.BONUSCPR)));
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS,EnumRessources.BOIS,EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
-        babylon = new Merveille(Wonder.BABYLON,EnumRessources.BOIS, etape, set1.getJoueur());
-        olympia = new Merveille(Wonder.OLYMPIA,EnumRessources.ARGILE, etape, set6.getJoueur());
-        rhodos = new Merveille(Wonder.RHODOS,EnumRessources.MINERAI, etape, set6.getJoueur());
-        gizah = new Merveille(Wonder.GIZAH,EnumRessources.PIERRE, etape, set6.getJoueur());
-        ephesos = new Merveille(Wonder.EPHESOS,EnumRessources.PAPYRUS, etape, set6.getJoueur());
-        alexandria = new Merveille(Wonder.ALEXANDRIA,EnumRessources.VERRE, etape, set6.getJoueur());
-        halikarnassos = new Merveille(Wonder.HALIKARNASSOS,EnumRessources.TISSU, etape, set6.getJoueur());
+        babylon = new Merveille(Wonder.BABYLON,EnumRessources.BOIS, etape);
+        olympia = new Merveille(Wonder.OLYMPIA,EnumRessources.ARGILE, etape);
+        rhodos = new Merveille(Wonder.RHODOS,EnumRessources.MINERAI, etape);
+        gizah = new Merveille(Wonder.GIZAH,EnumRessources.PIERRE, etape);
+        ephesos = new Merveille(Wonder.EPHESOS,EnumRessources.PAPYRUS, etape);
+        alexandria = new Merveille(Wonder.ALEXANDRIA,EnumRessources.VERRE, etape);
+        halikarnassos = new Merveille(Wonder.HALIKARNASSOS,EnumRessources.TISSU, etape);
 
     }
 

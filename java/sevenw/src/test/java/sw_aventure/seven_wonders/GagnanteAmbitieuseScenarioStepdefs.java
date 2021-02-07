@@ -1,5 +1,7 @@
 package sw_aventure.seven_wonders;
 
+import objet_commun.Carte;
+import objet_commun.Merveille;
 import io.cucumber.java8.Fr;
 import metier.EnumCarte;
 import metier.EnumRessources;
@@ -98,13 +100,13 @@ public class GagnanteAmbitieuseScenarioStepdefs implements Fr {
 
             List<Carte> etape = new ArrayList<>();
             etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
-            Merveille babylon = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, etape, joueur1);
-            Merveille halikarnasos = new Merveille(Wonder.HALIKARNASSOS, EnumRessources.BOIS, etape, joueur2);
-            Merveille olympia = new Merveille(Wonder.OLYMPIA, EnumRessources.BOIS, etape, joueur3);
-            Merveille rhodos = new Merveille(Wonder.RHODOS, EnumRessources.BOIS, etape, joueur4);
-            Merveille ephesos = new Merveille(Wonder.EPHESOS, EnumRessources.BOIS, etape, joueur5);
-            Merveille alexandria = new Merveille(Wonder.ALEXANDRIA, EnumRessources.BOIS, etape, joueur6);
-            Merveille gizah = new Merveille(Wonder.GIZAH, EnumRessources.BOIS, etape, joueur7);
+            Merveille babylon = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, etape);
+            Merveille halikarnasos = new Merveille(Wonder.HALIKARNASSOS, EnumRessources.BOIS, etape);
+            Merveille olympia = new Merveille(Wonder.OLYMPIA, EnumRessources.BOIS, etape);
+            Merveille rhodos = new Merveille(Wonder.RHODOS, EnumRessources.BOIS, etape);
+            Merveille ephesos = new Merveille(Wonder.EPHESOS, EnumRessources.BOIS, etape);
+            Merveille alexandria = new Merveille(Wonder.ALEXANDRIA, EnumRessources.BOIS, etape);
+            Merveille gizah = new Merveille(Wonder.GIZAH, EnumRessources.BOIS, etape);
 
             Joueur joueur1 = sinv1.getJoueur();
             Joueur joueur2 = sinv2.getJoueur();

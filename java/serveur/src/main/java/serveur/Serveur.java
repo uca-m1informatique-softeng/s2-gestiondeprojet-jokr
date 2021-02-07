@@ -92,6 +92,7 @@ public class Serveur {
                     statistique = new Statistique(nbPartie, nbJoueur, dataParties);
                     statistique.calculStat();
                     statistique.afficheStat(new GestionnaireDeFichier());
+                    arreter();
                 }
             }
         });
@@ -114,6 +115,25 @@ public class Serveur {
      */
     public void demarrer() {
         server.start();
+    }
+
+
+    /**
+     * Méthode qui stop le server
+     */
+    public void arreter() {
+        server.removeAllListeners("Initialisation");
+        server.removeAllListeners("NombresPartie");
+        server.removeAllListeners("NombresJoueur");
+        server.removeAllListeners("Partie");
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                server.stop();
+            }
+        }).start();
     }
 
 

@@ -3,8 +3,9 @@ package sw_aventure.joueur;
 
 import metier.EnumCarte;
 import metier.EnumRessources;
-import sw_aventure.objetjeu.Carte;
+import objet_commun.Carte;
 import sw_aventure.objetjeu.Inventaire;
+import sw_aventure.seven_wonders.FacadeMoteur;
 import sw_aventure.seven_wonders.Plateau;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,10 +35,10 @@ public class IAambitieuse implements IA {
     public int choixMain(Joueur joueur , List<Carte> main, Plateau plateau,boolean prix){
         List<EnumRessources> ressourcesrecherchees = rechercheRessources(joueur,plateau);
         List<String> carteRecherchee ;
-        if(plateau.getAge()==1){
+        if(FacadeMoteur.getAge(plateau)==1){
             carteRecherchee = Collections.emptyList();
         }
-        else if(plateau.getAge()==2){
+        else if(FacadeMoteur.getAge(plateau)==2){
             carteRecherchee = Collections.emptyList();
         }
         else {
@@ -60,7 +61,6 @@ public class IAambitieuse implements IA {
      */
     public int choixCarteAge3(Joueur joueur , List<Carte> main, Plateau plateau, List<String> carteRecherchee, List<EnumRessources> ressourcesRecherchee,boolean bouclier, boolean prix){
         List<Carte> possibilites = getPossibilites(joueur,main,plateau,prix);
-        //List<Integer> points = new ArrayList<>();
         int max = 0 ;
         int temp;
         int idMax = 0 ;
@@ -99,59 +99,59 @@ public class IAambitieuse implements IA {
      * @return les points que la carte fait gagner
      */
     public int getTotalPoints(Carte carte, Joueur joueur, Plateau plateau){
-        Inventaire gauche = plateau.joueurGauche(joueur).getInv();
-        Inventaire droit = plateau.joueurDroit(joueur).getInv();
+        Inventaire gauche = FacadeMoteur.joueurGauche(plateau,joueur).getInv();
+        Inventaire droit = FacadeMoteur.joueurDroit(plateau,joueur).getInv();
 
-        int bouclierGauche = gauche.getValue(EnumRessources.BOUCLIER);
-        int bouclierDroit = droit.getValue(EnumRessources.BOUCLIER);
-        int bouclierJoueur = joueur.getInv().getValue(EnumRessources.BOUCLIER);
+        int bouclierGauche = FacadeMoteur.getValue(gauche, EnumRessources.BOUCLIER);
+        int bouclierDroit = FacadeMoteur.getValue(droit,EnumRessources.BOUCLIER);
+        int bouclierJoueur = FacadeMoteur.getValue(joueur.getInv(),EnumRessources.BOUCLIER);
 
         if(carte.getGain().get(0).equals(EnumRessources.BONUS11J)){
-            return joueur.getInv().getValue(EnumRessources.JAUNE);
+            return FacadeMoteur.getValue(joueur.getInv() ,EnumRessources.JAUNE);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.BONUS11M)){
-            return joueur.getInv().getValue(EnumRessources.MARRON);
+            return FacadeMoteur.getValue(joueur.getInv(), EnumRessources.MARRON);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.BONUS22G)){
-            return (2*joueur.getInv().getValue(EnumRessources.GRISE));
+            return (2*FacadeMoteur.getValue(joueur.getInv(), EnumRessources.GRISE));
         }
         else if(carte.getGain().get(0).equals(EnumRessources.BONUS31R)){
-            return joueur.getInv().getValue(EnumRessources.ROUGE);
+            return FacadeMoteur.getValue(joueur.getInv(), EnumRessources.ROUGE);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.BONUS31MERVEILLE)){
-            return joueur.getInv().getMerveille().getStade();
+            return FacadeMoteur.getMerveille(joueur.getInv()).getStade();
         }
         else if(carte.getGain().get(0).equals(EnumRessources.VBONUS1M)){
-            return droit.getValue(EnumRessources.MARRON) + gauche.getValue(EnumRessources.MARRON);
+            return FacadeMoteur.getValue(droit,EnumRessources.MARRON) + FacadeMoteur.getValue(gauche,EnumRessources.MARRON);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.VBONUS2G)){
-            return 2*(gauche.getValue(EnumRessources.GRISE) + droit.getValue(EnumRessources.GRISE));
+            return 2*(FacadeMoteur.getValue(gauche,EnumRessources.GRISE) + FacadeMoteur.getValue(droit,EnumRessources.GRISE));
         }
         else if(carte.getGain().get(0).equals(EnumRessources.VBONUS1B)){
-            return gauche.getValue(EnumRessources.BLEUE) + droit.getValue(EnumRessources.BLEUE);
+            return FacadeMoteur.getValue(gauche,EnumRessources.BLEUE) + FacadeMoteur.getValue(droit,EnumRessources.BLEUE);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.VBONUS1J)){
-            return gauche.getValue(EnumRessources.JAUNE) + droit.getValue(EnumRessources.JAUNE);
+            return FacadeMoteur.getValue(gauche,EnumRessources.JAUNE) + FacadeMoteur.getValue(droit,EnumRessources.JAUNE);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.VBONUS1R)){
-            return gauche.getValue(EnumRessources.ROUGE) + droit.getValue(EnumRessources.ROUGE);
+            return FacadeMoteur.getValue(gauche,EnumRessources.ROUGE) + FacadeMoteur.getValue(droit,EnumRessources.ROUGE);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.VBONUS1V)){
-            return gauche.getValue(EnumRessources.VERTE) + droit.getValue(EnumRessources.VERTE);
+            return FacadeMoteur.getValue(gauche,EnumRessources.VERTE) + FacadeMoteur.getValue(droit,EnumRessources.VERTE);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.VBONUSMGV)){
-            return joueur.getInv().getValue(EnumRessources.MARRON) + joueur.getInv().getValue(EnumRessources.GRISE) + joueur.getInv().getValue(EnumRessources.VIOLETTE);
+            return FacadeMoteur.getValue(joueur.getInv(), EnumRessources.MARRON) + FacadeMoteur.getValue(joueur.getInv(), EnumRessources.GRISE) + FacadeMoteur.getValue(joueur.getInv(), EnumRessources.VIOLETTE);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.VBONUS1MERVEILLE)){
-            return joueur.getInv().getMerveille().getStade() + gauche.getMerveille().getStade() + droit.getMerveille().getStade();
+            return FacadeMoteur.getMerveille(joueur.getInv()).getStade() + FacadeMoteur.getMerveille(gauche).getStade() + FacadeMoteur.getMerveille(droit).getStade();
         }
-        else if(carte.getGain().get(0).equals(EnumRessources.VBONUS7COMPLETMERVEILLE) && joueur.getInv().getMerveille().getStade()==joueur.getInv().getMerveille().getEtape().size()) {
+        else if(carte.getGain().get(0).equals(EnumRessources.VBONUS7COMPLETMERVEILLE) && FacadeMoteur.getMerveille(joueur.getInv()).getStade()==FacadeMoteur.getMerveille(joueur.getInv()).getEtape().size()) {
             return 7;
         }
-        else if(carte.getGain().get(0).equals(EnumRessources.BOUCLIER) && plateau.getAge()==3 && ((bouclierDroit-bouclierJoueur>=0 && bouclierDroit-bouclierJoueur<=2) && (bouclierGauche-bouclierJoueur>=0 && bouclierGauche-bouclierJoueur<=2))) {
+        else if(carte.getGain().get(0).equals(EnumRessources.BOUCLIER) && FacadeMoteur.getAge(plateau)==3 && ((bouclierDroit-bouclierJoueur>=0 && bouclierDroit-bouclierJoueur<=2) && (bouclierGauche-bouclierJoueur>=0 && bouclierGauche-bouclierJoueur<=2))) {
             return 10;
         }
-        else if(carte.getGain().get(0).equals(EnumRessources.BOUCLIER) && plateau.getAge()==3 && ((bouclierDroit-bouclierJoueur>=0 && bouclierDroit-bouclierJoueur<=2) || (bouclierGauche-bouclierJoueur>=0 && bouclierGauche-bouclierJoueur<=2))) {
+        else if(carte.getGain().get(0).equals(EnumRessources.BOUCLIER) && FacadeMoteur.getAge(plateau)==3 && ((bouclierDroit-bouclierJoueur>=0 && bouclierDroit-bouclierJoueur<=2) || (bouclierGauche-bouclierJoueur>=0 && bouclierGauche-bouclierJoueur<=2))) {
             return 5;
         }
         return 0;
@@ -164,7 +164,7 @@ public class IAambitieuse implements IA {
      */
     public List<EnumRessources> rechercheRessources(Joueur j, Plateau plateau){
         List<EnumRessources> ressourcesrecherchees= new ArrayList<>();
-        int age = plateau.getAge();
+        int age = FacadeMoteur.getAge(plateau);
         if(age==1){
             ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.BOIS);
             ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.PIERRE);
@@ -203,15 +203,15 @@ public class IAambitieuse implements IA {
     public int getScientistPoints(EnumRessources objet,Joueur joueur){
         int bonus = 0 ;
         int besoin = 0;
-        int stockObjet = joueur.getInv().getValue(objet);
+        int stockObjet = FacadeMoteur.getValue(joueur.getInv(),objet);
         bonus += Math.pow((stockObjet+1),2) - Math.pow(stockObjet,2);
-        if(!EnumRessources.ROUE.equals(objet) && joueur.getInv().getValue(EnumRessources.ROUE)>stockObjet){
+        if(!EnumRessources.ROUE.equals(objet) && FacadeMoteur.getValue(joueur.getInv(),EnumRessources.ROUE)>stockObjet){
             besoin += 1 ;
         }
-        if(!EnumRessources.COMPAS.equals(objet) && joueur.getInv().getValue(EnumRessources.COMPAS)>stockObjet){
+        if(!EnumRessources.COMPAS.equals(objet) && FacadeMoteur.getValue(joueur.getInv(),EnumRessources.COMPAS)>stockObjet){
             besoin += 1 ;
         }
-        if(!EnumRessources.PDR.equals(objet) && joueur.getInv().getValue(EnumRessources.PDR)>stockObjet){
+        if(!EnumRessources.PDR.equals(objet) && FacadeMoteur.getValue(joueur.getInv(),EnumRessources.PDR)>stockObjet){
             besoin += 1 ;
         }
         if(besoin==2){
@@ -227,9 +227,9 @@ public class IAambitieuse implements IA {
      * @return un boolean
      */
     public boolean besoinDeBouclier(Joueur joueur, Plateau plateau){
-        int frontGauche = plateau.joueurGauche(joueur).getInv().getValue(EnumRessources.BOUCLIER);
-        int frontDroite = plateau.joueurDroit(joueur).getInv().getValue(EnumRessources.BOUCLIER);
-        int frontSelf = joueur.getInv().getValue(EnumRessources.BOUCLIER);
+        int frontGauche = FacadeMoteur.getValue(FacadeMoteur.joueurGauche(plateau,joueur).getInv(),EnumRessources.BOUCLIER);
+        int frontDroite = FacadeMoteur.getValue(FacadeMoteur.joueurDroit(plateau,joueur).getInv(),EnumRessources.BOUCLIER);
+        int frontSelf = FacadeMoteur.getValue(joueur.getInv(),EnumRessources.BOUCLIER);
         return frontSelf <= frontDroite || frontSelf <= frontGauche;
     }
     /**

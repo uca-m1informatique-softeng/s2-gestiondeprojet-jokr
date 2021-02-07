@@ -6,7 +6,7 @@ import metier.EnumRessources;
 import metier.Strategy;
 import org.junit.Before;
 import org.junit.Test;
-import sw_aventure.objetjeu.Carte;
+import objet_commun.Carte;
 import sw_aventure.objetjeu.Inventaire;
 import sw_aventure.objetjeu.SetInventaire;
 import sw_aventure.seven_wonders.Plateau;

@@ -5,8 +5,7 @@ import java.security.SecureRandom;
 import java.util.*;
 import exception.NegativeNumberException;
 import metier.*;
-import sw_aventure.joueur.FacadeJoueur;
-import sw_aventure.objetjeu.Merveille;
+import objet_commun.Merveille;
 import sw_aventure.objetjeu.*;
 import sw_aventure.joueur.Joueur;
 import org.json.JSONArray;
@@ -23,13 +22,7 @@ public class SevenWonders {
     private final GenererMerveille genererMerveille = new GenererMerveille();
     private static boolean color = true;
 
-    /**
-     * constructeur de la classe SevenWonders
-     */
-    public SevenWonders() {
-    }
 
-    // JEUX //
 
     /**
      * Initialise une partie avec le nombre de joueur
@@ -103,7 +96,7 @@ public class SevenWonders {
         int temporalite;
         for(int i = 0 ; i < inv.size() ; i++){
             temporalite = r.nextInt(2);
-            Merveille laMerveille = genererMerveille.getMerveille(merveille.get(i).get(temporalite), inv.get(i).getJoueur());
+            Merveille laMerveille = genererMerveille.getMerveille(merveille.get(i).get(temporalite));
             inv.get(i).modifMerveille(laMerveille);
             LoggerSevenWonders.ajoutln(FacadeJoueur.getName(inv.get(i).getJoueur()) + " a obtenue la merveille "+ merveille.get(i).get(temporalite) + " et gagne 1 "+ laMerveille.getGain());
 
@@ -238,14 +231,14 @@ public class SevenWonders {
             color = true;
         }
         try {
-            nbParties=Integer.parseInt(args[1]);
+            nbParties = Integer.parseInt(args[1]);
         } catch(Exception e) {
-            nbParties=1;
+            nbParties = 1;
         }
         try {
-            nbJoueurs=Integer.parseInt(args[2]);
+            nbJoueurs = Integer.parseInt(args[2]);
         } catch(Exception e) {
-            nbJoueurs=3;
+            nbJoueurs = 3;
         }
         try {
             if (args[3].equals("true")) {
@@ -256,6 +249,8 @@ public class SevenWonders {
         catch (Exception ignored) {
             // Lancement d'une partie normale
         }
+
+
         if (multiPartieAvecStat) {
             Connexion.CONNEXION.demarrerEcoute();
             Connexion.CONNEXION.envoyerMessageBoolean("Initialisation", true);
@@ -266,6 +261,7 @@ public class SevenWonders {
                 sevenWonders.partie(nbJoueurs);
                 LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
                 Connexion.CONNEXION.envoyerMessageStringBuilder("Partie", LoggerSevenWonders.getStringBuilder());
+                Connexion.CONNEXION.disconnect();
             }
             else {
                 Connexion.CONNEXION.envoyerMessageInt("NombresPartie", nbParties);
@@ -273,6 +269,7 @@ public class SevenWonders {
                     SevenWonders sevenWonders  = new SevenWonders(nbJoueurs, false, color);
                     sevenWonders.partie(nbJoueurs);
                 }
+                Connexion.CONNEXION.disconnect();
             }
         }
         else {

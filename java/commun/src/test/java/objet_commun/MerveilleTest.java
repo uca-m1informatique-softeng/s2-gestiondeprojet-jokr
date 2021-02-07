@@ -1,10 +1,9 @@
-package sw_aventure.objetjeu;
+package objet_commun;
 
 import metier.EnumCarte;
 import metier.EnumRessources;
-import metier.Strategy;
 import metier.Wonder;
-import sw_aventure.joueur.Joueur;
+import org.junit.jupiter.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -20,7 +19,6 @@ public class MerveilleTest {
     private Merveille merveille;
     private Carte carte1, carte2, carte3;
     private ArrayList<Carte> arrayOfCarte;
-    private Joueur joueur1;
 
     @Mock
 
@@ -39,25 +37,13 @@ public class MerveilleTest {
 
         arrayOfCarte = new ArrayList<>(){{ add(carte1); add(carte2); add(carte3); }};
 
-        Inventaire inv1 = new Inventaire(1, Strategy.RANDOM, "Enzo");
 
-        joueur1 = inv1.getJoueur();
-
-        merveille = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, arrayOfCarte, joueur1);
+        merveille = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, arrayOfCarte);
 
         lMerveille = Mockito.mock(Merveille.class);
     }
 
-    /**
-     * Test de la methode getJoueur()
-     * On verifie que la methode est bien call avec un test mockito
-     * On regarde si la merveille est bien associe au bon joueur
-     * On doit verifier que merveille appartient au joueur1 ici
-     */
-    @Test
-    public void getJoueur() {
-        assertEquals(merveille.getJoueur(), joueur1);
-    }
+
 
     /**
      * Test de la methode peutAmeliorerMerveille()
@@ -161,11 +147,11 @@ public class MerveilleTest {
      */
     @Test
     public void equalsTest() {
-        assertEquals(new Merveille(Wonder.BABYLON, EnumRessources.BOIS, arrayOfCarte, joueur1), merveille);
-        assertNotEquals(new Merveille(Wonder.STATUELIBERTE, EnumRessources.BOIS, arrayOfCarte, joueur1), merveille);
+        assertEquals(new Merveille(Wonder.BABYLON, EnumRessources.BOIS, arrayOfCarte), merveille);
+        assertNotEquals(new Merveille(Wonder.STATUELIBERTE, EnumRessources.BOIS, arrayOfCarte), merveille);
 
-        assertNotEquals(merveille , new MainJoueur());
-        assertNotEquals(merveille.hashCode(), new Merveille(Wonder.STATUELIBERTE, EnumRessources.BOIS, arrayOfCarte, joueur1));
+        //Assertions.assertNotEquals(merveille , new MainJoueur());
+        assertNotEquals(merveille.hashCode(), new Merveille(Wonder.STATUELIBERTE, EnumRessources.BOIS, arrayOfCarte));
     }
 }
 

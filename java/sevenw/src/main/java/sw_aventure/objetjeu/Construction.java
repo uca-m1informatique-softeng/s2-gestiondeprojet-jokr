@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import objet_commun.Carte;
 import exception.NegativeNumberException;
 import sw_aventure.joueur.FacadeJoueur;
 import sw_aventure.seven_wonders.Plateau;
