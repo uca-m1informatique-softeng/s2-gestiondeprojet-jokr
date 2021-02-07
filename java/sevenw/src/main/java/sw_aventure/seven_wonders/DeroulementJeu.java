@@ -2,6 +2,7 @@ package sw_aventure.seven_wonders;
 
 import objet_commun.Carte;
 import exception.NegativeNumberException;
+import sw_aventure.joueur.FacadeJoueur;
 import sw_aventure.joueur.Joueur;
 import sw_aventure.objetjeu.*;
 import metier.EnumRessources;
@@ -58,8 +59,8 @@ public class DeroulementJeu {
         ArrayList<Joueur> joueurs = new ArrayList<>();
         for(int i = 0 ; i<nbjoueurs ; i++){
             for (SetInventaire s : inv) {
-                if(s.getJoueur().getId()==i) {
-                    liste[s.getJoueur().getId()] = s.compteFinalScore(plateau, false);
+                if(FacadeJoueur.getId(s.getJoueur())==i) {
+                    liste[FacadeJoueur.getId(s.getJoueur())] = s.compteFinalScore(plateau, false);
                     joueurs.add(s.getJoueur());
                 }
             }
@@ -79,25 +80,25 @@ public class DeroulementJeu {
         for (int i = 0; i < liste.length; i++) {
             if (liste[i] > max) {
                 max = liste[i];
-                piece = joueurs.get(i).getInv().getValue(EnumRessources.PIECE);
+                piece = FacadeJoueur.getInv(joueurs.get(i)).getValue(EnumRessources.PIECE);
                 gagnant.clear();
                 gagnant.add(joueurs.get(i));
-            }else if(liste[i] == max && joueurs.get(i).getInv().getValue(EnumRessources.PIECE)>piece) {
-                piece = joueurs.get(i).getInv().getValue(EnumRessources.PIECE);
+            }else if(liste[i] == max && FacadeJoueur.getInv(joueurs.get(i)).getValue(EnumRessources.PIECE)>piece) {
+                piece = FacadeJoueur.getInv(joueurs.get(i)).getValue(EnumRessources.PIECE);
                 gagnant.clear();
                 gagnant.add(joueurs.get(i));
-            }else if(liste[i] == max && joueurs.get(i).getInv().getValue(EnumRessources.PIECE)==piece) {
+            }else if(liste[i] == max && FacadeJoueur.getInv(joueurs.get(i)).getValue(EnumRessources.PIECE)==piece) {
                 gagnant.add(joueurs.get(i));
             }
         }
         int rand = r.nextInt(gagnant.size());
-        LoggerSevenWonders.ajoutln(Colors.gJaune("Le Vainqueur est ") + gagnant.get(rand).getName() + Colors.gJaune(" avec " + max + " points !!!"));
+        LoggerSevenWonders.ajoutln(Colors.gJaune("Le Vainqueur est ") + FacadeJoueur.getName(gagnant.get(rand)) + Colors.gJaune(" avec " + max + " points !!!"));
         for (SetInventaire s : inv) {
-            if (s.getJoueur().getId() == gagnant.get(rand).getId())
+            if (FacadeJoueur.getId(s.getJoueur()) == FacadeJoueur.getId(gagnant.get(rand)))
                 s.getSac().put(EnumRessources.VICTOIRETOTAL, 1);
             else s.getSac().put(EnumRessources.VICTOIRETOTAL, 0);
         }
-        return gagnant.get(rand).getName();
+        return FacadeJoueur.getName(gagnant.get(rand));
     }
 
     /**
@@ -151,9 +152,9 @@ public class DeroulementJeu {
         }
         for (int i = 0; i < inv.size(); i++) {
             if (age == 2)
-                LoggerSevenWonders.ajoutln(inv.get((i+1)%inv.size()).getJoueur().getName() + " donne ses cartes à " + inv.get(i).getJoueur().getName());
+                LoggerSevenWonders.ajoutln(FacadeJoueur.getName(inv.get((i+1)%inv.size()).getJoueur()) + " donne ses cartes à " + FacadeJoueur.getName(inv.get(i).getJoueur()));
             else
-                LoggerSevenWonders.ajoutln(inv.get(i).getJoueur().getName() + " donne ses cartes à " + inv.get((i + 1) % inv.size()).getJoueur().getName());
+                LoggerSevenWonders.ajoutln(FacadeJoueur.getName(inv.get(i).getJoueur()) + " donne ses cartes à " + FacadeJoueur.getName(inv.get((i + 1) % inv.size()).getJoueur()));
         }
     }
 
@@ -175,9 +176,9 @@ public class DeroulementJeu {
             for (int j = nbJoueurs-1; j>=0; j--) {
                 int i = nbJoueurs-1-j;
                 SetInventaire s = inv.get(i);
-                if (choix[i][0]==1){  // si il veut construire merveille
-                } else { // jouer ou défausser une carte sinon
-                    Carte choixCarte = mainJoueurs.get(s.getJoueur().getId()).getMain().get(choix[i][1]);
+                if (choix[i][0] != 1) {  // si il ne veut pas construire sa merveille
+                    // jouer ou défausser une carte
+                    Carte choixCarte = mainJoueurs.get(FacadeJoueur.getId(s.getJoueur())).getMain().get(choix[i][1]);
                     if (choix[i][0]==3) { // défausser
                         s.casDefausse();
                         paquetDefausse.add(choixCarte);
@@ -185,7 +186,7 @@ public class DeroulementJeu {
                         s.afficheChoixCarte(choixCarte);
                         action.basicConstruire(choixCarte, s, plateau);
                     }
-                    mainJoueurs.get(s.getJoueur().getId()).getMain().remove(choix[i][1]); // retirer la carte de la main
+                    mainJoueurs.get(FacadeJoueur.getId(s.getJoueur())).getMain().remove(choix[i][1]); // retirer la carte de la main
                 }
 
 
@@ -219,16 +220,16 @@ public class DeroulementJeu {
             reward = 5;
         }
         for (int i = 0; i < inv.size(); i++) {
-            LoggerSevenWonders.ajoutln(inv.get(i).getJoueur().getName() + " ("+ inv.get(i).getValue(EnumRessources.BOUCLIER) + " Boucliers) a engagé le combat contre " + inv.get((i + 1) % inv.size()).getJoueur().getName() +" (" + inv.get((i + 1) % inv.size()).getValue(EnumRessources.BOUCLIER)+" Boucliers).");
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(inv.get(i).getJoueur()) + " ("+ inv.get(i).getValue(EnumRessources.BOUCLIER) + " Boucliers) a engagé le combat contre " + FacadeJoueur.getName(inv.get((i + 1) % inv.size()).getJoueur()) +" (" + inv.get((i + 1) % inv.size()).getValue(EnumRessources.BOUCLIER)+" Boucliers).");
             if(inv.get(i).getValue(EnumRessources.BOUCLIER) > inv.get((i + 1) % inv.size()).getValue(EnumRessources.BOUCLIER)){
-                LoggerSevenWonders.ajoutln(inv.get(i).getJoueur().getName() + " gagne la bataille et remporte " + reward + " Pts de Victoire.");
-                LoggerSevenWonders.ajoutln(inv.get((i + 1) % inv.size()).getJoueur().getName() + " perd et remporte 1 Pts de Défaite\n");
+                LoggerSevenWonders.ajoutln(FacadeJoueur.getName(inv.get(i).getJoueur()) + " gagne la bataille et remporte " + reward + " Pts de Victoire.");
+                LoggerSevenWonders.ajoutln(FacadeJoueur.getName(inv.get((i + 1) % inv.size()).getJoueur()) + " perd et remporte 1 Pts de Défaite\n");
                 inv.get(i).increaseValue(EnumRessources.VICTOIRE, reward);
                 inv.get((i + 1) % inv.size()).increaseValue(EnumRessources.DEFAITE, 1);
             }
             else if(inv.get(i).getValue(EnumRessources.BOUCLIER) < inv.get((i + 1) % inv.size()).getValue(EnumRessources.BOUCLIER)){
-                LoggerSevenWonders.ajoutln(inv.get((i + 1) % inv.size()).getJoueur().getName() + " gagne la bataille et remporte " + reward + " Pts de Victoire.");
-                LoggerSevenWonders.ajoutln(inv.get(i).getJoueur().getName() + " perd et remporte 1 Pts de Défaite.\n");
+                LoggerSevenWonders.ajoutln(FacadeJoueur.getName(inv.get((i + 1) % inv.size()).getJoueur()) + " gagne la bataille et remporte " + reward + " Pts de Victoire.");
+                LoggerSevenWonders.ajoutln(FacadeJoueur.getName(inv.get(i).getJoueur()) + " perd et remporte 1 Pts de Défaite.\n");
                 inv.get((i + 1) % inv.size()).increaseValue(EnumRessources.VICTOIRE, reward);
                 inv.get(i).increaseValue(EnumRessources.DEFAITE, 1);
             }

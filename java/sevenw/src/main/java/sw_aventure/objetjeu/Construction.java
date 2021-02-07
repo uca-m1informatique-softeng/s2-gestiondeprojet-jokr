@@ -7,6 +7,7 @@ import java.util.List;
 
 import objet_commun.Carte;
 import exception.NegativeNumberException;
+import sw_aventure.joueur.FacadeJoueur;
 import sw_aventure.seven_wonders.Plateau;
 import metier.EnumCarte;
 import metier.EnumRessources;
@@ -212,7 +213,7 @@ public class Construction {
             }
         }
         if (!payeInv.isEmpty() && print){
-            LoggerSevenWonders.ajoutln(sInventaire.getJoueur().getName() + " a payé via son Inventaire les ressources suivantes : " + payeInv);
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(sInventaire.getJoueur())+ " a payé via son Inventaire les ressources suivantes : " + payeInv);
         }
         return aPayer;
     }
@@ -257,7 +258,7 @@ public class Construction {
         }
 
         if (!payeMulti.isEmpty() && print) {
-            LoggerSevenWonders.ajoutln(sInventaire.getJoueur().getName() + " a payé via ses bonus Multi-Choix les ressources suivantes : " + payeMulti);
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(sInventaire.getJoueur()) + " a payé via ses bonus Multi-Choix les ressources suivantes : " + payeMulti);
         }
         return aPayer;
     }
@@ -422,7 +423,8 @@ public class Construction {
             boolean reducPossibleDroite = couleur.equals(EnumRessources.MARRON) && reducMarronDroite || couleur.equals(EnumRessources.GRISE) && reducGrisDroiteGauche;
             if (nbRessourceGauche >= 1 && nbRessourceDroite >= 1) {
                 ////////        DONNER    LE    CHOIX    AU    JOUEUR    DE    CHOISIR    GAUCHE    OU   DROITE       ///////////
-                if (Boolean.TRUE.equals(sInventaire.getJoueur().achatRessource(aPayer.get(j), gauche, droite))) {
+                //if (Boolean.TRUE.equals(sInventaire.getJoueur().achatRessource(aPayer.get(j), gauche, droite))) {
+                if (Boolean.TRUE.equals(FacadeJoueur.achatRessource(sInventaire.getJoueur(),aPayer.get(j), gauche, droite))) {
                     ///  TRUE = GAUCHE  ///
                     if (reducPossibleGauche) {
                         prix = 1;
@@ -496,7 +498,8 @@ public class Construction {
         joueur.decreaseValue(EnumRessources.PIECE, prix);
         voisin.increaseValue(EnumRessources.PIECE, prix);
         if (print) {
-            LoggerSevenWonders.ajoutln(joueur.getJoueur().getName() + " a acheter à " + voisin.getJoueur().getName() + " la ressource " + ressource + " pour " + prix + " Pièces ! ");
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(joueur.getJoueur()) + " a acheter à " + FacadeJoueur.getName(voisin.getJoueur())
+                    + " la ressource " + ressource + " pour " + prix + " Pièces ! ");
         }
     }
 

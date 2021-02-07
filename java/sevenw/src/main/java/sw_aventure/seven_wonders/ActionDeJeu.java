@@ -3,6 +3,7 @@ package sw_aventure.seven_wonders;
 import exception.NegativeNumberException;
 import metier.EnumRessources;
 import objet_commun.Carte;
+import sw_aventure.joueur.FacadeJoueur;
 import sw_aventure.objetjeu.Construction;
 import sw_aventure.objetjeu.MainJoueur;
 import sw_aventure.objetjeu.SetInventaire;
@@ -40,7 +41,7 @@ public class ActionDeJeu {
      */
 
     public void basicConstruire(Carte carte, SetInventaire s, Plateau plateau ) throws NegativeNumberException {
-        if (construction.permisDeConstruction(carte,s,plateau.joueurGauche(s.getJoueur()).getInv(),plateau.joueurDroit(s.getJoueur()).getInv(),plateau)){
+        if (construction.permisDeConstruction(carte,s, FacadeJoueur.getInv(plateau.joueurGauche(s.getJoueur())),FacadeJoueur.getInv(plateau.joueurDroit(s.getJoueur())),plateau)){
             int precedent=0;
             int suivant=0;
             for(int set = 0 ; set < inv.size() ; set++){
@@ -72,9 +73,9 @@ public class ActionDeJeu {
      */
 
     public boolean merveilleConstruire(Carte carte, SetInventaire s, Plateau plateau) throws NegativeNumberException {
-        if (construction.permisDeConstruction(carte,s,plateau.joueurGauche(s.getJoueur()).getInv(),plateau.joueurDroit(s.getJoueur()).getInv(),plateau)){
+        if (construction.permisDeConstruction(carte,s,FacadeJoueur.getInv(plateau.joueurGauche(s.getJoueur())),FacadeJoueur.getInv(plateau.joueurDroit(s.getJoueur())),plateau)){
 
-            LoggerSevenWonders.ajoutln(s.getJoueur().getName() + " décide de construire le "+ (s.getMerveille().getStade()+1)+  "e étage de sa merveille !");
+            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(s.getJoueur()) + " décide de construire le "+ (s.getMerveille().getStade()+1)+  "e étage de sa merveille !");
             int precedent=0;
             int suivant=0;
             for(int set = 0 ; set < inv.size() ; set++){
@@ -107,16 +108,17 @@ public class ActionDeJeu {
      * @return True si il souhaite et qu'il peut construire sa merveille / false sinon
      */
     public boolean constructionMerveille(SetInventaire s, Plateau plateau) throws NegativeNumberException {
-        Boolean constructMerveille = s.getJoueur().jouerMerveille(mainJoueurs.get(s.getJoueur().getId()).getMain(), plateau);
+        Boolean constructMerveille = FacadeJoueur.jouerMerveille(s.getJoueur(), mainJoueurs.get(FacadeJoueur.getId(s.getJoueur())).getMain(), plateau);
 
         if(s.getMerveille().peutAmeliorerMerveille() && constructMerveille) {
-            int pick = s.getJoueur().constructMerveille(mainJoueurs.get(s.getJoueur().getId()).getMain(),plateau);
+            int pick = FacadeJoueur.constructMerveille(s.getJoueur(), mainJoueurs.get(FacadeJoueur.getId(s.getJoueur())).getMain(),plateau);
             Carte aConstruire = s.getMerveille().getCarteAConstruire();
             if (!merveilleConstruire(aConstruire, s , plateau)){
-                paquetDefausse.add(mainJoueurs.get(s.getJoueur().getId()).getMain().get(pick));
+                paquetDefausse.add(mainJoueurs.get(FacadeJoueur.getId(s.getJoueur())).getMain().get(pick));
             }
             return true;
-        }return false ;
+        }
+        return false ;
     }
 
     /**
@@ -128,10 +130,10 @@ public class ActionDeJeu {
         for (int i = 0; i < nbJoueurs; i++) {
             SetInventaire s = inv.get(i);
             if (s.getValue(EnumRessources.BONUS7CARTEMAIN) > 0) {
-                LoggerSevenWonders.ajoutln(s.getJoueur().getName() + " à le droit de jouer sa 7ème carte !");
-                Carte la7emeCarte = mainJoueurs.get(s.getJoueur().getId()).getMain().get(0);
+                LoggerSevenWonders.ajoutln(FacadeJoueur.getName(s.getJoueur()) + " à le droit de jouer sa 7ème carte !");
+                Carte la7emeCarte = mainJoueurs.get(FacadeJoueur.getId(s.getJoueur())).getMain().get(0);
                 // jouer ou défausser une carte sinon
-                boolean defausse = s.getJoueur().jouerdefausse(la7emeCarte, plateau);
+                boolean defausse = FacadeJoueur.jouerDefausse(s.getJoueur(),la7emeCarte, plateau);
                 if (defausse) { // défausser
                     s.casDefausse();
                     paquetDefausse.add(la7emeCarte);
@@ -141,7 +143,7 @@ public class ActionDeJeu {
                 }
             }
             else{
-                paquetDefausse.add(mainJoueurs.get(s.getJoueur().getId()).getMain().get(0));
+                paquetDefausse.add(mainJoueurs.get(FacadeJoueur.getId(s.getJoueur())).getMain().get(0));
             }
         }
     }
@@ -184,14 +186,14 @@ public class ActionDeJeu {
             SetInventaire s = inv.get(i);
             if(constructionMerveille(s, plateau)){
                 choix[i][0] = 1 ; // construire merveille
-            }else{
-                int pick = s.getJoueur().choixCarte(mainJoueurs.get(s.getJoueur().getId()).getMain(), plateau);
-                Carte choixCarte = mainJoueurs.get(s.getJoueur().getId()).getMain().get(pick);
+            } else {
+                int pick = FacadeJoueur.choixCarte(s.getJoueur(), mainJoueurs.get(FacadeJoueur.getId(s.getJoueur())).getMain(), plateau);
+                Carte choixCarte = mainJoueurs.get(FacadeJoueur.getId(s.getJoueur())).getMain().get(pick);
                 choix[i][1] = pick; // quelle carte jouer
-                boolean defausse = s.getJoueur().jouerdefausse(choixCarte, plateau);
-                if(defausse){
+                boolean defausse = FacadeJoueur.jouerDefausse(s.getJoueur(), choixCarte, plateau);
+                if (defausse) {
                     choix[i][0] = 3 ; // défausser
-                }else{
+                } else {
                     choix[i][0] = 2 ; // construire
                 }
             }
