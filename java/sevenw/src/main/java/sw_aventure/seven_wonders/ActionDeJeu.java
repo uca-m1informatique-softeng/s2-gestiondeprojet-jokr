@@ -3,6 +3,7 @@ package sw_aventure.seven_wonders;
 import exception.NegativeNumberException;
 import metier.EnumRessources;
 import objet_commun.Carte;
+import sw_aventure.joueur.FacadeJoueur;
 import sw_aventure.objetjeu.Construction;
 import sw_aventure.objetjeu.MainJoueur;
 import sw_aventure.objetjeu.SetInventaire;
@@ -40,7 +41,7 @@ public class ActionDeJeu {
      */
 
     public void basicConstruire(Carte carte, SetInventaire s, Plateau plateau ) throws NegativeNumberException {
-        if (construction.permisDeConstruction(carte,s,FacadeJoueur.getInv(plateau.joueurGauche(s.getJoueur())),FacadeJoueur.getInv(plateau.joueurDroit(s.getJoueur())),plateau)){
+        if (construction.permisDeConstruction(carte,s, FacadeJoueur.getInv(plateau.joueurGauche(s.getJoueur())),FacadeJoueur.getInv(plateau.joueurDroit(s.getJoueur())),plateau)){
             int precedent=0;
             int suivant=0;
             for(int set = 0 ; set < inv.size() ; set++){

@@ -6,6 +6,7 @@ import java.util.*;
 import exception.NegativeNumberException;
 import metier.*;
 import objet_commun.Merveille;
+import sw_aventure.joueur.FacadeJoueur;
 import sw_aventure.objetjeu.*;
 import sw_aventure.joueur.Joueur;
 import org.json.JSONArray;
