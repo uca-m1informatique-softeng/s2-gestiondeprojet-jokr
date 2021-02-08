@@ -7,7 +7,7 @@ import java.util.List;
 
 import objet_commun.Carte;
 import exception.NegativeNumberException;
-import sw_aventure.joueur.FacadeJoueur;
+import joueur.FacadeJoueur;
 import sw_aventure.seven_wonders.Plateau;
 import metier.EnumCarte;
 import metier.EnumRessources;

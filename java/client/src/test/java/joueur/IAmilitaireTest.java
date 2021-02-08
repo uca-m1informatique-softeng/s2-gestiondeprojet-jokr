@@ -1,21 +1,23 @@
-package sw_aventure.joueur;
+package joueur;
 
 import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
 import metier.Wonder;
-import org.junit.Before;
 import objet_commun.Carte;
+import objet_commun.Merveille;
+import org.junit.Before;
 import org.junit.Test;
 import sw_aventure.objetjeu.Inventaire;
-import objet_commun.Merveille;
 import sw_aventure.objetjeu.SetInventaire;
 import sw_aventure.seven_wonders.Plateau;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 

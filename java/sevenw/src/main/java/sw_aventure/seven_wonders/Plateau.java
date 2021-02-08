@@ -1,6 +1,6 @@
 package sw_aventure.seven_wonders;
 import sw_aventure.objetjeu.Inventaire;
-import sw_aventure.joueur.Joueur;
+import joueur.Joueur;
 import java.util.List;
 
 /**

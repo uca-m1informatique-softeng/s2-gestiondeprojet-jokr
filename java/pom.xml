@@ -13,6 +13,7 @@
         <module>serveur</module>
         <module>sevenw</module>
         <module>report</module>
+        <module>client</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -117,6 +118,24 @@
             <artifactId>cucumber-junit</artifactId>
             <version>6.5.0</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>JOKR</groupId>
+            <artifactId>commun</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>JOKR</groupId>
+            <artifactId>sevenw</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>JOKR</groupId>
+            <artifactId>client</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>

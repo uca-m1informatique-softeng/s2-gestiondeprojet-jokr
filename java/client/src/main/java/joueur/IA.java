@@ -1,14 +1,15 @@
-package sw_aventure.joueur;
+package joueur;
 
+import metier.EnumRessources;
+import metier.Wonder;
 import objet_commun.Carte;
 import sw_aventure.objetjeu.Inventaire;
 import sw_aventure.seven_wonders.FacadeMoteur;
 import sw_aventure.seven_wonders.Plateau;
-import metier.EnumRessources;
-import metier.Wonder;
 
-import java.util.*;
 import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Interface des IA : on implémente des méthodes par défaut qui font des choix aléatoires.

@@ -1,9 +1,11 @@
-package sw_aventure.joueur;
+package joueur;
+
+import metier.Wonder;
 import objet_commun.Carte;
 import sw_aventure.seven_wonders.FacadeMoteur;
 import sw_aventure.seven_wonders.Plateau;
+
 import java.util.List;
-import metier.Wonder;
 
 public class IAcomposite implements IA {
 

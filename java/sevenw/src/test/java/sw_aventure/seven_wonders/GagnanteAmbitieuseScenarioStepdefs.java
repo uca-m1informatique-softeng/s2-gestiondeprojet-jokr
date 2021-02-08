@@ -7,7 +7,7 @@ import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
 import metier.Wonder;
-import sw_aventure.joueur.*;
+import joueur.*;
 import sw_aventure.objetjeu.*;
 
 import java.security.SecureRandom;

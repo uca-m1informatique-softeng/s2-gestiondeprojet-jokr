@@ -1,7 +1,7 @@
 package sw_aventure.seven_wonders;
 
 import metier.Strategy;
-import sw_aventure.joueur.Joueur;
+import joueur.Joueur;
 import sw_aventure.objetjeu.Inventaire;
 import org.junit.Before;
 import org.junit.Test;

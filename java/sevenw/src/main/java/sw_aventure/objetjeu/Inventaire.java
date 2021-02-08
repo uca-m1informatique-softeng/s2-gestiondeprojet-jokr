@@ -4,10 +4,10 @@ import objet_commun.Merveille;
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
-import sw_aventure.joueur.FacadeJoueur;
+import joueur.FacadeJoueur;
 import sw_aventure.seven_wonders.Plateau;
 import utils.affichage.Colors;
-import sw_aventure.joueur.Joueur;
+import joueur.Joueur;
 import utils.affichage.LoggerSevenWonders;
 import java.util.*;
 

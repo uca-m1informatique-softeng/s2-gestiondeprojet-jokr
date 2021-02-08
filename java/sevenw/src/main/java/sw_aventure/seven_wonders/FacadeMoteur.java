@@ -4,7 +4,7 @@ import metier.EnumCarte;
 import metier.EnumRessources;
 import objet_commun.Carte;
 import objet_commun.Merveille;
-import sw_aventure.joueur.Joueur;
+import joueur.Joueur;
 import sw_aventure.objetjeu.*;
 
 import java.util.List;

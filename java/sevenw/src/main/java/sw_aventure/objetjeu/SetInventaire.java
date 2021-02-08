@@ -3,7 +3,7 @@ package sw_aventure.objetjeu;
 import objet_commun.Carte;
 import objet_commun.Merveille;
 import metier.Strategy;
-import sw_aventure.joueur.FacadeJoueur;
+import joueur.FacadeJoueur;
 import sw_aventure.seven_wonders.Plateau;
 import metier.EnumRessources;
 import utils.affichage.Colors;

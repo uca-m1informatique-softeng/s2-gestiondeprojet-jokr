@@ -7,7 +7,7 @@ import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
 import metier.Wonder;
-import sw_aventure.joueur.Joueur;
+import joueur.Joueur;
 import sw_aventure.seven_wonders.Plateau;
 import org.junit.Before;
 import org.junit.Test;

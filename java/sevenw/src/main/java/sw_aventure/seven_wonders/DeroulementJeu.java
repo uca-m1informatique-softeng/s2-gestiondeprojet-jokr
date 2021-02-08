@@ -2,8 +2,8 @@ package sw_aventure.seven_wonders;
 
 import objet_commun.Carte;
 import exception.NegativeNumberException;
-import sw_aventure.joueur.FacadeJoueur;
-import sw_aventure.joueur.Joueur;
+import joueur.FacadeJoueur;
+import joueur.Joueur;
 import sw_aventure.objetjeu.*;
 import metier.EnumRessources;
 import utils.affichage.Colors;

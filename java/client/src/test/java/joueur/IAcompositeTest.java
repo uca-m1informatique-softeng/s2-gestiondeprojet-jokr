@@ -1,22 +1,25 @@
-package sw_aventure.joueur;
-import objet_commun.Carte;
-import objet_commun.Merveille;
+package joueur;
+
 import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
 import metier.Wonder;
-import sw_aventure.objetjeu.*;
-import sw_aventure.seven_wonders.Plateau;
+import objet_commun.Carte;
+import objet_commun.Merveille;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import sw_aventure.objetjeu.Inventaire;
+import sw_aventure.objetjeu.SetInventaire;
+import sw_aventure.seven_wonders.Plateau;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 

@@ -41,5 +41,14 @@
     <orderEntry type="library" name="Maven: io.cucumber:create-meta:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: net.jodah:typetools:0.6.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.cucumber:cucumber-junit:6.5.0" level="project" />
+    <orderEntry type="module" module-name="sevenw" />
+    <orderEntry type="library" name="Maven: io.socket:socket.io-client:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.socket:engine.io-client:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.squareup.okhttp3:okhttp:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: com.squareup.okio:okio:1.13.0" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.7" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.7" level="project" />
+    <orderEntry type="module" module-name="client" />
   </component>
 </module>

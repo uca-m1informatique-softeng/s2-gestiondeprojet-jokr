@@ -1,4 +1,4 @@
-package sw_aventure.joueur;
+package joueur;
 
 import metier.EnumRessources;
 import metier.Strategy;
