@@ -4,10 +4,11 @@ services:
 
   serveur:
     image: serveur
-    container_name: serveur
     networks:
       testing_net:
         ipv4_address: 10.0.0.253
+    depends_on:
+      - moteur
   
   
   moteur:
