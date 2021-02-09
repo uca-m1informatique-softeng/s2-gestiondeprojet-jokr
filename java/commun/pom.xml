@@ -28,24 +28,16 @@
         <testSourceDirectory>src/test/java</testSourceDirectory> <!-- éventuellement à changer : localisation des fichiers sources des tests -->
         <plugins>
 
-
-
-            <!-- la génération de la  javadoc s'utilise avec "mvn site" -->
-
-
         </plugins>
-
     </build>
 
 <dependencies>
-
     <dependency>
         <groupId>org.json</groupId>
         <artifactId>json</artifactId>
         <version>20090211</version>
         <scope>compile</scope>
     </dependency>
-
 </dependencies>
 
 </project>
