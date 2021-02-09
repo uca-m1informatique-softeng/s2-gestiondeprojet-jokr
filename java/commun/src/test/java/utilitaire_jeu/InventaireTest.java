@@ -1,13 +1,13 @@
-package sw_aventure.objetjeu;
+package utilitaire_jeu;
 
 import objet_commun.Carte;
 import objet_commun.Merveille;
-import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
 import metier.Wonder;
 import joueur.Joueur;
+import sw_aventure.objetjeu.SetInventaire;
 import sw_aventure.seven_wonders.Plateau;
 import org.junit.Before;
 import org.junit.Test;

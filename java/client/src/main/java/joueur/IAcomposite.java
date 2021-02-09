@@ -2,8 +2,7 @@ package joueur;
 
 import metier.Wonder;
 import objet_commun.Carte;
-import sw_aventure.seven_wonders.FacadeMoteur;
-import sw_aventure.seven_wonders.Plateau;
+import utilitaire_jeu.Plateau;
 
 import java.util.List;
 
@@ -36,7 +35,7 @@ public class IAcomposite implements IA {
      */
     @Override
     public int choixMain(Joueur j, List<Carte> main, Plateau plateau,boolean prix) {
-        Wonder merv = FacadeMoteur.getMerveille(j.getInv()).getNom();
+        Wonder merv = j.getInv().getMerveille().getNom();
         botChameleon = choixMerveilleStrat(merv);
         return botChameleon.choixMain(j,main,plateau,prix);
     }
@@ -51,7 +50,7 @@ public class IAcomposite implements IA {
      */
     @Override
     public boolean choixMerveille(Joueur j, List<Carte> main, Plateau plateau) {
-        Wonder merv = FacadeMoteur.getMerveille(j.getInv()).getNom();
+        Wonder merv = j.getInv().getMerveille().getNom();
         botChameleon = choixMerveilleStrat(merv);
         return botChameleon.choixMerveille(j,main,plateau);
     }
@@ -67,7 +66,7 @@ public class IAcomposite implements IA {
      */
     @Override
     public int choixCartePourMerveille(Joueur j, List<Carte> main, Plateau plateau) {
-        Wonder merv = FacadeMoteur.getMerveille(j.getInv()).getNom();
+        Wonder merv = j.getInv().getMerveille().getNom();
         botChameleon = choixMerveilleStrat(merv);
         return botChameleon.choixCartePourMerveille(j,main,plateau);
     }

@@ -1,13 +1,9 @@
-package sw_aventure.objetjeu;
+package utilitaire_jeu;
 
 import objet_commun.Merveille;
 import metier.EnumCarte;
 import metier.EnumRessources;
-import metier.Strategy;
-import joueur.FacadeJoueur;
-import sw_aventure.seven_wonders.Plateau;
 import utils.affichage.Colors;
-import joueur.Joueur;
 import utils.affichage.LoggerSevenWonders;
 import java.util.*;
 
@@ -17,21 +13,23 @@ import java.util.*;
  */
 public class Inventaire {
     protected Map<EnumRessources, Integer> sac = new EnumMap<>(EnumRessources.class);
-    protected Joueur joueurName;
+    protected String joueurName;
+    protected String url;
     protected List<EnumCarte> listeCarte ;
+    protected Integer id;
     protected Merveille merveille ;
-    protected Plateau plateau ;
     // CONSTRUCTEUR
 
     /**
      * Constructeur de la classe inventaire prenant l'ID d'un joueur, l'IA et son Nom
      * @param id l'ID du joueur
-     * @param ia l'IA du joueur
      * @param name le nom du joueur
      */
 
-    public Inventaire(int id, Strategy ia, String name) {  // Dictionnaire
-        this.joueurName = FacadeJoueur.newJoueur(id,ia,name,this); // création du joueur
+    public Inventaire(int id, String url_player,String name) {  // Dictionnaire
+        this.joueurName = name; // création du joueur
+        this.id = id;
+        this.url = url_player;
         listeCarte = new ArrayList<>();
         initSac();
     }
@@ -149,7 +147,7 @@ public class Inventaire {
      * Méthode permettant d'afficher l'inventaire du joueur
      */
     public void afficheInventaire() {
-        LoggerSevenWonders.ajoutln("Inventaire du joueur " + FacadeJoueur.getName(getJoueur()) + " : \n");
+        LoggerSevenWonders.ajoutln("Inventaire du joueur " + this.joueurName + " : \n");
         List<String> inv = printInventaire();
         int acc  = 0 ;
         for(int i = 0;i<3;i++){
@@ -162,18 +160,19 @@ public class Inventaire {
     }
 
     /** Méthode permettant de récupérer le score d'un joueur
-     * @param plateau le plateau de jeu
+     * @param gauche l'inventaire de gauche
+     * @param droit l'inventaire de droite
      * @param afficher affiche ou non les prints
      * @return le score d'un joueur
      */
-    public int compteFinalScore(Plateau plateau, boolean afficher) {
+    public int compteFinalScore(Inventaire gauche, Inventaire droit, boolean afficher) {
 
         int sum ;
         int score = getValue(EnumRessources.SCORE);
         int piece = getValue(EnumRessources.PIECE)/3;
         int guerre = getValue(EnumRessources.VICTOIRE);
         guerre -= getValue(EnumRessources.DEFAITE);
-        int carteBonus = compteBonus(plateau);
+        int carteBonus = compteBonus(gauche,droit);
         int scientifique = compteScientifique();
         sum=score+piece+guerre+scientifique+carteBonus;
         sac.put(EnumRessources.SCOREPIECE, piece);
@@ -182,25 +181,25 @@ public class Inventaire {
         sac.put(EnumRessources.SCOREFINAL, sum);
         if(afficher) {
             afficheInventaire();
-            LoggerSevenWonders.ajoutln("\n" + FacadeJoueur.getName(joueurName) + " ayant déjà " + score + " points grâce à son" + Colors.gBleu(" score") + " obtient :\n"
+            LoggerSevenWonders.ajoutln("\n" + this.joueurName + " ayant déjà " + score + " points grâce à son" + Colors.gBleu(" score") + " obtient :\n"
                     + "\t" + piece + "\t points grâce à ses" + Colors.gJaune(" pièces") + ", \n"
                     + "\t" + guerre + "\t points via les jetons de" + Colors.gRouge(" guerre") + " Victoire/défaite, \n"
                     + "\t" + scientifique + "\t points de ses combos " + Colors.gVert("scientifiques") + "\n"
                     + "\t" + carteBonus + "\t venant du cumul des bâtiments " + Colors.gViolet("bonus") + " !\n"
-                    + FacadeJoueur.getName(joueurName) + " à au total " + sum + " points !\n");
+                    + this.joueurName + " à au total " + sum + " points !\n");
         }
         return sum;
     }
 
     /**
      * Calcul tous les points obtenues par les cartes Bonus
-     * @param plateau le plateau de jeu
+     * @param gauche le joueur de gauche
+     * @param droit le joueur de droite
      * @return le total obtenu
      */
-    public int compteBonus(Plateau plateau){
+    public int compteBonus(Inventaire gauche, Inventaire droit){
         int acc = 0 ;
-        Inventaire gauche = FacadeJoueur.getInv(plateau.joueurGauche(this.joueurName));
-        Inventaire droit = FacadeJoueur.getInv(plateau.joueurDroit(this.joueurName));
+
 
         if(getValue(EnumRessources.BONUS11J)!=0){
             acc += getValue(EnumRessources.JAUNE);
@@ -264,7 +263,7 @@ public class Inventaire {
         if(getValue(EnumRessources.BONUSCPR) == 1) {
             return bonusScientifique1(resultatMAX,compas,roue,pdr,1);
         } else if(getValue(EnumRessources.BONUSCPR) == 2) {
-           return bonusScientifique2(resultatMAX,compas,roue,pdr);
+            return bonusScientifique2(resultatMAX,compas,roue,pdr);
         }
         return resultatMAX;
     }
@@ -372,15 +371,13 @@ public class Inventaire {
     /**
      * @return le joueur associé à l'inventaire
      */
-    public Joueur getJoueur() { return joueurName; }
+    public String getJoueurName() { return joueurName; }
 
 
     /**
      * @return Permet d'obtenir l'Id du joueur
      */
-    public int getId(){
-        return FacadeJoueur.getId(joueurName);
-    }
+    public int getId(){ return id; }
 
     /**
      * Permet d'obtenir la quantité d'une ressource donnée que le joueur possède
@@ -398,6 +395,9 @@ public class Inventaire {
         return merveille;
     }
 
+    public String getUrl() {
+        return url;
+    }
 
     /**
      * @return le sac du joueur (qui représente son inventaire)

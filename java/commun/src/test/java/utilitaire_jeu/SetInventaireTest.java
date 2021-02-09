@@ -1,4 +1,4 @@
-package sw_aventure.objetjeu;
+package utilitaire_jeu;
 
 import objet_commun.Carte;
 import objet_commun.Merveille;
@@ -12,6 +12,8 @@ import sw_aventure.seven_wonders.Plateau;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
+import utilitaire_jeu.SetInventaire;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;

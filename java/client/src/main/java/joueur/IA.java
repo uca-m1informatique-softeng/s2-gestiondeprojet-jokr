@@ -3,9 +3,9 @@ package joueur;
 import metier.EnumRessources;
 import metier.Wonder;
 import objet_commun.Carte;
-import sw_aventure.objetjeu.Inventaire;
-import sw_aventure.seven_wonders.FacadeMoteur;
-import sw_aventure.seven_wonders.Plateau;
+import utilitaire_jeu.Construction;
+import utilitaire_jeu.Inventaire;
+import utilitaire_jeu.Plateau;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public interface IA {
      * @param prix si la carte est payante ou non
      * @return Index de la carte à jouer dans la main
      */
-    default int choixMain(Joueur j , List<Carte> main, Plateau plateau,boolean prix){
+    default int choixMain(Joueur j , List<Carte> main, Plateau plateau, boolean prix){
         return r.nextInt(main.size()) ;
     }
 
@@ -50,7 +50,7 @@ public interface IA {
      * @return True défausse / false sinon
      */
     default boolean choixDefausse(Joueur j , Carte carte , Plateau plateau) {
-        return !FacadeMoteur.permisDeConstruction(carte , j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau);
+        return !Construction.permisDeConstruction(carte , j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau);
     }
 
     /**
@@ -61,9 +61,9 @@ public interface IA {
      * @param droite l'inventaire du joueur de droite
      * @return true acheter à gauche / False à droite
      */
-    default Boolean commerceAdjacent(EnumRessources ressource, Joueur j,  Inventaire gauche, Inventaire droite){
-        int reducDroite = FacadeMoteur.getValue(j.getInv(),EnumRessources.REDMARRONDROITE);
-        int reducGauche = FacadeMoteur.getValue(j.getInv(),EnumRessources.REDMARRONGAUCHE);
+    default Boolean commerceAdjacent(EnumRessources ressource, Joueur j, Inventaire gauche, Inventaire droite){
+        int reducDroite = j.getInv().getValue(EnumRessources.REDMARRONDROITE);
+        int reducGauche = j.getInv().getValue(EnumRessources.REDMARRONGAUCHE);
         if(reducGauche>reducDroite){ /// SI ON A UNE REDUC A GAUCHE ET PAS A DROITE ///
             return true;
         }
@@ -133,13 +133,13 @@ public interface IA {
         ArrayList<Carte> possibilites = new ArrayList<>();
         if(prix) {
             for (int i = 0; i < main.size(); i++) {
-                if (FacadeMoteur.permisDeConstruction(main.get(i), j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau)) {
+                if (Construction.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau)) {
                     possibilites.add(main.get(i));
                 }
             }
         }else{
             for (int i = 0; i < main.size(); i++) {
-                if (!FacadeMoteur.laConstructionViaDoublons(main.get(i), j.getInv(), false)) {
+                if (!Construction.laConstructionViaDoublons(main.get(i), j.getInv(), false)) {
                     possibilites.add(main.get(i));
                 }
             }
@@ -172,9 +172,9 @@ public interface IA {
      * @return le nom de la carte à jouer depuis la main
      */
     default String seDefendre(Joueur j , Plateau plateau , List<Carte> possibilites){
-        int boucliers = FacadeMoteur.getValue(j.getInv(),EnumRessources.BOUCLIER);
+        int boucliers = j.getInv().getValue(EnumRessources.BOUCLIER);
         String carte = "";
-        if ((FacadeMoteur.getValue(FacadeMoteur.joueurGauche(plateau,j).getInv(),EnumRessources.BOUCLIER) > boucliers || FacadeMoteur.getValue(FacadeMoteur.joueurDroit(plateau,j).getInv(),EnumRessources.BOUCLIER) > boucliers)) {
+        if ((plateau.joueurGauche(j.getInv()).getValue(EnumRessources.BOUCLIER) > boucliers || plateau.joueurDroit(j.getInv()).getValue(EnumRessources.BOUCLIER) > boucliers)) {
             for (int i = 0; i < possibilites.size(); i++) {
                 if (possibilites.get(i).getCouleur().equals(EnumRessources.ROUGE)) {
                     carte = possibilites.get(i).getNom().toString();
@@ -200,16 +200,16 @@ public interface IA {
                 return carte;
             }
         }
-        if (FacadeMoteur.getValue(j.getInv(),EnumRessources.BOIS) < 2) {
+        if (j.getInv().getValue(EnumRessources.BOIS) < 2) {
             carte = approvisionnementDeRessource(j,possibilites,EnumRessources.BOIS);
         }
-        if (carte.equals("") && FacadeMoteur.getValue(j.getInv(),EnumRessources.MINERAI) < 2) {
+        if (carte.equals("") && j.getInv().getValue(EnumRessources.MINERAI) < 2) {
             carte = approvisionnementDeRessource(j,possibilites,EnumRessources.MINERAI);
         }
-        if (carte.equals("") && FacadeMoteur.getValue(j.getInv(),EnumRessources.ARGILE) < 2) {
+        if (carte.equals("") && j.getInv().getValue(EnumRessources.ARGILE) < 2) {
             carte = approvisionnementDeRessource(j,possibilites,EnumRessources.ARGILE);
         }
-        if (carte.equals("") && FacadeMoteur.getValue(j.getInv(),EnumRessources.PIERRE) < 2) {
+        if (carte.equals("") && j.getInv().getValue(EnumRessources.PIERRE) < 2) {
             carte = approvisionnementDeRessource(j,possibilites,EnumRessources.PIERRE);
         }
         return carte;
@@ -242,7 +242,7 @@ public interface IA {
      */
 
     default boolean choixConstrMerveille(Joueur j, List<Carte> main, Plateau plateau, List<Wonder> merveilles){
-        return merveilles.contains(FacadeMoteur.getMerveille(j.getInv()).getNom()) && FacadeMoteur.getMerveille(j.getInv()).peutAmeliorerMerveille() && (FacadeMoteur.permisDeConstruction(FacadeMoteur.getMerveille(j.getInv()).getCarteAConstruire(),j.getInv(),FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau));
+        return merveilles.contains(j.getInv().getMerveille().getNom()) && j.getInv().getMerveille().peutAmeliorerMerveille() && (Construction.permisDeConstruction(j.getInv().getMerveille().getCarteAConstruire(),j.getInv(),plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau));
              // Si l'étage de la merveille est constructible par le joueur alors il décide de construire la merveille
     }
 
@@ -255,7 +255,7 @@ public interface IA {
      */
     default int choixCartePourMerveille(Joueur j, List<Carte> main, Plateau plateau){
         for(int i = 0 ; i < main.size() ; i++) {
-            if (!FacadeMoteur.permisDeConstruction(main.get(i), j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau)) {
+            if (!Construction.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau)) {
                 return i;
             }
         }
@@ -283,7 +283,7 @@ public interface IA {
      * @return la liste modifiée ou non selon la condition
      */
     default List<EnumRessources> listeRessource(List<EnumRessources> ressourcesrecherchees, Joueur j, int nombreVoulu, EnumRessources ressource){
-        if(FacadeMoteur.getValue(j.getInv(),ressource)<nombreVoulu && !ressourcesrecherchees.contains(ressource)){
+        if(j.getInv().getValue(ressource)<nombreVoulu && !ressourcesrecherchees.contains(ressource)){
             ressourcesrecherchees.add(ressource);
         }
         return ressourcesrecherchees;

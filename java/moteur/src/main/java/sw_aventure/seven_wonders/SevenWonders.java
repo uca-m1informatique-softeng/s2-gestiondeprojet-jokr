@@ -8,8 +8,10 @@ import metier.*;
 import objet_commun.Merveille;
 import joueur.FacadeJoueur;
 import sw_aventure.objetjeu.*;
-import joueur.Joueur;
 import org.json.JSONArray;
+import utilitaire_jeu.Inventaire;
+import utilitaire_jeu.Plateau;
+import utilitaire_jeu.SetInventaire;
 import utils.affichage.Colors;
 import utils.affichage.LoggerSevenWonders;
 import reseau.Connexion;
@@ -52,9 +54,11 @@ public class SevenWonders {
     public void initPlayers(int nbJoueurs,boolean shuffle) {
         inv = new ArrayList<>();
         List<String> names = Arrays.asList(Colors.igBleu("Enzo"), Colors.igJaune("Mona"),Colors.igCyan("Fred"), Colors.igVert("Paul"), Colors.igRouge("Lucy"),  Colors.igViolet("Dora"),Colors.igViolet("Alex"));
+        List<String> url_Players = Arrays.asList("AZERTY","QSDGDSGS","EFGZBZZB","GZDBZBZ","ZBZRABT","ZBREZNBE","BAEABRBRA");
         List<Strategy> strategies = Arrays.asList(Strategy.RANDOM, Strategy.AMBITIEUSE, Strategy.COMPOSITE,Strategy.MONETAIRE, Strategy.MILITAIRE, Strategy.SCIENTIFIQUE,Strategy.CIVILE);
         for (int i = 0; i < nbJoueurs; i++) {
-            inv.add(new SetInventaire(i, strategies.get(i), names.get(i)));
+            inv.add(new SetInventaire(i,url_Players.get(i), names.get(i)));
+            FacadeJoueur.newJoueur(i,strategies.get(i),url_Players.get(i),names.get(i),(Inventaire)inv.get(i));
         }
         if(shuffle){
             Collections.shuffle(inv);
@@ -70,12 +74,10 @@ public class SevenWonders {
      */
     public Plateau initPlateau(){
         ArrayList<Inventaire> listeInventaire = new ArrayList<>();
-        ArrayList<Joueur> listeJoueur = new ArrayList<>();
         for (SetInventaire setInventaire : inv) {
             listeInventaire.add(setInventaire);
-            listeJoueur.add(setInventaire.getJoueur());
         }
-        return new Plateau(listeInventaire, listeJoueur);
+        return new Plateau(listeInventaire);
     }
 
 
@@ -99,7 +101,7 @@ public class SevenWonders {
             temporalite = r.nextInt(2);
             Merveille laMerveille = genererMerveille.getMerveille(merveille.get(i).get(temporalite));
             inv.get(i).modifMerveille(laMerveille);
-            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(inv.get(i).getJoueur()) + " a obtenue la merveille "+ merveille.get(i).get(temporalite) + " et gagne 1 "+ laMerveille.getGain());
+            LoggerSevenWonders.ajoutln(inv.get(i).getJoueurName() + " a obtenue la merveille "+ merveille.get(i).get(temporalite) + " et gagne 1 "+ laMerveille.getGain());
 
             inv.get(i).increaseValue(laMerveille.getGain(),1);
         }
@@ -166,9 +168,9 @@ public class SevenWonders {
 
         JSONArray jsonArray = new JSONArray();
         for (SetInventaire s : setInv) {
-            nomJoueur = FacadeJoueur.getName(s.getJoueur());
-            strategieJoueur = FacadeJoueur.getStrategie(s.getJoueur());
-            inventaire = FacadeJoueur.getInv(s.getJoueur()).getSac();
+            nomJoueur = s.getJoueurName();
+            strategieJoueur = FacadeJoueur.getStrategie(FacadeJoueur.getStrategie(s.getUrl()));
+            inventaire = s.getSac();
             merveille = s.getMerveille().getNom().toString();
             cartes = s.getListeCarte();
             try {

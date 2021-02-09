@@ -1,7 +1,8 @@
 package joueur;
 
 import objet_commun.Carte;
-import sw_aventure.seven_wonders.FacadeMoteur;
+import utilitaire_jeu.Construction;
+import utilitaire_jeu.Plateau;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class IAmerveille implements IA {
     @Override
     public int choixMain(Joueur j, List<Carte> main, Plateau plateau, boolean prix){
         for(int i = 0 ; i < main.size() ; i++) {
-            if (FacadeMoteur.permisDeConstruction(main.get(i), j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau)) {
+            if (Construction.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()), plateau)) {
                 return i;
             }
         } return 1 ;
@@ -36,9 +37,9 @@ public class IAmerveille implements IA {
      */
     @Override
     public boolean choixMerveille(Joueur j, List<Carte> main, Plateau plateau){
-        if(Boolean.TRUE.equals(FacadeMoteur.getMerveille(j.getInv()).peutAmeliorerMerveille())){
+        if(Boolean.TRUE.equals(j.getInv().getMerveille().peutAmeliorerMerveille())){
             for(int i = 0 ; i < main.size() ; i++) {
-                if (FacadeMoteur.permisDeConstruction( FacadeMoteur.getMerveille(j.getInv()).getCarteAConstruire(),j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau)) {
+                if (Construction.permisDeConstruction( j.getInv().getMerveille().getCarteAConstruire(),j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau)) {
                     return true; // Si l'étage de la merveille est constructible par le joueur alors il décide de construire la merveille
                 }
             }

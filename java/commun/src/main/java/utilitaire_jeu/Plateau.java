@@ -1,6 +1,5 @@
-package sw_aventure.seven_wonders;
-import sw_aventure.objetjeu.Inventaire;
-import joueur.Joueur;
+package utilitaire_jeu;
+
 import java.util.List;
 
 /**
@@ -8,7 +7,6 @@ import java.util.List;
  */
 
 public class Plateau {
-    private final List<Joueur> listeJoueur;
     private final List<Inventaire> listeInventaire;
     private int tour ;
     private int age = 0 ;
@@ -16,11 +14,9 @@ public class Plateau {
     /**
      * Constructeur de l'objet Plateau
      * @param listeInventaire liste des inventaires
-     * @param listeJoueur liste des joueurs
      */
-    public Plateau(List<Inventaire> listeInventaire, List<Joueur> listeJoueur) {
+    public Plateau(List<Inventaire> listeInventaire) {
         this.listeInventaire = listeInventaire;
-        this.listeJoueur = listeJoueur;
     }
 
 
@@ -69,23 +65,16 @@ public class Plateau {
         return listeInventaire;
     }
 
-    /**
-     * @return liste de tous les joueurs
-     */
-
-    public List<Joueur> getListeJoueur() {
-        return listeJoueur;
-    }
 
     /**
      * @param joueur le joueur
      * @return Le joueur à droite du joueur en paramètre
      */
 
-    public Joueur joueurDroit(Joueur joueur) {
-        for (int i = 0; i < listeJoueur.size(); i++) {
-            if (listeJoueur.get(i) == joueur) {
-                return listeJoueur.get((i + 1) % listeJoueur.size());
+    public Inventaire joueurDroit(Inventaire joueur) {
+        for (int i = 0; i < listeInventaire.size(); i++) {
+            if (listeInventaire.get(i) == joueur) {
+                return listeInventaire.get((i + 1) % listeInventaire.size());
             }
         }
         return null;
@@ -96,13 +85,13 @@ public class Plateau {
      * @return Le joueur à gauche du joueur en paramètre
      */
 
-    public Joueur joueurGauche(Joueur joueur) {
-        for (int i = 0; i < listeJoueur.size(); i++) {
-            if (listeJoueur.get(i).equals(joueur)) {
-                if((i-1) % listeJoueur.size()<0){
-                    return listeJoueur.get(listeJoueur.size() + ((i-1)% listeJoueur.size()));
+    public Inventaire joueurGauche(Inventaire joueur) {
+        for (int i = 0; i < listeInventaire.size(); i++) {
+            if (listeInventaire.get(i).equals(joueur)) {
+                if((i-1) % listeInventaire.size()<0){
+                    return listeInventaire.get(listeInventaire.size() + ((i-1)% listeInventaire.size()));
                 }
-                return listeJoueur.get((i - 1) % listeJoueur.size());
+                return listeInventaire.get((i - 1) % listeInventaire.size());
             }
         }
         return null;

@@ -3,7 +3,7 @@ package sw_aventure.seven_wonders;
 import exception.NegativeNumberException;
 import metier.EnumRessources;
 import metier.Strategy;
-import sw_aventure.objetjeu.SetInventaire;
+import utilitaire_jeu.SetInventaire;
 import io.cucumber.java8.Fr;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

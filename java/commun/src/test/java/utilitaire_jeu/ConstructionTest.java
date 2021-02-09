@@ -1,12 +1,10 @@
-package sw_aventure.objetjeu;
+package utilitaire_jeu;
 
 import objet_commun.Carte;
-import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
 import joueur.Joueur;
-import sw_aventure.seven_wonders.Plateau;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -72,7 +70,7 @@ public class ConstructionTest {
     /**
      * Test de la méthode permisDeConstruction(Inventaire)
      * On cree des cas permettant pour verifier si il peut construire ou non
-     * On reinstialise l inventaire pour chaque test avec la methode clear()
+     * On reinitialise l inventaire pour chaque test avec la methode clear()
      */
     @Test
     public void permisDeConstructionInventaireTest() throws NegativeNumberException {

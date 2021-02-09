@@ -1,4 +1,5 @@
-package sw_aventure.objetjeu;
+package utilitaire_jeu;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,9 +7,6 @@ import java.util.Collections;
 import java.util.List;
 
 import objet_commun.Carte;
-import exception.NegativeNumberException;
-import joueur.FacadeJoueur;
-import sw_aventure.seven_wonders.Plateau;
 import metier.EnumCarte;
 import metier.EnumRessources;
 import utils.affichage.Colors;
@@ -28,7 +26,7 @@ public class Construction {
      * @return True si il peut construire la carte / False sinon
      */
 
-    public boolean permisDeConstruction(Carte carte, Inventaire sInventaire, Inventaire gauche, Inventaire droite, Plateau plateau) {
+    public static boolean permisDeConstruction(Carte carte, Inventaire sInventaire, Inventaire gauche, Inventaire droite, Plateau plateau) {
         if(laConstructionViaDoublons(carte,sInventaire,false)){
             return false;
         }
@@ -50,7 +48,7 @@ public class Construction {
      * @param plateau le plateau
      * @return True si la carte a bien été construite / false sinon
      */
-    public boolean permisDeConstruction(Carte carte, SetInventaire sInventaire, SetInventaire gauche, SetInventaire droite, Plateau plateau) throws NegativeNumberException {
+    public boolean permisDeConstruction(Carte carte, SetInventaire sInventaire, SetInventaire gauche, SetInventaire droite, Plateau plateau){
         if(laConstructionViaDoublons(carte,sInventaire,true)){
             return false;
         }
@@ -72,7 +70,7 @@ public class Construction {
      * @return la liste des ressources restante à payer
      */
 
-    public List<EnumRessources> laConstruction(Carte carte,Inventaire sInventaire, Plateau plateau,boolean print) {
+    public static List<EnumRessources> laConstruction(Carte carte, Inventaire sInventaire, Plateau plateau, boolean print) {
         List<EnumRessources> vrai = Collections.emptyList();
         ArrayList<EnumRessources> aPayer = new ArrayList<>(carte.getPrix());
         if(laConstructionViaChainee(carte,sInventaire,print)){
@@ -105,7 +103,7 @@ public class Construction {
      * @return True si il possède la carte / false sinon
      */
 
-    public boolean laConstructionViaDoublons(Carte carte ,Inventaire sInventaire,boolean print){
+    public static boolean laConstructionViaDoublons(Carte carte, Inventaire sInventaire, boolean print){
         ////////     DOUBLONS !!!   /////////
         if (sInventaire.getListeCarte().contains(carte.getNom())) {
             if(print){LoggerSevenWonders.ajoutln(Colors.gRouge("Carte déjà en possession !"));}
@@ -122,7 +120,7 @@ public class Construction {
      * @return True si il possède la carte chainée antérieur / false sinon
      */
 
-    public boolean laConstructionViaChainee(Carte carte,Inventaire sInventaire,boolean print){
+    public static boolean laConstructionViaChainee(Carte carte, Inventaire sInventaire, boolean print){
         ////////   CARTE CHAINEE     /////////
         List<EnumCarte> liste = Arrays.asList(EnumCarte.B13, EnumCarte.B7, EnumCarte.B3, EnumCarte.B6, EnumCarte.B2, EnumCarte.B8, EnumCarte.B1, EnumCarte.B9, EnumCarte.J1, EnumCarte.J7, EnumCarte.J7, EnumCarte.J9, EnumCarte.J3, EnumCarte.J6, EnumCarte.J6, EnumCarte.J10, EnumCarte.J2, EnumCarte.J6, EnumCarte.V3, EnumCarte.R6, EnumCarte.V3, EnumCarte.V7, EnumCarte.V7, EnumCarte.J11, EnumCarte.V7, EnumCarte.V8, EnumCarte.V2, EnumCarte.R5, EnumCarte.V2, EnumCarte.V6, EnumCarte.V6, EnumCarte.R10, EnumCarte.V6, EnumCarte.V10, EnumCarte.V1, EnumCarte.B4, EnumCarte.V1, EnumCarte.V5, EnumCarte.V5, EnumCarte.B12, EnumCarte.V5, EnumCarte.V12, EnumCarte.V4, EnumCarte.V9, EnumCarte.V4, EnumCarte.V11, EnumCarte.R4, EnumCarte.R8, EnumCarte.R7, EnumCarte.R12);
         for (int i = 0; i < liste.size() / 2; i += 2) {
@@ -141,7 +139,7 @@ public class Construction {
      * @return True si la carte est gratuite / false sinon
      */
 
-    public boolean laConstructionViaGratuit(List<EnumRessources> aPayer,boolean print){
+    public static boolean laConstructionViaGratuit(List<EnumRessources> aPayer, boolean print){
         ///////     PRIX GRATUIT     /////////
         if (aPayer.get(0).equals(EnumRessources.GRATUIT)) {
             if(print){LoggerSevenWonders.ajoutln("Carte Gratuite !");}
@@ -157,7 +155,7 @@ public class Construction {
      * @param print afficher les prints ou non
      * @return True si le carte est gratuite grâce à un potentiel bonus / false sinon
      */
-    public boolean laConstructionViaBonusCouleur(Carte carte, Inventaire inv,boolean print){
+    public static boolean laConstructionViaBonusCouleur(Carte carte, Inventaire inv, boolean print){
         if((inv.getValue(EnumRessources.BONUSAGECOULEUR)>0 && carte.getNom().toString().length()>=3)&& (inv.getValue(carte.getCouleur())== 0)) {
             if(print){LoggerSevenWonders.ajoutln("Bonus Couleur en possession ! C'est sa première carte de cette couleur elle est donc gratuite !");}
             return true;
@@ -173,7 +171,7 @@ public class Construction {
      * @param print afficher les prints ou non
      * @return true si la construction est gratuite frâce à un potentiel bonus / false sinon
      */
-    public boolean laConstructionViaBonusTour(Carte carte, Inventaire inventaire,Plateau plateau,boolean print){
+    public static boolean laConstructionViaBonusTour(Carte carte, Inventaire inventaire, Plateau plateau, boolean print){
         if(inventaire.getValue(EnumRessources.BONUSCARTEAGEG2P) > 0 && plateau.getTour()==1 && carte.getNom().toString().length()>=3){
             if(print) {
                 LoggerSevenWonders.ajoutln("Bonus 1er Tour en possession ! C'est la première carte de cette âge elle est donc gratuite !");
@@ -195,7 +193,7 @@ public class Construction {
      * @return le restant à payer après payement via inventaire
      */
 
-    public List<EnumRessources> laConstructionViaInventaire(List<EnumRessources> aPayer ,Inventaire sInventaire, boolean print){
+    public static List<EnumRessources> laConstructionViaInventaire(List<EnumRessources> aPayer, Inventaire sInventaire, boolean print){
         ///////      VIA INVENTAIRE   ////////
 
         ArrayList<EnumRessources> payeInv = new ArrayList<>();
@@ -213,7 +211,7 @@ public class Construction {
             }
         }
         if (!payeInv.isEmpty() && print){
-            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(sInventaire.getJoueur())+ " a payé via son Inventaire les ressources suivantes : " + payeInv);
+            LoggerSevenWonders.ajoutln(sInventaire.joueurName+ " a payé via son Inventaire les ressources suivantes : " + payeInv);
         }
         return aPayer;
     }
@@ -226,7 +224,7 @@ public class Construction {
      * @return le restant à payer après la construction via multi-choix
      */
 
-    public List<EnumRessources> laConstructionViaMultichoix(List<EnumRessources> aPayer ,Inventaire sInventaire,boolean print) {
+    public static List<EnumRessources> laConstructionViaMultichoix(List<EnumRessources> aPayer, Inventaire sInventaire, boolean print) {
         ///////   VIA MULTICHOIX    /////////
         List<List<EnumRessources>> multiChoix = listeMultiChoix(sInventaire);
         ArrayList<EnumRessources> payeMulti = new ArrayList<>();
@@ -258,7 +256,7 @@ public class Construction {
         }
 
         if (!payeMulti.isEmpty() && print) {
-            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(sInventaire.getJoueur()) + " a payé via ses bonus Multi-Choix les ressources suivantes : " + payeMulti);
+            LoggerSevenWonders.ajoutln(sInventaire.joueurName + " a payé via ses bonus Multi-Choix les ressources suivantes : " + payeMulti);
         }
         return aPayer;
     }
@@ -268,7 +266,7 @@ public class Construction {
      * @param sInventaire l'inventaire du joueur
      * @return la liste en question
      */
-    public List<List<EnumRessources>> listeMultiChoix(Inventaire sInventaire){
+    public static List<List<EnumRessources>> listeMultiChoix(Inventaire sInventaire){
 
         ArrayList<List<EnumRessources>> multiChoix = new ArrayList<>();
 
@@ -314,7 +312,7 @@ public class Construction {
      * @return True si le restant à payer est vide
      */
 
-    public boolean viaAchat( List<EnumRessources> aPayer, Inventaire stock, Inventaire gauche, Inventaire droite){
+    public static boolean viaAchat(List<EnumRessources> aPayer, Inventaire stock, Inventaire gauche, Inventaire droite){
 
         int pieceJoueur = stock.getValue(EnumRessources.PIECE);
         int nbRessourceGauche = 0 ;
@@ -381,7 +379,7 @@ public class Construction {
      * @param print afficher ou non les prints
      * @return True si tout est payé / false sinon
      */
-    public boolean laConstructionViaCommerce(List<EnumRessources> aPayer ,SetInventaire sInventaire, SetInventaire gauche, SetInventaire droite,boolean print) throws NegativeNumberException {
+    public boolean laConstructionViaCommerce(List<EnumRessources> aPayer ,SetInventaire sInventaire, SetInventaire gauche, SetInventaire droite, boolean print){
         //////////     VIA  COMMERCE      //////////
         int pieceGauche = 0 ;
         int pieceDroite = 0 ;
@@ -424,8 +422,8 @@ public class Construction {
             if (nbRessourceGauche >= 1 && nbRessourceDroite >= 1) {
                 ////////        DONNER    LE    CHOIX    AU    JOUEUR    DE    CHOISIR    GAUCHE    OU   DROITE       ///////////
                 //if (Boolean.TRUE.equals(sInventaire.getJoueur().achatRessource(aPayer.get(j), gauche, droite))) {
-                if (Boolean.TRUE.equals(FacadeJoueur.achatRessource(sInventaire.getJoueur(),aPayer.get(j), gauche, droite))) {
-                    ///  TRUE = GAUCHE  ///
+                //if (Boolean.TRUE.equals(FacadeJoueur.achatRessource(sInventaire.getUrl(),aPayer.get(j), gauche, droite))) {
+                 if(true){   ///  TRUE = GAUCHE  ///
                     if (reducPossibleGauche) {
                         prix = 1;
                     } else {
@@ -494,11 +492,11 @@ public class Construction {
      * @param prix le prix que devra payer le joueur à son voisin
      * @param print afficher ou non les prints
      */
-    public void achatVoisin(SetInventaire joueur, SetInventaire voisin,  EnumRessources ressource, int prix,boolean print) throws NegativeNumberException {
+    public void achatVoisin(SetInventaire joueur, SetInventaire voisin,  EnumRessources ressource, int prix,boolean print){
         joueur.decreaseValue(EnumRessources.PIECE, prix);
         voisin.increaseValue(EnumRessources.PIECE, prix);
         if (print) {
-            LoggerSevenWonders.ajoutln(FacadeJoueur.getName(joueur.getJoueur()) + " a acheter à " + FacadeJoueur.getName(voisin.getJoueur())
+            LoggerSevenWonders.ajoutln(joueur.getJoueurName() + " a acheter à " + voisin.joueurName
                     + " la ressource " + ressource + " pour " + prix + " Pièces ! ");
         }
     }

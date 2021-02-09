@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import sw_aventure.objetjeu.Inventaire;
 import sw_aventure.seven_wonders.Plateau;
 
 import java.util.ArrayList;

@@ -3,8 +3,7 @@ package joueur;
 import metier.EnumRessources;
 import metier.Wonder;
 import objet_commun.Carte;
-import sw_aventure.seven_wonders.FacadeMoteur;
-import sw_aventure.seven_wonders.Plateau;
+import utilitaire_jeu.Plateau;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,11 +24,11 @@ public class IAmilitaire  implements IA{
     public int choixMain(Joueur j, List<Carte> main, Plateau plateau, boolean prix){
         ArrayList<EnumRessources> ressourcesRecherchee = new ArrayList<>();
         List<String> carteRecherchee ;
-        if(FacadeMoteur.getAge(plateau)==1){
+        if(plateau.getAge()==1){
             carteRecherchee = Arrays.asList("Palissade","Caserne","Tour de Garde","Comptoir OUEST","Comptoir EST") ;
         }
 
-        else if(FacadeMoteur.getAge(plateau)==2){
+        else if(plateau.getAge()==2){
             carteRecherchee = Arrays.asList("Caravansérail","Forum","Ecuries","Champs de Tir","Muraille","Place d'Armes");
         }
         else {

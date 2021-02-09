@@ -8,7 +8,7 @@ import metier.EnumRessources;
 import metier.Strategy;
 import metier.Wonder;
 import joueur.*;
-import sw_aventure.objetjeu.*;
+import utilitaire_jeu.SetInventaire;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;

@@ -2,10 +2,9 @@ package sw_aventure.seven_wonders;
 
 import metier.Strategy;
 import joueur.Joueur;
-import sw_aventure.objetjeu.Inventaire;
 import org.junit.Before;
 import org.junit.Test;
-import sw_aventure.objetjeu.SetInventaire;
+import utilitaire_jeu.SetInventaire;
 
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;

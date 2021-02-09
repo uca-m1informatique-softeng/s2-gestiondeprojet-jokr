@@ -1,6 +1,5 @@
 package joueur;
 
-import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
@@ -9,9 +8,8 @@ import objet_commun.Carte;
 import objet_commun.Merveille;
 import org.junit.Before;
 import org.junit.Test;
-import sw_aventure.objetjeu.Inventaire;
-import sw_aventure.objetjeu.SetInventaire;
-import sw_aventure.seven_wonders.Plateau;
+import utilitaire_jeu.Inventaire;
+import utilitaire_jeu.Plateau;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,7 +25,7 @@ public class IAcivilTest {
 
     private IAcivil iAcivil;
 
-    private SetInventaire setInv1, setInv2;
+    private Inventaire setInv1, setInv2;
     private Joueur joueur1;
 
     private Carte chantier, puits, statue, pantheon;

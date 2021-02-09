@@ -15,6 +15,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import utilitaire_jeu.SetInventaire;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;

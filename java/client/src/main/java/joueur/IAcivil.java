@@ -4,8 +4,8 @@ import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Wonder;
 import objet_commun.Carte;
-import sw_aventure.seven_wonders.FacadeMoteur;
-import sw_aventure.seven_wonders.Plateau;
+import utilitaire_jeu.Construction;
+import utilitaire_jeu.Plateau;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,14 +23,14 @@ public class IAcivil implements IA {
      * @return Index de la carte à jouer depuis la main
      */
     @Override
-    public int choixMain(Joueur j , List<Carte> main, Plateau plateau,boolean prix){
+    public int choixMain(Joueur j , List<Carte> main, Plateau plateau, boolean prix){
         List<EnumRessources> ressourcesrecherchees = rechercheRessources(j,plateau);
         List<String> carteRecherchee ;
-        if(FacadeMoteur.getAge(plateau)==1){
+        if(plateau.getAge()==1){
             carteRecherchee = Arrays.asList("Bains","Autel","Puits","Théâtre") ;
         }
 
-        else if(FacadeMoteur.getAge(plateau)==2){
+        else if(plateau.getAge()==2){
             carteRecherchee = Arrays.asList("Aqueduc","Temple","Statue","Tribunal");
         }
         else {
@@ -49,7 +49,7 @@ public class IAcivil implements IA {
      */
     public List<EnumRessources> rechercheRessources(Joueur j, Plateau plateau){
         List<EnumRessources> ressourcesrecherchees= new ArrayList<>();
-        int age = FacadeMoteur.getAge(plateau);
+        int age = plateau.getAge();
         if(age==1){ // les ressources primordiales pour la stratégie civile
             ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.PIERRE);
             ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,1,EnumRessources.TISSU);
@@ -64,10 +64,10 @@ public class IAcivil implements IA {
             ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,2,EnumRessources.ARGILE);
             ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,2,EnumRessources.MINERAI);
 
-            if(!FacadeMoteur.getListeCarte(j.getInv()).contains(EnumCarte.B1)) {
+            if(!j.getInv().getListeCarte().contains(EnumCarte.B1)) {
                 ressourcesrecherchees = listeRessource(ressourcesrecherchees, j, 1, EnumRessources.PAPYRUS);
             }
-            if(!FacadeMoteur.getListeCarte(j.getInv()).contains(EnumCarte.B3)) { // si il ne possède pas la carte chainée Bains
+            if(!j.getInv().getListeCarte().contains(EnumCarte.B3)) { // si il ne possède pas la carte chainée Bains
                 ressourcesrecherchees = listeRessource(ressourcesrecherchees, j, 3, EnumRessources.PIERRE);
             }
         }
@@ -87,7 +87,7 @@ public class IAcivil implements IA {
         List<Wonder> merveilles = Collections.emptyList();
         if(merveilles.contains(j.getInv().getMerveille().getNom()) && Boolean.TRUE.equals(j.getInv().getMerveille().peutAmeliorerMerveille())){
             for(int i = 0 ; i < main.size() ; i++) {
-                if (FacadeMoteur.permisDeConstruction( FacadeMoteur.getMerveille(j.getInv()).getCarteAConstruire(),j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau)) {
+                if (Construction.permisDeConstruction( j.getInv().getMerveille().getCarteAConstruire(),j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau)) {
                     return true; // Si l'étage de la merveille est constructible par le joueur alors il décide de construire la merveille
                 }
             }
@@ -106,7 +106,7 @@ public class IAcivil implements IA {
     @Override
     public int choixCartePourMerveille(Joueur j, List<Carte> main, Plateau plateau) {
         for (int i = 0; i < main.size(); i++) {
-            if (!FacadeMoteur.permisDeConstruction(main.get(i), j.getInv(), FacadeMoteur.joueurGauche(plateau,j).getInv(), FacadeMoteur.joueurDroit(plateau,j).getInv(),plateau)) {
+            if (!Construction.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau)) {
                 return i;
             }
         }

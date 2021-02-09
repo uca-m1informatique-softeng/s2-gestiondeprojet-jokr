@@ -3,9 +3,7 @@ package joueur;
 import metier.EnumRessources;
 import metier.Strategy;
 import objet_commun.Carte;
-import sw_aventure.objetjeu.Inventaire;
-import sw_aventure.seven_wonders.Plateau;
-
+import utilitaire_jeu.*;
 import java.util.List;
 import java.util.Objects;
 
