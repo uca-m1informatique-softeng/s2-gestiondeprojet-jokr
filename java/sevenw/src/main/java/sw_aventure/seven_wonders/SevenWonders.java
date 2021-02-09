@@ -1,9 +1,11 @@
 package sw_aventure.seven_wonders;
 
 
+import java.net.URISyntaxException;
 import java.security.SecureRandom;
 import java.util.*;
 import exception.NegativeNumberException;
+import io.socket.client.IO;
 import metier.*;
 import objet_commun.Merveille;
 import sw_aventure.joueur.FacadeJoueur;
@@ -217,13 +219,16 @@ public class SevenWonders {
      *             4ème argument : indiquer false si on ne veut ne lancer qu'une partie (ne lance pas les statistiques et n'écrit pas dans un fichier)
      *             Par défaut : true 1 3 false : on lance une partie à 3 joueurs que l'on affiche sur la sortie standard avec les couleurs
      */
-    public static void main(String[] args) throws NegativeNumberException {
+    public static void main(String[] args) throws NegativeNumberException, URISyntaxException {
         // Nombres de joueurs
         int nbJoueurs ;
         // Nombres de parties si option des statistique activée
         int nbParties ;
         // Active plusieurs parties avec statistiques
         boolean multiPartieAvecStat = false;
+
+        String url = "http://127.0.0.1:10101";
+
         try {
             if (args[0].equals("false")) {
                 color = false;
@@ -250,9 +255,16 @@ public class SevenWonders {
         catch (Exception ignored) {
             // Lancement d'une partie normale
         }
+        try {
+            url = args[4];
+        }
+        catch (Exception ignored) {
+            // Ignore
+        }
 
 
         if (multiPartieAvecStat) {
+            Connexion.CONNEXION.setmSocket(IO.socket(url));
             Connexion.CONNEXION.demarrerEcoute();
             Connexion.CONNEXION.envoyerMessageBoolean("Initialisation", true);
             Connexion.CONNEXION.envoyerMessageInt("NombresJoueur", nbJoueurs);

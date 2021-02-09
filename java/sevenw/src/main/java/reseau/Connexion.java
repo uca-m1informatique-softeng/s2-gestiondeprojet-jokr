@@ -85,7 +85,7 @@ public enum Connexion {
      * Setter pour mSocket
      * @param mSocket Socket
      */
-    void setmSocket(Socket mSocket) {
+    public void setmSocket(Socket mSocket) {
         this.mSocket = mSocket;
     }
 }
