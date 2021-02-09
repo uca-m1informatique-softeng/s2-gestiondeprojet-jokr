@@ -17,7 +17,7 @@ public enum Connexion {
      */
     Connexion() {
         try {
-            mSocket = IO.socket("http://127.0.0.1:10101");
+            mSocket = IO.socket("http://127.0.0.1:8081");
         }
         catch (URISyntaxException ignored) {
             // Connexion échoué
@@ -85,7 +85,7 @@ public enum Connexion {
      * Setter pour mSocket
      * @param mSocket Socket
      */
-    void setmSocket(Socket mSocket) {
+    public void setmSocket(Socket mSocket) {
         this.mSocket = mSocket;
     }
 }

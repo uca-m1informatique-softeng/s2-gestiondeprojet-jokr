@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  serveur:
+    image: serveur
+    container_name: serveur
+    networks:
+      testing_net:
+        ipv4_address: 10.0.0.10
+    depends_on:
+      - sevenw
+  
+  
+  sevenw:
+    image: sevenw
+    environment:
+      - SERVER_IP=http://10.0.0.10:8081
+    networks:
+      testing_net:
+
+
+networks:
+  testing_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.0.0/24
