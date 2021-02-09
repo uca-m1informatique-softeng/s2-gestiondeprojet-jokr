@@ -20,6 +20,7 @@
 #.idea/inspectionProfiles/
 #.idea/vcs.xml
 
+*.txt
 
 
 #pour Eclipse

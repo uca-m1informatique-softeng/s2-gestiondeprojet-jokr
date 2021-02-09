@@ -14,5 +14,5 @@ script:
   - docker run -d --name statServeur -p 8081:8081 serveur:stat
   - docker start statServeur
   - cd ..
-  - java -jar sevenw/target/sevenw-1.0-jar-with-dependencies.jar true 1 5 false http://127.0.0.1:8081
+  - java -jar sevenw/target/sevenw-1.0-jar-with-dependencies.jar true 1 5 false http://127.0.0.1:8081 &
   - java -jar sevenw/target/sevenw-1.0-jar-with-dependencies.jar false 20000 3 true http://127.0.0.1:8081
