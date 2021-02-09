@@ -3,6 +3,7 @@ language: java
 jdk:
   - openjdk11
 
+
 services:
   - docker
 
@@ -19,17 +20,7 @@ before_script:
   - docker build sevenw -t sevenw
   - docker images
 
+
 script:
-  #- cd serveur
-  #- docker run -d --name statServeur -p 8081:8081 jokr:serveur
-  #- docker start statServeur
-  #- cd ../sevenw
-  #- java -jar sevenw/target/sevenw-1.0-jar-with-dependencies.jar true 1 5 false http://127.0.0.1:8081 &
-  #- java -jar sevenw/target/sevenw-1.0-jar-with-dependencies.jar false 20000 3 true http://127.0.0.1:8081
-  #- docker run -d --name sevenw1 -p 8081:8081 jokr:sevenw
-  - docker-compose up -d --scale client=3
-  - docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
-  #- docker rm $(docker ps -a -q)
-  #- docker ps -a -q
-  #- docker rmi serveur
-  #- docker rmi sevenw
+  - docker-compose up --scale client=3
+  #- docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
