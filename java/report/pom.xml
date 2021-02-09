@@ -34,7 +34,7 @@
         </dependency>
         <dependency>
             <groupId>JOKR</groupId>
-            <artifactId>sevenw</artifactId>
+            <artifactId>moteur</artifactId>
             <version>1.0</version>
         </dependency>
 
