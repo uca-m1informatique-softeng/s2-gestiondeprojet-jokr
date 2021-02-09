@@ -9,7 +9,7 @@
 **/testapidocs/
 
 # pour intellij
-**/*.iml
+*.iml
 **/.gradle
 **/local.properties
 # on peut enlever tout le dossier .idea : il sera alors à refaire par chaque developpeur
