@@ -42,11 +42,12 @@ public class JoueurTest {
         inv4 = new Inventaire(4, "url4", "Paul");
         inv5 = new Inventaire(5, "url5", "Lucie");
         inv6 = new Inventaire(5, "url6", "Thomas");
-        joueur1 = new Joueur(inv1.getId(),Strategy.RANDOM,inv1.getJoueurName(),inv);
+        joueur1 = new Joueur(inv1.getId(),Strategy.RANDOM,inv1.getJoueurName(),inv1);
         joueur2 = new Joueur(inv2.getId(),Strategy.MERVEILLE,inv2.getJoueurName(),inv2);
         joueur3 = new Joueur(inv3.getId(),Strategy.MERVEILLE,inv3.getJoueurName(),inv3);
-        joueur4 = new Joueur(inv4.getId(),Strategy.SCIENTIFIQUE,inv5.getJoueurName(),inv5);
-        joueur6 = new Joueur(inv6.getId(),Strategy.AMBITIEUSE,inv6.getJoueurName(),inv6);
+        joueur4 = new Joueur(inv4.getId(),Strategy.SCIENTIFIQUE,inv4.getJoueurName(),inv4);
+        joueur5 = new Joueur(inv5.getId(),Strategy.AMBITIEUSE,inv5.getJoueurName(),inv5);
+        joueur6 = new Joueur(inv6.getId(),Strategy.MILITAIRE,inv6.getJoueurName(),inv6);
 
 
         ArrayList<Inventaire> listeInventaire = new ArrayList<>(){{add(inv1);add(inv2);add(inv3);add(inv4);add(inv5);add(inv6);}};
@@ -127,8 +128,8 @@ public class JoueurTest {
         assertTrue(joueur1.getBot() instanceof IArandom);
         assertTrue(joueur2.getBot() instanceof IAmerveille);
         assertTrue(joueur3.getBot() instanceof IAmerveille);
-        assertTrue(joueur4.getBot() instanceof IAcivil);
-        assertTrue(joueur5.getBot() instanceof IAscientifique);
+        assertTrue(joueur4.getBot() instanceof IAscientifique);
+        assertTrue(joueur5.getBot() instanceof IAambitieuse);
     }
 
     /**
@@ -202,11 +203,10 @@ public class JoueurTest {
         assertEquals("IA Random", joueur1.getStrategie());
         assertEquals("IA Merveille", joueur2.getStrategie());
         assertEquals("ultime!", joueurSpy.getStrategie());
-        assertEquals("IA Composite", joueur1.getStrategie());
-        assertEquals("IA Militaire", joueur2.getStrategie());
-        assertEquals("IA Monétaire", joueur3.getStrategie());
-        assertEquals("IA Civil", joueur4.getStrategie());
-        assertEquals("IA Scientifique", joueur5.getStrategie());
-        assertEquals("IA Ambitieuse", joueur6.getStrategie());
+        assertEquals("IA Random", joueur1.getStrategie());
+        assertEquals("IA Merveille", joueur3.getStrategie());
+        assertEquals("IA Scientifique", joueur4.getStrategie());
+        assertEquals("IA Ambitieuse", joueur5.getStrategie());
+        assertEquals("IA Militaire", joueur6.getStrategie());
     }
 }
