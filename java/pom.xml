@@ -11,7 +11,7 @@
     <modules>
         <module>commun</module>
         <module>serveur</module>
-        <module>sevenw</module>
+        <module>moteur</module>
         <module>report</module>
         <module>client</module>
     </modules>
