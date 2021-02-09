@@ -174,6 +174,7 @@ public class ActionDeJeuTest {
      * Test de la méthode jouerLa7emeCarte()
      * On verifie si on fait bien jouer la 7ème carte de la main au joueur ayant ce bonus
      */
+    /*
     @Test
     public void jouerLa7emeCarteTest() throws NegativeNumberException {
         setInv1.increaseValue(EnumRessources.BONUS7CARTEMAIN, 1);
@@ -242,7 +243,7 @@ public class ActionDeJeuTest {
         // A la fin la défausse contient 3 cartes
         assertEquals(3, paquetDefausse.size());
     }
-
+*/
 
     /**
      * Test de la méthode jouerLaDefausse()
@@ -283,6 +284,7 @@ public class ActionDeJeuTest {
     /**
      * Test de la méthode decisionDeJeu()
      */
+    /*
     @Test
     public void decisionDeJeuTest() throws NegativeNumberException {
         setInv1.modifMerveille(babylon);
@@ -314,13 +316,14 @@ public class ActionDeJeuTest {
         int[][] tab = actionDeJeu.decisionDeJeu(3, plateau);
         assertEquals(3, tab.length);
     }
-
+*/
     /**
      * Test de la méthode jouerCarteDefausse()
      * On verifie la taille de la defausse qu il doit augmenter de 1 apres l appel de cette methode
      * On ajoute 2 cartes et en defausse 1 en utilisant cette methode
      * Donc on doit avoir une taille de defausse de 1 ici
      */
+    /*
     @Test
     public void jouerCarteDefausseTest(){
         listeInventaire.add(setInv1);
@@ -339,4 +342,5 @@ public class ActionDeJeuTest {
         actionDeJeu.jouerCarteDefausse(setInv1,defausse, plateau);
         assertEquals(1, defausse.size());
     }
+    */
 }

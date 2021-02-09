@@ -13,7 +13,7 @@ public class SetInventaireStepdefs implements Fr {
     private SetInventaire setInventaire;
     private int nbPiece;
 
-
+/*
     public SetInventaireStepdefs() {
         Etantdonné("Le joueur {string} allant jouer son premier coup de la partie", (String nom) -> {
             setInventaire = new SetInventaire(1,"BFDGFNSGNS", nom);
@@ -67,4 +67,6 @@ public class SetInventaireStepdefs implements Fr {
             assertEquals(setInventaire.getValue(EnumRessources.PIECE), nbPiece + 3);
         });
     }
+    */
+
 }
