@@ -12,7 +12,7 @@ services:
       - sevenw
   
   
-  sevenw:
+  moteur:
     image: moteur
     environment:
       - SERVER_IP=http://10.0.0.253:8081
