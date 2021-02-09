@@ -16,7 +16,6 @@ import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 public class JoueurTest {
 
     private Inventaire inv, inv1, inv2, inv3, inv4, inv5,inv6;
@@ -35,20 +34,19 @@ public class JoueurTest {
      */
     @Before
     public void setUp() {
-        inv = new Inventaire(10, Strategy.ULTIME, "Dupont et Dupont");
+        inv = new Inventaire(10, "url", "Dupont et Dupont");
 
-        inv1 = new Inventaire(1, Strategy.RANDOM, "Enzo");
-        inv2 = new Inventaire(2, Strategy.MERVEILLE, "Christina");
-        inv3 = new Inventaire(3, Strategy.MERVEILLE, "Mona");
-        inv4 = new Inventaire(4, Strategy.CIVILE, "Paul");
-        inv5 = new Inventaire(5, Strategy.SCIENTIFIQUE, "Lucie");
-        inv6 = new Inventaire(5, Strategy.AMBITIEUSE, "Thomas");
-        joueur1 = inv1.getJoueur();
-        joueur2 = inv2.getJoueur();
-        joueur3 = inv3.getJoueur();
-        joueur4 = inv4.getJoueur();
-        joueur5 = inv5.getJoueur();
-        joueur6 = inv6.getJoueur();
+        inv1 = new Inventaire(1, "url1", "Enzo");
+        inv2 = new Inventaire(2, "url2", "Christina");
+        inv3 = new Inventaire(3, "url3", "Mona");
+        inv4 = new Inventaire(4, "url4", "Paul");
+        inv5 = new Inventaire(5, "url5", "Lucie");
+        inv6 = new Inventaire(5, "url6", "Thomas");
+        joueur1 = new Joueur(inv1.getId(),Strategy.RANDOM,inv1.getJoueurName(),inv);
+        joueur2 = new Joueur(inv2.getId(),Strategy.MERVEILLE,inv2.getJoueurName(),inv2);
+        joueur3 = new Joueur(inv3.getId(),Strategy.MERVEILLE,inv3.getJoueurName(),inv3);
+        joueur4 = new Joueur(inv4.getId(),Strategy.SCIENTIFIQUE,inv5.getJoueurName(),inv5);
+        joueur6 = new Joueur(inv6.getId(),Strategy.AMBITIEUSE,inv6.getJoueurName(),inv6);
 
 
         ArrayList<Inventaire> listeInventaire = new ArrayList<>(){{add(inv1);add(inv2);add(inv3);add(inv4);add(inv5);add(inv6);}};
@@ -56,7 +54,7 @@ public class JoueurTest {
         plateau = new Plateau(listeInventaire);
 
         IAmock = Mockito.mock(IArandom.class);
-        joueurSpy = inv.getJoueur();
+        joueurSpy = new Joueur(inv.getId(),Strategy.ULTIME,inv.getJoueurName(),inv);
         joueurSpy.setBot(IAmock);
         joueurSpy = Mockito.spy(joueurSpy);
 
@@ -64,7 +62,6 @@ public class JoueurTest {
 
         listeCarte = Mockito.mock(ArrayList.class);
     }
-
 
     /**
      * Test de la méthode jouedefausse()
@@ -86,7 +83,6 @@ public class JoueurTest {
         Mockito.verify(IAmock).commerceAdjacent(EnumRessources.BOIS, joueurSpy, inv1, inv2);
     }
 
-
     /**
      * Test de la méthode jouerGratuitementDanslaDefausse()
      */
@@ -95,7 +91,6 @@ public class JoueurTest {
         joueurSpy.jouerGratuitementDanslaDefausse(listeCarte, plateau);
         Mockito.verify(IAmock).choisirCarteDeLaDefausse(listeCarte, plateau);
     }
-
 
     /**
      * Test de la méthode jouerMerveille()
@@ -106,7 +101,6 @@ public class JoueurTest {
         Mockito.verify(IAmock).choixMerveille(joueurSpy, listeCarte, plateau);
     }
 
-
     /**
      * Test de la méthode constructMerveille()
      */
@@ -116,7 +110,6 @@ public class JoueurTest {
         Mockito.verify(IAmock).choixCartePourMerveille(joueurSpy, listeCarte, plateau);
     }
 
-
     /**
      * On test si la méthode "choixMain()" de la class IArandom a bien été effectué
      */
@@ -125,9 +118,6 @@ public class JoueurTest {
         joueurSpy.choixCarte(listeCarte , plateau);
         Mockito.verify(IAmock).choixMain(Mockito.eq(joueurSpy), Mockito.any(), Mockito.eq(plateau), Mockito.eq(true));
     }
-
-
-
 
     /**
      * On vérifie si le constructeur Joueur initialise bien le bot (stratégie)
@@ -141,7 +131,6 @@ public class JoueurTest {
         assertTrue(joueur5.getBot() instanceof IAscientifique);
     }
 
-
     /**
      * Test du getter getName() pour donner le nom d un joueur
      */
@@ -153,7 +142,6 @@ public class JoueurTest {
         assertEquals("Paul",joueur4.getName());
         assertEquals("Lucie",joueur5.getName());
     }
-
 
     /**
      * Test du getter getId() pour verifier si on a bien selectionner le bon identifiant pour un joueur specifique
@@ -192,8 +180,6 @@ public class JoueurTest {
         assertEquals(inv5,joueur5.getInv());
     }
 
-
-
     /**
      * Test de la méthode equals()
      */
@@ -208,7 +194,6 @@ public class JoueurTest {
         assertNotEquals(joueur1 , inv);
     }
 
-
     /**
      * Test de la méthode getStrategie()
      */
@@ -216,12 +201,12 @@ public class JoueurTest {
     public void getStrategieTest() {
         assertEquals("IA Random", joueur1.getStrategie());
         assertEquals("IA Merveille", joueur2.getStrategie());
-        assertEquals("ultime!", inv.getJoueur().getStrategie());
-        assertEquals("IA Composite", new Inventaire(1, Strategy.COMPOSITE, "j1").getJoueur().getStrategie());
-        assertEquals("IA Militaire", new Inventaire(1, Strategy.MILITAIRE, "j1").getJoueur().getStrategie());
-        assertEquals("IA Monétaire", new Inventaire(1, Strategy.MONETAIRE, "j1").getJoueur().getStrategie());
-        assertEquals("IA Civil", new Inventaire(1, Strategy.CIVILE, "j1").getJoueur().getStrategie());
-        assertEquals("IA Scientifique", new Inventaire(1, Strategy.SCIENTIFIQUE, "j1").getJoueur().getStrategie());
-        assertEquals("IA Ambitieuse", new Inventaire(1, Strategy.AMBITIEUSE, "j1").getJoueur().getStrategie());
+        assertEquals("ultime!", joueurSpy.getStrategie());
+        assertEquals("IA Composite", joueur1.getStrategie());
+        assertEquals("IA Militaire", joueur2.getStrategie());
+        assertEquals("IA Monétaire", joueur3.getStrategie());
+        assertEquals("IA Civil", joueur4.getStrategie());
+        assertEquals("IA Scientifique", joueur5.getStrategie());
+        assertEquals("IA Ambitieuse", joueur6.getStrategie());
     }
 }

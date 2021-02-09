@@ -49,8 +49,8 @@ public class IAmerveilleTest {
         setInv1 = new SetInventaire(0, "GRZBRZZRBZRBZR", "j1");
         setInv2 = new SetInventaire(1, "BEZBZRBZB", "j2");
 
-        joueur1 = setInv1.getJoueur();
-        joueur2 = setInv2.getJoueur();
+        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName(),setInv1);
+        joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName(),setInv2);
 
 
         carte1 = new Carte(EnumCarte.V3, Collections.singletonList(EnumRessources.TISSU), Collections.singletonList(EnumRessources.COMPAS), 3, 1, EnumRessources.VERTE);
@@ -66,7 +66,7 @@ public class IAmerveilleTest {
         listeJoueur.add(joueur1);
         listeJoueur.add(joueur2);
 
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
 
         List<Carte> etape = new ArrayList<>();
@@ -82,7 +82,7 @@ public class IAmerveilleTest {
      * Test de la méthode choixMain()
      */
     @Test
-    public void choixMainTest() throws NegativeNumberException {
+    public void choixMainTest() {
         main = new ArrayList<>();
         main.add(carte1);
         main.add(carte2);
@@ -110,7 +110,7 @@ public class IAmerveilleTest {
         listeInventaire = new ArrayList<>();
         listeInventaire.add(setInv1);
         listeInventaire.add(setInv2);
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         // Le joueur peut acheter la carte 4 avec ses ressources alors son index est renvoyé, c'est a dire 2
         assertEquals(2, iAmerveille.choixMain(joueur1, main, plateau, true));
@@ -121,7 +121,7 @@ public class IAmerveilleTest {
      * Test de la méthode choixMerveille()
      */
     @Test
-    public void choixMerveilleTest() throws NegativeNumberException {
+    public void choixMerveilleTest() {
         main = new ArrayList<>();
         main.add(carte1);
         main.add(carte2);
@@ -130,7 +130,7 @@ public class IAmerveilleTest {
         listeInventaire = new ArrayList<>();
         listeInventaire.add(setInv1);
         listeInventaire.add(setInv2);
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         // Le joueur n'a pas assez de ressource pour construire sa merveille
         assertFalse(iAmerveille.choixMerveille(joueur1, main, plateau));
@@ -140,7 +140,7 @@ public class IAmerveilleTest {
         listeInventaire = new ArrayList<>();
         listeInventaire.add(setInv1);
         listeInventaire.add(setInv2);
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
         // Le joueur peut construire le premier étage de sa merveille avec ses ressources
         assertTrue(iAmerveille.choixMerveille(joueur1, main, plateau));
 
@@ -155,7 +155,7 @@ public class IAmerveilleTest {
         listeInventaire = new ArrayList<>();
         listeInventaire.add(setInv1);
         listeInventaire.add(setInv2);
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
         // Le joueur ne peut pas construire sa merveille car elle est déja construite en entière
         assertFalse(iAmerveille.choixMerveille(joueur1, main, plateau));
     }
@@ -180,7 +180,7 @@ public class IAmerveilleTest {
      * Test de la méthode choixConstrMerveille() de l'interface IA
      */
     @Test
-    public void choixConstrMerveilleTest() throws NegativeNumberException {
+    public void choixConstrMerveilleTest() {
         ArrayList<Wonder> listeMerveille = new ArrayList<>();
 
         main = new ArrayList<>();
@@ -220,7 +220,7 @@ public class IAmerveilleTest {
      * Test de la méthode choixCartePourMerveille() de l'interface IA
      */
     @Test
-    public void choixCartePourMerveilleTest() throws NegativeNumberException {
+    public void choixCartePourMerveilleTest(){
         main = new ArrayList<>();
         main.add(carte3);
         main.add(carte1);
@@ -260,7 +260,7 @@ public class IAmerveilleTest {
      * Test de la méthode chercherRessourcesDansMain() de l'interface IA
      */
     @Test
-    public void chercherRessourcesDansMainTest() throws NegativeNumberException {
+    public void chercherRessourcesDansMainTest() {
         Carte carteBois = new Carte(EnumCarte.M6, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.BOIS), 3, 1, EnumRessources.MARRON);
         Carte cartePierre = new Carte(EnumCarte.M5, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.PIERRE), 3, 1, EnumRessources.MARRON);
         Carte carteArgile = new Carte(EnumCarte.M4, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.ARGILE), 3, 1, EnumRessources.MARRON);
@@ -308,7 +308,7 @@ public class IAmerveilleTest {
      * Test de la méthode seDefendre() de l'interface IA
      */
     @Test
-    public void seDefendreTest() throws NegativeNumberException {
+    public void seDefendreTest() {
         Carte carteBouclier = new Carte(EnumCarte.R3, Collections.singletonList(EnumRessources.PIERRE), Collections.singletonList(EnumRessources.BOUCLIER), 3, 1, EnumRessources.ROUGE);
 
 
@@ -330,7 +330,7 @@ public class IAmerveilleTest {
         listeJoueur = new ArrayList<>();
         listeJoueur.add(joueur1);
         listeJoueur.add(joueur2);
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
         assertEquals("Palissade", iAmerveille.seDefendre(joueur1, plateau, main));
 
         // Le joueur droit a plus de bouclier que lui alors une carte donnant des bouclier est retourné
@@ -343,7 +343,7 @@ public class IAmerveilleTest {
         listeJoueur = new ArrayList<>();
         listeJoueur.add(joueur2);
         listeJoueur.add(joueur1);
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
         assertEquals("Palissade", iAmerveille.seDefendre(joueur1, plateau, main));
 
 
@@ -353,7 +353,7 @@ public class IAmerveilleTest {
         listeInventaire = new ArrayList<>();
         listeInventaire.add(setInv2);
         listeInventaire.add(setInv1);
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
         assertEquals("", iAmerveille.seDefendre(joueur1, plateau, main));
     }
 
@@ -362,7 +362,7 @@ public class IAmerveilleTest {
      * Test de la méthode getPossibilites() de l'interface IA
      */
     @Test
-    public void getPossibilitesTest() throws NegativeNumberException {
+    public void getPossibilitesTest() {
         List<Carte> resultat;
         main = new ArrayList<>();
         main.add(carte1);

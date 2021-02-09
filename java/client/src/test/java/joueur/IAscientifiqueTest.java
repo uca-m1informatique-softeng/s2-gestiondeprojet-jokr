@@ -1,6 +1,5 @@
 package joueur;
 
-
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
@@ -13,18 +12,18 @@ import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 import utilitaire_jeu.SetInventaire;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
 
 public class IAscientifiqueTest {
 
     private IAscientifique iAscientifique;
 
-    private SetInventaire set1, set2;
+    private SetInventaire setInv1, setInv2;
     private Joueur joueur1, joueur2;
     private Carte chantier, officine, ecole, guildScientifiques;
     private List<Carte> main;
@@ -37,7 +36,6 @@ public class IAscientifiqueTest {
 
     private Plateau plateau;
 
-
     /**
      * Preparation des tests de la classe IAscientifique
      */
@@ -45,17 +43,17 @@ public class IAscientifiqueTest {
     public void setup() {
         iAscientifique = new IAscientifique();
 
-        set1 = new SetInventaire(0, Strategy.SCIENTIFIQUE, "j1");
+        setInv1 = new SetInventaire(0, "url1", "j1");
         Merveille merveille1 = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, new ArrayList<>());
-        set1.modifMerveille(merveille1);
+        setInv1.modifMerveille(merveille1);
 
-        set2 = new SetInventaire(1, Strategy.SCIENTIFIQUE, "j2");
+        setInv2 = new SetInventaire(1, "url2", "j2");
         Merveille merveille2 = new Merveille(Wonder.BABYLONNUIT, EnumRessources.BOIS, new ArrayList<>());
-        set2.modifMerveille(merveille2);
+        setInv2.modifMerveille(merveille2);
         listeRessource = new ArrayList<>();
 
-        joueur1 = set1.getJoueur();
-        joueur2 = set2.getJoueur();
+        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName(),setInv1);
+        joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName(),setInv2);
 
         officine = new Carte(EnumCarte.V3, Collections.singletonList(EnumRessources.TISSU), Collections.singletonList(EnumRessources.COMPAS), 3, 1, EnumRessources.VERTE);
         guildScientifiques = new Carte(EnumCarte.P7, Arrays.asList(EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.MINERAI, EnumRessources.MINERAI), Collections.singletonList(EnumRessources.BONUSCPR), 3, 3, EnumRessources.VIOLETTE);
@@ -63,8 +61,8 @@ public class IAscientifiqueTest {
         ecole = new Carte(EnumCarte.V4, Arrays.asList(EnumRessources.BOIS, EnumRessources.PAPYRUS), Collections.singletonList(EnumRessources.PDR), 3, 2, EnumRessources.VERTE);
 
         listeInventaire = new ArrayList<>();
-        listeInventaire.add(set1);
-        listeInventaire.add(set2);
+        listeInventaire.add(setInv1);
+        listeInventaire.add(setInv2);
 
         listeJoueur = new ArrayList<>();
         listeJoueur.add(joueur1);
@@ -143,11 +141,11 @@ public class IAscientifiqueTest {
      */
     @Test
     public void choixMerveilleTest(){
-        set1.modifMerveille(babylon);
+        setInv1.modifMerveille(babylon);
 
         listeInventaire = new ArrayList<>();
-        listeInventaire.add(set1);
-        listeInventaire.add(set2);
+        listeInventaire.add(setInv1);
+        listeInventaire.add(setInv2);
 
         plateau = new Plateau(listeInventaire);
 
@@ -155,10 +153,10 @@ public class IAscientifiqueTest {
         assertFalse(iAscientifique.choixMerveille(joueur1, main, plateau));
 
         // On donne 2 argile au joueurs
-        set1.increaseValue(EnumRessources.ARGILE, 2);
+        setInv1.increaseValue(EnumRessources.ARGILE, 2);
         listeInventaire = new ArrayList<>();
-        listeInventaire.add(set1);
-        listeInventaire.add(set2);
+        listeInventaire.add(setInv1);
+        listeInventaire.add(setInv2);
 
         plateau = new Plateau(listeInventaire);
 
@@ -181,34 +179,31 @@ public class IAscientifiqueTest {
         assertEquals(1, iAscientifique.choisirCarteDeLaDefausse(joueur1, main, plateau));
     }
 
-
-
-
     /**
      * Test de la méthode commerceAdjacent() de l'interface IA
      */
     @Test
     public void commerceAdjacentTest(){
-        set1.increaseValue(EnumRessources.REDMARRONGAUCHE, 1);
+        setInv1.increaseValue(EnumRessources.REDMARRONGAUCHE, 1);
         // Renvoie true car le joueur a la réduc a gauche
-        assertTrue(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, set1, set2));
+        assertTrue(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, setInv1, setInv2));
 
 
-        set1.clear();
-        set1.increaseValue(EnumRessources.REDMARRONDROITE, 1);
+        setInv1.clear();
+        setInv1.increaseValue(EnumRessources.REDMARRONDROITE, 1);
         // Renvoie false car le joueur a la réduc a droite
-        assertFalse(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, set1, set2));
+        assertFalse(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, setInv1, setInv2));
 
-        set1.clear();
-        set1.increaseValue(EnumRessources.SCORE, 2);
+        setInv1.clear();
+        setInv1.increaseValue(EnumRessources.SCORE, 2);
         // Renvoie false car le joueur gauche a plus de point
-        assertFalse(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, set1, set2));
+        assertFalse(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, setInv1, setInv2));
 
 
-        set1.clear();
-        set2.increaseValue(EnumRessources.SCORE, 1);
+        setInv1.clear();
+        setInv2.increaseValue(EnumRessources.SCORE, 1);
         // Renvoie true car le joueur droit a plus de point
-        assertTrue(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, set1, set2));
+        assertTrue(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, setInv1, setInv2));
     }
 }
 

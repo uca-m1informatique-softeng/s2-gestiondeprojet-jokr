@@ -25,7 +25,7 @@ public class IAmonetaireTest {
 
     private IAmonetaire iAmonetaire;
 
-    private SetInventaire set1, set2;
+    private SetInventaire setInv1, setInv2;
     private Joueur joueur1;
 
     private Carte chantier, taverne, vignoble, phare;
@@ -46,11 +46,11 @@ public class IAmonetaireTest {
     public void setup() {
         iAmonetaire = new IAmonetaire();
 
-        set1 = new SetInventaire(0, Strategy.SCIENTIFIQUE, "j1");
-        set2 = new SetInventaire(1, Strategy.SCIENTIFIQUE, "j2");
+        setInv1 = new SetInventaire(0, "url1", "j1");
+        setInv2 = new SetInventaire(1, "url2", "j2");
 
-        joueur1 = set1.getJoueur();
-        Joueur joueur2 = set2.getJoueur();
+        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName(),setInv1);
+        Joueur joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName(),setInv2);
 
         chantier = new Carte(EnumCarte.M6, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.BOIS), 3, 1, EnumRessources.MARRON);
         taverne = new Carte(EnumCarte.J4, Collections.singletonList(EnumRessources.GRATUIT), Arrays.asList(EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE), 7, 1, EnumRessources.JAUNE);
@@ -58,14 +58,14 @@ public class IAmonetaireTest {
         phare = new Carte(EnumCarte.J9, Arrays.asList(EnumRessources.PIERRE, EnumRessources.VERRE), Collections.singletonList(EnumRessources.BONUS11J), 3, 3, EnumRessources.JAUNE);
 
         listeInventaire = new ArrayList<>();
-        listeInventaire.add(set1);
-        listeInventaire.add(set2);
+        listeInventaire.add(setInv1);
+        listeInventaire.add(setInv2);
 
         listeJoueur = new ArrayList<>();
         listeJoueur.add(joueur1);
         listeJoueur.add(joueur2);
 
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
 
         List<Carte> etape = new ArrayList<>();
@@ -113,25 +113,25 @@ public class IAmonetaireTest {
      * Test de la méthode choixMerveille()
      */
     @Test
-    public void choixMerveilleTest() throws NegativeNumberException {
-        set1.modifMerveille(ephesos);
+    public void choixMerveilleTest() {
+        setInv1.modifMerveille(ephesos);
 
         listeInventaire = new ArrayList<>();
-        listeInventaire.add(set1);
-        listeInventaire.add(set2);
+        listeInventaire.add(setInv1);
+        listeInventaire.add(setInv2);
 
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         // Le joueur na pas les ressource pour construire sa merveille
         assertFalse(iAmonetaire.choixMerveille(joueur1, main, plateau));
 
         // On donne 2 argile au joueurs
-        set1.increaseValue(EnumRessources.ARGILE, 2);
+        setInv1.increaseValue(EnumRessources.ARGILE, 2);
         listeInventaire = new ArrayList<>();
-        listeInventaire.add(set1);
-        listeInventaire.add(set2);
+        listeInventaire.add(setInv1);
+        listeInventaire.add(setInv2);
 
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         // Le joueur a assez de ressource (2 argile)
         assertTrue(iAmonetaire.choixMerveille(joueur1, main, plateau));

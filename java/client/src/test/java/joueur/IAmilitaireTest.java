@@ -26,7 +26,7 @@ public class IAmilitaireTest {
 
     private IAmilitaire iAmilitaire;
 
-    private SetInventaire set1, set2;
+    private SetInventaire setInv1, setInv2;
     private Joueur joueur1;
 
     private Carte chantier, palissade, ecurie, arsnale;
@@ -47,11 +47,11 @@ public class IAmilitaireTest {
     public void setUp() {
         iAmilitaire = new IAmilitaire();
 
-        set1 = new SetInventaire(0, Strategy.SCIENTIFIQUE, "j1");
-        set2 = new SetInventaire(1, Strategy.SCIENTIFIQUE, "j2");
+        setInv1 = new SetInventaire(0, "url1", "j1");
+        setInv2 = new SetInventaire(1, "url2", "j2");
 
-        joueur1 = set1.getJoueur();
-        Joueur joueur2 = set2.getJoueur();
+        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName(),setInv1);
+        Joueur joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName(),setInv2);
 
         chantier = new Carte(EnumCarte.M6, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.BOIS), 3, 1, EnumRessources.MARRON);
         palissade = new Carte(EnumCarte.R3, Collections.singletonList(EnumRessources.PIERRE), Collections.singletonList(EnumRessources.BOUCLIER), 3, 1, EnumRessources.ROUGE);
@@ -60,8 +60,8 @@ public class IAmilitaireTest {
 
 
         listeInventaire = new ArrayList<>();
-        listeInventaire.add(set1);
-        listeInventaire.add(set2);
+        listeInventaire.add(setInv1);
+        listeInventaire.add(setInv2);
 
         listeJoueur = new ArrayList<>();
         listeJoueur.add(joueur1);
@@ -115,11 +115,11 @@ public class IAmilitaireTest {
      */
     @Test
     public void choixMerveilleTest() {
-        set1.modifMerveille(rhodos);
+        setInv2.modifMerveille(rhodos);
 
         listeInventaire = new ArrayList<>();
-        listeInventaire.add(set1);
-        listeInventaire.add(set2);
+        listeInventaire.add(setInv1);
+        listeInventaire.add(setInv2);
 
         plateau = new Plateau(listeInventaire);
 
@@ -127,10 +127,10 @@ public class IAmilitaireTest {
         assertFalse(iAmilitaire.choixMerveille(joueur1, main, plateau));
 
         // On donne 2 bois au joueurs
-        set1.increaseValue(EnumRessources.BOIS, 2);
+        setInv1.increaseValue(EnumRessources.BOIS, 2);
         listeInventaire = new ArrayList<>();
-        listeInventaire.add(set1);
-        listeInventaire.add(set2);
+        listeInventaire.add(setInv1);
+        listeInventaire.add(setInv2);
 
         plateau = new Plateau(listeInventaire);
 
