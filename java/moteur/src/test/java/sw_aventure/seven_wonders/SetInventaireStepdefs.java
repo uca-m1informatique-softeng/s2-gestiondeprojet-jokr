@@ -16,7 +16,7 @@ public class SetInventaireStepdefs implements Fr {
 
     public SetInventaireStepdefs() {
         Etantdonné("Le joueur {string} allant jouer son premier coup de la partie", (String nom) -> {
-            setInventaire = new SetInventaire(1, Strategy.RANDOM, nom);
+            setInventaire = new SetInventaire(1,"BFDGFNSGNS", nom);
         });
 
 

@@ -1,10 +1,10 @@
 package sw_aventure.seven_wonders;
 
 import exception.NegativeNumberException;
-import metier.Strategy;
-import joueur.Joueur;
 import org.junit.Before;
 import org.junit.Test;
+import utilitaire_jeu.Inventaire;
+import utilitaire_jeu.Plateau;
 import utilitaire_jeu.SetInventaire;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,7 +14,7 @@ public class SevenWondersTest {
 
     private SevenWonders sevenWonders;
     private SetInventaire setInv1, setInv2, setInv3;
-    private Joueur joueur1, joueur2, joueur3;
+    private String joueur1, joueur2, joueur3;
     private Plateau plateau;
 
     /**
@@ -24,18 +24,17 @@ public class SevenWondersTest {
     public void setup() {
         sevenWonders = new SevenWonders(3, false, false);
 
-        setInv1 = new SetInventaire(1, Strategy.RANDOM, "Enzo");
-        setInv2 = new SetInventaire(2, Strategy.MERVEILLE, "Christina");
-        setInv3 = new SetInventaire(3, Strategy.MERVEILLE, "Mona");
+        setInv1 = new SetInventaire(1, "RHERBEN", "Enzo");
+        setInv2 = new SetInventaire(2, "EBREBEB", "Christina");
+        setInv3 = new SetInventaire(3, "GBREBEB", "Mona");
 
 
-        joueur1 = setInv1.getJoueur();
-        joueur2 = setInv2.getJoueur();
-        joueur3 = setInv3.getJoueur();
+        joueur1 = setInv1.getUrl();
+        joueur2 = setInv2.getUrl();
+        joueur3 = setInv3.getUrl();
 
         ArrayList<Inventaire> listeInventaire = new ArrayList<>(){{add(setInv1);add(setInv2);add(setInv3);}};
-        ArrayList<Joueur> listeJoueur = new ArrayList<>(){{add(joueur1);add(joueur2);add(joueur3);}};
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
 
 
@@ -76,7 +75,6 @@ public class SevenWondersTest {
     public void initPlateauTest() {
         Plateau plateau = sevenWonders.initPlateau();
         assertEquals(3, plateau.getListeInventaire().size());
-        assertEquals(3, plateau.getListeJoueur().size());
     }
 
 

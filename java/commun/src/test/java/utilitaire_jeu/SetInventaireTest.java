@@ -2,17 +2,12 @@ package utilitaire_jeu;
 
 import objet_commun.Carte;
 import objet_commun.Merveille;
-import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.EnumRessources;
-import metier.Strategy;
 import metier.Wonder;
-import joueur.Joueur;
-import sw_aventure.seven_wonders.Plateau;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-import utilitaire_jeu.SetInventaire;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,10 +19,10 @@ public class SetInventaireTest {
 
     private SetInventaire set1, set2, set3, set4, set5, set6;
     private Carte carte1, carte2, carte3, carte4, carte5;
-    private Joueur joueur1, joueur2, joueur3,joueur4;
+    private String joueur1, joueur2, joueur3,joueur4;
     private Plateau plateau;
     private ArrayList<Inventaire> listInventaire;
-    private ArrayList<Joueur> listJoueur;
+    private ArrayList<String> listJoueur;
 
     private ArrayList<Carte> etape;
     private Merveille babylon, olympia, rhodos, gizah, ephesos, alexandria, halikarnassos;
@@ -37,18 +32,18 @@ public class SetInventaireTest {
      */
     @Before
     public void setUp() {
-        set1 = new SetInventaire(1, Strategy.RANDOM, "j1");
-        set2 = new SetInventaire(2, Strategy.RANDOM, "j2");
-        set3 = new SetInventaire(3, Strategy.RANDOM, "j3");
-        set4 = new SetInventaire(4, Strategy.RANDOM, "j4");
-        set5 = new SetInventaire(5, Strategy.RANDOM, "j5");
-        set6 = new SetInventaire(6, Strategy.RANDOM, "j6");
+        set1 = new SetInventaire(1, "BETZNTNBTR", "j1");
+        set2 = new SetInventaire(2, "NTRNBTR", "j2");
+        set3 = new SetInventaire(3, "GZBRBERE", "j3");
+        set4 = new SetInventaire(4, "BREZNRZNB", "j4");
+        set5 = new SetInventaire(5, "ZTGHERBRT", "j5");
+        set6 = new SetInventaire(6, "GRBREB", "j6");
 
 
-        joueur1 = set1.getJoueur();
-        joueur2 = set2.getJoueur();
-        joueur3 = set3.getJoueur();
-        joueur4 = set6.getJoueur();
+        joueur1 = set1.getUrl();
+        joueur2 = set2.getUrl();
+        joueur3 = set3.getUrl();
+        joueur4 = set6.getUrl();
 
         carte1 = new Carte(EnumCarte.M6, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.BOIS),3,1, EnumRessources.MARRON);
         carte2 = new Carte(EnumCarte.V3, Collections.singletonList(EnumRessources.TISSU), Collections.singletonList(EnumRessources.COMPAS), 3, 1, EnumRessources.VERTE);
@@ -80,7 +75,7 @@ public class SetInventaireTest {
      * On les incremente avec la méthode increaseValue() et regarde si l'implementation s est bien faite
     */
     @Test
-    public void increaseValue() throws NegativeNumberException {
+    public void increaseValue(){
         assertEquals(3 , set1.getValue(EnumRessources.PIECE));
         assertNotEquals(0, set1.getValue(EnumRessources.PIECE));
         assertEquals(0 , set2.getValue(EnumRessources.PIERRE));
@@ -143,7 +138,7 @@ public class SetInventaireTest {
      * La méthode incrémente 3 pièce a l'inventaire du joueur et on verifie si l incrementation s est bien faite
     */
     @Test
-    public void casDefausse() throws NegativeNumberException{
+    public void casDefausse(){
         assertEquals(3,set1.getValue(EnumRessources.PIECE));
         assertNotEquals(0,set1.getValue(EnumRessources.PIECE));
         assertEquals(3,set2.getValue(EnumRessources.PIECE));
@@ -208,7 +203,7 @@ public class SetInventaireTest {
      *
      */
     @Test
-    public void ressourceMerveilleTest() throws NegativeNumberException {
+    public void ressourceMerveilleTest(){
         Carte carte;
         ArrayList<Carte> defausse = new ArrayList<>();
         defausse.add(carte1);
@@ -244,33 +239,7 @@ public class SetInventaireTest {
     }
 
 
-    /**
-     * Test de la méthode jouerCarteDefausse()
-     * On verifie la taille de la defausse qu il doit augmenter de 1 apres l appel de cette methode
-     * On ajoute 2 cartes et en defausse 1 en utilisant cette methode
-     * Donc on doit avoir une taille de defausse de 1 ici
-     */
-    @Test
-    public void jouerCarteDefausseTest() throws NegativeNumberException{
-        listInventaire.add(set1);
-        listInventaire.add(set2);
-        listInventaire.add(set3);
 
-        listJoueur.add(joueur1);
-        listJoueur.add(joueur2);
-        listJoueur.add(joueur3);
-
-        plateau = new Plateau(listInventaire, listJoueur);
-
-        ArrayList<Carte> defausse = new ArrayList<>();
-
-        defausse.add(carte1);
-        defausse.add(carte2);
-
-        assertEquals(2, defausse.size());
-        set1.jouerCarteDefausse(defausse, plateau);
-        assertEquals(1, defausse.size());
-    }
 
 
     /**
@@ -278,7 +247,7 @@ public class SetInventaireTest {
      * On regarde si les ressource de la carte ont bien modifiees les inventaires des joueurs associes
      * */
     @Test
-    public void ressourceCarte() throws NegativeNumberException {
+    public void ressourceCarte(){
         set1.increaseValue(EnumRessources.GRISE, 2);
 
         listInventaire.add(set1);
@@ -289,13 +258,13 @@ public class SetInventaireTest {
         listJoueur.add(joueur2);
         listJoueur.add(joueur3);
 
-        plateau = new Plateau(listInventaire, listJoueur);
+        plateau = new Plateau(listInventaire);
 
-        set1.ressourceCarte(carte1, plateau);
-        set2.ressourceCarte(carte2, plateau);
-        set3.ressourceCarte(carte3, plateau);
-        set4.ressourceCarte(carte4, plateau);
-        set5.ressourceCarte(carte5, plateau);
+        set1.ressourceCarte(carte1, plateau.joueurGauche(set1),plateau.joueurDroit(set1));
+        set2.ressourceCarte(carte2, plateau.joueurGauche(set2),plateau.joueurDroit(set2));
+        set3.ressourceCarte(carte3, plateau.joueurGauche(set3),plateau.joueurDroit(set3));
+        set4.ressourceCarte(carte4, plateau.joueurGauche(set4),plateau.joueurDroit(set4));
+        set5.ressourceCarte(carte5, plateau.joueurGauche(set5),plateau.joueurDroit(set5));
 
         assertEquals(1, set1.getValue(EnumRessources.BOIS));
         assertEquals(1 , set2.getValue(EnumRessources.COMPAS));
@@ -306,10 +275,10 @@ public class SetInventaireTest {
         Carte carte = new Carte(EnumCarte.M6, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.BONUS22G),3,1, EnumRessources.MARRON);
         Carte cartebis = new Carte(EnumCarte.M6, Collections.singletonList(EnumRessources.GRATUIT), Arrays.asList(EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.PIECE, EnumRessources.PIERRE),3,1, EnumRessources.VIOLETTE);
 
-        set1.ressourceCarte(carte, plateau);
+        set1.ressourceCarte(carte, plateau.joueurGauche(set1),plateau.joueurDroit(set1));
         assertEquals(7, set1.getValue(EnumRessources.PIECE));
 
-        set1.ressourceCarte(cartebis, plateau);
+        set1.ressourceCarte(cartebis, plateau.joueurGauche(set1),plateau.joueurDroit(set1));
         assertEquals(3, set1.getValue(EnumRessources.BOIS));
         assertEquals(1 ,set1.getValue(EnumRessources.PIERRE));
         assertEquals(8 ,set1.getValue(EnumRessources.PIECE));
@@ -322,7 +291,7 @@ public class SetInventaireTest {
      *
      */
     @Test
-    public void piecebonusTest() throws NegativeNumberException {
+    public void piecebonusTest(){
         babylon.incrementeStade();
         babylon.incrementeStade();
         set1.modifMerveille(babylon);
@@ -344,37 +313,37 @@ public class SetInventaireTest {
         listJoueur.add(joueur2);
         listJoueur.add(joueur3);
 
-        plateau = new Plateau(listInventaire, listJoueur);
+        plateau = new Plateau(listInventaire);
 
         // Au départ le joueur a 3 pièces
         assertEquals(3, set1.getValue(EnumRessources.PIECE));
 
         // Le joueur obtient 2 pièces supplémentaire grâce à ses carte marron
-        set1.piecebonus(EnumRessources.BONUS11M, plateau);
+        set1.piecebonus(EnumRessources.BONUS11M, plateau.joueurGauche(set1),plateau.joueurDroit(set1));
         assertEquals(5 ,set1.getValue(EnumRessources.PIECE));
 
         // Le joueur obtient 4 pièces supplémentaire grâce à ses carte jaune
-        set1.piecebonus(EnumRessources.BONUS11J, plateau);
+        set1.piecebonus(EnumRessources.BONUS11J, plateau.joueurGauche(set1),plateau.joueurDroit(set1));
         assertEquals(9, set1.getValue(EnumRessources.PIECE));
 
         // Le joueur obtient 2 pièces supplémentaire grâce à sa carte grise (2 pièce par carte)
-        set1.piecebonus(EnumRessources.BONUS22G, plateau);
+        set1.piecebonus(EnumRessources.BONUS22G, plateau.joueurGauche(set1),plateau.joueurDroit(set1));
         assertEquals(11 , set1.getValue(EnumRessources.PIECE));
 
         // Le joueur obtient 30 pièces supplémentaire grâce à ses carte rouge (3 pièce par carte)
-        set1.piecebonus(EnumRessources.BONUS31R, plateau);
+        set1.piecebonus(EnumRessources.BONUS31R, plateau.joueurGauche(set1),plateau.joueurDroit(set1));
         assertEquals(41, set1.getValue(EnumRessources.PIECE));
 
         // Le joueur obtient 6 pièces supplémentaire car il a construit 2 étage de sa merveille (3 pièces par étage)
-        set1.piecebonus(EnumRessources.BONUS31MERVEILLE, plateau);
+        set1.piecebonus(EnumRessources.BONUS31MERVEILLE, plateau.joueurGauche(set1),plateau.joueurDroit(set1));
         assertEquals(47 , set1.getValue(EnumRessources.PIECE));
 
         // Le joueur obtient 9 pièces car il a 2 carte marron, son voisin droit 3 carte marron, et son voisin gauche 4 carte marron
-        set1.piecebonus(EnumRessources.BONUS1MDJG, plateau);
+        set1.piecebonus(EnumRessources.BONUS1MDJG, plateau.joueurGauche(set1),plateau.joueurDroit(set1));
         assertEquals(56 , set1.getValue(EnumRessources.PIECE));
 
         // Le joueur obtient 6 pièces car il a 1 carte grise, son voisin droit 2 carte grise, et son voisin gauche 0 carte grise
-        set1.piecebonus(EnumRessources.BONUS2GDJG, plateau);
+        set1.piecebonus(EnumRessources.BONUS2GDJG, plateau.joueurGauche(set1),plateau.joueurDroit(set1));
         assertEquals(62 , set1.getValue(EnumRessources.PIECE));
     }
 

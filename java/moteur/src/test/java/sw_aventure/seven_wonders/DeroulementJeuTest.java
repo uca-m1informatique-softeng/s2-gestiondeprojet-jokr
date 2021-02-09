@@ -4,9 +4,7 @@ import objet_commun.Carte;
 import objet_commun.Merveille;
 import exception.NegativeNumberException;
 import metier.EnumCarte;
-import metier.Strategy;
 import metier.Wonder;
-import joueur.Joueur;
 import sw_aventure.objetjeu.*;
 import metier.EnumRessources;
 import org.junit.Before;
@@ -69,10 +67,10 @@ public class DeroulementJeuTest {
 
 
         inv = Mockito.mock(SetInventaire.class);
-        setInv1 = new SetInventaire(0, Strategy.RANDOM, "Enzo");
-        setInv2 = new SetInventaire(1, Strategy.ULTIME, "Christina");
-        setInv3 = new SetInventaire(2, Strategy.ULTIME, "Mona");
-        inv4 = new SetInventaire(4, Strategy.RANDOM, "Paul");
+        setInv1 = new SetInventaire(0, "BREBNREER", "Enzo");
+        setInv2 = new SetInventaire(1, "HENJEET", "Christina");
+        setInv3 = new SetInventaire(2, "REHRENJER", "Mona");
+        inv4 = new SetInventaire(4, "GRNERNERJS", "Paul");
 
         ArrayList<Carte> etape = new ArrayList<>();
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI,EnumRessources.MINERAI), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
@@ -123,13 +121,13 @@ public class DeroulementJeuTest {
         listeInventaire.add(setInv2);
         listeInventaire.add(setInv3);
 
-        ArrayList<Joueur> listeJoueurs;
+        ArrayList<String> listeJoueurs;
         listeJoueurs = new ArrayList<>();
-        listeJoueurs.add(setInv1.getJoueur());
-        listeJoueurs.add(setInv2.getJoueur());
-        listeJoueurs.add(setInv3.getJoueur());
+        listeJoueurs.add(setInv1.getUrl());
+        listeJoueurs.add(setInv2.getUrl());
+        listeJoueurs.add(setInv3.getUrl());
 
-        plateau = new Plateau(listeInventaire, listeJoueurs);
+        plateau = new Plateau(listeInventaire);
         deroulementJeu.gagnante(nbJoueurs, plateau);
         List<SetInventaire> inv;
         inv = deroulementJeu.getSetInventaire();
@@ -345,11 +343,11 @@ public class DeroulementJeuTest {
         listeInventaire.add(setInv2);
         listeInventaire.add(setInv3);
 
-        ArrayList<Joueur> listeJoueurs;
+        ArrayList<String> listeJoueurs;
         listeJoueurs = new ArrayList<>();
-        listeJoueurs.add(setInv1.getJoueur());
-        listeJoueurs.add(setInv2.getJoueur());
-        listeJoueurs.add(setInv3.getJoueur());
+        listeJoueurs.add(setInv1.getUrl());
+        listeJoueurs.add(setInv2.getUrl());
+        listeJoueurs.add(setInv3.getUrl());
 
         plateau = new Plateau(listeInventaire);
 
@@ -463,11 +461,11 @@ public class DeroulementJeuTest {
         listeInventaire.add(setInv2);
         listeInventaire.add(setInv3);
 
-        ArrayList<Joueur> listeJoueurs;
+        ArrayList<String> listeJoueurs;
         listeJoueurs = new ArrayList<>();
-        listeJoueurs.add(setInv1.getJoueur());
-        listeJoueurs.add(setInv2.getJoueur());
-        listeJoueurs.add(setInv3.getJoueur());
+        listeJoueurs.add(setInv1.getUrl());
+        listeJoueurs.add(setInv2.getUrl());
+        listeJoueurs.add(setInv3.getUrl());
 
         plateau = new Plateau(listeInventaire);
 

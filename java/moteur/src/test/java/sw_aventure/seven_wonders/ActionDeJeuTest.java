@@ -5,9 +5,7 @@ import objet_commun.Merveille;
 import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.EnumRessources;
-import metier.Strategy;
 import metier.Wonder;
-import joueur.Joueur;
 import sw_aventure.objetjeu.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,14 +27,14 @@ public class ActionDeJeuTest {
     private int nbJoueurs;
     private ActionDeJeu actionDeJeu;
     private SetInventaire setInv1, setInv2, setInv3;
-    private Joueur joueur1, joueur2, joueur3;
+    private String joueur1, joueur2, joueur3;
 
     private Carte chantier, jardins;
     private Merveille babylon;
 
     private ArrayList<Inventaire> listeInventaire;
     private ArrayList<SetInventaire> listSetInventaire;
-    private ArrayList<Joueur> listeJoueur;
+    private ArrayList<String> listeJoueur;
 
     private Plateau plateau;
     private List<MainJoueur> mainJoueurs;
@@ -50,13 +48,13 @@ public class ActionDeJeuTest {
     @Before
     public void setup() {
         nbJoueurs = 3;
-        setInv1 = new SetInventaire(0, Strategy.MERVEILLE, "Enzo");
-        setInv2 = new SetInventaire(1, Strategy.MERVEILLE, "Christina");
-        setInv3 = new SetInventaire(2, Strategy.MERVEILLE, "Mona");
+        setInv1 = new SetInventaire(0, "AZERZGVB", "Enzo");
+        setInv2 = new SetInventaire(1, "BFNEEKLBK", "Christina");
+        setInv3 = new SetInventaire(2, "RHENBREBBEZ", "Mona");
 
-        joueur1 = setInv1.getJoueur();
-        joueur2 = setInv2.getJoueur();
-        joueur3 = setInv3.getJoueur();
+        joueur1 = setInv1.getUrl();
+        joueur2 = setInv2.getUrl();
+        joueur3 = setInv3.getUrl();
 
         chantier = new Carte(EnumCarte.M6, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.BOIS), 3, 1, EnumRessources.MARRON);
         jardins = new Carte(EnumCarte.B9, Arrays.asList(EnumRessources.BOIS, EnumRessources.ARGILE, EnumRessources.ARGILE), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE), 3, 3, EnumRessources.BLEUE);
@@ -75,7 +73,7 @@ public class ActionDeJeuTest {
 
         listeInventaire = new ArrayList<>(){{add(setInv1);add(setInv2);add(setInv3);}};
         listeJoueur = new ArrayList<>(){{add(joueur1);add(joueur2);add(joueur3);}};
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         mainJoueurs = new ArrayList<>() {{add(new MainJoueur()); add(new MainJoueur()); add(new MainJoueur());}};
         paquetDefausse = new ArrayList<>();
@@ -185,7 +183,7 @@ public class ActionDeJeuTest {
         listeInventaire.add(setInv2);
         listeInventaire.add(setInv3);
 
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         listSetInventaire = new ArrayList<>();
         listSetInventaire.add(setInv1);
@@ -251,7 +249,7 @@ public class ActionDeJeuTest {
      * On verifie si on fait bien jouer une carte de la défausse au joueur ayant ce bonus
      */
     @Test
-    public void jouerLaDefausseTest() throws NegativeNumberException {
+    public void jouerLaDefausseTest(){
         ArrayList<SetInventaire> listSetInventaire;
 
         setInv1.increaseValue(EnumRessources.BONUSDEFAUSSEG, 1);
@@ -295,7 +293,7 @@ public class ActionDeJeuTest {
         listeInventaire.add(setInv2);
         listeInventaire.add(setInv3);
 
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         listSetInventaire = new ArrayList<>();
         listSetInventaire.add(setInv1);
@@ -315,5 +313,30 @@ public class ActionDeJeuTest {
 
         int[][] tab = actionDeJeu.decisionDeJeu(3, plateau);
         assertEquals(3, tab.length);
+    }
+
+    /**
+     * Test de la méthode jouerCarteDefausse()
+     * On verifie la taille de la defausse qu il doit augmenter de 1 apres l appel de cette methode
+     * On ajoute 2 cartes et en defausse 1 en utilisant cette methode
+     * Donc on doit avoir une taille de defausse de 1 ici
+     */
+    @Test
+    public void jouerCarteDefausseTest(){
+        listeInventaire.add(setInv1);
+        listeInventaire.add(setInv2);
+        listeInventaire.add(setInv3);
+
+
+        plateau = new Plateau(listeInventaire);
+
+        ArrayList<Carte> defausse = new ArrayList<>();
+
+        defausse.add(chantier);
+        defausse.add(jardins);
+
+        assertEquals(2, defausse.size());
+        actionDeJeu.jouerCarteDefausse(setInv1,defausse, plateau);
+        assertEquals(1, defausse.size());
     }
 }
