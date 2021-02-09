@@ -5,5 +5,5 @@ script:
   - cd java
   - mvn install -Dmaven.test.skip=true
   - java -jar serveur/target/serveur-1.0-jar-with-dependencies.jar &
-  - java -jar sevenw/target/moteur-1.0-jar-with-dependencies.jar true 1 5 false
-  - java -jar sevenw/target/moteur-1.0-jar-with-dependencies.jar false 20000 3 true
+  - java -jar moteur/target/moteur-1.0-jar-with-dependencies.jar true 1 5 false
+  - java -jar moteur/target/moteur-1.0-jar-with-dependencies.jar false 20000 3 true
