@@ -17,10 +17,10 @@ before_script:
   - docker-compose --version
   - docker ps -a -q
   - docker build serveur -t serveur
-  - docker build sevenw -t sevenw
+  - docker build moteur -t moteur
   - docker images
 
 
 script:
-  - docker-compose up --scale client=3
+  - docker-compose up --scale moteur=3
   #- docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
