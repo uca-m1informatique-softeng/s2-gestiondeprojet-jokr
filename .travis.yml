@@ -11,7 +11,7 @@ script:
   - mvn install
   - docker build serveur -t serveur:stat
   - cd serveur
-  - docker run -d --name statServeur -p 192.168.2.1:8081:8081 serveur:stat
+  - docker run -d --name statServeur --ip 192.168.2.1 serveur:stat
   - docker start statServeur
   - cd ..
   #- java -jar serveur/target/serveur-1.0-jar-with-dependencies.jar &
