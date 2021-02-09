@@ -169,7 +169,7 @@ public class SevenWonders {
         JSONArray jsonArray = new JSONArray();
         for (SetInventaire s : setInv) {
             nomJoueur = s.getJoueurName();
-            strategieJoueur = FacadeJoueur.getStrategie(FacadeJoueur.getStrategie(s.getUrl()));
+            strategieJoueur = FacadeJoueur.getStrategie(s.getUrl());
             inventaire = s.getSac();
             merveille = s.getMerveille().getNom().toString();
             cartes = s.getListeCarte();
