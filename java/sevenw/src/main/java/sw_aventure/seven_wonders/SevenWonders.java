@@ -227,7 +227,7 @@ public class SevenWonders {
         // Active plusieurs parties avec statistiques
         boolean multiPartieAvecStat = false;
 
-        String url = "http://127.0.0.1:10101";
+        String url = "http://127.0.0.1:8081";
 
         try {
             if (args[0].equals("false")) {
