@@ -15,6 +15,8 @@ install:
 before_script:
   - docker-compose --version
   - docker ps -a -q
+  - docker rmi jokr:serveur
+  - docker rmi jokr:sevenw
   - docker build serveur -t jokr:serveur
   - docker build sevenw -t jokr:sevenw
   - docker images
