@@ -4,7 +4,7 @@ version: '3'
 services:
 
   serveur:
-    image: jokr:serveur
+    image: serveur
     container_name: serveur
     networks:
       testing_net:
@@ -14,7 +14,7 @@ services:
   
 
   sevenw:
-    image: jockr:sevenw
+    image: sevenw
     environment:
       - SERVER_IP=10.0.0.1
     networks:

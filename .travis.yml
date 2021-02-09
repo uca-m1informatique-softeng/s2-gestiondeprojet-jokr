@@ -15,10 +15,8 @@ install:
 before_script:
   - docker-compose --version
   - docker ps -a -q
-  - docker rmi jokr:serveur
-  - docker rmi jokr:sevenw
-  - docker build serveur -t jokr:serveur
-  - docker build sevenw -t jokr:sevenw
+  - docker build serveur -t serveur
+  - docker build sevenw -t sevenw
   - docker images
 
 script:
@@ -32,5 +30,5 @@ script:
   - docker-compose up --scale client=1
   - docker rm $(docker ps -a -q)
   - docker ps -a -q
-  - docker rmi jokr:serveur
-  - docker rmi jokr:sevenw
+  - docker rmi serveur
+  - docker rmi sevenw
