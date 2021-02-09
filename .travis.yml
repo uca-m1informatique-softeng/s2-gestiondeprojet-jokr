@@ -10,7 +10,7 @@ services:
 
 install:
   - cd java
-  - mvn install -Dmaven.test.skip=true
+  - mvn clean install #-Dmaven.test.skip=true
 
 
 before_script:
@@ -22,5 +22,5 @@ before_script:
 
 
 script:
-  - docker-compose up --scale moteur=3
+  - docker-compose up #--scale moteur=3
   #- docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
