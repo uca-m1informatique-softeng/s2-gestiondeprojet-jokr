@@ -9,10 +9,10 @@ services:
 script:
   - cd java
   - mvn install
-  - docker build server -t server:stat
-  - cd server
-  - docker run -d --name statServer -p 10.0.0.1:8081:8081 server:stat
-  - docker start statServer
+  - docker build serveur -t serveur:stat
+  - cd serveur
+  - docker run -d --name statServeur -p 10.0.0.1:8081:8081 serveur:stat
+  - docker start statServeur
   - cd ..
   #- java -jar serveur/target/serveur-1.0-jar-with-dependencies.jar &
   - java -jar sevenw/target/sevenw-1.0-jar-with-dependencies.jar true 1 5 false http://10.0.0.1:8081
