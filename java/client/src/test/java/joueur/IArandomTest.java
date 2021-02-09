@@ -8,7 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import sw_aventure.seven_wonders.Plateau;
+import utilitaire_jeu.Inventaire;
+import utilitaire_jeu.Plateau;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,7 +24,6 @@ public class IArandomTest {
     private Inventaire inventaire;
     private Plateau plateau;
     private ArrayList<Inventaire> inv;
-    private ArrayList<Joueur> listeJoueur = new ArrayList<>();
 
 
     private IA bot;
@@ -38,11 +38,11 @@ public class IArandomTest {
      */
     @Before
     public void setup() {
-        inventaire = new Inventaire(1, Strategy.RANDOM, "Enzo");
+        inventaire = new Inventaire(1, "FZEEGVB", "Enzo");
 
         joueur = new Joueur(   0, Strategy.RANDOM , "Enzo", inventaire);
         main = new ArrayList<>();
-        plateau = new Plateau(inv, listeJoueur);
+        plateau = new Plateau(inv);
         bot = new  IArandom();
 
         mbot = Mockito.mock (IArandom.class);

@@ -1,6 +1,6 @@
 package joueur;
 
-import exception.NegativeNumberException;
+
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
@@ -9,8 +9,9 @@ import objet_commun.Carte;
 import objet_commun.Merveille;
 import org.junit.Before;
 import org.junit.Test;
-import sw_aventure.objetjeu.SetInventaire;
-import sw_aventure.seven_wonders.Plateau;
+import utilitaire_jeu.Inventaire;
+import utilitaire_jeu.Plateau;
+import utilitaire_jeu.SetInventaire;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,7 +67,7 @@ public class IAmilitaireTest {
         listeJoueur.add(joueur1);
         listeJoueur.add(joueur2);
 
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         List<Carte> etape = new ArrayList<>();
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
@@ -113,14 +114,14 @@ public class IAmilitaireTest {
      * Test de la méthode choixMerveille()
      */
     @Test
-    public void choixMerveilleTest() throws NegativeNumberException {
+    public void choixMerveilleTest() {
         set1.modifMerveille(rhodos);
 
         listeInventaire = new ArrayList<>();
         listeInventaire.add(set1);
         listeInventaire.add(set2);
 
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         // Le joueur na pas les ressource pour construire sa merveille
         assertFalse(iAmilitaire.choixMerveille(joueur1, main, plateau));
@@ -131,7 +132,7 @@ public class IAmilitaireTest {
         listeInventaire.add(set1);
         listeInventaire.add(set2);
 
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         // Le joueur a assez de ressource (2 bois)
         assertTrue(iAmilitaire.choixMerveille(joueur1, main, plateau));

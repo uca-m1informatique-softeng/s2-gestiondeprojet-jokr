@@ -1,6 +1,6 @@
 package joueur;
 
-import exception.NegativeNumberException;
+
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
@@ -9,8 +9,10 @@ import objet_commun.Carte;
 import objet_commun.Merveille;
 import org.junit.Before;
 import org.junit.Test;
-import sw_aventure.objetjeu.SetInventaire;
-import sw_aventure.seven_wonders.Plateau;
+import utilitaire_jeu.Inventaire;
+import utilitaire_jeu.Plateau;
+import utilitaire_jeu.SetInventaire;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -68,7 +70,7 @@ public class IAscientifiqueTest {
         listeJoueur.add(joueur1);
         listeJoueur.add(joueur2);
 
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
 
         List<Carte> etape = new ArrayList<>();
@@ -113,6 +115,7 @@ public class IAscientifiqueTest {
     }
 
 
+
     /**
      * Test de la méthode rechercheRessources()
      */
@@ -139,14 +142,14 @@ public class IAscientifiqueTest {
      * Test de la méthode choixMerveille()
      */
     @Test
-    public void choixMerveilleTest() throws NegativeNumberException {
+    public void choixMerveilleTest(){
         set1.modifMerveille(babylon);
 
         listeInventaire = new ArrayList<>();
         listeInventaire.add(set1);
         listeInventaire.add(set2);
 
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         // Le joueur na pas les ressource pour construire sa merveille
         assertFalse(iAscientifique.choixMerveille(joueur1, main, plateau));
@@ -157,7 +160,7 @@ public class IAscientifiqueTest {
         listeInventaire.add(set1);
         listeInventaire.add(set2);
 
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         // Le joueur a 2 argile mais il a la stratégie Scientifique donc il ne construit pas du tout sa merveille
         assertFalse(iAscientifique.choixMerveille(joueur1, main, plateau));
@@ -185,7 +188,7 @@ public class IAscientifiqueTest {
      * Test de la méthode commerceAdjacent() de l'interface IA
      */
     @Test
-    public void commerceAdjacentTest() throws NegativeNumberException {
+    public void commerceAdjacentTest(){
         set1.increaseValue(EnumRessources.REDMARRONGAUCHE, 1);
         // Renvoie true car le joueur a la réduc a gauche
         assertTrue(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, set1, set2));

@@ -1,14 +1,14 @@
 package joueur;
 
-import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
 import objet_commun.Carte;
 import org.junit.Before;
 import org.junit.Test;
-import sw_aventure.objetjeu.SetInventaire;
-import sw_aventure.seven_wonders.Plateau;
+import utilitaire_jeu.Inventaire;
+import utilitaire_jeu.Plateau;
+import utilitaire_jeu.SetInventaire;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -147,7 +147,7 @@ public class IAambitieuseTest {
      * Test de la méthode getScientistPoints()
      */
     @Test
-    public void getScientistPointsTest() throws NegativeNumberException {
+    public void getScientistPointsTest() {
         assertEquals(1, iAambitieuse.getScientistPoints(EnumRessources.PDR, joueur1));
         assertEquals(1, iAambitieuse.getScientistPoints(EnumRessources.ROUE, joueur1));
         assertEquals(1, iAambitieuse.getScientistPoints(EnumRessources.COMPAS, joueur1));
@@ -176,7 +176,7 @@ public class IAambitieuseTest {
      * Test de la méthode besoinDeBouclier()
      */
     @Test
-    public void besoinDeBouclierTest() throws NegativeNumberException {
+    public void besoinDeBouclierTest()  {
         SetInventaire setVoisinDroit = new SetInventaire(10, Strategy.AMBITIEUSE, "voisinDroit");
         SetInventaire setVoisinGauche = new SetInventaire(10, Strategy.AMBITIEUSE, "voisinDroit");
 
@@ -190,7 +190,7 @@ public class IAambitieuseTest {
         joueurs.add(joueur1);
         joueurs.add(setVoisinDroit.getJoueur());
         joueurs.add(setVoisinGauche.getJoueur());
-        plateau = new Plateau(setInvs, joueurs);
+        plateau = new Plateau(setInvs);
 
         assertFalse(iAambitieuse.besoinDeBouclier(joueur1, plateau));
 
@@ -221,7 +221,7 @@ public class IAambitieuseTest {
         joueurs.add(joueur1);
         joueurs.add(setVoisinDroit.getJoueur());
         joueurs.add(setVoisinGauche.getJoueur());
-        plateau = new Plateau(setInvs, joueurs);
+        plateau = new Plateau(setInvs);
 
         assertTrue(iAambitieuse.besoinDeBouclier(joueur1, plateau));
     }

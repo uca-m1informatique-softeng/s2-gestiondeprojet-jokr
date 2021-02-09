@@ -12,6 +12,8 @@ import sw_aventure.objetjeu.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
+import utilitaire_jeu.Inventaire;
+import utilitaire_jeu.Plateau;
 import utilitaire_jeu.SetInventaire;
 
 import java.util.ArrayList;

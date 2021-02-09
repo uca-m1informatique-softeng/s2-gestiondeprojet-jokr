@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
+import utilitaire_jeu.SetInventaire;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +26,7 @@ public class IAcivilTest {
 
     private IAcivil iAcivil;
 
-    private Inventaire setInv1, setInv2;
+    private SetInventaire setInv1, setInv2;
     private Joueur joueur1;
 
     private Carte chantier, puits, statue, pantheon;
@@ -46,8 +47,8 @@ public class IAcivilTest {
     public void setup() {
         iAcivil = new IAcivil();
 
-        setInv1 = new SetInventaire(0, Strategy.SCIENTIFIQUE, "j1");
-        setInv2 = new SetInventaire(1, Strategy.SCIENTIFIQUE, "j2");
+        setInv1 = new SetInventaire(0, "GREBERB", "j1");
+        setInv2 = new SetInventaire(1, "GRGERHER", "j2");
 
         joueur1 = setInv1.getJoueur();
         Joueur joueur2 = setInv2.getJoueur();
@@ -66,7 +67,7 @@ public class IAcivilTest {
         listeJoueur.add(joueur1);
         listeJoueur.add(joueur2);
 
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
 
         List<Carte> etape = new ArrayList<>();
@@ -112,7 +113,7 @@ public class IAcivilTest {
      * Test de la méthode choixMerveille()
      */
     @Test
-    public void choixMerveilleTest() throws NegativeNumberException {
+    public void choixMerveilleTest() {
 
       
         main = new ArrayList<>();
@@ -123,7 +124,7 @@ public class IAcivilTest {
         listeInventaire = new ArrayList<>();
         listeInventaire.add(setInv1);
         listeInventaire.add(setInv2);
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         // Le joueur n'a pas assez de ressource pour construire sa merveille
         assertFalse(iAcivil.choixMerveille(joueur1, main, plateau));
@@ -133,7 +134,7 @@ public class IAcivilTest {
         listeInventaire = new ArrayList<>();
         listeInventaire.add(setInv1);
         listeInventaire.add(setInv2);
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
         // Le joueur peut construire le premier étage de sa merveille avec ses ressources
         //assertTrue(iAcivil.choixMerveille(joueur1, main, plateau));
 
@@ -148,7 +149,7 @@ public class IAcivilTest {
         listeInventaire = new ArrayList<>();
         listeInventaire.add(setInv1);
         listeInventaire.add(setInv2);
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
         // Le joueur ne peut pas construire sa merveille car elle est déjà construite en entière
         assertFalse(iAcivil.choixMerveille(joueur1, main, plateau));
     }
@@ -188,7 +189,7 @@ public class IAcivilTest {
      * Test de méthode choixCartePourMerveille()
      */
     @Test
-    public void choixCartePourMerveilleTest() throws NegativeNumberException{
+    public void choixCartePourMerveilleTest() {
         main = new ArrayList<>();
         main.add(pantheon);
         main.add(statue);
@@ -216,7 +217,7 @@ public class IAcivilTest {
         listeInventaire = new ArrayList<>();
         listeInventaire.add(setInv1);
         listeInventaire.add(setInv2);
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         // Le joueur peut construire toute les carte alors 1 est renvoyé
         assertEquals(1, iAcivil.choixCartePourMerveille(joueur1, main, plateau));

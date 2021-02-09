@@ -15,6 +15,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import utilitaire_jeu.Inventaire;
+import utilitaire_jeu.Plateau;
 import utilitaire_jeu.SetInventaire;
 
 import java.util.ArrayList;
@@ -151,7 +153,7 @@ public class DeroulementJeuTest {
         listeInventaire.add(setInv2);
         listeInventaire.add(setInv3);
 
-        plateau = new Plateau(listeInventaire, listeJoueurs);
+        plateau = new Plateau(listeInventaire);
         deroulementJeu.gagnante(nbJoueurs, plateau);
         inv = deroulementJeu.getSetInventaire();
         for (SetInventaire s : inv) {
@@ -349,7 +351,7 @@ public class DeroulementJeuTest {
         listeJoueurs.add(setInv2.getJoueur());
         listeJoueurs.add(setInv3.getJoueur());
 
-        plateau = new Plateau(listeInventaire, listeJoueurs);
+        plateau = new Plateau(listeInventaire);
 
         deroulementJeu.initMainJoueur(nbJoueurs);
         deroulementJeu.distribution(fabriqueCarte.getCards());
@@ -467,7 +469,7 @@ public class DeroulementJeuTest {
         listeJoueurs.add(setInv2.getJoueur());
         listeJoueurs.add(setInv3.getJoueur());
 
-        plateau = new Plateau(listeInventaire, listeJoueurs);
+        plateau = new Plateau(listeInventaire);
 
         deroulementJeu.laPartie(plateau, 3);
 

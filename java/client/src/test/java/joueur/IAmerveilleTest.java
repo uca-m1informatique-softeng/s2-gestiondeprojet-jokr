@@ -1,6 +1,6 @@
 package joueur;
 
-import exception.NegativeNumberException;
+
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
@@ -9,8 +9,9 @@ import objet_commun.Carte;
 import objet_commun.Merveille;
 import org.junit.Before;
 import org.junit.Test;
-import sw_aventure.objetjeu.SetInventaire;
-import sw_aventure.seven_wonders.Plateau;
+import utilitaire_jeu.Inventaire;
+import utilitaire_jeu.Plateau;
+import utilitaire_jeu.SetInventaire;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,8 +46,8 @@ public class IAmerveilleTest {
     public void setup() {
         iAmerveille = new IAmerveille();
 
-        setInv1 = new SetInventaire(0, Strategy.MERVEILLE, "j1");
-        setInv2 = new SetInventaire(1, Strategy.MERVEILLE, "j2");
+        setInv1 = new SetInventaire(0, "GRZBRZZRBZRBZR", "j1");
+        setInv2 = new SetInventaire(1, "BEZBZRBZB", "j2");
 
         joueur1 = setInv1.getJoueur();
         joueur2 = setInv2.getJoueur();

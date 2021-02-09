@@ -1,7 +1,6 @@
-package sw_aventure.seven_wonders;
+package utilitaire_jeu;
 
 import metier.Strategy;
-import joueur.Joueur;
 import org.junit.Before;
 import org.junit.Test;
 import utilitaire_jeu.SetInventaire;
@@ -12,9 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PlateauTest {
     private SetInventaire inv1, inv2, inv3, inv4, inv5;
-    private Joueur joueur1, joueur2, joueur3, joueur4, joueur5;
     private Plateau plateau;
-    private ArrayList<Joueur> listeJoueur;
     private ArrayList<Inventaire> listeInventaire;
 
 
@@ -29,18 +26,11 @@ public class PlateauTest {
         inv4 = new SetInventaire(4, Strategy.ULTIME, "Hichem");
         inv5 = new SetInventaire(5, Strategy.RANDOM, "Thomas");
 
-        joueur1 = inv1.getJoueur();
-        joueur2 = inv2.getJoueur();
-        joueur3 = inv3.getJoueur();
-        joueur4 = inv4.getJoueur();
-        joueur5 = inv5.getJoueur();
 
-        listeJoueur = new ArrayList<Joueur>();
-        listeInventaire = new ArrayList<Inventaire>();
 
         listeInventaire = new ArrayList<Inventaire>(){{add(inv1);add(inv2);add(inv3);add(inv4);add(inv5);}};
-        listeJoueur = new ArrayList<Joueur>(){{add(joueur1);add(joueur2);add(joueur3);add(joueur4);add(joueur5);}};
-        plateau = new Plateau(listeInventaire, listeJoueur);
+
+        plateau = new Plateau(listeInventaire);
     }
 
 
@@ -119,14 +109,6 @@ public class PlateauTest {
     }
 
 
-    /**
-     * Test de la méthode getListeJoueur()  ayant une liste de joueurs
-     * La methode doit renvoyer listeJoueur ici
-     */
-    @Test
-    public void getListeJoueur() {
-        assertEquals(plateau.getListeJoueur(),listeJoueur);
-    }
 
 
     /**

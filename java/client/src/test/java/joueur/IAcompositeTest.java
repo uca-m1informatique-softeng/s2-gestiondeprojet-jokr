@@ -1,6 +1,5 @@
 package joueur;
 
-import exception.NegativeNumberException;
 import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
@@ -11,8 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import sw_aventure.objetjeu.SetInventaire;
-import sw_aventure.seven_wonders.Plateau;
+import utilitaire_jeu.Inventaire;
+import utilitaire_jeu.Plateau;
+import utilitaire_jeu.SetInventaire;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,7 +50,7 @@ public class IAcompositeTest {
     */
     @Before
     public void setUp() {
-        Inventaire inv0 = new Inventaire(1, Strategy.COMPOSITE, "Omega");
+        Inventaire inv0 = new Inventaire(1,"EBREERBBE", "Omega");
         cart = new Carte(EnumCarte.B2, Collections.singletonList(EnumRessources.GRATUIT), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE), 3, 1, EnumRessources.BLEUE);
         lCart = Collections.singletonList(EnumRessources.BOIS);
         lCarte = Collections.singletonList("Atelier");
@@ -59,9 +59,9 @@ public class IAcompositeTest {
         mocIA = Mockito.mock(IAcomposite.class);
         iaComposite = new IAcomposite();
 
-        setInv1 = new SetInventaire(1, Strategy.COMPOSITE, "j1");
-        SetInventaire setInv2 = new SetInventaire(2, Strategy.COMPOSITE, "j2");
-        SetInventaire setInv3 = new SetInventaire(3, Strategy.COMPOSITE, "j3");
+        setInv1 = new SetInventaire(1, "GFBSENZN", "j1");
+        SetInventaire setInv2 = new SetInventaire(2, "GEBEZNEQBN", "j2");
+        SetInventaire setInv3 = new SetInventaire(3, "GREKCKEOKF", "j3");
 
         carteGratuite = new Carte(EnumCarte.B2, Collections.singletonList(EnumRessources.GRATUIT), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE), 3, 1, EnumRessources.BLEUE);
         cartePayante = new Carte(EnumCarte.B2, Collections.singletonList(EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE), 3, 1, EnumRessources.BLEUE);
@@ -82,12 +82,9 @@ public class IAcompositeTest {
         listeInv.add(setInv2);
         listeInv.add(setInv3);
 
-        List<Joueur> listeJoueur = new ArrayList<>();
-        listeJoueur.add(setInv1.getJoueur());
-        listeJoueur.add(setInv2.getJoueur());
-        listeJoueur.add(setInv3.getJoueur());
 
-        plateau = new Plateau(listeInv, listeJoueur);
+
+        plateau = new Plateau(listeInv);
     }
 
 
@@ -122,7 +119,7 @@ public class IAcompositeTest {
      * Test de la méthode choixMerveille()
      */
     @Test
-    public void choixMerveilleTest() throws NegativeNumberException {
+    public void choixMerveilleTest(){
         // Merveille Babylon donc botChameleon scientifique
         // Le joueur ne peut pas construire sa merveille car il lui manque 2 argiles
         assertFalse(iaComposite.choixMerveille(setInv1.getJoueur(), mainJoueur, plateau));
