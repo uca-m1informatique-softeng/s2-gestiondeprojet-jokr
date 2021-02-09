@@ -1,0 +1,27 @@
+version: '3'
+
+
+services:
+
+  serveur:
+    image: jokr:serveur
+    container_name: serveur
+    networks:
+      testing_net:
+        ipv4_adress: 10.0.0.1
+    depends_on:
+      - sevenw
+  
+
+  sevenw:
+    image: jockr:sevenw
+    environment:
+      - SERVER_IP=10.0.0.1
+
+
+networks:
+  testing_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.0.0/24
