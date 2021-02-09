@@ -8,6 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: JOKR:sevenw:1.0" level="project" />
     <orderEntry type="module" module-name="serveur" />
     <orderEntry type="library" name="Maven: com.corundumstudio.socketio:netty-socketio:1.7.17" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.1.32.Final" level="project" />
@@ -61,6 +62,5 @@
     <orderEntry type="library" name="Maven: io.cucumber:create-meta:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: net.jodah:typetools:0.6.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.cucumber:cucumber-junit:6.5.0" level="project" />
-    <orderEntry type="module" module-name="client" />
   </component>
 </module>
