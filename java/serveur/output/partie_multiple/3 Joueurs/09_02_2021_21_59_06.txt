@@ -1,0 +1,113 @@
+
+############## Statistiques pour 3 joueurs sur 20000 parties ##############
+
+Description des IA :
+   - IA Random       : IA prenant des décisions aléatoires.
+   - IA Merveille    : IA construisant sa merveille en priorité.
+   - IA Scientifique : IA se concentrant sur les points scientifiques.
+   - IA Civil        : IA construisant des bâtiments civils en priorité.
+   - IA Monétaire    : IA essayant de gagner des points grâce à ses pièces et des bonus.
+   - IA Composite    : IA adoptant une stratégie différente en fonction de sa merveille.
+   - IA Militaire    : IA se concentrant sur l'achat de bouclier pour gagner les guerres.
+   - IA Ambitieuse   : IA s’adaptant aux stratégies des autres joueurs et en jouant des coups pour les contrer, toute en s’assurant un minimum de points.
+
+
+
+##### Statistiques de Enzo #####
+Enzo (IA Random) a remporté au total 8 parties sur 20000, soit un taux de victoire de 0.04%.
+Il a obtenue au maximum 53 points avec la merveille GIZAH DE NUIT, et avec les cartes :
+	Théâtre, Bains, Carrière, Tribunal, Guilde des Artisans, Jardins, Fortification.
+
+Il a construit en moyenne 2.63725 étages de sa merveille.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 21.3092 points.
+	- 5.8187 points grâce à ses Pièces.
+	- 10.89815 points grâce aux Bâtiments civils.
+	- 2.4877 points Scientifique.
+	- 2.85615 points de Victoire de guerre.
+	- 3.4901 points de Défaite guerre.
+	- 2.7386 points grâce aux cartes bonus.
+
+Et au cours des 20000 parties, son taux d'achat par carte est le suivant :
+E. Forestière :	10%		F. Argileuse  :	11%		Filon         :	5%		B. Argileux   :	4%		Cavité        :	3%		Chantier      :	3%		Excavation    :	0%		
+Gisement      :	0%		Mine          :	0%		Friche        :	0%		Fonderie      :	3%		Briqueterie   :	3%		Carrière      :	2%		Scierie       :	2%		
+Presse        :	15%		Verrerie      :	13%		Métier Tisser :	11%		Théâtre       :	4%		Autel         :	4%		Bains         :	4%		Tribunal      :	6%		
+Temple        :	7%		Aqueduc       :	3%		Statue        :	7%		Panthéon      :	3%		Jardins       :	5%		Hôtel de V    :	5%		Palace        :	3%		
+Sénat         :	5%		Puits         :	0%		Marché        :	10%		Compt OUEST   :	11%		Compt EST     :	11%		Taverne       :	0%		Vignoble      :	9%		
+Forum         :	9%		Caravansérail :	9%		Bazar         :	0%		Phare         :	13%		Port          :	10%		Arène         :	14%		Ch.de Commerce:	0%		
+Ludus         :	0%		Tour de Garde :	9%		Caserne       :	9%		Palissade     :	9%		Muraille      :	7%		Champs de tir :	7%		Ecurie        :	7%		
+Place d'Armes :	0%		Fortification :	10%		Arsenal       :	10%		A. de Siège   :	10%		Castrum       :	0%		Cirque        :	0%		Scriptorium   :	7%		
+Atelier       :	8%		Officine      :	7%		Ecole         :	8%		Bibliothèque  :	9%		Laboratoire   :	8%		Dispensaire   :	7%		Loge          :	11%		
+Académie      :	11%		Observatoire  :	11%		Etude         :	11%		Université    :	11%		G.Travailleurs:	6%		G.Artisans    :	5%		G.Magistrats  :	4%		
+G.Commerçants :	6%		G.Espions     :	6%		G.Philosophes :	5%		G.Scientifique:	6%		G.Armateurs   :	2%		G.Bâtisseurs  :	6%		G.Décorateurs :	6%		
+
+BABYLON         :	0.0%		OLYMPIA         :	0.13280213%		HALIKARNASSOS   :	0.0%		GIZAH           :	0.0%		ALEXANDRIA      :	0.07304602%		RHODOS          :	0.14275518%		EPHESOS         :	0.0%		
+BABYLON(N)      :	0.0%		OLYMPIA(N)      :	0.13559322%		HALIKARNASSOS(N):	0.0%		GIZAH(N)        :	0.0%		ALEXANDRIA(N)   :	0.0%		RHODOS(N)       :	0.071174376%		EPHESOS(N)      :	0.0%		
+
+
+##### Statistiques de Mona #####
+Mona (IA Ambitieuse) a remporté au total 14339 parties sur 20000, soit un taux de victoire de 71.695%.
+Il a obtenue au maximum 85 points avec la merveille ALEXANDRIA DE NUIT, et avec les cartes :
+	Chantier, Métier à Tisser, Cavité, Bassin Argileux, Tour de Garde, Bains, Fonderie, Scierie, Briqueterie, Laboratoire, Vignoble, Presse, Guilde des Armateurs, Panthéon, Sénat, Palace, Guilde des Philosophes, Hôtel de Ville.
+
+Il a construit en moyenne 0.0 étages de sa merveille.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 52.38825 points.
+	- 9.54565 points grâce à ses Pièces.
+	- 18.15305 points grâce aux Bâtiments civils.
+	- 4.39765 points Scientifique.
+	- 11.61605 points de Victoire de guerre.
+	- 0.88785 points de Défaite guerre.
+	- 9.5637 points grâce aux cartes bonus.
+
+Et au cours des 20000 parties, son taux d'achat par carte est le suivant :
+E. Forestière :	13%		F. Argileuse  :	13%		Filon         :	60%		B. Argileux   :	70%		Cavité        :	69%		Chantier      :	84%		Excavation    :	0%		
+Gisement      :	0%		Mine          :	0%		Friche        :	0%		Fonderie      :	66%		Briqueterie   :	63%		Carrière      :	62%		Scierie       :	54%		
+Presse        :	73%		Verrerie      :	76%		Métier Tisser :	75%		Théâtre       :	6%		Autel         :	6%		Bains         :	7%		Tribunal      :	12%		
+Temple        :	13%		Aqueduc       :	6%		Statue        :	13%		Panthéon      :	50%		Jardins       :	18%		Hôtel de V    :	41%		Palace        :	76%		
+Sénat         :	43%		Puits         :	0%		Marché        :	14%		Compt OUEST   :	13%		Compt EST     :	13%		Taverne       :	0%		Vignoble      :	16%		
+Forum         :	17%		Caravansérail :	18%		Bazar         :	0%		Phare         :	11%		Port          :	55%		Arène         :	1%		Ch.de Commerce:	0%		
+Ludus         :	0%		Tour de Garde :	20%		Caserne       :	19%		Palissade     :	21%		Muraille      :	26%		Champs de tir :	31%		Ecurie        :	35%		
+Place d'Armes :	0%		Fortification :	22%		Arsenal       :	22%		A. de Siège   :	23%		Castrum       :	0%		Cirque        :	0%		Scriptorium   :	9%		
+Atelier       :	10%		Officine      :	11%		Ecole         :	16%		Bibliothèque  :	16%		Laboratoire   :	16%		Dispensaire   :	15%		Loge          :	15%		
+Académie      :	16%		Observatoire  :	16%		Etude         :	15%		Université    :	17%		G.Travailleurs:	13%		G.Artisans    :	20%		G.Magistrats  :	29%		
+G.Commerçants :	9%		G.Espions     :	8%		G.Philosophes :	13%		G.Scientifique:	1%		G.Armateurs   :	40%		G.Bâtisseurs  :	11%		G.Décorateurs :	1%		
+
+BABYLON         :	73.891624%		OLYMPIA         :	73.16403%		HALIKARNASSOS   :	72.54902%		GIZAH           :	72.63231%		ALEXANDRIA      :	71.278824%		RHODOS          :	67.75994%		EPHESOS         :	71.40815%		
+BABYLON(N)      :	72.35714%		OLYMPIA(N)      :	73.40206%		HALIKARNASSOS(N):	72.48141%		GIZAH(N)        :	71.04895%		ALEXANDRIA(N)   :	72.4234%		RHODOS(N)       :	71.45776%		EPHESOS(N)      :	67.706825%		
+
+
+##### Statistiques de Fred #####
+Fred (IA Composite) a remporté au total 5653 parties sur 20000, soit un taux de victoire de 28.265%.
+Il a obtenue au maximum 85 points avec la merveille HALIKARNASSOS DE NUIT, et avec les cartes :
+	Officine, Presse, Exploitation Forestière, Scriptorium, Verrerie, Atelier, Dispensaire, Carrière, Laboratoire, Bibliothèque, Aqueduc, Ecuries, Université, Etude, Guilde des Scientifiques, Loge, Observatoire, Arsenal.
+
+Il a construit en moyenne 0.0 étages de sa merveille.
+
+De plus, il a obtenue en moyenne :
+	- Un score total de 46.2582 points.
+	- 1.9412 points grâce à ses Pièces.
+	- 26.265 points grâce aux Bâtiments civils.
+	- 11.0884 points Scientifique.
+	- 7.38585 points de Victoire de guerre.
+	- 2.0631 points de Défaite guerre.
+	- 1.64085 points grâce aux cartes bonus.
+
+Et au cours des 20000 parties, son taux d'achat par carte est le suivant :
+E. Forestière :	18%		F. Argileuse  :	18%		Filon         :	26%		B. Argileux   :	18%		Cavité        :	22%		Chantier      :	8%		Excavation    :	0%		
+Gisement      :	0%		Mine          :	0%		Friche        :	0%		Fonderie      :	22%		Briqueterie   :	26%		Carrière      :	30%		Scierie       :	40%		
+Presse        :	45%		Verrerie      :	56%		Métier Tisser :	78%		Théâtre       :	74%		Autel         :	74%		Bains         :	64%		Tribunal      :	41%		
+Temple        :	48%		Aqueduc       :	65%		Statue        :	37%		Panthéon      :	39%		Jardins       :	64%		Hôtel de V    :	38%		Palace        :	12%		
+Sénat         :	37%		Puits         :	0%		Marché        :	18%		Compt OUEST   :	17%		Compt EST     :	17%		Taverne       :	0%		Vignoble      :	25%		
+Forum         :	15%		Caravansérail :	15%		Bazar         :	0%		Phare         :	29%		Port          :	12%		Arène         :	27%		Ch.de Commerce:	0%		
+Ludus         :	0%		Tour de Garde :	14%		Caserne       :	15%		Palissade     :	13%		Muraille      :	13%		Champs de tir :	17%		Ecurie        :	20%		
+Place d'Armes :	0%		Fortification :	23%		Arsenal       :	30%		A. de Siège   :	23%		Castrum       :	0%		Cirque        :	0%		Scriptorium   :	20%		
+Atelier       :	23%		Officine      :	24%		Ecole         :	26%		Bibliothèque  :	19%		Laboratoire   :	15%		Dispensaire   :	24%		Loge          :	32%		
+Académie      :	24%		Observatoire  :	28%		Etude         :	34%		Université    :	27%		G.Travailleurs:	5%		G.Artisans    :	5%		G.Magistrats  :	2%		
+G.Commerçants :	11%		G.Espions     :	6%		G.Philosophes :	5%		G.Scientifique:	12%		G.Armateurs   :	0%		G.Bâtisseurs  :	6%		G.Décorateurs :	10%		
+
+BABYLON         :	29.579376%		OLYMPIA         :	26.059322%		HALIKARNASSOS   :	28.77493%		GIZAH           :	32.44717%		ALEXANDRIA      :	26.363636%		RHODOS          :	31.490553%		EPHESOS         :	24.911285%		
+BABYLON(N)      :	29.189943%		OLYMPIA(N)      :	27.579092%		HALIKARNASSOS(N):	25.295343%		GIZAH(N)        :	30.992035%		ALEXANDRIA(N)   :	27.674257%		RHODOS(N)       :	32.284042%		EPHESOS(N)      :	23.241379%		
+

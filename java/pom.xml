@@ -11,8 +11,9 @@
     <modules>
         <module>commun</module>
         <module>serveur</module>
-        <module>sevenw</module>
+        <module>moteur</module>
         <module>report</module>
+        <module>client</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -80,45 +81,35 @@
 
 
     <dependencies>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>5.6.2</version>
             <scope>test</scope>
         </dependency>
-
-
         <dependency>
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
             <version>5.6.2</version>
             <scope>test</scope>
         </dependency>
-
-
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
             <version>3.5.10</version>
             <scope>test</scope>
         </dependency>
-
-
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java8</artifactId>
             <version>6.5.0</version>
         </dependency>
-
-
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
             <version>6.5.0</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
 </project>
