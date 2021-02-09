@@ -1,16 +1,14 @@
 package utilitaire_jeu;
 
-import metier.Strategy;
 import org.junit.Before;
 import org.junit.Test;
-import utilitaire_jeu.SetInventaire;
-
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class PlateauTest {
-    private SetInventaire inv1, inv2, inv3, inv4, inv5;
+    
+    private SetInventaire setInv1, setInv2, setInv3, setInv4, setInv5;
     private Plateau plateau;
     private ArrayList<Inventaire> listeInventaire;
 
@@ -20,15 +18,18 @@ public class PlateauTest {
      */
     @Before
     public void setUp() {
-        inv1 = new SetInventaire(1, Strategy.ULTIME, "Davy");
-        inv2 = new SetInventaire(2, Strategy.RANDOM, "Vincent");
-        inv3 = new SetInventaire(3, Strategy.RANDOM, "Pierre");
-        inv4 = new SetInventaire(4, Strategy.ULTIME, "Hichem");
-        inv5 = new SetInventaire(5, Strategy.RANDOM, "Thomas");
+        setInv1 = new SetInventaire(1, "ultime", "Davy");
+        setInv2 = new SetInventaire(2, "random", "Vincent");
+        setInv3 = new SetInventaire(3, "random", "Pierre");
+        setInv4 = new SetInventaire(4, "ultime", "Hichem");
+        setInv5 = new SetInventaire(5, "random", "Thomas");
 
-
-
-        listeInventaire = new ArrayList<Inventaire>(){{add(inv1);add(inv2);add(inv3);add(inv4);add(inv5);}};
+        listeInventaire = new ArrayList<>();
+        listeInventaire.add(setInv1);
+        listeInventaire.add(setInv2);
+        listeInventaire.add(setInv3);
+        listeInventaire.add(setInv4);
+        listeInventaire.add(setInv5);
 
         plateau = new Plateau(listeInventaire);
     }
@@ -109,8 +110,6 @@ public class PlateauTest {
     }
 
 
-
-
     /**
      * Test de la méthode joueurDroit() donnant le joueur de droite d un joueur specifique
      *  Le joueur 1 a pour joueur de droite joueur2, Le joueur 2 a pour joueur de droite joueur3
@@ -118,13 +117,13 @@ public class PlateauTest {
      */
     @Test
     public void joueurDroit() {
-        assertEquals(plateau.joueurDroit(joueur1),joueur2);
-        assertEquals(plateau.joueurDroit(joueur2),joueur3);
-        assertEquals(plateau.joueurDroit(joueur3),joueur4);
-        assertEquals(plateau.joueurDroit(joueur4),joueur5);
+        assertEquals(plateau.joueurDroit(setInv1), setInv2);
+        assertEquals(plateau.joueurDroit(setInv2), setInv3);
+        assertEquals(plateau.joueurDroit(setInv3), setInv4);
+        assertEquals(plateau.joueurDroit(setInv4), setInv5);
 
-        Plateau pl = new Plateau(new ArrayList<Inventaire>(), new ArrayList<Joueur>());
-        assertNull(pl.joueurDroit(joueur1));
+        Plateau pl = new Plateau(new ArrayList<>());
+        assertNull(pl.joueurDroit(setInv1));
     }
 
 
@@ -135,12 +134,12 @@ public class PlateauTest {
      */
     @Test
     public void joueurGauche() {
-        assertEquals(plateau.joueurGauche(joueur2),joueur1);
-        assertEquals(plateau.joueurGauche(joueur3),joueur2);
-        assertEquals(plateau.joueurGauche(joueur4),joueur3);
-        assertEquals(plateau.joueurGauche(joueur5),joueur4);
+        assertEquals(plateau.joueurGauche(setInv2), setInv1);
+        assertEquals(plateau.joueurGauche(setInv3), setInv2);
+        assertEquals(plateau.joueurGauche(setInv4), setInv3);
+        assertEquals(plateau.joueurGauche(setInv5), setInv4);
 
-        Plateau pl = new Plateau(new ArrayList<Inventaire>(), new ArrayList<Joueur>());
-        assertNull(pl.joueurGauche(joueur1));
+        Plateau pl = new Plateau(new ArrayList<>());
+        assertNull(pl.joueurGauche(setInv1));
     }
 }

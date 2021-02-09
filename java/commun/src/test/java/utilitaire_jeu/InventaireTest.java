@@ -4,24 +4,18 @@ import objet_commun.Carte;
 import objet_commun.Merveille;
 import metier.EnumCarte;
 import metier.EnumRessources;
-import metier.Strategy;
 import metier.Wonder;
-import joueur.Joueur;
-import sw_aventure.objetjeu.SetInventaire;
-import sw_aventure.seven_wonders.Plateau;
 import org.junit.Before;
 import org.junit.Test;
 import utils.affichage.Colors;
-
 import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+
 public class InventaireTest {
 
-    private List<Inventaire> inv ;
-    private SetInventaire inv1, inv2, inv3, inv4, inv5;
-    private Joueur joueur1, joueur2, joueur3, joueur4, joueur5;
-    private Plateau plateau;
+    private List<Inventaire> listInv ;
+    private SetInventaire setInv1, setInv2, setInv3, setInv4, setInv5;
     private Merveille babylon;
 
     /**
@@ -29,19 +23,18 @@ public class InventaireTest {
      */
     @Before
     public void setUp() {
-        inv1 = new SetInventaire(1, Strategy.RANDOM, "Enzo");
-        inv2 = new SetInventaire(2, Strategy.MILITAIRE, "Christina");
-        inv3 = new SetInventaire(3, Strategy.SCIENTIFIQUE, "Mona");
-        inv4 = new SetInventaire(4, Strategy.RANDOM, "Paul");
-        inv5 = new SetInventaire(5, Strategy.CIVILE, "Lucie");
+        setInv1 = new SetInventaire(1, "random", "Enzo");
+        setInv2 = new SetInventaire(2, "militaire", "Christina");
+        setInv3 = new SetInventaire(3, "scientifique", "Mona");
+        setInv4 = new SetInventaire(4, "random", "Paul");
+        setInv5 = new SetInventaire(5, "civile", "Lucie");
 
-        inv = new ArrayList<>() {{add(inv1); add(inv2); add(inv3); add(inv4); add(inv5);}};
-
-        joueur1 = inv1.getJoueur();
-        joueur2 = inv2.getJoueur();
-        joueur3 = inv3.getJoueur();
-        joueur4 = inv4.getJoueur();
-        joueur5 = inv5.getJoueur();
+        listInv = new ArrayList<>();
+        listInv.add(setInv1);
+        listInv.add(setInv2);
+        listInv.add(setInv3);
+        listInv.add(setInv4);
+        listInv.add(setInv5);
 
         List<Carte> etape = new ArrayList<>();
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE, EnumRessources.ARGILE), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
@@ -49,24 +42,11 @@ public class InventaireTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS,EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
         babylon = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, etape);
 
-        inv1.modifMerveille(babylon);
-        inv2.modifMerveille(babylon);
-        inv3.modifMerveille(babylon);
-        inv4.modifMerveille(babylon);
-        inv5.modifMerveille(babylon);
-
-        ArrayList<Inventaire> listeInventaire = new ArrayList<>();
-        listeInventaire.add(inv1);
-        listeInventaire.add(inv2);
-        listeInventaire.add(inv3);
-
-        ArrayList<Joueur> listeJoueur = new ArrayList<>();
-        listeJoueur.add(joueur1);
-        listeJoueur.add(joueur2);
-        listeJoueur.add(joueur3);
-
-        plateau = new Plateau(new ArrayList<>(){{add(inv1); add(inv2); add(inv3); add(inv4); add(inv5);}},
-                new ArrayList<>(){{add(joueur1); add(joueur2); add(joueur3); add(joueur4); add(joueur5);}});
+        setInv1.modifMerveille(babylon);
+        setInv2.modifMerveille(babylon);
+        setInv3.modifMerveille(babylon);
+        setInv4.modifMerveille(babylon);
+        setInv5.modifMerveille(babylon);
     }
 
 
@@ -75,7 +55,7 @@ public class InventaireTest {
      */
     @Test
     public void printInventaireTest() {
-        for (Inventaire s : inv) {
+        for (Inventaire s : listInv) {
             ArrayList<String> invPrint = new ArrayList<>();
             invPrint.add(Colors.gJaune("Pièce\t:\t") + s.getValue(EnumRessources.PIECE));
             invPrint.add(Colors.gStandard("Bois\t:\t") + s.getValue(EnumRessources.BOIS));
@@ -104,11 +84,11 @@ public class InventaireTest {
      */
     @Test
     public void compteFinalScoreTest() {
-        assertEquals(1 , inv1.compteFinalScore(plateau,false));
-        assertEquals(1 , inv2.compteFinalScore(plateau,false));
-        assertEquals(1, inv3.compteFinalScore(plateau, false));
-        assertEquals(1, inv4.compteFinalScore(plateau, false));
-        assertEquals(1, inv5.compteFinalScore(plateau, false));
+        assertEquals(1 , setInv1.compteFinalScore(setInv5, setInv2,false));
+        assertEquals(1 , setInv2.compteFinalScore(setInv1, setInv3,false));
+        assertEquals(1, setInv3.compteFinalScore(setInv2, setInv4, false));
+        assertEquals(1, setInv4.compteFinalScore(setInv3, setInv5, false));
+        assertEquals(1, setInv5.compteFinalScore(setInv4, setInv1, false));
     }
 
 
@@ -116,28 +96,28 @@ public class InventaireTest {
      * Test de la méthode compteBonus
      */
     @Test
-    public void compteBonusTest() throws NegativeNumberException {
-        inv1.increaseValue(EnumRessources.BONUS11J, 1);
-        inv1.increaseValue(EnumRessources.BONUS11M, 1);
-        inv1.increaseValue(EnumRessources.BONUS22G, 1);
-        inv1.increaseValue(EnumRessources.BONUS31R, 1);
-        inv1.increaseValue(EnumRessources.BONUS31MERVEILLE, 1);
-        inv1.increaseValue(EnumRessources.VBONUS1M, 1);
-        inv1.increaseValue(EnumRessources.VBONUS2G, 1);
-        inv1.increaseValue(EnumRessources.VBONUS1B, 1);
-        inv1.increaseValue(EnumRessources.VBONUS1J, 1);
-        inv1.increaseValue(EnumRessources.VBONUS1R, 1);
-        inv1.increaseValue(EnumRessources.VBONUS1V, 1);
-        inv1.increaseValue(EnumRessources.VBONUSMGV, 1);
-        inv1.increaseValue(EnumRessources.VBONUS1MERVEILLE, 1);
-        inv1.increaseValue(EnumRessources.VBONUS7COMPLETMERVEILLE, 1);
+    public void compteBonusTest() {
+        setInv1.increaseValue(EnumRessources.BONUS11J, 1);
+        setInv1.increaseValue(EnumRessources.BONUS11M, 1);
+        setInv1.increaseValue(EnumRessources.BONUS22G, 1);
+        setInv1.increaseValue(EnumRessources.BONUS31R, 1);
+        setInv1.increaseValue(EnumRessources.BONUS31MERVEILLE, 1);
+        setInv1.increaseValue(EnumRessources.VBONUS1M, 1);
+        setInv1.increaseValue(EnumRessources.VBONUS2G, 1);
+        setInv1.increaseValue(EnumRessources.VBONUS1B, 1);
+        setInv1.increaseValue(EnumRessources.VBONUS1J, 1);
+        setInv1.increaseValue(EnumRessources.VBONUS1R, 1);
+        setInv1.increaseValue(EnumRessources.VBONUS1V, 1);
+        setInv1.increaseValue(EnumRessources.VBONUSMGV, 1);
+        setInv1.increaseValue(EnumRessources.VBONUS1MERVEILLE, 1);
+        setInv1.increaseValue(EnumRessources.VBONUS7COMPLETMERVEILLE, 1);
 
-        inv1.getMerveille().incrementeStade();
-        inv1.getMerveille().incrementeStade();
-        inv1.getMerveille().incrementeStade();
+        setInv1.getMerveille().incrementeStade();
+        setInv1.getMerveille().incrementeStade();
+        setInv1.getMerveille().incrementeStade();
 
         // Le joueur remporte 19 point avec ses bonus de merveille réussi
-        assertEquals(19, inv1.joueurName.getInv().compteBonus(plateau));
+        assertEquals(19, setInv1.compteBonus(setInv5, setInv2));
     }
 
 
@@ -145,19 +125,19 @@ public class InventaireTest {
      * Test de la méthode compteScientifique
      */
     @Test
-    public void compteScientifiqueTest() throws NegativeNumberException {
-        inv1.increaseValue(EnumRessources.ROUE, 1);
-        inv1.increaseValue(EnumRessources.COMPAS, 1);
-        inv1.increaseValue(EnumRessources.PDR, 1);
+    public void compteScientifiqueTest() {
+        setInv1.increaseValue(EnumRessources.ROUE, 1);
+        setInv1.increaseValue(EnumRessources.COMPAS, 1);
+        setInv1.increaseValue(EnumRessources.PDR, 1);
 
         // Le joueur remporte 10 pts scientifique car : 1 roue = 1 pts, 1 Compas = 1 pts, 1 Pierre de Rosette = 1 pts, et + 7 pts car il possède un groupe de 3
-        assertEquals(10, inv1.compteScientifique());
+        assertEquals(10, setInv1.compteScientifique());
 
-        inv1.increaseValue(EnumRessources.BONUSCPR, 1);
-        assertEquals(13, inv1.compteScientifique());
+        setInv1.increaseValue(EnumRessources.BONUSCPR, 1);
+        assertEquals(13, setInv1.compteScientifique());
 
-        inv1.increaseValue(EnumRessources.BONUSCPR, 1);
-        assertEquals(18, inv1.compteScientifique());
+        setInv1.increaseValue(EnumRessources.BONUSCPR, 1);
+        assertEquals(18, setInv1.compteScientifique());
     }
 
 
@@ -166,9 +146,9 @@ public class InventaireTest {
      */
     @Test
     public void bonusScientifique1Test() {
-        assertEquals(38, inv1.bonusScientifique1(10, 3, 2, 2, 1));
-        assertEquals(38, inv1.bonusScientifique1(10, 2, 3, 2, 1));
-        assertEquals(38, inv1.bonusScientifique1(10, 2, 2, 3, 1));
+        assertEquals(38, setInv1.bonusScientifique1(10, 3, 2, 2, 1));
+        assertEquals(38, setInv1.bonusScientifique1(10, 2, 3, 2, 1));
+        assertEquals(38, setInv1.bonusScientifique1(10, 2, 2, 3, 1));
     }
 
 
@@ -177,9 +157,9 @@ public class InventaireTest {
      */
     @Test
     public void bonusScientifique2Test() {
-        assertEquals(48, inv1.bonusScientifique2(10, 3, 2, 2));
-        assertEquals(48, inv1.bonusScientifique2(10, 2, 3, 2));
-        assertEquals(48, inv1.bonusScientifique2(10, 2, 2, 3));
+        assertEquals(48, setInv1.bonusScientifique2(10, 3, 2, 2));
+        assertEquals(48, setInv1.bonusScientifique2(10, 2, 3, 2));
+        assertEquals(48, setInv1.bonusScientifique2(10, 2, 2, 3));
     }
 
 
@@ -189,9 +169,9 @@ public class InventaireTest {
     @Test
     public void calculScientifiqueTest() {
         // Le joueur remporte 10 pts scientifique car : 1 roue = 1 pts, 1 Compas = 1 pts, 1 Pierre de Rosette = 1 pts, et + 7 pts car il possède un groupe de 3
-        assertEquals(10, inv1.calculScientifique(1, 1, 1));
+        assertEquals(10, setInv1.calculScientifique(1, 1, 1));
 
-        assertEquals(21, inv1.calculScientifique(2, 3, 1));
+        assertEquals(21, setInv1.calculScientifique(2, 3, 1));
     }
 
 
@@ -206,11 +186,11 @@ public class InventaireTest {
         listCarte.add(EnumCarte.B9);
         listCarte.add(EnumCarte.J5);
 
-        inv1.listeCarte = listCarte;
-        assertEquals("Chantier", inv1.getListeCarte().get(0).toString());
-        assertEquals("Cavité", inv1.getListeCarte().get(1).toString());
-        assertEquals("Jardins", inv1.getListeCarte().get(2).toString());
-        assertEquals("Vignoble", inv1.getListeCarte().get(3).toString());
+        setInv1.listeCarte = listCarte;
+        assertEquals("Chantier", setInv1.getListeCarte().get(0).toString());
+        assertEquals("Cavité", setInv1.getListeCarte().get(1).toString());
+        assertEquals("Jardins", setInv1.getListeCarte().get(2).toString());
+        assertEquals("Vignoble", setInv1.getListeCarte().get(3).toString());
     }
 
 
@@ -218,12 +198,12 @@ public class InventaireTest {
      * Test le getter getJoueur() pour verifier si le joueur est bien affilie au bon inventaire
      */
     @Test
-    public void getJoueurTest() {
-        assertEquals(inv1.getJoueur(), joueur1);
-        assertEquals(inv2.getJoueur(), joueur2);
-        assertEquals(inv3.getJoueur(), joueur3);
-        assertEquals(inv4.getJoueur(), joueur4);
-        assertEquals(inv5.getJoueur(), joueur5);
+    public void getJoueurNameTest() {
+        assertEquals(setInv1.getJoueurName(), "Enzo");
+        assertEquals(setInv2.getJoueurName(), "Christina");
+        assertEquals(setInv3.getJoueurName(), "Mona");
+        assertEquals(setInv4.getJoueurName(), "Paul");
+        assertEquals(setInv5.getJoueurName(), "Lucie");
     }
 
 
@@ -232,11 +212,11 @@ public class InventaireTest {
      */
     @Test
     public void getIdTest() {
-        assertEquals(1, inv1.getId());
-        assertEquals(2 , inv2.getId());
-        assertEquals(3 , inv3.getId());
-        assertEquals(4 , inv4.getId());
-        assertEquals(5 , inv5.getId());
+        assertEquals(1, setInv1.getId());
+        assertEquals(2 , setInv2.getId());
+        assertEquals(3 , setInv3.getId());
+        assertEquals(4 , setInv4.getId());
+        assertEquals(5 , setInv5.getId());
     }
 
 
@@ -245,7 +225,7 @@ public class InventaireTest {
      */
     @Test
     public void getValueTest() {
-        for (Inventaire s : inv) {
+        for (Inventaire s : listInv) {
             assertEquals(0 , s.getValue(EnumRessources.SCORE));
             assertEquals(3 , s.getValue(EnumRessources.PIECE));
             assertEquals(0 , s.getValue(EnumRessources.PIERRE));
@@ -268,7 +248,7 @@ public class InventaireTest {
      */
     @Test
     public void getSacTest() {
-        for (Inventaire s : inv) {
+        for (Inventaire s : listInv) {
             for (Map.Entry<EnumRessources, Integer> entry : s.getSac().entrySet()) {
                 EnumRessources key = entry.getKey();
                 int value = entry.getValue();
@@ -287,9 +267,9 @@ public class InventaireTest {
      */
     @Test
     public void getMerveille() {
-        inv1.merveille = babylon;
+        setInv1.merveille = babylon;
 
-        assertEquals(inv1.getMerveille(), babylon);
+        assertEquals(setInv1.getMerveille(), babylon);
     }
 }
 

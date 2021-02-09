@@ -3,8 +3,6 @@ package utilitaire_jeu;
 import objet_commun.Carte;
 import metier.EnumCarte;
 import metier.EnumRessources;
-import metier.Strategy;
-import joueur.Joueur;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -21,10 +19,6 @@ public class ConstructionTest {
     private SetInventaire setInventaireCourant;
     private SetInventaire setInventaireGauche;
     private SetInventaire setInventaireDroit;
-
-    private Joueur joueurCourant;
-    private Joueur joueurDroit;
-    private Joueur joueurGauche;
 
     private Plateau plateau;
 
@@ -43,17 +37,12 @@ public class ConstructionTest {
     public void setUp() {
         construction = new Construction();
 
-        setInventaireCourant = new SetInventaire(1, Strategy.RANDOM,"Melanie");
-        setInventaireGauche = new SetInventaire(3,Strategy.RANDOM,"Davy");
-        setInventaireDroit = new SetInventaire(2,Strategy.RANDOM,"Vincent");
-
-        joueurCourant = setInventaireCourant.getJoueur();
-        joueurGauche = setInventaireGauche.getJoueur();
-        joueurDroit = setInventaireDroit.getJoueur();
+        setInventaireCourant = new SetInventaire(1, "random","Melanie");
+        setInventaireGauche = new SetInventaire(3, "random","Davy");
+        setInventaireDroit = new SetInventaire(2, "random","Vincent");
 
         ArrayList<Inventaire> listeInventaire = new ArrayList<>(){{add(setInventaireCourant);add(setInventaireDroit);add(setInventaireGauche);}};
-        ArrayList<Joueur> listeJoueur = new ArrayList<>(){{add(joueurCourant);add(joueurDroit);add(joueurGauche);}};
-        plateau = new Plateau(listeInventaire, listeJoueur);
+        plateau = new Plateau(listeInventaire);
 
         carteB1 = new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE,EnumRessources.ARGILE), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE));
 
@@ -73,25 +62,25 @@ public class ConstructionTest {
      * On reinitialise l inventaire pour chaque test avec la methode clear()
      */
     @Test
-    public void permisDeConstructionInventaireTest() throws NegativeNumberException {
+    public void permisDeConstructionInventaireTest() {
         setInventaireCourant.increaseValue(EnumRessources.BOIS, 1);
         setInventaireCourant.increaseValue(EnumRessources.MINERAI, 2);
-        assertTrue(construction.permisDeConstruction(carteChantier, (Inventaire) setInventaireCourant, (Inventaire) setInventaireGauche, (Inventaire) setInventaireDroit, plateau));
+        assertTrue(Construction.permisDeConstruction(carteChantier, setInventaireCourant, setInventaireGauche, (Inventaire) setInventaireDroit, plateau));
 
         setInventaireCourant.clear();
         setInventaireDroit.increaseValue(EnumRessources.BOIS, 1);
         setInventaireGauche.increaseValue(EnumRessources.MINERAI, 2);
-        assertTrue(construction.permisDeConstruction(carteChantier, (Inventaire) setInventaireCourant, (Inventaire) setInventaireGauche, (Inventaire) setInventaireDroit, plateau));
+        assertTrue(Construction.permisDeConstruction(carteChantier, setInventaireCourant, setInventaireGauche, (Inventaire) setInventaireDroit, plateau));
 
         setInventaireCourant.clear();
         setInventaireCourant.increaseValue(EnumRessources.MINERAI, 1);
         setInventaireDroit.increaseValue(EnumRessources.BOIS, 1);
         setInventaireGauche.increaseValue(EnumRessources.MINERAI, 1);
-        assertTrue(construction.permisDeConstruction(carteChantier, (Inventaire) setInventaireCourant, (Inventaire) setInventaireGauche, (Inventaire) setInventaireDroit, plateau));
+        assertTrue(Construction.permisDeConstruction(carteChantier, setInventaireCourant, setInventaireGauche, (Inventaire) setInventaireDroit, plateau));
 
         setInventaireCourant.clear();
         setInventaireCourant.ajoutCarteInv(carteChantier);
-        assertFalse(construction.permisDeConstruction(carteChantier, (Inventaire) setInventaireCourant, (Inventaire) setInventaireGauche, (Inventaire) setInventaireDroit, plateau));
+        assertFalse(Construction.permisDeConstruction(carteChantier, setInventaireCourant, setInventaireGauche, (Inventaire) setInventaireDroit, plateau));
     }
 
 
@@ -99,7 +88,7 @@ public class ConstructionTest {
      * Test de la méthode permisDeConstruction(SetInventaire)
      */
     @Test
-    public void permisDeConstructionSetInventaireTest() throws NegativeNumberException {
+    public void permisDeConstructionSetInventaireTest() {
         setInventaireCourant.increaseValue(EnumRessources.BOIS, 1);
         setInventaireCourant.increaseValue(EnumRessources.MINERAI, 2);
         assertTrue(construction.permisDeConstruction(carteChantier, setInventaireCourant, setInventaireGauche, setInventaireDroit, plateau));
@@ -125,44 +114,44 @@ public class ConstructionTest {
      * Test de la méthode laConstruction()
      */
     @Test
-    public void laConstructionTest() throws NegativeNumberException {
+    public void laConstructionTest() {
         // Via doublon
         setInventaireCourant.ajoutCarteInv(carteChantier);
-        assertEquals(0, construction.laConstruction(carteChantier, (Inventaire)setInventaireCourant, plateau, false).size());
+        assertEquals(0, Construction.laConstruction(carteChantier, setInventaireCourant, plateau, false).size());
 
         // Via chaînage
         setInventaireCourant.clear();
         setInventaireCourant.ajoutCarteInv(cartePuit);
-        assertEquals(0, construction.laConstruction(carteStatue, (Inventaire)setInventaireCourant, plateau, false).size());
+        assertEquals(0, Construction.laConstruction(carteStatue, setInventaireCourant, plateau, false).size());
 
         // Via gratuit
         setInventaireCourant.clear();
-        assertEquals(0, construction.laConstruction(carteChantier, (Inventaire)setInventaireCourant, plateau, false).size());
+        assertEquals(0, Construction.laConstruction(carteChantier, setInventaireCourant, plateau, false).size());
 
         // Via bonus couleur
         setInventaireCourant.clear();
         setInventaireCourant.listeCarte = new ArrayList<>();
         System.out.println(setInventaireCourant.getValue(EnumRessources.BLEUE));
         setInventaireCourant.increaseValue(EnumRessources.BONUSAGECOULEUR, 1);
-        assertEquals(0, construction.laConstruction(carteStatue, (Inventaire)setInventaireCourant, plateau, false).size());
+        assertEquals(0, Construction.laConstruction(carteStatue, setInventaireCourant, plateau, false).size());
 
         // Via bonus tour
         setInventaireCourant.clear();
         setInventaireCourant.increaseValue(EnumRessources.BONUSCARTEAGEG2P, 1);
         plateau.incrementeTour();
-        assertEquals(0, construction.laConstruction(carteStatue, (Inventaire)setInventaireCourant, plateau, false).size());
+        assertEquals(0, Construction.laConstruction(carteStatue, setInventaireCourant, plateau, false).size());
 
         // Via Inventaire (sans MultiChoix)
         setInventaireCourant.clear();
         setInventaireCourant.increaseValue(EnumRessources.BOIS, 1);
         setInventaireCourant.increaseValue(EnumRessources.MINERAI, 2);
-        assertEquals(0, construction.laConstruction(carteChantier, (Inventaire)setInventaireCourant, plateau, false).size());
+        assertEquals(0, Construction.laConstruction(carteChantier, setInventaireCourant, plateau, false).size());
 
         // Via Inventaire avec MultiChoix
         setInventaireCourant.clear();
         setInventaireCourant.increaseValue(EnumRessources.MULTIBA, 1);
         setInventaireCourant.increaseValue(EnumRessources.MULTIBPAM, 2);
-        assertEquals(0, construction.laConstruction(carteChantier, (Inventaire)setInventaireCourant, plateau, false).size());
+        assertEquals(0, Construction.laConstruction(carteChantier, setInventaireCourant, plateau, false).size());
     }
 
 
@@ -172,8 +161,8 @@ public class ConstructionTest {
     @Test
     public void laConstructionViaDoublonsTest() {
         setInventaireCourant.ajoutCarteInv(carteChantier);
-        assertTrue(construction.laConstructionViaDoublons(carteChantier, setInventaireCourant, false));
-        assertFalse(construction.laConstructionViaDoublons(carteVerrerie, setInventaireCourant, false));
+        assertTrue(Construction.laConstructionViaDoublons(carteChantier, setInventaireCourant, false));
+        assertFalse(Construction.laConstructionViaDoublons(carteVerrerie, setInventaireCourant, false));
     }
 
 
@@ -185,10 +174,10 @@ public class ConstructionTest {
     public void laConstructionViaChaineeTest() {
         setInventaireCourant.ajoutCarteInv(cartePuit);
 
-        assertTrue(construction.laConstructionViaChainee(carteStatue, setInventaireCourant, false));
-        assertFalse(construction.laConstructionViaChainee(cartePuit, setInventaireCourant, false));
-        assertFalse(construction.laConstructionViaChainee(carteChantier, setInventaireCourant, false));
-        assertFalse(construction.laConstructionViaChainee(carteVerrerie, setInventaireCourant, false));
+        assertTrue(Construction.laConstructionViaChainee(carteStatue, setInventaireCourant, false));
+        assertFalse(Construction.laConstructionViaChainee(cartePuit, setInventaireCourant, false));
+        assertFalse(Construction.laConstructionViaChainee(carteChantier, setInventaireCourant, false));
+        assertFalse(Construction.laConstructionViaChainee(carteVerrerie, setInventaireCourant, false));
     }
 
 
@@ -198,8 +187,8 @@ public class ConstructionTest {
      */
     @Test
     public void laConstructionViaGratuitTest() {
-        assertTrue(construction.laConstructionViaGratuit(carteChantier.getPrix(), false));
-        assertFalse(construction.laConstructionViaGratuit(carteStatue.getPrix(), false));
+        assertTrue(Construction.laConstructionViaGratuit(carteChantier.getPrix(), false));
+        assertFalse(Construction.laConstructionViaGratuit(carteStatue.getPrix(), false));
     }
 
 
@@ -207,18 +196,18 @@ public class ConstructionTest {
      * Test de la méthode laConstructionViaBonusCouleur()
      */
     @Test
-    public void laConstructionViaBonusCouleurTest() throws NegativeNumberException {
+    public void laConstructionViaBonusCouleurTest() {
         // Le joueur a pas encore le bonus couleur
-        assertFalse(construction.laConstructionViaBonusCouleur(carteChantier, setInventaireCourant, false));
+        assertFalse(Construction.laConstructionViaBonusCouleur(carteChantier, setInventaireCourant, false));
 
         // On donne le bonus couleur au joueur
         setInventaireCourant.increaseValue(EnumRessources.BONUSAGECOULEUR, 1);
-        assertTrue(construction.laConstructionViaBonusCouleur(carteChantier, setInventaireCourant, false));
-        assertFalse(construction.laConstructionViaBonusCouleur(carteB1, setInventaireCourant, false));
+        assertTrue(Construction.laConstructionViaBonusCouleur(carteChantier, setInventaireCourant, false));
+        assertFalse(Construction.laConstructionViaBonusCouleur(carteB1, setInventaireCourant, false));
 
         setInventaireCourant.ajoutCarteInv(carteChantier);
         setInventaireCourant.increaseValue(carteChantier.getCouleur(), 1);
-        assertFalse(construction.laConstructionViaBonusCouleur(carteCavite, setInventaireCourant, false));
+        assertFalse(Construction.laConstructionViaBonusCouleur(carteCavite, setInventaireCourant, false));
     }
 
 
@@ -226,18 +215,18 @@ public class ConstructionTest {
      * Test de la méthode laConstructionViaBonusTour()
      */
     @Test
-    public void laConstructionViaBonusTourTest() throws NegativeNumberException {
-        assertFalse(construction.laConstructionViaBonusTour(carteB1, setInventaireCourant, plateau, false));
-        assertFalse(construction.laConstructionViaBonusTour(carteChantier, setInventaireCourant, plateau, false));
+    public void laConstructionViaBonusTourTest() {
+        assertFalse(Construction.laConstructionViaBonusTour(carteB1, setInventaireCourant, plateau, false));
+        assertFalse(Construction.laConstructionViaBonusTour(carteChantier, setInventaireCourant, plateau, false));
 
         plateau.incrementeTour();
-        assertFalse(construction.laConstructionViaBonusTour(carteChantier, setInventaireCourant, plateau, false));
+        assertFalse(Construction.laConstructionViaBonusTour(carteChantier, setInventaireCourant, plateau, false));
 
         setInventaireCourant.increaseValue(EnumRessources.BONUSCARTEAGEG2P, 1);
-        assertTrue(construction.laConstructionViaBonusTour(carteChantier, setInventaireCourant, plateau, false));
+        assertTrue(Construction.laConstructionViaBonusTour(carteChantier, setInventaireCourant, plateau, false));
 
         setInventaireCourant.decreaseValue( EnumRessources.BONUSCARTEAGEG2P, 1);
-        assertFalse(construction.laConstructionViaBonusTour(carteChantier, setInventaireCourant, plateau, false));
+        assertFalse(Construction.laConstructionViaBonusTour(carteChantier, setInventaireCourant, plateau, false));
 
         setInventaireCourant.increaseValue(EnumRessources.BONUSCARTEAGEG3P, 1);
         plateau.incrementeTour();
@@ -245,10 +234,10 @@ public class ConstructionTest {
         plateau.incrementeTour();
         plateau.incrementeTour();
         plateau.incrementeTour();
-        assertTrue(construction.laConstructionViaBonusTour(carteChantier, setInventaireCourant, plateau, false));
+        assertTrue(Construction.laConstructionViaBonusTour(carteChantier, setInventaireCourant, plateau, false));
 
         plateau.incrementeTour();
-        assertFalse(construction.laConstructionViaBonusTour(carteChantier, setInventaireCourant, plateau, false));
+        assertFalse(Construction.laConstructionViaBonusTour(carteChantier, setInventaireCourant, plateau, false));
     }
 
 
@@ -256,25 +245,25 @@ public class ConstructionTest {
      * Test de la méthode laConstructionViaInventaire()
      */
     @Test
-    public void laConstructionViaInventaireTest() throws NegativeNumberException {
+    public void laConstructionViaInventaireTest() {
         ArrayList<EnumRessources> arraylist;
         // Le joueur a aucune ressources. La liste retourné a 1 élément
-        assertEquals(3, construction.laConstructionViaInventaire(carteStatue.getPrix(), setInventaireCourant, false).size());
+        assertEquals(3, Construction.laConstructionViaInventaire(carteStatue.getPrix(), setInventaireCourant, false).size());
 
         // Le joureur peut payer le bois, mais pas les deux minerais. La liste retourné a 2 élément
         setInventaireCourant.increaseValue(EnumRessources.BOIS, 1);
         arraylist = new ArrayList<>(carteStatue.getPrix());
-        assertEquals(2 , construction.laConstructionViaInventaire(arraylist, setInventaireCourant, false).size());
+        assertEquals(2 , Construction.laConstructionViaInventaire(arraylist, setInventaireCourant, false).size());
 
         // Le joueur peut payer un bois et un minerai, mais pas le deuxième minerai. La liste retourné a 1 élément
         arraylist = new ArrayList<>(carteStatue.getPrix());
         setInventaireCourant.increaseValue(EnumRessources.MINERAI, 1);
-        assertEquals(1 ,construction.laConstructionViaInventaire(arraylist, setInventaireCourant, false).size());
+        assertEquals(1 , Construction.laConstructionViaInventaire(arraylist, setInventaireCourant, false).size());
 
         // Le joueur peut payer toute les ressources. La liste retourné est vide
         arraylist = new ArrayList<>(carteStatue.getPrix());
         setInventaireCourant.increaseValue(EnumRessources.MINERAI, 1);
-        assertEquals(0 , construction.laConstructionViaInventaire(arraylist, setInventaireCourant, false).size());
+        assertEquals(0 , Construction.laConstructionViaInventaire(arraylist, setInventaireCourant, false).size());
     }
 
 
@@ -282,24 +271,24 @@ public class ConstructionTest {
      * Test de la méthode laConstructionViaMultichoix()
      */
     @Test
-    public void laConstructionViaMultichoixTest() throws NegativeNumberException {
+    public void laConstructionViaMultichoixTest() {
         ArrayList<EnumRessources> arraylist;
 
         // Le joueur a aucun multi choix, il ne peut pas payer
         arraylist = new ArrayList<>(carteStatue.getPrix());
-        assertEquals(3 , construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
+        assertEquals(3 , Construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
 
         // Le joueur paye le bois
         arraylist = new ArrayList<>(carteStatue.getPrix());
         setInventaireCourant.increaseValue(EnumRessources.MULTIBP, 1);
-        assertEquals(2 , construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
+        assertEquals(2 , Construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
 
         // Le joueur paye le bois et 1 minerai
         arraylist = new ArrayList<>(carteStatue.getPrix());
         setInventaireCourant.clear();
         setInventaireCourant.increaseValue(EnumRessources.MULTIBP, 1);
         setInventaireCourant.increaseValue(EnumRessources.MULTIAM, 1);
-        assertEquals(1 , construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
+        assertEquals(1 , Construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
 
         // Le joueur peut payer avec ses multiChoix
         arraylist = new ArrayList<>(carteStatue.getPrix());
@@ -307,39 +296,39 @@ public class ConstructionTest {
         setInventaireCourant.increaseValue(EnumRessources.MULTIBP, 1);
         setInventaireCourant.increaseValue(EnumRessources.MULTIAM, 1);
         setInventaireCourant.increaseValue(EnumRessources.MULTIPM, 1);
-        assertEquals(0 , construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
+        assertEquals(0 , Construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
 
         // Le joueur peut payer 1 ressource avec son multiChoix
         arraylist = new ArrayList<>(carteStatue.getPrix());
         setInventaireCourant.clear();
         setInventaireCourant.increaseValue(EnumRessources.MULTIBPAM, 1);
-        assertEquals(2 , construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
+        assertEquals(2 , Construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
 
         // Le joueur peut payer aucune ressources
         arraylist = new ArrayList<>(carteStatue.getPrix());
         setInventaireCourant.clear();
         setInventaireCourant.increaseValue(EnumRessources.MULTIPA, 1);
-        assertEquals(3 , construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
+        assertEquals(3 , Construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
 
         // Le joueur peut payer 1 ressources
         arraylist = new ArrayList<>(carteStatue.getPrix());
         setInventaireCourant.clear();
         setInventaireCourant.increaseValue(EnumRessources.MULTIBM, 1);
-        assertEquals(2 , construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
+        assertEquals(2 , Construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
 
         // Le joueur peut payer toutes les ressources
         arraylist = new ArrayList<>(carteStatue.getPrix());
         setInventaireCourant.clear();
         setInventaireCourant.increaseValue(EnumRessources.MULTIBA, 1);
         setInventaireCourant.increaseValue(EnumRessources.MULTIBPAM, 2);
-        assertEquals(0 , construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
+        assertEquals(0 , Construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
 
         // Le joueur peut payer toutes les ressources
         arraylist = new ArrayList<>(carteEcole.getPrix());
         setInventaireCourant.clear();
         setInventaireCourant.increaseValue(EnumRessources.MULTIBA, 1);
         setInventaireCourant.increaseValue(EnumRessources.MULTIVPT, 2);
-        assertEquals(0 , construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
+        assertEquals(0 , Construction.laConstructionViaMultichoix(arraylist, setInventaireCourant, false).size());
     }
 
 
@@ -347,29 +336,29 @@ public class ConstructionTest {
      * Test de la méthode viaAchat()
      */
     @Test
-    public void viaAchatTest() throws NegativeNumberException {
+    public void viaAchatTest() {
         ArrayList<EnumRessources> arraylist;
         arraylist = new ArrayList<>(carteStatue.getPrix());
-        assertFalse(construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
+        assertFalse(Construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
 
 
         setInventaireCourant.increaseValue(EnumRessources.REDMARRONDROITE, 1);
         setInventaireGauche.increaseValue(EnumRessources.BOIS, 1);
         setInventaireGauche.increaseValue(EnumRessources.MINERAI, 2);
         // Le joueur n'a pas assez de pièces pour payer aux autres joueur
-        assertFalse(construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
+        assertFalse(Construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
 
         // Le joueur a assez de pièces
         setInventaireCourant.increaseValue(EnumRessources.PIECE, 9);
-        assertTrue(construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
+        assertTrue(Construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
 
         // Le joueur a une réduction
         setInventaireCourant.increaseValue(EnumRessources.REDMARRONGAUCHE, 1);
         arraylist = new ArrayList<>(carteStatue.getPrix());
         setInventaireCourant.decreaseValue(EnumRessources.PIECE, 12);
-        assertFalse(construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
+        assertFalse(Construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
         setInventaireCourant.increaseValue(EnumRessources.PIECE, 9);
-        assertTrue(construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
+        assertTrue(Construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
 
 
         arraylist = new ArrayList<>(carteEcole.getPrix());
@@ -377,11 +366,11 @@ public class ConstructionTest {
         setInventaireGauche.clear();
         setInventaireDroit.clear();
         setInventaireCourant.increaseValue(EnumRessources.REDGRISDROITEGAUCHE, 1);
-        assertFalse(construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
+        assertFalse(Construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
 
         setInventaireDroit.increaseValue(EnumRessources.BOIS, 1);
         setInventaireGauche.increaseValue(EnumRessources.PAPYRUS, 1);
-        assertTrue(construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
+        assertTrue(Construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
 
 
         arraylist = new ArrayList<>(carteEcole.getPrix());
@@ -393,7 +382,7 @@ public class ConstructionTest {
         setInventaireDroit.increaseValue(EnumRessources.PAPYRUS, 1);
         setInventaireGauche.increaseValue(EnumRessources.BOIS, 1);
         setInventaireCourant.increaseValue(EnumRessources.PIECE, 5);
-        assertTrue(construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
+        assertTrue(Construction.viaAchat(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit));
     }
 
 
@@ -401,7 +390,7 @@ public class ConstructionTest {
      * Test de la méthode laConstructionViaCommerce()
      */
     @Test
-    public void laConstructionViaCommerceTest() throws NegativeNumberException {
+    public void laConstructionViaCommerceTest() {
         ArrayList<EnumRessources> arraylist;
         arraylist = new ArrayList<>(carteStatue.getPrix());
         assertFalse(construction.laConstructionViaCommerce(arraylist, setInventaireCourant, setInventaireGauche, setInventaireDroit, false));
@@ -488,7 +477,7 @@ public class ConstructionTest {
      * Test de la méthode achatVoisin()
      */
     @Test
-    public void achatVoisinTest() throws NegativeNumberException {
+    public void achatVoisinTest() {
         assertEquals(3 , setInventaireCourant.getValue(EnumRessources.PIECE));
         assertEquals(3  ,setInventaireGauche.getValue(EnumRessources.PIECE));
         assertEquals(3 , setInventaireDroit.getValue(EnumRessources.PIECE));
