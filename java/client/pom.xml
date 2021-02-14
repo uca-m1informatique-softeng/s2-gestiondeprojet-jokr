@@ -14,7 +14,6 @@
     <artifactId>client</artifactId> <!-- et le nom du projet -->
     <version>1.0</version>
 
-
     <properties>
         <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/../report/target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- éventuellement à changer : encodage de vos fichiers -->
@@ -22,19 +21,36 @@
         <compiler.target>11</compiler.target>
     </properties>
 
-
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>  <!-- éventuellement à changer : localisation des fichiers sources -->
         <testSourceDirectory>src/test/java</testSourceDirectory> <!-- éventuellement à changer : localisation des fichiers sources des tests -->
         <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
 
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass></mainClass>
+                        </manifest>
+                    </archive>
 
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
 
-            <!-- la génération de la  javadoc s'utilise avec "mvn site" -->
-
-
+                <executions>
+                    <execution>
+                        <id>single</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
-
     </build>
 
 <dependencies>
