@@ -11,6 +11,8 @@ import metier.*;
 import statistique.Statistique;
 import utils.affichage.LoggerSevenWonders;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -157,11 +159,11 @@ public class Serveur {
      * Methode du main
      * @param args argument du main
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnknownHostException {
         LoggerSevenWonders.init(true);
         Configuration config = new Configuration();
 
-        config.setHostname("127.0.0.1");
+        config.setHostname(InetAddress.getLocalHost().getHostName());
         config.setPort(8081);
         SocketIOServer server = new SocketIOServer(config);
 
