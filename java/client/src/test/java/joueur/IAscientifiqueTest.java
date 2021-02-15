@@ -52,8 +52,8 @@ public class IAscientifiqueTest {
         setInv2.modifMerveille(merveille2);
         listeRessource = new ArrayList<>();
 
-        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName(),setInv1);
-        joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName(),setInv2);
+        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName());
 
         officine = new Carte(EnumCarte.V3, Collections.singletonList(EnumRessources.TISSU), Collections.singletonList(EnumRessources.COMPAS), 3, 1, EnumRessources.VERTE);
         guildScientifiques = new Carte(EnumCarte.P7, Arrays.asList(EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.MINERAI, EnumRessources.MINERAI), Collections.singletonList(EnumRessources.BONUSCPR), 3, 3, EnumRessources.VIOLETTE);
@@ -91,7 +91,7 @@ public class IAscientifiqueTest {
         main.add(officine);
         main.add(guildScientifiques);
         // L'IA choisie en priorité la carte officine pour l'âge 1, donc l'index 1
-        assertEquals(1, iAscientifique.choixMain(joueur1, main, plateau, false));
+        assertEquals(1, iAscientifique.choixMain(joueur1, main,setInv1, plateau, false));
 
         plateau.incrementeAge();
         main = new ArrayList<>();
@@ -100,7 +100,7 @@ public class IAscientifiqueTest {
         main.add(guildScientifiques);
         main.add(ecole);
         // L'IA choisie en priorité la carte ecole pour l'âge 2, donc l'index 3
-        assertEquals(3, iAscientifique.choixMain(joueur1, main, plateau, false));
+        assertEquals(3, iAscientifique.choixMain(joueur1, main,setInv1, plateau, false));
 
         plateau.incrementeAge();
         main = new ArrayList<>();
@@ -109,7 +109,7 @@ public class IAscientifiqueTest {
         main.add(officine);
         main.add(ecole);
         // L'IA choisie en priorité la guilde scientifique pour l'âge 3, donc l'index 0
-        assertEquals(0, iAscientifique.choixMain(joueur1, main, plateau, false));
+        assertEquals(0, iAscientifique.choixMain(joueur1, main,setInv1, plateau, false));
     }
 
 
@@ -124,15 +124,15 @@ public class IAscientifiqueTest {
         listeRessources.add(EnumRessources.VERRE);
         listeRessources.add(EnumRessources.PAPYRUS);
         listeRessources.add(EnumRessources.TISSU);
-        assertEquals(iAscientifique.rechercheRessources(joueur1,plateau), listeRessources);
+        assertEquals(iAscientifique.rechercheRessources(joueur1,setInv1,plateau), listeRessources);
         plateau.incrementeAge();
         listeRessources.add(EnumRessources.BOIS);
         listeRessources.add(EnumRessources.PIERRE);
         listeRessources.add(EnumRessources.ARGILE);
         listeRessources.add(EnumRessources.MINERAI);
-        assertEquals(iAscientifique.rechercheRessources(joueur1,plateau), listeRessources);
+        assertEquals(iAscientifique.rechercheRessources(joueur1,setInv1,plateau), listeRessources);
         plateau.incrementeAge();
-        assertEquals(iAscientifique.rechercheRessources(joueur1,plateau),listeRessource);
+        assertEquals(iAscientifique.rechercheRessources(joueur1,setInv1,plateau),listeRessource);
 
     }
 
@@ -150,7 +150,7 @@ public class IAscientifiqueTest {
         plateau = new Plateau(listeInventaire);
 
         // Le joueur na pas les ressource pour construire sa merveille
-        assertFalse(iAscientifique.choixMerveille(joueur1, main, plateau));
+        assertFalse(iAscientifique.choixMerveille(joueur1, main,setInv1, plateau));
 
         // On donne 2 argile au joueurs
         setInv1.increaseValue(EnumRessources.ARGILE, 2);
@@ -161,7 +161,7 @@ public class IAscientifiqueTest {
         plateau = new Plateau(listeInventaire);
 
         // Le joueur a 2 argile mais il a la stratégie Scientifique donc il ne construit pas du tout sa merveille
-        assertFalse(iAscientifique.choixMerveille(joueur1, main, plateau));
+        assertFalse(iAscientifique.choixMerveille(joueur1, main,setInv1, plateau));
     }
 
 
@@ -176,7 +176,7 @@ public class IAscientifiqueTest {
         main.add(officine);
         main.add(guildScientifiques);
         // L'IA choisie en priorité la carte officine pour l'âge 1, donc l'index 1
-        assertEquals(1, iAscientifique.choisirCarteDeLaDefausse(joueur1, main, plateau));
+        assertEquals(1, iAscientifique.choisirCarteDeLaDefausse(joueur1, main,setInv1, plateau));
     }
 
     /**
@@ -186,24 +186,24 @@ public class IAscientifiqueTest {
     public void commerceAdjacentTest(){
         setInv1.increaseValue(EnumRessources.REDMARRONGAUCHE, 1);
         // Renvoie true car le joueur a la réduc a gauche
-        assertTrue(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, setInv1, setInv2));
+        assertTrue(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1,setInv1, setInv1, setInv2));
 
 
         setInv1.clear();
         setInv1.increaseValue(EnumRessources.REDMARRONDROITE, 1);
         // Renvoie false car le joueur a la réduc a droite
-        assertFalse(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, setInv1, setInv2));
+        assertFalse(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1,setInv1, setInv1, setInv2));
 
         setInv1.clear();
         setInv1.increaseValue(EnumRessources.SCORE, 2);
         // Renvoie false car le joueur gauche a plus de point
-        assertFalse(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, setInv1, setInv2));
+        assertFalse(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1,setInv1, setInv1, setInv2));
 
 
         setInv1.clear();
         setInv2.increaseValue(EnumRessources.SCORE, 1);
         // Renvoie true car le joueur droit a plus de point
-        assertTrue(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, setInv1, setInv2));
+        assertTrue(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1,setInv1, setInv1, setInv2));
     }
 }
 

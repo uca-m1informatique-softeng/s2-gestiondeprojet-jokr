@@ -26,7 +26,7 @@ public class IArandom implements IA {
      * @return True gauche / False Droite
      */
     @Override
-    public Boolean commerceAdjacent(EnumRessources ressource, Joueur j, Inventaire gauche, Inventaire droite){
+    public Boolean commerceAdjacent(EnumRessources ressource, Joueur j,Inventaire invJoueur, Inventaire gauche, Inventaire droite){
         int choix = r.nextInt(2);
         return choix == 0;
     }
@@ -39,7 +39,7 @@ public class IArandom implements IA {
      * @return index de la carte à sacrifier dans la main
      */
     @Override
-    public int choixCartePourMerveille(Joueur joueur, List<Carte> main, Plateau plateau){
+    public int choixCartePourMerveille(Joueur joueur, List<Carte> main,Inventaire invJoueur, Plateau plateau){
         return r.nextInt(main.size());
     }
 
@@ -52,7 +52,7 @@ public class IArandom implements IA {
      * @return True defausse / False pas défausse
      */
     @Override
-    public boolean choixDefausse(Joueur j, Carte carte, Plateau plateau){
+    public boolean choixDefausse(Joueur j, Carte carte,Inventaire invJoueur, Plateau plateau){
         int choix = r.nextInt(2);
         return choix == 0;
     }

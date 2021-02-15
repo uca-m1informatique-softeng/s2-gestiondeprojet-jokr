@@ -14,36 +14,37 @@ public class GestionnaireDeFichierTest {
 
 
     private GestionnaireDeFichier fichier;
-    private String ecrireFichierTest;
+    private String path, file;
 
 
     @Before
     public void setup() {
         fichier = new GestionnaireDeFichier();
-        ecrireFichierTest = "src/test/resources/EcrireFichierTest.txt";
+        path = "src/test/resources/";
+        file = "EcrireFichierTest.txt";
     }
 
 
     /**
      * Test de la méthode ecrireDansFichier()
-     * @throws IOException
+     * @throws IOException Erreur si l'écriture échoue
      */
     @Test
     public void ecrireDansFichierTest() throws IOException {
         // On supprime le fichier de test dans lequel on va écrire (s'il existe)
-        File fichierEcrit = new File(ecrireFichierTest);
+        File fichierEcrit = new File(path + file);
         fichierEcrit.delete();
 
 
         // On écrit dans le fichier plusieurs lignes de test
-        fichier.ecrireDansFichier(ecrireFichierTest, "Voici une phrase de test");
-        fichier.ecrireDansFichier(ecrireFichierTest, "Et en voici une autre...");
-        fichier.ecrireDansFichier(ecrireFichierTest, "Enzo gagne la partie !!!!!!!");
+        fichier.ecrireDansFichier(path, file, "Voici une phrase de test");
+        fichier.ecrireDansFichier(path, file, "Et en voici une autre...");
+        fichier.ecrireDansFichier(path, file, "Enzo gagne la partie !!!!!!!");
 
 
         // On vérifie que les lignes de test ce sont bien écrit dans le fichier
         BufferedReader br;
-        br = new BufferedReader(new FileReader(ecrireFichierTest));
+        br = new BufferedReader(new FileReader(path + file));
         String line = br.readLine();
 
         // Vérification de la première ligne écrite

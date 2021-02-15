@@ -2,6 +2,7 @@ package joueur;
 
 import metier.Wonder;
 import objet_commun.Carte;
+import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 
 import java.util.List;
@@ -19,10 +20,10 @@ public class IAcomposite implements IA {
      * @return True défausse / False sinon
      */
     @Override
-    public boolean choixDefausse(Joueur j, Carte carte, Plateau plateau) {
-        Wonder merv = j.getInv().getMerveille().getNom();
+    public boolean choixDefausse(Joueur j, Carte carte, Inventaire invJoueur, Plateau plateau) {
+        Wonder merv = invJoueur.getMerveille().getNom();
         botChameleon = choixMerveilleStrat(merv);
-        return botChameleon.choixDefausse(j,carte,plateau);
+        return botChameleon.choixDefausse(j,carte,invJoueur,plateau);
     }
     /**
      * Appel l'IA concerné pour prendre ce choix en fonction de la merveille acquise au début du jeu
@@ -34,10 +35,10 @@ public class IAcomposite implements IA {
      * @return Index de la carte à jouer depuis la main
      */
     @Override
-    public int choixMain(Joueur j, List<Carte> main, Plateau plateau,boolean prix) {
-        Wonder merv = j.getInv().getMerveille().getNom();
+    public int choixMain(Joueur j, List<Carte> main,Inventaire invJoueur, Plateau plateau,boolean prix) {
+        Wonder merv = invJoueur.getMerveille().getNom();
         botChameleon = choixMerveilleStrat(merv);
-        return botChameleon.choixMain(j,main,plateau,prix);
+        return botChameleon.choixMain(j,main,invJoueur,plateau,prix);
     }
 
     /**
@@ -49,10 +50,10 @@ public class IAcomposite implements IA {
      * @return True construire merveille / false sinon
      */
     @Override
-    public boolean choixMerveille(Joueur j, List<Carte> main, Plateau plateau) {
-        Wonder merv = j.getInv().getMerveille().getNom();
+    public boolean choixMerveille(Joueur j, List<Carte> main,Inventaire invJoueur, Plateau plateau) {
+        Wonder merv = invJoueur.getMerveille().getNom();
         botChameleon = choixMerveilleStrat(merv);
-        return botChameleon.choixMerveille(j,main,plateau);
+        return botChameleon.choixMerveille(j,main,invJoueur,plateau);
     }
 
 
@@ -65,10 +66,10 @@ public class IAcomposite implements IA {
      * @return Index de la carte à sacrifier depuis la main pour construire la merveille
      */
     @Override
-    public int choixCartePourMerveille(Joueur j, List<Carte> main, Plateau plateau) {
-        Wonder merv = j.getInv().getMerveille().getNom();
+    public int choixCartePourMerveille(Joueur j, List<Carte> main,Inventaire invJoueur, Plateau plateau) {
+        Wonder merv = invJoueur.getMerveille().getNom();
         botChameleon = choixMerveilleStrat(merv);
-        return botChameleon.choixCartePourMerveille(j,main,plateau);
+        return botChameleon.choixCartePourMerveille(j,main,invJoueur,plateau);
     }
 
     /**

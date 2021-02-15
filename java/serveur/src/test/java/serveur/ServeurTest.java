@@ -44,6 +44,6 @@ public class ServeurTest {
         gestionnaireDeFichier = Mockito.mock(GestionnaireDeFichier.class);
 
         serveur.enregistrerPartie(gestionnaireDeFichier, 3, new StringBuilder());
-        Mockito.verify(gestionnaireDeFichier).ecrireDansFichier(Mockito.anyString(), Mockito.anyString());
+        Mockito.verify(gestionnaireDeFichier).ecrireDansFichier(Mockito.anyString(), Mockito.anyString(), Mockito.anyString());
     }
 }

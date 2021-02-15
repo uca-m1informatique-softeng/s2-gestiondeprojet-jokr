@@ -5,8 +5,10 @@ import metier.EnumRessources;
 import metier.Wonder;
 import objet_commun.Carte;
 import utilitaire_jeu.Construction;
+import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 
+import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -23,8 +25,8 @@ public class IAcivil implements IA {
      * @return Index de la carte à jouer depuis la main
      */
     @Override
-    public int choixMain(Joueur j , List<Carte> main, Plateau plateau, boolean prix){
-        List<EnumRessources> ressourcesrecherchees = rechercheRessources(j,plateau);
+    public int choixMain(Joueur j , List<Carte> main, Inventaire invJoueur, Plateau plateau, boolean prix){
+        List<EnumRessources> ressourcesrecherchees = rechercheRessources(j,invJoueur,plateau);
         List<String> carteRecherchee ;
         if(plateau.getAge()==1){
             carteRecherchee = Arrays.asList("Bains","Autel","Puits","Théâtre") ;
@@ -37,7 +39,7 @@ public class IAcivil implements IA {
             carteRecherchee = Arrays.asList("Panthéon", "Jardins", "Palace", "Hôtel de Ville", "Sénat");
 
         }
-        return choixCarte(j,main,plateau,carteRecherchee,ressourcesrecherchees,true,prix);
+        return choixCarte(j,main,invJoueur,plateau,carteRecherchee,ressourcesrecherchees,true,prix);
     }
 
 
@@ -47,28 +49,28 @@ public class IAcivil implements IA {
      * @param plateau le plateau de jeu (pour connaitre l'age)
      * @return la liste de ressources recherchées
      */
-    public List<EnumRessources> rechercheRessources(Joueur j, Plateau plateau){
+    public List<EnumRessources> rechercheRessources(Joueur j,Inventaire invJoueur, Plateau plateau){
         List<EnumRessources> ressourcesrecherchees= new ArrayList<>();
         int age = plateau.getAge();
         if(age==1){ // les ressources primordiales pour la stratégie civile
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.PIERRE);
-            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,1,EnumRessources.TISSU);
-            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,1,EnumRessources.MINERAI);
-            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,1,EnumRessources.ARGILE);
-            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,1,EnumRessources.VERRE);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.PIERRE);
+            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.TISSU);
+            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.MINERAI);
+            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.ARGILE);
+            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.VERRE);
         }
         else if(age == 2){ // ces autres ressources sont nécessaires pour acheter les cartes bleues de l'âge
-            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,2,EnumRessources.BOIS);
-            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,1,EnumRessources.TISSU);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,2,EnumRessources.PIERRE);
-            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,2,EnumRessources.ARGILE);
-            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,2,EnumRessources.MINERAI);
+            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,invJoueur,2,EnumRessources.BOIS);
+            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.TISSU);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,2,EnumRessources.PIERRE);
+            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,invJoueur,2,EnumRessources.ARGILE);
+            ressourcesrecherchees =listeRessource(ressourcesrecherchees,j,invJoueur,2,EnumRessources.MINERAI);
 
-            if(!j.getInv().getListeCarte().contains(EnumCarte.B1)) {
-                ressourcesrecherchees = listeRessource(ressourcesrecherchees, j, 1, EnumRessources.PAPYRUS);
+            if(!invJoueur.getListeCarte().contains(EnumCarte.B1)) {
+                ressourcesrecherchees = listeRessource(ressourcesrecherchees, j, invJoueur,1, EnumRessources.PAPYRUS);
             }
-            if(!j.getInv().getListeCarte().contains(EnumCarte.B3)) { // si il ne possède pas la carte chainée Bains
-                ressourcesrecherchees = listeRessource(ressourcesrecherchees, j, 3, EnumRessources.PIERRE);
+            if(!invJoueur.getListeCarte().contains(EnumCarte.B3)) { // si il ne possède pas la carte chainée Bains
+                ressourcesrecherchees = listeRessource(ressourcesrecherchees, j, invJoueur,3, EnumRessources.PIERRE);
             }
         }
         return ressourcesrecherchees;
@@ -83,11 +85,11 @@ public class IAcivil implements IA {
      * @return True Construire / False sinon
      */
     @Override
-    public boolean choixMerveille(Joueur j, List<Carte> main, Plateau plateau){
+    public boolean choixMerveille(Joueur j, List<Carte> main, Inventaire invJoueur, Plateau plateau){
         List<Wonder> merveilles = Collections.emptyList();
-        if(merveilles.contains(j.getInv().getMerveille().getNom()) && Boolean.TRUE.equals(j.getInv().getMerveille().peutAmeliorerMerveille())){
+        if(merveilles.contains(invJoueur.getMerveille().getNom()) && Boolean.TRUE.equals(invJoueur.getMerveille().peutAmeliorerMerveille())){
             for(int i = 0 ; i < main.size() ; i++) {
-                if (Construction.permisDeConstruction( j.getInv().getMerveille().getCarteAConstruire(),j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau)) {
+                if (Construction.permisDeConstruction( invJoueur.getMerveille().getCarteAConstruire(),invJoueur, plateau.joueurGauche(invJoueur), plateau.joueurDroit(invJoueur),plateau)) {
                     return true; // Si l'étage de la merveille est constructible par le joueur alors il décide de construire la merveille
                 }
             }
@@ -104,9 +106,9 @@ public class IAcivil implements IA {
      * @return Index de la carte à sacrifier pour construire la Merveille
      */
     @Override
-    public int choixCartePourMerveille(Joueur j, List<Carte> main, Plateau plateau) {
+    public int choixCartePourMerveille(Joueur j, List<Carte> main,Inventaire invJoueur, Plateau plateau) {
         for (int i = 0; i < main.size(); i++) {
-            if (!Construction.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau)) {
+            if (!Construction.permisDeConstruction(main.get(i), invJoueur, plateau.joueurGauche(invJoueur), plateau.joueurDroit(invJoueur),plateau)) {
                 return i;
             }
         }
@@ -121,8 +123,8 @@ public class IAcivil implements IA {
      * @param plateau le plateau de jeu
      * @return Index de la carte à jouer depuis la défausse
      */
-    public int choisirCarteDeLaDefausse(Joueur j, List<Carte> paquetDefausse, Plateau plateau){
-        return choixMain(j,paquetDefausse,plateau,false);
+    public int choisirCarteDeLaDefausse(Joueur j, List<Carte> paquetDefausse, Inventaire invJoueur, Plateau plateau){
+        return choixMain(j,paquetDefausse,invJoueur,plateau,false);
     }
 
 

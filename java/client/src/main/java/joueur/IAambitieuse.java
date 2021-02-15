@@ -20,7 +20,7 @@ public class IAambitieuse implements IA {
      * @return True construire / False sinon
      */
     @Override
-    public boolean choixMerveille(Joueur j, List<Carte> main, Plateau plateau){
+    public boolean choixMerveille(Joueur j, List<Carte> main, Inventaire invJoueur, Plateau plateau){
         return false;
     }
 
@@ -32,8 +32,8 @@ public class IAambitieuse implements IA {
      * @return Index de la carte à jouer depuis la main
      */
     @Override
-    public int choixMain(Joueur joueur , List<Carte> main, Plateau plateau,boolean prix){
-        List<EnumRessources> ressourcesrecherchees = rechercheRessources(joueur,plateau);
+    public int choixMain(Joueur joueur , List<Carte> main, Inventaire invJoueur,  Plateau plateau,boolean prix){
+        List<EnumRessources> ressourcesrecherchees = rechercheRessources(joueur,invJoueur,plateau);
         List<String> carteRecherchee ;
         if(plateau.getAge()==1){
             carteRecherchee = Collections.emptyList();
@@ -43,9 +43,9 @@ public class IAambitieuse implements IA {
         }
         else {
             carteRecherchee = Collections.emptyList();
-            return choixCarteAge3(joueur,main,plateau,carteRecherchee,ressourcesrecherchees,besoinDeBouclier(joueur,plateau),prix);
+            return choixCarteAge3(joueur,main,invJoueur,plateau,carteRecherchee,ressourcesrecherchees,besoinDeBouclier(joueur,invJoueur,plateau),prix);
         }
-        return choixCarte(joueur,main,plateau,carteRecherchee,ressourcesrecherchees,besoinDeBouclier(joueur,plateau),prix);
+        return choixCarte(joueur,main,invJoueur,plateau,carteRecherchee,ressourcesrecherchees,besoinDeBouclier(joueur,invJoueur,plateau),prix);
     }
 
     /**
@@ -59,8 +59,8 @@ public class IAambitieuse implements IA {
      * @param prix si la carte est payante ou non
      * @return retourne la carte choisie
      */
-    public int choixCarteAge3(Joueur joueur , List<Carte> main, Plateau plateau, List<String> carteRecherchee, List<EnumRessources> ressourcesRecherchee,boolean bouclier, boolean prix){
-        List<Carte> possibilites = getPossibilites(joueur,main,plateau,prix);
+    public int choixCarteAge3(Joueur joueur , List<Carte> main, Inventaire invJoueur,Plateau plateau, List<String> carteRecherchee, List<EnumRessources> ressourcesRecherchee,boolean bouclier, boolean prix){
+        List<Carte> possibilites = getPossibilites(joueur,main,invJoueur,plateau,prix);
         int max = 0 ;
         int temp;
         int idMax = 0 ;
@@ -69,9 +69,9 @@ public class IAambitieuse implements IA {
                 if(possibilites.get(i).getCouleur().equals(EnumRessources.BLEUE)){
                     temp = possibilites.get(i).getGain().size();
                 }else if(possibilites.get(i).getCouleur().equals(EnumRessources.VIOLETTE) || possibilites.get(i).getCouleur().equals(EnumRessources.JAUNE) || possibilites.get(i).getCouleur().equals(EnumRessources.ROUGE)){
-                    temp = getTotalPoints(possibilites.get(i), joueur, plateau);
+                    temp = getTotalPoints(possibilites.get(i), joueur,invJoueur, plateau);
                 }else if(possibilites.get(i).getCouleur().equals(EnumRessources.VERTE)){
-                    temp = getScientistPoints(possibilites.get(i).getGain().get(0), joueur) ;
+                    temp = getScientistPoints(possibilites.get(i).getGain().get(0), joueur, invJoueur) ;
                 }else {
                     temp = 0;
                 }
@@ -98,28 +98,28 @@ public class IAambitieuse implements IA {
      * @param plateau le plateau de jeu
      * @return les points que la carte fait gagner
      */
-    public int getTotalPoints(Carte carte, Joueur joueur, Plateau plateau){
-        Inventaire gauche = plateau.joueurGauche(joueur.getInv());
-        Inventaire droit = plateau.joueurDroit(joueur.getInv());
+    public int getTotalPoints(Carte carte, Joueur joueur,Inventaire invJoueur, Plateau plateau){
+        Inventaire gauche = plateau.joueurGauche(invJoueur);
+        Inventaire droit = plateau.joueurDroit(invJoueur);
 
         int bouclierGauche = gauche.getValue(EnumRessources.BOUCLIER);
         int bouclierDroit = droit.getValue(EnumRessources.BOUCLIER);
-        int bouclierJoueur = joueur.getInv().getValue(EnumRessources.BOUCLIER);
+        int bouclierJoueur = invJoueur.getValue(EnumRessources.BOUCLIER);
 
         if(carte.getGain().get(0).equals(EnumRessources.BONUS11J)){
-            return joueur.getInv().getValue(EnumRessources.JAUNE);
+            return invJoueur.getValue(EnumRessources.JAUNE);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.BONUS11M)){
-            return joueur.getInv().getValue(EnumRessources.MARRON);
+            return invJoueur.getValue(EnumRessources.MARRON);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.BONUS22G)){
-            return (2*joueur.getInv().getValue(EnumRessources.GRISE));
+            return (2*invJoueur.getValue(EnumRessources.GRISE));
         }
         else if(carte.getGain().get(0).equals(EnumRessources.BONUS31R)){
-            return joueur.getInv().getValue( EnumRessources.ROUGE);
+            return invJoueur.getValue( EnumRessources.ROUGE);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.BONUS31MERVEILLE)){
-            return joueur.getInv().getMerveille().getStade();
+            return invJoueur.getMerveille().getStade();
         }
         else if(carte.getGain().get(0).equals(EnumRessources.VBONUS1M)){
             return droit.getValue(EnumRessources.MARRON) + gauche.getValue(EnumRessources.MARRON);
@@ -140,12 +140,12 @@ public class IAambitieuse implements IA {
             return gauche.getValue(EnumRessources.VERTE) + droit.getValue(EnumRessources.VERTE);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.VBONUSMGV)){
-            return joueur.getInv().getValue(EnumRessources.MARRON) + joueur.getInv().getValue( EnumRessources.GRISE) + joueur.getInv().getValue(EnumRessources.VIOLETTE);
+            return invJoueur.getValue(EnumRessources.MARRON) + invJoueur.getValue( EnumRessources.GRISE) + invJoueur.getValue(EnumRessources.VIOLETTE);
         }
         else if(carte.getGain().get(0).equals(EnumRessources.VBONUS1MERVEILLE)){
-            return joueur.getInv().getMerveille().getStade() + gauche.getMerveille().getStade() + droit.getMerveille().getStade();
+            return invJoueur.getMerveille().getStade() + gauche.getMerveille().getStade() + droit.getMerveille().getStade();
         }
-        else if(carte.getGain().get(0).equals(EnumRessources.VBONUS7COMPLETMERVEILLE) && joueur.getInv().getMerveille().getStade()==joueur.getInv().getMerveille().getEtape().size()) {
+        else if(carte.getGain().get(0).equals(EnumRessources.VBONUS7COMPLETMERVEILLE) && invJoueur.getMerveille().getStade()==invJoueur.getMerveille().getEtape().size()) {
             return 7;
         }
         else if(carte.getGain().get(0).equals(EnumRessources.BOUCLIER) && plateau.getAge()==3 && ((bouclierDroit-bouclierJoueur>=0 && bouclierDroit-bouclierJoueur<=2) && (bouclierGauche-bouclierJoueur>=0 && bouclierGauche-bouclierJoueur<=2))) {
@@ -162,34 +162,34 @@ public class IAambitieuse implements IA {
      * @param plateau le plateau de jeu (pour connaitre l'age)
      * @return la liste de ressources recherchées
      */
-    public List<EnumRessources> rechercheRessources(Joueur j, Plateau plateau){
+    public List<EnumRessources> rechercheRessources(Joueur j,Inventaire invJoueur, Plateau plateau){
         List<EnumRessources> ressourcesrecherchees= new ArrayList<>();
         int age = plateau.getAge();
         if(age==1){
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.BOIS);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.PIERRE);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.ARGILE);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.MINERAI);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.TISSU);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.VERRE);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.PAPYRUS);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.BOIS);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.PIERRE);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.ARGILE);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.MINERAI);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.TISSU);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.VERRE);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.PAPYRUS);
         }
         else if(age == 2){
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.BOIS);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.PIERRE);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.ARGILE);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.MINERAI);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,2,EnumRessources.BOIS);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,2,EnumRessources.PIERRE);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,2,EnumRessources.ARGILE);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,2,EnumRessources.MINERAI);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.TISSU);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.VERRE);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,1,EnumRessources.PAPYRUS);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,3,EnumRessources.BOIS);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,3,EnumRessources.PIERRE);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,3,EnumRessources.ARGILE);
-            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,3,EnumRessources.MINERAI);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.BOIS);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.PIERRE);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.ARGILE);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.MINERAI);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,2,EnumRessources.BOIS);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,2,EnumRessources.PIERRE);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,2,EnumRessources.ARGILE);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,2,EnumRessources.MINERAI);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.TISSU);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.VERRE);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,1,EnumRessources.PAPYRUS);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,3,EnumRessources.BOIS);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,3,EnumRessources.PIERRE);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,3,EnumRessources.ARGILE);
+            ressourcesrecherchees = listeRessource(ressourcesrecherchees,j,invJoueur,3,EnumRessources.MINERAI);
         }
         return ressourcesrecherchees;
     }
@@ -200,18 +200,18 @@ public class IAambitieuse implements IA {
      * @param joueur le joueur
      * @return le nombre de points potentiels
      */
-    public int getScientistPoints(EnumRessources objet,Joueur joueur){
+    public int getScientistPoints(EnumRessources objet,Joueur joueur,Inventaire invJoueur){
         int bonus = 0 ;
         int besoin = 0;
-        int stockObjet = joueur.getInv().getValue(objet);
+        int stockObjet = invJoueur.getValue(objet);
         bonus += Math.pow((stockObjet+1),2) - Math.pow(stockObjet,2);
-        if(!EnumRessources.ROUE.equals(objet) && joueur.getInv().getValue(EnumRessources.ROUE)>stockObjet){
+        if(!EnumRessources.ROUE.equals(objet) && invJoueur.getValue(EnumRessources.ROUE)>stockObjet){
             besoin += 1 ;
         }
-        if(!EnumRessources.COMPAS.equals(objet) && joueur.getInv().getValue(EnumRessources.COMPAS)>stockObjet){
+        if(!EnumRessources.COMPAS.equals(objet) && invJoueur.getValue(EnumRessources.COMPAS)>stockObjet){
             besoin += 1 ;
         }
-        if(!EnumRessources.PDR.equals(objet) && joueur.getInv().getValue(EnumRessources.PDR)>stockObjet){
+        if(!EnumRessources.PDR.equals(objet) && invJoueur.getValue(EnumRessources.PDR)>stockObjet){
             besoin += 1 ;
         }
         if(besoin==2){
@@ -226,10 +226,10 @@ public class IAambitieuse implements IA {
      * @param plateau le plateau de jeu
      * @return un boolean
      */
-    public boolean besoinDeBouclier(Joueur joueur, Plateau plateau){
-        int frontGauche = plateau.joueurGauche(joueur.getInv()).getValue(EnumRessources.BOUCLIER);
-        int frontDroite = plateau.joueurDroit(joueur.getInv()).getValue(EnumRessources.BOUCLIER);
-        int frontSelf = joueur.getInv().getValue(EnumRessources.BOUCLIER);
+    public boolean besoinDeBouclier(Joueur joueur,Inventaire invJoueur, Plateau plateau){
+        int frontGauche = plateau.joueurGauche(invJoueur).getValue(EnumRessources.BOUCLIER);
+        int frontDroite = plateau.joueurDroit(invJoueur).getValue(EnumRessources.BOUCLIER);
+        int frontSelf = invJoueur.getValue(EnumRessources.BOUCLIER);
         return frontSelf <= frontDroite || frontSelf <= frontGauche;
     }
     /**
@@ -239,7 +239,7 @@ public class IAambitieuse implements IA {
      * @param plateau le plateau de jeu
      * @return Index de la carte à jouer depuis la défausse
      */
-    public int choisirCarteDeLaDefausse(Joueur j, List<Carte> paquetDefausse, Plateau plateau){
-        return choixMain(j,paquetDefausse,plateau,false);
+    public int choisirCarteDeLaDefausse(Joueur j, List<Carte> paquetDefausse,Inventaire invJoueur, Plateau plateau){
+        return choixMain(j,paquetDefausse,invJoueur,plateau,false);
     }
 }

@@ -56,7 +56,7 @@ public class SevenWonders {
         List<Strategy> strategies = Arrays.asList(Strategy.RANDOM, Strategy.AMBITIEUSE, Strategy.COMPOSITE,Strategy.MONETAIRE, Strategy.MILITAIRE, Strategy.SCIENTIFIQUE,Strategy.CIVILE);
         for (int i = 0; i < nbJoueurs; i++) {
             inv.add(new SetInventaire(i,url_Players.get(i), names.get(i)));
-            FacadeJoueur.newJoueur(i,strategies.get(i),url_Players.get(i),names.get(i),(Inventaire)inv.get(i));
+            FacadeJoueur.newJoueur(i,strategies.get(i),url_Players.get(i),names.get(i));
         }
         if(shuffle){
             Collections.shuffle(inv);
@@ -223,7 +223,7 @@ public class SevenWonders {
      *             4ème argument : indiquer false si on ne veut ne lancer qu'une partie (ne lance pas les statistiques et n'écrit pas dans un fichier)
      *             Par défaut : true 1 3 false : on lance une partie à 3 joueurs que l'on affiche sur la sortie standard avec les couleurs
      */
-    public static void main(String[] args) throws NegativeNumberException, URISyntaxException, InterruptedException {
+    public static void main(String[] args) throws NegativeNumberException, URISyntaxException {
         // Nombres de joueurs
         int nbJoueurs ;
         // Nombres de parties si option des statistique activée
@@ -268,7 +268,6 @@ public class SevenWonders {
 
 
         if (multiPartieAvecStat) {
-            Thread.sleep(30000);
             Connexion.CONNEXION.setmSocket(IO.socket(url));
             Connexion.CONNEXION.demarrerEcoute();
             Connexion.CONNEXION.envoyerMessageBoolean("Initialisation", true);

@@ -50,8 +50,8 @@ public class IAcivilTest {
         setInv1 = new SetInventaire(0, "GREBERB", "j1");
         setInv2 = new SetInventaire(1, "GRGERHER", "j2");
 
-        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName(),setInv1);
-        Joueur joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName(),setInv2);
+        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        Joueur joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName());
 
         chantier = new Carte(EnumCarte.M6, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.BOIS), 3, 1, EnumRessources.MARRON);
         puits = new Carte(EnumCarte.B13, Collections.singletonList(EnumRessources.GRATUIT), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE), 4, 1, EnumRessources.BLEUE);
@@ -89,7 +89,7 @@ public class IAcivilTest {
         main.add(puits);
         main.add(pantheon);
         // L'IA choisie en priorité la carte puits pour l'âge 1, donc l'index 1
-        assertEquals(1, iAcivil.choixMain(joueur1, main, plateau, false));
+        assertEquals(1, iAcivil.choixMain(joueur1, main,setInv1, plateau, false));
 
         plateau.incrementeAge();
         main = new ArrayList<>();
@@ -98,7 +98,7 @@ public class IAcivilTest {
         main.add(pantheon);
         main.add(statue);
         // L'IA choisie en priorité la carte statue pour l'âge 2, donc l'index 3
-        assertEquals(3, iAcivil.choixMain(joueur1, main, plateau, false));
+        assertEquals(3, iAcivil.choixMain(joueur1, main,setInv1, plateau, false));
 
         plateau.incrementeAge();
         main = new ArrayList<>();
@@ -127,7 +127,7 @@ public class IAcivilTest {
         plateau = new Plateau(listeInventaire);
 
         // Le joueur n'a pas assez de ressource pour construire sa merveille
-        assertFalse(iAcivil.choixMerveille(joueur1, main, plateau));
+        assertFalse(iAcivil.choixMerveille(joueur1, main,setInv1, plateau));
 
         // On donne 2 bois au joueur
         setInv1.increaseValue(EnumRessources.BOIS, 2);
@@ -151,7 +151,7 @@ public class IAcivilTest {
         listeInventaire.add(setInv2);
         plateau = new Plateau(listeInventaire);
         // Le joueur ne peut pas construire sa merveille car elle est déjà construite en entière
-        assertFalse(iAcivil.choixMerveille(joueur1, main, plateau));
+        assertFalse(iAcivil.choixMerveille(joueur1, main,setInv1, plateau));
     }
 
     /**
@@ -166,7 +166,7 @@ public class IAcivilTest {
         rendu.add(EnumRessources.MINERAI);
         rendu.add(EnumRessources.ARGILE);
         rendu.add(EnumRessources.VERRE);
-        assertEquals(iAcivil.rechercheRessources(joueur1, plateau), rendu);
+        assertEquals(iAcivil.rechercheRessources(joueur1,setInv1, plateau), rendu);
 
         plateau.incrementeAge();
         List<EnumRessources> rend = new ArrayList<>();
@@ -177,11 +177,11 @@ public class IAcivilTest {
         rend.add(EnumRessources.MINERAI);
         rend.add(EnumRessources.PAPYRUS);
 
-        assertEquals( rend,iAcivil.rechercheRessources(joueur1, plateau));
+        assertEquals( rend,iAcivil.rechercheRessources(joueur1,setInv1, plateau));
 
         plateau.incrementeAge();
         rendu = new ArrayList<>();
-        assertEquals(rendu,iAcivil.rechercheRessources(joueur1, plateau));
+        assertEquals(rendu,iAcivil.rechercheRessources(joueur1,setInv1, plateau));
     }
 
 
@@ -194,7 +194,7 @@ public class IAcivilTest {
         main.add(pantheon);
         main.add(statue);
         // Le joueur ne peut pas construire la carte jardin alors il ultilise pour sa merveille
-        assertEquals(0, iAcivil.choixCartePourMerveille(joueur1, main, plateau));
+        assertEquals(0, iAcivil.choixCartePourMerveille(joueur1, main,setInv1, plateau));
 
         main = new ArrayList<>();
         main.add(chantier);
@@ -202,7 +202,7 @@ public class IAcivilTest {
         main.add(statue);
         main.add(pantheon);
         // Le joueur ne peut pas construire la carte statue alors il utilise pour sa merveille, son index est renvoyé, c'est a dire 2
-        assertEquals(2, iAcivil.choixCartePourMerveille(joueur1, main, plateau));
+        assertEquals(2, iAcivil.choixCartePourMerveille(joueur1, main,setInv1, plateau));
 
         main = new ArrayList<>();
         main.add(chantier);
@@ -220,7 +220,7 @@ public class IAcivilTest {
         plateau = new Plateau(listeInventaire);
 
         // Le joueur peut construire toute les carte alors 1 est renvoyé
-        assertEquals(1, iAcivil.choixCartePourMerveille(joueur1, main, plateau));
+        assertEquals(1, iAcivil.choixCartePourMerveille(joueur1, main,setInv1, plateau));
     }
 
 
@@ -235,7 +235,7 @@ public class IAcivilTest {
         main.add(puits);
         main.add(pantheon);
         // L'IA choisie en priorité la carte puits pour l'âge 1, donc l'index 1
-        assertEquals(1, iAcivil.choisirCarteDeLaDefausse(joueur1, main, plateau));
+        assertEquals(1, iAcivil.choisirCarteDeLaDefausse(joueur1, main,setInv1, plateau));
     }
 
 
