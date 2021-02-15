@@ -189,7 +189,7 @@ public class Statistique {
         DateFormat format = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss");
         Date date = new Date();
         String path = "serveur/output/partie_multiple/" + nbJoueur + " Joueurs/" + format.format(date) + ".txt";
-        gestionnaireDeFichier.ecrireDansFichier(path, recupeStat(false).toString());
+        //gestionnaireDeFichier.ecrireDansFichier(path, recupeStat(false).toString());
     }
 
 
