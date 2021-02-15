@@ -96,7 +96,6 @@ public class StatistiqueTest {
     /**
      * Test de la methode afficheStat()
      */
-    /*
     @Test
     public void afficheStatTest() throws IOException {
         GestionnaireDeFichier gestionnaireDeFichier;
@@ -106,9 +105,8 @@ public class StatistiqueTest {
         Statistique st = new Statistique(10, 0, data);
 
         st.afficheStat(gestionnaireDeFichier);
-        Mockito.verify(gestionnaireDeFichier).ecrireDansFichier(Mockito.anyString(), Mockito.anyString());
+        Mockito.verify(gestionnaireDeFichier).ecrireDansFichier(Mockito.anyString(), Mockito.anyString(), Mockito.anyString());
     }
-*/
 
     /**
      * Test de la méthode descriptifIA()
