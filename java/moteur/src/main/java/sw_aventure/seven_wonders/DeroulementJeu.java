@@ -78,19 +78,26 @@ public class DeroulementJeu {
     public String decisionGagnant(int[] liste , List<Inventaire> joueurs ){
         int max = 0;
         int piece = 0;
+        Inventaire unJoueur = null;
         ArrayList<Inventaire> gagnant = new ArrayList<>();
         for (int i = 0; i < liste.length; i++) {
+            for(Inventaire j : joueurs){
+                if(j.getId() == i){
+                    unJoueur = j;
+                    break;
+                }
+            }
             if (liste[i] > max) {
                 max = liste[i];
-                piece = joueurs.get(i).getValue(EnumRessources.PIECE);
+                piece = unJoueur.getValue(EnumRessources.PIECE);
                 gagnant.clear();
-                gagnant.add(joueurs.get(i));
-            }else if(liste[i] == max && joueurs.get(i).getValue(EnumRessources.PIECE)>piece) {
-                piece = joueurs.get(i).getValue(EnumRessources.PIECE);
+                gagnant.add(unJoueur);
+            }else if(liste[i] == max && unJoueur.getValue(EnumRessources.PIECE)>piece) {
+                piece = unJoueur.getValue(EnumRessources.PIECE);
                 gagnant.clear();
-                gagnant.add(joueurs.get(i));
-            }else if(liste[i] == max && joueurs.get(i).getValue(EnumRessources.PIECE)==piece) {
-                gagnant.add(joueurs.get(i));
+                gagnant.add(unJoueur);
+            }else if(liste[i] == max && unJoueur.getValue(EnumRessources.PIECE)==piece) {
+                gagnant.add(unJoueur);
             }
         }
         int rand = r.nextInt(gagnant.size());
