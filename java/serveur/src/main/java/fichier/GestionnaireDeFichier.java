@@ -1,9 +1,6 @@
 package fichier;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
 /**
  * Cette classe permet de gérer l'écriture dans les fichier
@@ -17,8 +14,15 @@ public class GestionnaireDeFichier {
      * @param str  texte a écrire (les statistiques)
      * @throws java.io.IOException Exception si l'écriture dans le fichier est impossible
      */
-    public void ecrireDansFichier(String path, String str) throws IOException {
-        FileWriter fw = new FileWriter(path, true);
+    public void ecrireDansFichier(String path, String file, String str) throws IOException {
+        File dossier = new File(path);
+
+        if (!dossier.exists() || !dossier.isDirectory()) {
+            boolean res = dossier.mkdirs();
+            if (!res) return;
+        }
+
+        FileWriter fw = new FileWriter(path + file, true);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter out = new PrintWriter(bw);
         out.println(str);

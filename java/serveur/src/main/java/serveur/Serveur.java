@@ -105,8 +105,8 @@ public class Serveur {
         this.server.addEventListener("Partie", StringBuilder.class, new DataListener<StringBuilder>() {
             @Override
             public void onData(SocketIOClient socketIOClient, StringBuilder stringBuilder, AckRequest ackRequest) throws Exception {
-                //gestionnaireDeFichier = new GestionnaireDeFichier();
-                //enregistrerPartie(gestionnaireDeFichier, nbJoueur, stringBuilder);
+                gestionnaireDeFichier = new GestionnaireDeFichier();
+                enregistrerPartie(gestionnaireDeFichier, nbJoueur, stringBuilder);
             }
         });
     }
@@ -150,8 +150,9 @@ public class Serveur {
         DateFormat format = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss");
         Date date = new Date();
 
-        String path = "output/partie_multiple/" + nbJoueur + " Joueurs/" + format.format(date) + ".txt";
-        gestionnaireDeFichier.ecrireDansFichier(path, string.toString());
+        String path = "output/partie_unique/" + nbJoueur + " Joueurs/";
+        String file = format.format(date) + ".txt";
+        gestionnaireDeFichier.ecrireDansFichier(path, file, string.toString());
     }
 
 
