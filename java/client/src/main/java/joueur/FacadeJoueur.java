@@ -6,6 +6,7 @@ import objet_commun.Carte;
 import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,9 @@ public class FacadeJoueur {
      */
     public static boolean jouerDefausse(String url, Carte carte, Plateau plateau) {
         Joueur j = joueursConnect.get(url);
-        return j.jouerdefausse(carte, plateau);
+        List<Carte> listCarte = new ArrayList<>();
+        listCarte.add(carte);
+        return j.jouerdefausse(listCarte, plateau);
     }
 
 
@@ -98,23 +101,6 @@ public class FacadeJoueur {
         return j.getName();
     }
 
-    /**
-     * Cette méthode donne l'ID d'un joueur donné
-     * @return l'ID du joueur
-     */
-    public static int getId(String url){
-        Joueur j = joueursConnect.get(url);
-        return j.getId();
-    }
-
-    /**
-     * Cette méthode donne l'inventaire d'un joueur donné
-     * @return l'inventaire du joueur
-     */
-    public static Inventaire getInv(String url){
-        Joueur j = joueursConnect.get(url);
-        return j.getInv();
-    }
 
     /**
      * Cette méthode donne la stratégie d'un joueur donné

@@ -28,7 +28,6 @@ public class SevenWonders {
     private static boolean color = true;
 
 
-
     /**
      * Initialise une partie avec le nombre de joueur
      * @param nbJoueurs le nombre de joueurs
@@ -43,10 +42,7 @@ public class SevenWonders {
     }
 
 
-
-
     // METHODES //
-
 
 
     /**
@@ -67,7 +63,6 @@ public class SevenWonders {
             Collections.shuffle(inv);
         }
     }
-
 
 
     /**
@@ -131,6 +126,8 @@ public class SevenWonders {
         inv = triInventaire(inv);
         envoyerStat(inv);
     }
+
+
     /**
      * Set la graine du SecureRandom à une valeur fixe
      * @param mySeed la valeur initale auquel on préfixe le SecureRandom
@@ -140,6 +137,8 @@ public class SevenWonders {
         r.setSeed(mySeed);
         jeu.setTheSeed(mySeed);
     }
+
+
     /**
      * Permet de ré-ordonner les joueurs pour permettre au serveur de faire des statistiques correctes
      * @param setInv la liste de tous les SetInventaires
@@ -156,6 +155,7 @@ public class SevenWonders {
         }
         return inventaireClasse;
     }
+
 
     /**
      * Méthode permettant d'envoyer les données de la partie au serveur
@@ -185,6 +185,7 @@ public class SevenWonders {
         Connexion.CONNEXION.envoyerMessageArray("DataPartie", jsonArray);
     }
 
+
     /**
      * Permet de changer les EnumCartes en strings pour les envoyer au serveur
      * @param cartes la liste de carte d'un joueur
@@ -197,6 +198,7 @@ public class SevenWonders {
         }
         return listeCarte ;
     }
+
 
     /**
      * Permet d'obtenir les strings des enumsRessources pour les envoyer au serveur

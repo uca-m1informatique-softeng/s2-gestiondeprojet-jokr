@@ -109,13 +109,13 @@ public class ActionDeJeu {
      * @return True si il souhaite et qu'il peut construire sa merveille / false sinon
      */
     public boolean constructionMerveille(SetInventaire s, Plateau plateau) throws NegativeNumberException {
-        Boolean constructMerveille = FacadeJoueur.jouerMerveille(s.getUrl(), mainJoueurs.get(FacadeJoueur.getId(s.getUrl())).getMain(), plateau);
+        Boolean constructMerveille = FacadeJoueur.jouerMerveille(s.getUrl(), mainJoueurs.get(s.getId()).getMain(), plateau);
 
         if(s.getMerveille().peutAmeliorerMerveille() && constructMerveille) {
-            int pick = FacadeJoueur.constructMerveille(s.getUrl(), mainJoueurs.get(FacadeJoueur.getId(s.getUrl())).getMain(),plateau);
+            int pick = FacadeJoueur.constructMerveille(s.getUrl(), mainJoueurs.get(s.getId()).getMain(),plateau);
             Carte aConstruire = s.getMerveille().getCarteAConstruire();
             if (!merveilleConstruire(aConstruire, s , plateau)){
-                paquetDefausse.add(mainJoueurs.get(FacadeJoueur.getId(s.getUrl())).getMain().get(pick));
+                paquetDefausse.add(mainJoueurs.get(s.getId()).getMain().get(pick));
             }
             return true;
         }
@@ -131,8 +131,8 @@ public class ActionDeJeu {
         for (int i = 0; i < nbJoueurs; i++) {
             SetInventaire s = inv.get(i);
             if (s.getValue(EnumRessources.BONUS7CARTEMAIN) > 0) {
-                LoggerSevenWonders.ajoutln(FacadeJoueur.getName(s.getUrl()) + " à le droit de jouer sa 7ème carte !");
-                Carte la7emeCarte = mainJoueurs.get(FacadeJoueur.getId(s.getUrl())).getMain().get(0);
+                LoggerSevenWonders.ajoutln(s.getJoueurName() + " à le droit de jouer sa 7ème carte !");
+                Carte la7emeCarte = mainJoueurs.get(s.getId()).getMain().get(0);
                 // jouer ou défausser une carte sinon
                 boolean defausse = FacadeJoueur.jouerDefausse(s.getUrl(),la7emeCarte, plateau);
                 if (defausse) { // défausser

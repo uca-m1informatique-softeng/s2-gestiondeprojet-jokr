@@ -1,5 +1,6 @@
 package joueur;
 
+import io.cucumber.java8.Ca;
 import metier.EnumRessources;
 import metier.Strategy;
 import objet_commun.Carte;
@@ -65,8 +66,8 @@ public class Joueur {
      * @param plateau Le plateau du jeu
      * @return True Défausse / False sinon (jouer)
      */
-    public Boolean jouerdefausse(Carte carte, Plateau plateau){
-        return bot.choixDefausse(this, carte , plateau);
+    public Boolean jouerdefausse(List<Carte> carte, Plateau plateau){
+        return bot.choixDefausse(this, carte.get(0) , plateau);
     }
 
     /**

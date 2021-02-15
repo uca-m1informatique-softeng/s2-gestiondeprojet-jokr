@@ -5,6 +5,7 @@ import exception.NegativeNumberException;
 import joueur.FacadeJoueur;
 import sw_aventure.objetjeu.*;
 import metier.EnumRessources;
+import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 import utilitaire_jeu.SetInventaire;
 import utils.affichage.Colors;
@@ -57,12 +58,12 @@ public class DeroulementJeu {
      */
     public String gagnante(int nbjoueurs, Plateau plateau) {
         int[] liste = new int[nbjoueurs];
-        ArrayList<String> joueurs = new ArrayList<>();
+        List<Inventaire> joueurs = plateau.getListeInventaire();
         for(int i = 0 ; i<nbjoueurs ; i++){
             for (SetInventaire s : inv) {
                 if(s.getId()==i) {
                     liste[s.getId()] = s.compteFinalScore(plateau.joueurGauche(s),plateau.joueurDroit(s), false);
-                    joueurs.add(s.getUrl());
+                    joueurs.add(s);
                 }
             }
         }
@@ -74,32 +75,32 @@ public class DeroulementJeu {
      * @param liste tableau de joueurs
      * @param joueurs liste des joueurs
      */
-    public String decisionGagnant(int[] liste , List<String> joueurs){
+    public String decisionGagnant(int[] liste , List<Inventaire> joueurs ){
         int max = 0;
         int piece = 0;
-        ArrayList<String> gagnant = new ArrayList<>();
+        ArrayList<Inventaire> gagnant = new ArrayList<>();
         for (int i = 0; i < liste.length; i++) {
             if (liste[i] > max) {
                 max = liste[i];
-                piece = FacadeJoueur.getInv(joueurs.get(i)).getValue(EnumRessources.PIECE);
+                piece = joueurs.get(i).getValue(EnumRessources.PIECE);
                 gagnant.clear();
                 gagnant.add(joueurs.get(i));
-            }else if(liste[i] == max && FacadeJoueur.getInv(joueurs.get(i)).getValue(EnumRessources.PIECE)>piece) {
-                piece = FacadeJoueur.getInv(joueurs.get(i)).getValue(EnumRessources.PIECE);
+            }else if(liste[i] == max && joueurs.get(i).getValue(EnumRessources.PIECE)>piece) {
+                piece = joueurs.get(i).getValue(EnumRessources.PIECE);
                 gagnant.clear();
                 gagnant.add(joueurs.get(i));
-            }else if(liste[i] == max && FacadeJoueur.getInv(joueurs.get(i)).getValue(EnumRessources.PIECE)==piece) {
+            }else if(liste[i] == max && joueurs.get(i).getValue(EnumRessources.PIECE)==piece) {
                 gagnant.add(joueurs.get(i));
             }
         }
         int rand = r.nextInt(gagnant.size());
-        LoggerSevenWonders.ajoutln(Colors.gJaune("Le Vainqueur est ") + FacadeJoueur.getName(gagnant.get(rand)) + Colors.gJaune(" avec " + max + " points !!!"));
+        LoggerSevenWonders.ajoutln(Colors.gJaune("Le Vainqueur est ") + gagnant.get(rand).getJoueurName() + Colors.gJaune(" avec " + max + " points !!!"));
         for (SetInventaire s : inv) {
-            if (s.getId() == FacadeJoueur.getId(gagnant.get(rand)))
+            if (s.getUrl() == gagnant.get(rand).getUrl())
                 s.getSac().put(EnumRessources.VICTOIRETOTAL, 1);
             else s.getSac().put(EnumRessources.VICTOIRETOTAL, 0);
         }
-        return FacadeJoueur.getName(gagnant.get(rand));
+        return gagnant.get(rand).getJoueurName();
     }
 
     /**
