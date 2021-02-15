@@ -266,7 +266,7 @@ public class SevenWonders {
 
 
         if (multiPartieAvecStat) {
-            Thread.sleep(15000);
+            Thread.sleep(30000);
             Connexion.CONNEXION.setmSocket(IO.socket(url));
             Connexion.CONNEXION.demarrerEcoute();
             Connexion.CONNEXION.envoyerMessageBoolean("Initialisation", true);
