@@ -11,7 +11,6 @@ public class Joueur {
     private final int id;
     private IA bot;
     private final String name;
-    private final Inventaire inv;
     private final Strategy strategie;
 
 
@@ -21,13 +20,11 @@ public class Joueur {
      * @param id L'identifiant unique du joueur
      * @param strategie La stratégie du joueur
      * @param name Le nom du joueur
-     * @param inv L'inventaire du joueur
      */
-    public Joueur(int id, Strategy strategie, String name, Inventaire inv) {
+    public Joueur(int id, Strategy strategie, String name) {
         this.id = id;
         this.strategie = strategie;
         this.name = name;
-        this.inv = inv;
         switch (strategie) {
             case MONETAIRE:
                 this.bot = new IAmonetaire();
@@ -65,8 +62,8 @@ public class Joueur {
      * @param plateau Le plateau du jeu
      * @return True Défausse / False sinon (jouer)
      */
-    public Boolean jouerdefausse(Carte carte, Plateau plateau){
-        return bot.choixDefausse(this, carte , plateau);
+    public Boolean jouerdefausse(List<Carte> carte, Inventaire invJoueur, Plateau plateau){
+        return bot.choixDefausse(this, carte.get(0) ,invJoueur , plateau);
     }
 
     /**
@@ -76,8 +73,8 @@ public class Joueur {
      * @param droite l'inventaire du joueur de droite
      * @return True Gauche / False Droite
      */
-    public Boolean achatRessource(EnumRessources ressource, Inventaire gauche, Inventaire droite){
-        return bot.commerceAdjacent(ressource,this, gauche,droite);
+    public Boolean achatRessource(EnumRessources ressource, Inventaire invJoueur, Inventaire gauche, Inventaire droite){
+        return bot.commerceAdjacent(ressource,this,invJoueur, gauche,droite);
     }
 
     /**
@@ -86,7 +83,7 @@ public class Joueur {
      * @param plateau Le plateau de jeu (contenant les inventaires des autres joueur)
      * @return Index de la carte à jouer depuis la défausse
      */
-    public int jouerGratuitementDanslaDefausse(List<Carte> paquetDefausse, Plateau plateau){
+    public int jouerGratuitementDanslaDefausse(List<Carte> paquetDefausse,Inventaire invJoueur, Plateau plateau){
         return bot.choisirCarteDeLaDefausse(paquetDefausse,plateau);
     }
 
@@ -97,8 +94,8 @@ public class Joueur {
      * @param plateau Le plateau de jeu
      * @return True Construire la merveille / False sinon
      */
-    public Boolean jouerMerveille(List<Carte> main, Plateau plateau){
-        return bot.choixMerveille(this, main, plateau);
+    public Boolean jouerMerveille(List<Carte> main,Inventaire invJoueur, Plateau plateau){
+        return bot.choixMerveille(this, main,invJoueur, plateau);
     }
 
     /**
@@ -107,8 +104,8 @@ public class Joueur {
      * @param plateau le plateau de jeu
      * @return Index de la carte à sacrifier pour construire la merveille
      */
-    public int constructMerveille(List<Carte> main, Plateau plateau){
-        return bot.choixCartePourMerveille(this, main, plateau);
+    public int constructMerveille(List<Carte> main,Inventaire invJoueur, Plateau plateau){
+        return bot.choixCartePourMerveille(this, main,invJoueur, plateau);
     }
 
 
@@ -118,8 +115,8 @@ public class Joueur {
      * @param plateau le plateau de jeu
      * @return L'indice de la carte que le joueur veut jouer
      */
-    public int choixCarte(List<Carte> main, Plateau plateau){
-        return bot.choixMain(this , main, plateau,true);
+    public int choixCarte(List<Carte> main,Inventaire invJoueur, Plateau plateau){
+        return bot.choixMain(this , main,invJoueur, plateau,true);
     }
 
 
@@ -144,12 +141,6 @@ public class Joueur {
         return id;
     }
 
-    /**
-     * @return L'inventaire du joueur
-     */
-    public Inventaire getInv() {
-        return inv;
-    }
 
     /**
      * Redefinition de la la méthode equals

@@ -52,8 +52,8 @@ public class IAscientifiqueTest {
         setInv2.modifMerveille(merveille2);
         listeRessource = new ArrayList<>();
 
-        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName(),setInv1);
-        joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName(),setInv2);
+        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName());
 
         officine = new Carte(EnumCarte.V3, Collections.singletonList(EnumRessources.TISSU), Collections.singletonList(EnumRessources.COMPAS), 3, 1, EnumRessources.VERTE);
         guildScientifiques = new Carte(EnumCarte.P7, Arrays.asList(EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.MINERAI, EnumRessources.MINERAI), Collections.singletonList(EnumRessources.BONUSCPR), 3, 3, EnumRessources.VIOLETTE);
@@ -186,24 +186,24 @@ public class IAscientifiqueTest {
     public void commerceAdjacentTest(){
         setInv1.increaseValue(EnumRessources.REDMARRONGAUCHE, 1);
         // Renvoie true car le joueur a la réduc a gauche
-        assertTrue(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, setInv1, setInv2));
+        assertTrue(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1,setInv1, setInv1, setInv2));
 
 
         setInv1.clear();
         setInv1.increaseValue(EnumRessources.REDMARRONDROITE, 1);
         // Renvoie false car le joueur a la réduc a droite
-        assertFalse(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, setInv1, setInv2));
+        assertFalse(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1,setInv1, setInv1, setInv2));
 
         setInv1.clear();
         setInv1.increaseValue(EnumRessources.SCORE, 2);
         // Renvoie false car le joueur gauche a plus de point
-        assertFalse(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, setInv1, setInv2));
+        assertFalse(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1,setInv1, setInv1, setInv2));
 
 
         setInv1.clear();
         setInv2.increaseValue(EnumRessources.SCORE, 1);
         // Renvoie true car le joueur droit a plus de point
-        assertTrue(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1, setInv1, setInv2));
+        assertTrue(iAscientifique.commerceAdjacent(EnumRessources.BOIS, joueur1,setInv1, setInv1, setInv2));
     }
 }
 

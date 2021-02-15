@@ -3,6 +3,7 @@ package joueur;
 import metier.EnumRessources;
 import metier.Wonder;
 import objet_commun.Carte;
+import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class IAmonetaire implements IA {
      * @return Index de la carte à jouer dans la main
      */
     @Override
-    public int choixMain(Joueur j, List<Carte> main, Plateau plateau, boolean prix){
+    public int choixMain(Joueur j, List<Carte> main, Inventaire invJoueur, Plateau plateau, boolean prix){
         ArrayList<EnumRessources> ressourcesRecherchee = new ArrayList<>();
         List<String> carteRecherchee ;
         if(plateau.getAge()==1){
@@ -33,7 +34,7 @@ public class IAmonetaire implements IA {
         else {
             carteRecherchee = Arrays.asList("Phare","Guilde des Armateurs","Guilde des Espions", "Guilde des Philosophes","Guilde des Magistrats","Port","Chambre de Commerce");
         }
-        return choixCarte(j,main,plateau,carteRecherchee,ressourcesRecherchee,true,prix);
+        return choixCarte(j,main,invJoueur,plateau,carteRecherchee,ressourcesRecherchee,true,prix);
     }
 
 
@@ -45,9 +46,9 @@ public class IAmonetaire implements IA {
      * @return True construire / False sinon
      */
     @Override
-    public boolean choixMerveille(Joueur j, List<Carte> main, Plateau plateau){
+    public boolean choixMerveille(Joueur j, List<Carte> main,Inventaire invJoueur,Plateau plateau){
         List<Wonder> merveilles = Arrays.asList(Wonder.EPHESOS, Wonder.EPHESOSNUIT, Wonder.RHODOS, Wonder.RHODOSNUIT);
-        return choixConstrMerveille(j,main,plateau,merveilles);
+        return choixConstrMerveille(j,main,invJoueur,plateau,merveilles);
     }
 
     /**
@@ -57,7 +58,7 @@ public class IAmonetaire implements IA {
      * @param plateau le plateau de jeu
      * @return Index de la carte dans la défausse
      */
-    public int choisirCarteDeLaDefausse(Joueur j, List<Carte> paquetDefausse, Plateau plateau){
-        return choixMain(j,paquetDefausse,plateau,false);
+    public int choisirCarteDeLaDefausse(Joueur j, List<Carte> paquetDefausse,Inventaire invJoueur, Plateau plateau){
+        return choixMain(j,paquetDefausse,invJoueur,plateau,false);
     }
 }

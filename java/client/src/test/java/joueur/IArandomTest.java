@@ -40,7 +40,7 @@ public class IArandomTest {
     public void setup() {
         inventaire = new Inventaire(1, "FZEEGVB", "Enzo");
 
-        joueur = new Joueur(   0, Strategy.RANDOM , "Enzo", inventaire);
+        joueur = new Joueur(   0, Strategy.RANDOM , "Enzo");
         main = new ArrayList<>();
         plateau = new Plateau(inv);
         bot = new  IArandom();
@@ -60,11 +60,11 @@ public class IArandomTest {
     public void commerceAdjacentTest() {
         IA iaRandom = Mockito.mock(IArandom.class);
 
-        Mockito.when(iaRandom.commerceAdjacent(EnumRessources.BOIS, joueur, inventaire, inventaire)).thenReturn(true);
-        assertTrue(iaRandom.commerceAdjacent(EnumRessources.BOIS, joueur, inventaire, inventaire));
+        Mockito.when(iaRandom.commerceAdjacent(EnumRessources.BOIS, joueur,inventaire, inventaire, inventaire)).thenReturn(true);
+        assertTrue(iaRandom.commerceAdjacent(EnumRessources.BOIS, joueur,inventaire, inventaire, inventaire));
 
-        Mockito.when(iaRandom.commerceAdjacent(EnumRessources.BOIS, joueur, inventaire, inventaire)).thenReturn(false);
-        assertFalse(iaRandom.commerceAdjacent(EnumRessources.BOIS, joueur, inventaire, inventaire));
+        Mockito.when(iaRandom.commerceAdjacent(EnumRessources.BOIS, joueur,inventaire, inventaire, inventaire)).thenReturn(false);
+        assertFalse(iaRandom.commerceAdjacent(EnumRessources.BOIS, joueur, inventaire,inventaire, inventaire));
     }
 
 
@@ -75,11 +75,11 @@ public class IArandomTest {
     public void choixMerveilleTest() {
         IA iaRandom = Mockito.mock(IArandom.class);
 
-        Mockito.when(iaRandom.choixMerveille(joueur, main, plateau)).thenReturn(true);
-        assertTrue(iaRandom.choixMerveille(joueur, main, plateau));
+        Mockito.when(iaRandom.choixMerveille(joueur, main,inventaire, plateau)).thenReturn(true);
+        assertTrue(iaRandom.choixMerveille(joueur, main,inventaire, plateau));
 
-        Mockito.when(iaRandom.choixMerveille(joueur, main, plateau)).thenReturn(false);
-        assertFalse(iaRandom.choixMerveille(joueur, main, plateau));
+        Mockito.when(iaRandom.choixMerveille(joueur, main,inventaire, plateau)).thenReturn(false);
+        assertFalse(iaRandom.choixMerveille(joueur, main,inventaire, plateau));
     }
 
 
@@ -97,9 +97,9 @@ public class IArandomTest {
      */
     @Test
     public void choixDefausseTest() {
-        doReturn(true).when(mbot).choixDefausse(mjoe, mcart, mplateau);
-        mbot.choixDefausse(mjoe, mcart, mplateau);
-        assertTrue(mbot.choixDefausse(mjoe, mcart, mplateau));
+        doReturn(true).when(mbot).choixDefausse(mjoe, mcart,inventaire, mplateau);
+        mbot.choixDefausse(mjoe, mcart,inventaire, mplateau);
+        assertTrue(mbot.choixDefausse(mjoe, mcart,inventaire, mplateau));
     }
 
 
@@ -112,11 +112,11 @@ public class IArandomTest {
 
         // On ajoute une carte
         main.add(new Carte(EnumCarte.M6, Collections.emptyList(), Collections.emptyList(),1,1,EnumRessources.MARRON));
-        assertEquals(0, bot.choixMain(joueur, main, plateau,true));
+        assertEquals(0, bot.choixMain(joueur, main,inventaire, plateau,true));
 
         // On ajoute une deuxième carte
         main.add(new Carte(EnumCarte.M5, Collections.emptyList(), Collections.emptyList(),1,1,EnumRessources.MARRON));
-        choix = bot.choixMain(joueur, main, plateau,true);
+        choix = bot.choixMain(joueur, main,inventaire, plateau,true);
         assertTrue(choix >= 0 && choix <= 1);
 
         // On ajoute cinq nouvelle carte
@@ -126,7 +126,7 @@ public class IArandomTest {
         main.add(new Carte(EnumCarte.R4, Collections.emptyList(), Collections.emptyList(),1,1,EnumRessources.MARRON));
         main.add(new Carte(EnumCarte.R8, Collections.emptyList(), Collections.emptyList(),1,1,EnumRessources.MARRON));
         main.add(new Carte(EnumCarte.V9, Collections.emptyList(), Collections.emptyList(),1,1,EnumRessources.MARRON));
-        choix = bot.choixMain(joueur, main, plateau,true);
+        choix = bot.choixMain(joueur, main,inventaire, plateau,true);
         assertTrue(choix >= 0 && choix <= 9);
     }
 }

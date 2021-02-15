@@ -56,7 +56,7 @@ public class IAcompositeTest {
         lCart = Collections.singletonList(EnumRessources.BOIS);
         lCarte = Collections.singletonList("Atelier");
         main = new ArrayList<>();
-        joueur = new Joueur(0, Strategy.COMPOSITE, "Omega", inv0);
+        joueur = new Joueur(0, Strategy.COMPOSITE, "Omega");
         mocIA = Mockito.mock(IAcomposite.class);
         iaComposite = new IAcomposite();
 
@@ -83,7 +83,7 @@ public class IAcompositeTest {
         listeInv.add(setInv2);
         listeInv.add(setInv3);
 
-        joueur2 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName(),setInv1);
+        joueur2 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
 
         plateau = new Plateau(listeInv);
     }
@@ -96,10 +96,10 @@ public class IAcompositeTest {
     public void choixDefausseTest() {
         // Merveille Babylon donc botChameleon scientifique
         // Retourne True car le joueur peut que défausser la carte (il ne peut pas la construire)
-        assertTrue(iaComposite.choixDefausse(joueur2, cartePayante, plateau));
+        assertTrue(iaComposite.choixDefausse(joueur2, cartePayante,setInv1, plateau));
 
         // Retourne False car le joueur peut construire la carte
-        assertFalse(iaComposite.choixDefausse(joueur2, carteGratuite, plateau));
+        assertFalse(iaComposite.choixDefausse(joueur2, carteGratuite,setInv1, plateau));
     }
 
 
@@ -110,9 +110,9 @@ public class IAcompositeTest {
     public void choixMainTest() {
         // Merveille Babylon donc botChameleon scientifique
         // Retourne 0, car il y a une seul carte dans la main
-        int choixDuneMain = mocIA.choixCarte(joueur, main, plateau, lCarte, lCart, true,true);
+        int choixDuneMain = mocIA.choixCarte(joueur, main,setInv1, plateau, lCarte, lCart, true,true);
         assertEquals(0,choixDuneMain);
-        assertEquals(0,iaComposite.choixMain(joueur2, mainJoueur, plateau, false));
+        assertEquals(0,iaComposite.choixMain(joueur2, mainJoueur,setInv1, plateau, false));
     }
 
 
@@ -123,14 +123,14 @@ public class IAcompositeTest {
     public void choixMerveilleTest(){
         // Merveille Babylon donc botChameleon scientifique
         // Le joueur ne peut pas construire sa merveille car il lui manque 2 argiles
-        assertFalse(iaComposite.choixMerveille(joueur2, mainJoueur, plateau));
+        assertFalse(iaComposite.choixMerveille(joueur2, mainJoueur,setInv1, plateau));
 
         // On donne 2 argiles au joueur
         setInv1.increaseValue(EnumRessources.ARGILE, 2);
 
         // Le joueur a la merveille babylon donc l'IA composite se branche sur l'IA Scientifique, alors le joueur ne peut pas construire sa merveille
         // car l'IA Scientifique ne construit aucune merveille
-        assertFalse(iaComposite.choixMerveille(joueur2, mainJoueur, plateau));
+        assertFalse(iaComposite.choixMerveille(joueur2, mainJoueur,setInv1, plateau));
     }
 
 
@@ -141,10 +141,10 @@ public class IAcompositeTest {
     public void choixCartePourMerveilleTest() {
         // Merveille Babylon donc botChameleon scientifique
         // La premiere carte dans la main est payante donc son index est renvoyé
-        assertEquals(0,iaComposite.choixCartePourMerveille(joueur2, mainJoueur, plateau));
+        assertEquals(0,iaComposite.choixCartePourMerveille(joueur2, mainJoueur,setInv1, plateau));
         main.add(cart);
         main.add(carteGratuite);
-        int leChoix = mocIA.choixCartePourMerveille(joueur, main, plateau);
+        int leChoix = mocIA.choixCartePourMerveille(joueur, main, setInv1,plateau);
         assertEquals(0, leChoix);
     }
 

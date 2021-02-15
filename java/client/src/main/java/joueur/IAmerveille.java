@@ -2,6 +2,7 @@ package joueur;
 
 import objet_commun.Carte;
 import utilitaire_jeu.Construction;
+import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 
 import java.util.List;
@@ -20,9 +21,9 @@ public class IAmerveille implements IA {
      * @return Index de la carte à jouer dans la main
      */
     @Override
-    public int choixMain(Joueur j, List<Carte> main, Plateau plateau, boolean prix){
+    public int choixMain(Joueur j, List<Carte> main, Inventaire invJoueur, Plateau plateau, boolean prix){
         for(int i = 0 ; i < main.size() ; i++) {
-            if (Construction.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()), plateau)) {
+            if (Construction.permisDeConstruction(main.get(i), invJoueur, plateau.joueurGauche(invJoueur), plateau.joueurDroit(invJoueur), plateau)) {
                 return i;
             }
         } return 1 ;
@@ -36,10 +37,10 @@ public class IAmerveille implements IA {
      * @return True construire / False sinon
      */
     @Override
-    public boolean choixMerveille(Joueur j, List<Carte> main, Plateau plateau){
-        if(Boolean.TRUE.equals(j.getInv().getMerveille().peutAmeliorerMerveille())){
+    public boolean choixMerveille(Joueur j, List<Carte> main,Inventaire invJoueur, Plateau plateau){
+        if(Boolean.TRUE.equals(invJoueur.getMerveille().peutAmeliorerMerveille())){
             for(int i = 0 ; i < main.size() ; i++) {
-                if (Construction.permisDeConstruction( j.getInv().getMerveille().getCarteAConstruire(),j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau)) {
+                if (Construction.permisDeConstruction( invJoueur.getMerveille().getCarteAConstruire(),invJoueur, plateau.joueurGauche(invJoueur), plateau.joueurDroit(invJoueur),plateau)) {
                     return true; // Si l'étage de la merveille est constructible par le joueur alors il décide de construire la merveille
                 }
             }
@@ -54,8 +55,8 @@ public class IAmerveille implements IA {
      * @param plateau le plateau de jeu
      * @return Index de la carte à jouer depuis la défausse
      */
-    public int choisirCarteDeLaDefausse(Joueur j, List<Carte> paquetDefausse, Plateau plateau){
-        return choixMain(j,paquetDefausse,plateau,false);
+    public int choisirCarteDeLaDefausse(Joueur j, List<Carte> paquetDefausse,Inventaire invJoueur, Plateau plateau){
+        return choixMain(j,paquetDefausse,invJoueur,plateau,false);
     }
 
 }

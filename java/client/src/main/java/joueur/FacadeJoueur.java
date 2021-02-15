@@ -6,6 +6,7 @@ import objet_commun.Carte;
 import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,11 +25,10 @@ public class FacadeJoueur {
      * @param id Unique IDentifier
      * @param strategie La stratégie que le joueur doit avoir
      * @param name Le nom
-     * @param inv L'inventaire dont le joueur dépend
      * @return Le nouveau joueur associé aux paramètres fournis
      */
-    public static void newJoueur(int id, Strategy strategie, String url, String name, Inventaire inv) {
-        Joueur new_player = new Joueur(id, strategie, name, inv);
+    public static void newJoueur(int id, Strategy strategie, String url, String name) {
+        Joueur new_player = new Joueur(id, strategie, name);
         joueursConnect.put(url,new_player);
     }
 
@@ -38,9 +38,11 @@ public class FacadeJoueur {
      * @param plateau le plateau sur lequel est le joueur
      * @return true si la carte est à défausser, false sinon
      */
-    public static boolean jouerDefausse(String url, Carte carte, Plateau plateau) {
+    public static boolean jouerDefausse(String url, Carte carte,Inventaire invJoueur, Plateau plateau) {
         Joueur j = joueursConnect.get(url);
-        return j.jouerdefausse(carte, plateau);
+        List<Carte> listCarte = new ArrayList<>();
+        listCarte.add(carte);
+        return j.jouerdefausse(listCarte, invJoueur, plateau);
     }
 
 
@@ -50,9 +52,9 @@ public class FacadeJoueur {
      * @param plateau Le plateau de jeu (contenant les inventaires des autres joueur)
      * @return Index de la carte à jouer depuis la défausse
      */
-    public static int jouerGratuitementDanslaDefausse(String url, List<Carte> paquetDefausse, Plateau plateau){
+    public static int jouerGratuitementDanslaDefausse(String url, List<Carte> paquetDefausse,Inventaire invJoueur, Plateau plateau){
         Joueur j = joueursConnect.get(url);
-        return j.jouerGratuitementDanslaDefausse(paquetDefausse,plateau);
+        return j.jouerGratuitementDanslaDefausse(paquetDefausse, invJoueur, plateau);
     }
 
     /**
@@ -61,9 +63,9 @@ public class FacadeJoueur {
      * @param plateau le plateau sur lequel est le joueur
      * @return true si le joueur veut construire une étape, false sinon
      */
-    public static boolean jouerMerveille(String url, List<Carte> main, Plateau plateau) {
+    public static boolean jouerMerveille(String url, List<Carte> main,Inventaire invJoueur, Plateau plateau) {
         Joueur j = joueursConnect.get(url);
-        return j.jouerMerveille(main, plateau);
+        return j.jouerMerveille(main, invJoueur, plateau);
     }
 
     /**
@@ -73,9 +75,9 @@ public class FacadeJoueur {
      * @param plateau le plateau sur lequel est le joueur
      * @return l'indice de la carte à sacrifier
      */
-    public static int constructMerveille(String url, List<Carte> main, Plateau plateau) {
+    public static int constructMerveille(String url, List<Carte> main,Inventaire invJoueur, Plateau plateau) {
         Joueur j = joueursConnect.get(url);
-        return j.constructMerveille(main, plateau);
+        return j.constructMerveille(main, invJoueur, plateau);
     }
 
     /**
@@ -84,9 +86,9 @@ public class FacadeJoueur {
      * @param plateau le plateau sur lequel est le joueur
      * @return l'indice de la carte renvoyée
      */
-    public static int choixCarte(String url, List<Carte> main, Plateau plateau) {
+    public static int choixCarte(String url, List<Carte> main,Inventaire invJoueur, Plateau plateau) {
         Joueur j = joueursConnect.get(url);
-        return j.choixCarte(main, plateau);
+        return j.choixCarte(main,invJoueur, plateau);
     }
 
     /**
@@ -98,23 +100,6 @@ public class FacadeJoueur {
         return j.getName();
     }
 
-    /**
-     * Cette méthode donne l'ID d'un joueur donné
-     * @return l'ID du joueur
-     */
-    public static int getId(String url){
-        Joueur j = joueursConnect.get(url);
-        return j.getId();
-    }
-
-    /**
-     * Cette méthode donne l'inventaire d'un joueur donné
-     * @return l'inventaire du joueur
-     */
-    public static Inventaire getInv(String url){
-        Joueur j = joueursConnect.get(url);
-        return j.getInv();
-    }
 
     /**
      * Cette méthode donne la stratégie d'un joueur donné

@@ -42,8 +42,8 @@ public class IAambitieuseTest {
         iAambitieuse = new IAambitieuse();
         setInv1 = new SetInventaire(0, "url1", "j1");
         SetInventaire setInv2 = new SetInventaire(1, "url2", "j2");
-        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName(),setInv1);
-        Joueur joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName(),setInv2);
+        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        Joueur joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName());
         carte1 = new Carte(EnumCarte.V3, Collections.singletonList(EnumRessources.TISSU), Collections.singletonList(EnumRessources.COMPAS), 3, 1, EnumRessources.VERTE);
         carte2 = new Carte(EnumCarte.P7, Arrays.asList(EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.MINERAI, EnumRessources.MINERAI), Collections.singletonList(EnumRessources.BONUSCPR), 3, 3, EnumRessources.VIOLETTE);
         carte4 = new Carte(EnumCarte.V4, Arrays.asList(EnumRessources.BOIS, EnumRessources.PAPYRUS), Collections.singletonList(EnumRessources.PDR), 3, 2, EnumRessources.VERTE);
@@ -73,7 +73,7 @@ public class IAambitieuseTest {
         main = new ArrayList<>();
         main.add(carte1);
         main.add(carte4);
-        assertFalse( iAambitieuse.choixMerveille(joueur1, main, plateau));
+        assertFalse( iAambitieuse.choixMerveille(joueur1, main,setInv1, plateau));
     }
 
 
@@ -86,7 +86,7 @@ public class IAambitieuseTest {
         main = new ArrayList<>();
         main.add(carte1);
         main.add(carte2);
-        assertEquals(0, iAambitieuse.choixMain(joueur1, main, plateau,false));
+        assertEquals(0, iAambitieuse.choixMain(joueur1, main,setInv1, plateau,false));
     }
 
 
@@ -101,7 +101,7 @@ public class IAambitieuseTest {
         main = new ArrayList<>();
         main.add(carte1);
         main.add(carte2);
-        assertEquals(0, iAambitieuse.choixCarteAge3(joueur1,main,plateau,carteRecherche,ressourceRecherche,false,false));
+        assertEquals(0, iAambitieuse.choixCarteAge3(joueur1,main,setInv1,plateau,carteRecherche,ressourceRecherche,false,false));
     }
 
 
@@ -110,7 +110,7 @@ public class IAambitieuseTest {
      */
     @Test
     public void getTotalPointsTest() {
-        int points = iAambitieuse.getTotalPoints(carte2,joueur1,plateau);
+        int points = iAambitieuse.getTotalPoints(carte2,joueur1,setInv1,plateau);
         assertEquals(0, points);
     }
 
@@ -131,15 +131,15 @@ public class IAambitieuseTest {
 
         // Test à l'âge 1
         plateau.incrementeAge();
-        assertEquals(listAttendue, iAambitieuse.rechercheRessources(joueur1, plateau));
+        assertEquals(listAttendue, iAambitieuse.rechercheRessources(joueur1,setInv1, plateau));
 
         // Test à l'âge 2
         plateau.incrementeAge();
-        assertEquals(listAttendue, iAambitieuse.rechercheRessources(joueur1, plateau));
+        assertEquals(listAttendue, iAambitieuse.rechercheRessources(joueur1,setInv1, plateau));
 
         // Test à l'âge 3
         plateau.incrementeAge();
-        assertEquals(new ArrayList<>(), iAambitieuse.rechercheRessources(joueur1, plateau));
+        assertEquals(new ArrayList<>(), iAambitieuse.rechercheRessources(joueur1, setInv1,plateau));
     }
 
 
@@ -148,27 +148,27 @@ public class IAambitieuseTest {
      */
     @Test
     public void getScientistPointsTest() {
-        assertEquals(1, iAambitieuse.getScientistPoints(EnumRessources.PDR, joueur1));
-        assertEquals(1, iAambitieuse.getScientistPoints(EnumRessources.ROUE, joueur1));
-        assertEquals(1, iAambitieuse.getScientistPoints(EnumRessources.COMPAS, joueur1));
+        assertEquals(1, iAambitieuse.getScientistPoints(EnumRessources.PDR, joueur1,setInv1));
+        assertEquals(1, iAambitieuse.getScientistPoints(EnumRessources.ROUE, joueur1,setInv1));
+        assertEquals(1, iAambitieuse.getScientistPoints(EnumRessources.COMPAS, joueur1,setInv1));
 
         // Le résultat attendue pour Pierre de Rosette en paramètre doit être 3, les autres reste à 1
         setInv1.increaseValue(EnumRessources.PDR, 1);
-        assertEquals(3, iAambitieuse.getScientistPoints(EnumRessources.PDR, joueur1));
-        assertEquals(1, iAambitieuse.getScientistPoints(EnumRessources.ROUE, joueur1));
-        assertEquals(1, iAambitieuse.getScientistPoints(EnumRessources.COMPAS, joueur1));
+        assertEquals(3, iAambitieuse.getScientistPoints(EnumRessources.PDR, joueur1,setInv1));
+        assertEquals(1, iAambitieuse.getScientistPoints(EnumRessources.ROUE, joueur1,setInv1));
+        assertEquals(1, iAambitieuse.getScientistPoints(EnumRessources.COMPAS, joueur1,setInv1));
 
         // Tous le mode doit être a 3 pour le résultat attendue
         setInv1.increaseValue(EnumRessources.ROUE, 1);
         setInv1.increaseValue(EnumRessources.COMPAS, 1);
-        assertEquals(3, iAambitieuse.getScientistPoints(EnumRessources.PDR, joueur1));
-        assertEquals(3, iAambitieuse.getScientistPoints(EnumRessources.ROUE, joueur1));
-        assertEquals(3, iAambitieuse.getScientistPoints(EnumRessources.COMPAS, joueur1));
+        assertEquals(3, iAambitieuse.getScientistPoints(EnumRessources.PDR, joueur1,setInv1));
+        assertEquals(3, iAambitieuse.getScientistPoints(EnumRessources.ROUE, joueur1,setInv1));
+        assertEquals(3, iAambitieuse.getScientistPoints(EnumRessources.COMPAS, joueur1,setInv1));
 
         // Le résultat attendue doit être de 10
         setInv1.increaseValue(EnumRessources.ROUE, 1);
         setInv1.increaseValue(EnumRessources.COMPAS, 1);
-        assertEquals(10, iAambitieuse.getScientistPoints(EnumRessources.PDR, joueur1));
+        assertEquals(10, iAambitieuse.getScientistPoints(EnumRessources.PDR, joueur1,setInv1));
     }
 
 
@@ -188,11 +188,11 @@ public class IAambitieuseTest {
         setInvs.add(setVoisinGauche);
         List<Joueur> joueurs = new ArrayList<>();
         joueurs.add(joueur1);
-        joueurs.add(new Joueur(setVoisinDroit.getId(),Strategy.AMBITIEUSE,setVoisinDroit.getJoueurName(),setVoisinDroit));
-        joueurs.add(new Joueur(setVoisinGauche.getId(),Strategy.AMBITIEUSE,setVoisinGauche.getJoueurName(),setVoisinGauche));
+        joueurs.add(new Joueur(setVoisinDroit.getId(),Strategy.AMBITIEUSE,setVoisinDroit.getJoueurName()));
+        joueurs.add(new Joueur(setVoisinGauche.getId(),Strategy.AMBITIEUSE,setVoisinGauche.getJoueurName()));
         plateau = new Plateau(setInvs);
 
-        assertFalse(iAambitieuse.besoinDeBouclier(joueur1, plateau));
+        assertFalse(iAambitieuse.besoinDeBouclier(joueur1,setInv1, plateau));
 
 
         // Le joueur a moins de bouclier que sont voisin de droite
@@ -203,11 +203,11 @@ public class IAambitieuseTest {
         setInvs.add(setVoisinGauche);
         joueurs = new ArrayList<>();
         joueurs.add(joueur1);
-        joueurs.add(new Joueur(setVoisinDroit.getId(),Strategy.AMBITIEUSE,setVoisinDroit.getJoueurName(),setVoisinDroit));
-        joueurs.add(new Joueur(setVoisinGauche.getId(),Strategy.AMBITIEUSE,setVoisinGauche.getJoueurName(),setVoisinGauche));
+        joueurs.add(new Joueur(setVoisinDroit.getId(),Strategy.AMBITIEUSE,setVoisinDroit.getJoueurName()));
+        joueurs.add(new Joueur(setVoisinGauche.getId(),Strategy.AMBITIEUSE,setVoisinGauche.getJoueurName()));
         plateau = new Plateau(setInvs);
 
-        assertTrue(iAambitieuse.besoinDeBouclier(joueur1, plateau));
+        assertTrue(iAambitieuse.besoinDeBouclier(joueur1,setInv1, plateau));
 
 
         // Le joueur a moins de bouclier que sont voisin de gauche
@@ -219,11 +219,11 @@ public class IAambitieuseTest {
         setInvs.add(setVoisinGauche);
         joueurs = new ArrayList<>();
         joueurs.add(joueur1);
-        joueurs.add(new Joueur(setVoisinDroit.getId(),Strategy.AMBITIEUSE,setVoisinDroit.getJoueurName(),setVoisinDroit));
-        joueurs.add(new Joueur(setVoisinGauche.getId(),Strategy.AMBITIEUSE,setVoisinGauche.getJoueurName(),setVoisinGauche));
+        joueurs.add(new Joueur(setVoisinDroit.getId(),Strategy.AMBITIEUSE,setVoisinDroit.getJoueurName()));
+        joueurs.add(new Joueur(setVoisinGauche.getId(),Strategy.AMBITIEUSE,setVoisinGauche.getJoueurName()));
         plateau = new Plateau(setInvs);
 
-        assertTrue(iAambitieuse.besoinDeBouclier(joueur1, plateau));
+        assertTrue(iAambitieuse.besoinDeBouclier(joueur1,setInv1, plateau));
     }
 
 
@@ -237,7 +237,7 @@ public class IAambitieuseTest {
         main.add(carte1);
         main.add(carte2);
         main.add(carte4);
-        assertEquals(0, iAambitieuse.choisirCarteDeLaDefausse(joueur1, main, plateau));
+        assertEquals(0, iAambitieuse.choisirCarteDeLaDefausse(joueur1, main,setInv1, plateau));
     }
 }
 

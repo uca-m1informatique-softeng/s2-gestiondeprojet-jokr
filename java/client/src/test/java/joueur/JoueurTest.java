@@ -42,12 +42,12 @@ public class JoueurTest {
         inv4 = new Inventaire(4, "url4", "Paul");
         inv5 = new Inventaire(5, "url5", "Lucie");
         inv6 = new Inventaire(5, "url6", "Thomas");
-        joueur1 = new Joueur(inv1.getId(),Strategy.RANDOM,inv1.getJoueurName(),inv1);
-        joueur2 = new Joueur(inv2.getId(),Strategy.MERVEILLE,inv2.getJoueurName(),inv2);
-        joueur3 = new Joueur(inv3.getId(),Strategy.MERVEILLE,inv3.getJoueurName(),inv3);
-        joueur4 = new Joueur(inv4.getId(),Strategy.SCIENTIFIQUE,inv4.getJoueurName(),inv4);
-        joueur5 = new Joueur(inv5.getId(),Strategy.AMBITIEUSE,inv5.getJoueurName(),inv5);
-        joueur6 = new Joueur(inv6.getId(),Strategy.MILITAIRE,inv6.getJoueurName(),inv6);
+        joueur1 = new Joueur(inv1.getId(),Strategy.RANDOM,inv1.getJoueurName());
+        joueur2 = new Joueur(inv2.getId(),Strategy.MERVEILLE,inv2.getJoueurName());
+        joueur3 = new Joueur(inv3.getId(),Strategy.MERVEILLE,inv3.getJoueurName());
+        joueur4 = new Joueur(inv4.getId(),Strategy.SCIENTIFIQUE,inv4.getJoueurName());
+        joueur5 = new Joueur(inv5.getId(),Strategy.AMBITIEUSE,inv5.getJoueurName());
+        joueur6 = new Joueur(inv6.getId(),Strategy.MILITAIRE,inv6.getJoueurName());
 
 
         ArrayList<Inventaire> listeInventaire = new ArrayList<>(){{add(inv1);add(inv2);add(inv3);add(inv4);add(inv5);add(inv6);}};
@@ -55,7 +55,7 @@ public class JoueurTest {
         plateau = new Plateau(listeInventaire);
 
         IAmock = Mockito.mock(IArandom.class);
-        joueurSpy = new Joueur(inv.getId(),Strategy.ULTIME,inv.getJoueurName(),inv);
+        joueurSpy = new Joueur(inv.getId(),Strategy.ULTIME,inv.getJoueurName());
         joueurSpy.setBot(IAmock);
         joueurSpy = Mockito.spy(joueurSpy);
 
@@ -80,8 +80,8 @@ public class JoueurTest {
      */
     @Test
     public void achatRessourceTest() {
-        joueurSpy.achatRessource(EnumRessources.BOIS, inv1, inv2);
-        Mockito.verify(IAmock).commerceAdjacent(EnumRessources.BOIS, joueurSpy, inv1, inv2);
+        joueurSpy.achatRessource(EnumRessources.BOIS,inv, inv1, inv2);
+        Mockito.verify(IAmock).commerceAdjacent(EnumRessources.BOIS, joueurSpy,inv, inv1, inv2);
     }
 
     /**
@@ -89,7 +89,7 @@ public class JoueurTest {
      */
     @Test
     public void jouerGratuitementDanslaDefausseTest() {
-        joueurSpy.jouerGratuitementDanslaDefausse(listeCarte, plateau);
+        joueurSpy.jouerGratuitementDanslaDefausse(listeCarte, inv,plateau);
         Mockito.verify(IAmock).choisirCarteDeLaDefausse(listeCarte, plateau);
     }
 
@@ -98,8 +98,8 @@ public class JoueurTest {
      */
     @Test
     public void jouerMerveilleTest() {
-        joueurSpy.jouerMerveille(listeCarte, plateau);
-        Mockito.verify(IAmock).choixMerveille(joueurSpy, listeCarte, plateau);
+        joueurSpy.jouerMerveille(listeCarte,inv, plateau);
+        Mockito.verify(IAmock).choixMerveille(joueurSpy, listeCarte,inv, plateau);
     }
 
     /**
@@ -107,8 +107,8 @@ public class JoueurTest {
      */
     @Test
     public void constructMerveilleTest() {
-        joueurSpy.constructMerveille(listeCarte, plateau);
-        Mockito.verify(IAmock).choixCartePourMerveille(joueurSpy, listeCarte, plateau);
+        joueurSpy.constructMerveille(listeCarte,inv, plateau);
+        Mockito.verify(IAmock).choixCartePourMerveille(joueurSpy, listeCarte,inv, plateau);
     }
 
     /**
@@ -116,8 +116,8 @@ public class JoueurTest {
      */
     @Test
     public void choixCarteTest() {
-        joueurSpy.choixCarte(listeCarte , plateau);
-        Mockito.verify(IAmock).choixMain(Mockito.eq(joueurSpy), Mockito.any(), Mockito.eq(plateau), Mockito.eq(true));
+        joueurSpy.choixCarte(listeCarte ,inv, plateau);
+        Mockito.verify(IAmock).choixMain(Mockito.eq(joueurSpy), Mockito.any(), inv,Mockito.eq(plateau), Mockito.eq(true));
     }
 
     /**
@@ -169,26 +169,16 @@ public class JoueurTest {
         assertEquals(36,joueur5.hashCode());
     }
 
-    /**
-     * Test du getter getInv() pour verifier si on a bien selectionner le bon inventaire pour un joueur specifique
-     */
-    @Test
-    public void getInv() {
-        assertEquals(inv1,joueur1.getInv());
-        assertEquals(inv2,joueur2.getInv());
-        assertEquals(inv3,joueur3.getInv());
-        assertEquals(inv4,joueur4.getInv());
-        assertEquals(inv5,joueur5.getInv());
-    }
+
 
     /**
      * Test de la méthode equals()
      */
     @Test
     public void equals() {
-        assertEquals(new Joueur(1, Strategy.RANDOM, "j1", inv1), joueur1);
-        assertEquals(new Joueur(2, Strategy.RANDOM, "j2", inv3), joueur2);
-        assertNotEquals(new Joueur(2, Strategy.RANDOM, "j3", inv3), joueur3);
+        assertEquals(new Joueur(1, Strategy.RANDOM, "j1"), joueur1);
+        assertEquals(new Joueur(2, Strategy.RANDOM, "j2"), joueur2);
+        assertNotEquals(new Joueur(2, Strategy.RANDOM, "j3"), joueur3);
         assertNotEquals(joueur1.hashCode(), joueur2.hashCode());
         assertNotEquals(joueur2.hashCode(), joueur3.hashCode());
         assertNotEquals(joueur3.hashCode(), joueur4.hashCode());

@@ -49,8 +49,8 @@ public class IAmonetaireTest {
         setInv1 = new SetInventaire(0, "url1", "j1");
         setInv2 = new SetInventaire(1, "url2", "j2");
 
-        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName(),setInv1);
-        Joueur joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName(),setInv2);
+        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        Joueur joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName());
 
         chantier = new Carte(EnumCarte.M6, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.BOIS), 3, 1, EnumRessources.MARRON);
         taverne = new Carte(EnumCarte.J4, Collections.singletonList(EnumRessources.GRATUIT), Arrays.asList(EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE), 7, 1, EnumRessources.JAUNE);
@@ -87,7 +87,7 @@ public class IAmonetaireTest {
         main.add(taverne);
         main.add(phare);
         // L'IA choisie en priorité la carte taverne pour l'âge 1, donc l'index 1
-        assertEquals(1, iAmonetaire.choixMain(joueur1, main, plateau, false));
+        assertEquals(1, iAmonetaire.choixMain(joueur1, main, setInv1,plateau, false));
 
         plateau.incrementeAge();
         main = new ArrayList<>();
@@ -96,7 +96,7 @@ public class IAmonetaireTest {
         main.add(phare);
         main.add(vignoble);
         // L'IA choisie en priorité la carte vignoble pour l'âge 2, donc l'index 3
-        assertEquals(3, iAmonetaire.choixMain(joueur1, main, plateau, false));
+        assertEquals(3, iAmonetaire.choixMain(joueur1, main,setInv1, plateau, false));
 
         plateau.incrementeAge();
         main = new ArrayList<>();
@@ -105,7 +105,7 @@ public class IAmonetaireTest {
         main.add(taverne);
         main.add(vignoble);
         // L'IA choisie en priorité la carte phare scientifique pour l'âge 3, donc l'index 0
-        assertEquals(0, iAmonetaire.choixMain(joueur1, main, plateau, false));
+        assertEquals(0, iAmonetaire.choixMain(joueur1, main,setInv1, plateau, false));
     }
 
 
@@ -123,7 +123,7 @@ public class IAmonetaireTest {
         plateau = new Plateau(listeInventaire);
 
         // Le joueur na pas les ressource pour construire sa merveille
-        assertFalse(iAmonetaire.choixMerveille(joueur1, main, plateau));
+        assertFalse(iAmonetaire.choixMerveille(joueur1, main,setInv1, plateau));
 
         // On donne 2 argile au joueurs
         setInv1.increaseValue(EnumRessources.ARGILE, 2);
@@ -134,7 +134,7 @@ public class IAmonetaireTest {
         plateau = new Plateau(listeInventaire);
 
         // Le joueur a assez de ressource (2 argile)
-        assertTrue(iAmonetaire.choixMerveille(joueur1, main, plateau));
+        assertTrue(iAmonetaire.choixMerveille(joueur1, main,setInv1, plateau));
     }
 
 
@@ -149,6 +149,6 @@ public class IAmonetaireTest {
         main.add(taverne);
         main.add(phare);
         // L'IA choisie en priorité la carte taverne pour l'âge 1, donc l'index 1
-        assertEquals(1, iAmonetaire.choisirCarteDeLaDefausse(joueur1, main, plateau));
+        assertEquals(1, iAmonetaire.choisirCarteDeLaDefausse(joueur1, main,setInv1, plateau));
     }
 }

@@ -28,7 +28,7 @@ public interface IA {
      * @param prix si la carte est payante ou non
      * @return Index de la carte à jouer dans la main
      */
-    default int choixMain(Joueur j , List<Carte> main, Plateau plateau, boolean prix){
+    default int choixMain(Joueur j , List<Carte> main,Inventaire invJoueur, Plateau plateau, boolean prix){
         return r.nextInt(main.size()) ;
     }
 
@@ -49,8 +49,8 @@ public interface IA {
      * @param plateau le plateau de jeu
      * @return True défausse / false sinon
      */
-    default boolean choixDefausse(Joueur j , Carte carte , Plateau plateau) {
-        return !Construction.permisDeConstruction(carte , j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau);
+    default boolean choixDefausse(Joueur j , Carte carte ,Inventaire invJoueur, Plateau plateau) {
+        return !Construction.permisDeConstruction(carte , invJoueur, plateau.joueurGauche(invJoueur), plateau.joueurDroit(invJoueur),plateau);
     }
 
     /**
@@ -61,9 +61,9 @@ public interface IA {
      * @param droite l'inventaire du joueur de droite
      * @return true acheter à gauche / False à droite
      */
-    default Boolean commerceAdjacent(EnumRessources ressource, Joueur j, Inventaire gauche, Inventaire droite){
-        int reducDroite = j.getInv().getValue(EnumRessources.REDMARRONDROITE);
-        int reducGauche = j.getInv().getValue(EnumRessources.REDMARRONGAUCHE);
+    default Boolean commerceAdjacent(EnumRessources ressource, Joueur j,Inventaire invJoueur, Inventaire gauche, Inventaire droite){
+        int reducDroite = invJoueur.getValue(EnumRessources.REDMARRONDROITE);
+        int reducGauche = invJoueur.getValue(EnumRessources.REDMARRONGAUCHE);
         if(reducGauche>reducDroite){ /// SI ON A UNE REDUC A GAUCHE ET PAS A DROITE ///
             return true;
         }
@@ -81,7 +81,7 @@ public interface IA {
      * @param plateau le plateau de jeu
      * @return True Construire / False sinon
      */
-    default boolean choixMerveille(Joueur j , List<Carte> main, Plateau plateau){
+    default boolean choixMerveille(Joueur j , List<Carte> main,Inventaire invJoueur, Plateau plateau){
         int choix = r.nextInt(2);
         return choix == 0 ;
     }
@@ -96,17 +96,17 @@ public interface IA {
      * @param prix true si la carte est payante / false sinon (en cas de bonus qui rendrai la carte gratuite)
      * @return Index de la carte à jouer depuis la main
      */
-    default int choixCarte(Joueur j , List<Carte> main, Plateau plateau, List<String> carteRecherchee, List<EnumRessources> ressourcesRecherchee,boolean bouclier, boolean prix) {
-        List<Carte> possibilites = getPossibilites(j,main,plateau,prix);
+    default int choixCarte(Joueur j , List<Carte> main, Inventaire invJoueur, Plateau plateau, List<String> carteRecherchee, List<EnumRessources> ressourcesRecherchee, boolean bouclier, boolean prix) {
+        List<Carte> possibilites = getPossibilites(j,main,invJoueur,plateau,prix);
 
         if(!possibilites.isEmpty()){ // si il y a des cartes qu'il est possible d'acheter
             String carte = chercherCarteDansMain(carteRecherchee,possibilites); // renvoie la meilleur carte voulue si il y en a une sinon string vide
 
             if(carte.equals("") && bouclier ){ // aucune carte demandée n'est trouvée et le joueur souhaite se défendre en cas d'attaque
-                carte = seDefendre(j,plateau,possibilites); // recherche une carte rouge pour se défendre si nécessaire sinon retourne string vide
+                carte = seDefendre(j,invJoueur,plateau,possibilites); // recherche une carte rouge pour se défendre si nécessaire sinon retourne string vide
             }
             if(carte.equals("")){ // aucune carte encore trouvée donc cherchons des ressources
-                carte = chercherRessourcesDansMain(j,ressourcesRecherchee,possibilites); // cherche un carte donnant des ressources utiles pour le joueur en fonction de ses besoins
+                carte = chercherRessourcesDansMain(j,ressourcesRecherchee,invJoueur,possibilites); // cherche un carte donnant des ressources utiles pour le joueur en fonction de ses besoins
             }
             if (carte.equals("")) { // si toujours rien n'est trouvé alors renvoie la première carte possible d'acheter
                 carte = possibilites.get(0).getNom().toString();
@@ -129,17 +129,17 @@ public interface IA {
      * @return la main dépourvu des cartes impossibles à acheter
      */
 
-    default List<Carte> getPossibilites(Joueur j , List<Carte> main, Plateau plateau, boolean prix){
+    default List<Carte> getPossibilites(Joueur j , List<Carte> main,Inventaire invJoueur,  Plateau plateau,boolean prix){
         ArrayList<Carte> possibilites = new ArrayList<>();
         if(prix) {
             for (int i = 0; i < main.size(); i++) {
-                if (Construction.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau)) {
+                if (Construction.permisDeConstruction(main.get(i), invJoueur, plateau.joueurGauche(invJoueur), plateau.joueurDroit(invJoueur),plateau)) {
                     possibilites.add(main.get(i));
                 }
             }
         }else{
             for (int i = 0; i < main.size(); i++) {
-                if (!Construction.laConstructionViaDoublons(main.get(i), j.getInv(), false)) {
+                if (!Construction.laConstructionViaDoublons(main.get(i), invJoueur, false)) {
                     possibilites.add(main.get(i));
                 }
             }
@@ -171,10 +171,10 @@ public interface IA {
      * @param possibilites la main réduite aux cartes pouvant être achetées
      * @return le nom de la carte à jouer depuis la main
      */
-    default String seDefendre(Joueur j , Plateau plateau , List<Carte> possibilites){
-        int boucliers = j.getInv().getValue(EnumRessources.BOUCLIER);
+    default String seDefendre(Joueur j ,Inventaire invJoueur, Plateau plateau , List<Carte> possibilites){
+        int boucliers = invJoueur.getValue(EnumRessources.BOUCLIER);
         String carte = "";
-        if ((plateau.joueurGauche(j.getInv()).getValue(EnumRessources.BOUCLIER) > boucliers || plateau.joueurDroit(j.getInv()).getValue(EnumRessources.BOUCLIER) > boucliers)) {
+        if ((plateau.joueurGauche(invJoueur).getValue(EnumRessources.BOUCLIER) > boucliers || plateau.joueurDroit(invJoueur).getValue(EnumRessources.BOUCLIER) > boucliers)) {
             for (int i = 0; i < possibilites.size(); i++) {
                 if (possibilites.get(i).getCouleur().equals(EnumRessources.ROUGE)) {
                     carte = possibilites.get(i).getNom().toString();
@@ -192,7 +192,7 @@ public interface IA {
      * @param possibilites la main réduite aux cartes pouvant être achetées
      * @return le nom de la carte à jouer depuis la main
      */
-    default String chercherRessourcesDansMain(Joueur j , List<EnumRessources> ressourcesRecherchee, List<Carte> possibilites){
+    default String chercherRessourcesDansMain(Joueur j , List<EnumRessources> ressourcesRecherchee,Inventaire invJoueur, List<Carte> possibilites){
         String carte = "";
         for(int i = 0 ; i < ressourcesRecherchee.size(); i++){
             carte = approvisionnementDeRessource(j,possibilites,ressourcesRecherchee.get(i));
@@ -200,16 +200,16 @@ public interface IA {
                 return carte;
             }
         }
-        if (j.getInv().getValue(EnumRessources.BOIS) < 2) {
+        if (invJoueur.getValue(EnumRessources.BOIS) < 2) {
             carte = approvisionnementDeRessource(j,possibilites,EnumRessources.BOIS);
         }
-        if (carte.equals("") && j.getInv().getValue(EnumRessources.MINERAI) < 2) {
+        if (carte.equals("") && invJoueur.getValue(EnumRessources.MINERAI) < 2) {
             carte = approvisionnementDeRessource(j,possibilites,EnumRessources.MINERAI);
         }
-        if (carte.equals("") && j.getInv().getValue(EnumRessources.ARGILE) < 2) {
+        if (carte.equals("") && invJoueur.getValue(EnumRessources.ARGILE) < 2) {
             carte = approvisionnementDeRessource(j,possibilites,EnumRessources.ARGILE);
         }
-        if (carte.equals("") && j.getInv().getValue(EnumRessources.PIERRE) < 2) {
+        if (carte.equals("") && invJoueur.getValue(EnumRessources.PIERRE) < 2) {
             carte = approvisionnementDeRessource(j,possibilites,EnumRessources.PIERRE);
         }
         return carte;
@@ -241,8 +241,8 @@ public interface IA {
      * @return True Construire / False sinon
      */
 
-    default boolean choixConstrMerveille(Joueur j, List<Carte> main, Plateau plateau, List<Wonder> merveilles){
-        return merveilles.contains(j.getInv().getMerveille().getNom()) && j.getInv().getMerveille().peutAmeliorerMerveille() && (Construction.permisDeConstruction(j.getInv().getMerveille().getCarteAConstruire(),j.getInv(),plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau));
+    default boolean choixConstrMerveille(Joueur j, List<Carte> main, Inventaire invJoueur,Plateau plateau, List<Wonder> merveilles){
+        return merveilles.contains(invJoueur.getMerveille().getNom()) && invJoueur.getMerveille().peutAmeliorerMerveille() && (Construction.permisDeConstruction(invJoueur.getMerveille().getCarteAConstruire(),invJoueur,plateau.joueurGauche(invJoueur), plateau.joueurDroit(invJoueur),plateau));
              // Si l'étage de la merveille est constructible par le joueur alors il décide de construire la merveille
     }
 
@@ -253,9 +253,9 @@ public interface IA {
      * @param plateau le plateau de jeu
      * @return Index de la carte à sacrifier pour construire la merveille
      */
-    default int choixCartePourMerveille(Joueur j, List<Carte> main, Plateau plateau){
+    default int choixCartePourMerveille(Joueur j, List<Carte> main,Inventaire invJoueur, Plateau plateau){
         for(int i = 0 ; i < main.size() ; i++) {
-            if (!Construction.permisDeConstruction(main.get(i), j.getInv(), plateau.joueurGauche(j.getInv()), plateau.joueurDroit(j.getInv()),plateau)) {
+            if (!Construction.permisDeConstruction(main.get(i), invJoueur, plateau.joueurGauche(invJoueur), plateau.joueurDroit(invJoueur),plateau)) {
                 return i;
             }
         }
@@ -282,8 +282,8 @@ public interface IA {
      * @param ressource la ressource recherchée
      * @return la liste modifiée ou non selon la condition
      */
-    default List<EnumRessources> listeRessource(List<EnumRessources> ressourcesrecherchees, Joueur j, int nombreVoulu, EnumRessources ressource){
-        if(j.getInv().getValue(ressource)<nombreVoulu && !ressourcesrecherchees.contains(ressource)){
+    default List<EnumRessources> listeRessource(List<EnumRessources> ressourcesrecherchees, Joueur j,Inventaire invJoueur, int nombreVoulu, EnumRessources ressource){
+        if(invJoueur.getValue(ressource)<nombreVoulu && !ressourcesrecherchees.contains(ressource)){
             ressourcesrecherchees.add(ressource);
         }
         return ressourcesrecherchees;
