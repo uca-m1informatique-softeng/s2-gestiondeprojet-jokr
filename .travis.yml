@@ -35,3 +35,4 @@ script:
   - docker ps -a -q
   - docker rmi serveur
   - docker rmi moteur
+  - docker rmi client
