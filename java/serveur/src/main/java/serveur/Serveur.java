@@ -150,7 +150,7 @@ public class Serveur {
         DateFormat format = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss");
         Date date = new Date();
 
-        String path = "serveur/output/partie_unique/" + nbJoueur + " Joueurs/" + format.format(date) + ".txt";
+        String path = format.format(date) + ".txt";
         gestionnaireDeFichier.ecrireDansFichier(path, string.toString());
     }
 

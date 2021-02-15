@@ -22,7 +22,7 @@ before_script:
   - docker ps -a -q
   - docker build serveur -t serveur
   - docker build moteur -t moteur
-  - docker build client -t client
+  #- docker build client -t client
   - docker images
 
 
