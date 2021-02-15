@@ -23,13 +23,4 @@
       <module name="sevenw" target="11" />
     </bytecodeTargetLevel>
   </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="client" options="-parameters" />
-      <module name="commun" options="-parameters" />
-      <module name="moteur" options="-parameters" />
-      <module name="report" options="-parameters" />
-      <module name="serveur" options="-parameters" />
-    </option>
-  </component>
 </project>
