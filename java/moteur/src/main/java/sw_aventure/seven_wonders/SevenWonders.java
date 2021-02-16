@@ -223,7 +223,7 @@ public class SevenWonders {
      *             4ème argument : indiquer false si on ne veut ne lancer qu'une partie (ne lance pas les statistiques et n'écrit pas dans un fichier)
      *             Par défaut : true 1 3 false : on lance une partie à 3 joueurs que l'on affiche sur la sortie standard avec les couleurs
      */
-    public static void main(String[] args) throws NegativeNumberException, URISyntaxException, InterruptedException {
+    public static void main(String[] args) throws NegativeNumberException, URISyntaxException {
         // Nombres de joueurs
         int nbJoueurs ;
         // Nombres de parties si option des statistique activée
@@ -267,7 +267,6 @@ public class SevenWonders {
         }
         
         if (multiPartieAvecStat) {
-            //Thread.sleep(10000);
             Connexion.CONNEXION.setmSocket(IO.socket(url));
             Connexion.CONNEXION.demarrerEcoute();
             Connexion.CONNEXION.envoyerMessageBoolean("Initialisation", true);
@@ -287,8 +286,6 @@ public class SevenWonders {
                     sevenWonders.partie(nbJoueurs);
                 }
                 Connexion.CONNEXION.disconnect();
-                Thread.sleep(1000);
-                System.exit(0);
             }
         }
         else {
