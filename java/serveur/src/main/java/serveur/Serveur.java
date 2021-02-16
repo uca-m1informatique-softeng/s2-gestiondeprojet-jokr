@@ -163,8 +163,8 @@ public class Serveur {
     public static void main(String[] args) throws UnknownHostException {
         LoggerSevenWonders.init(true);
         Configuration config = new Configuration();
-
-        config.setHostname(InetAddress.getLocalHost().getHostName());
+        
+        config.setHostname(InetAddress.getLocalHost().getHostAddress());
         config.setPort(8081);
         SocketIOServer server = new SocketIOServer(config);
 
