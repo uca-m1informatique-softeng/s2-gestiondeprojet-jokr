@@ -38,6 +38,10 @@
         <version>20090211</version>
         <scope>compile</scope>
     </dependency>
+    <dependency>
+        <groupId>org.junit.vintage</groupId>
+        <artifactId>junit-vintage-engine</artifactId>
+    </dependency>
 </dependencies>
 
 </project>
