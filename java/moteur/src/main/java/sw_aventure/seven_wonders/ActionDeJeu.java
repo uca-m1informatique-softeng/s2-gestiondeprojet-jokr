@@ -5,11 +5,14 @@ import joueur.FacadeJoueur;
 import metier.EnumRessources;
 import objet_commun.Carte;
 import sw_aventure.objetjeu.MainJoueur;
+import utilitaire_jeu.DataToClient;
 import utilitaire_jeu.SetInventaire;
 import utilitaire_jeu.Construction;
 import utilitaire_jeu.Plateau;
 import utils.affichage.Colors;
 import utils.affichage.LoggerSevenWonders;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -109,10 +112,10 @@ public class ActionDeJeu {
      * @return True si il souhaite et qu'il peut construire sa merveille / false sinon
      */
     public boolean constructionMerveille(SetInventaire s, Plateau plateau) throws NegativeNumberException {
-        Boolean constructMerveille = FacadeJoueur.jouerMerveille(s.getUrl(), mainJoueurs.get(s.getId()).getMain(),s, plateau);
-
+        DataToClient data = new DataToClient(mainJoueurs.get(s.getId()).getMain(),s,plateau);
+        Boolean constructMerveille = FacadeJoueur.jouerMerveille(s.getUrl(),data );
         if(s.getMerveille().peutAmeliorerMerveille() && constructMerveille) {
-            int pick = FacadeJoueur.constructMerveille(s.getUrl(), mainJoueurs.get(s.getId()).getMain(),s,plateau);
+            int pick = FacadeJoueur.constructMerveille(s.getUrl(), data);
             Carte aConstruire = s.getMerveille().getCarteAConstruire();
             if (!merveilleConstruire(aConstruire, s , plateau)){
                 paquetDefausse.add(mainJoueurs.get(s.getId()).getMain().get(pick));
@@ -134,7 +137,10 @@ public class ActionDeJeu {
                 LoggerSevenWonders.ajoutln(s.getJoueurName() + " à le droit de jouer sa 7ème carte !");
                 Carte la7emeCarte = mainJoueurs.get(s.getId()).getMain().get(0);
                 // jouer ou défausser une carte sinon
-                boolean defausse = FacadeJoueur.jouerDefausse(s.getUrl(),la7emeCarte,s, plateau);
+                List<Carte> la7eCarte = new ArrayList<>();
+                la7eCarte.add(la7emeCarte);
+                DataToClient data = new DataToClient( la7eCarte,s, plateau);
+                boolean defausse = FacadeJoueur.jouerDefausse(s.getUrl(),data);
                 if (defausse) { // défausser
                     s.casDefausse();
                     paquetDefausse.add(la7emeCarte);
@@ -188,10 +194,14 @@ public class ActionDeJeu {
             if(constructionMerveille(s, plateau)){
                 choix[i][0] = 1 ; // construire merveille
             } else {
-                int pick = FacadeJoueur.choixCarte(s.getUrl(), mainJoueurs.get(s.getId()).getMain(),s, plateau);
+                DataToClient data = new DataToClient( mainJoueurs.get(s.getId()).getMain(),s, plateau);
+                int pick = FacadeJoueur.choixCarte(s.getUrl(),data);
                 Carte choixCarte = mainJoueurs.get(s.getId()).getMain().get(pick);
                 choix[i][1] = pick; // quelle carte jouer
-                boolean defausse = FacadeJoueur.jouerDefausse(s.getUrl(), choixCarte,s, plateau);
+                List<Carte> listCard = new ArrayList<>();
+                listCard.add(choixCarte);
+                DataToClient databis = new DataToClient(listCard,s, plateau);
+                boolean defausse = FacadeJoueur.jouerDefausse(s.getUrl(),databis);
                 if (defausse) {
                     choix[i][0] = 3 ; // défausser
                 } else {
@@ -216,8 +226,8 @@ public class ActionDeJeu {
         List<Carte> paquetDefausse = defausse; // on copie la defausse
         boolean choisirUneCarte = true; // le joueur doit choisir une carte a jouer depuis la defausse
         while (choisirUneCarte && !paquetDefausse.isEmpty()) { // tant qu'il doit choisir et que la défausse n'est pas vide
-            //int choixDuJoueur = getUrl().jouerGratuitementDanslaDefausse(defausse, plateau); // le n° de la carte choisie
-            int choixDuJoueur = FacadeJoueur.jouerGratuitementDanslaDefausse(s.getUrl(),defausse,s, plateau); // le n° de la carte choisie
+            DataToClient data = new DataToClient(defausse,s, plateau);
+            int choixDuJoueur = FacadeJoueur.jouerGratuitementDanslaDefausse(s.getUrl(),data); // le n° de la carte choisie
             Carte carteDefausse = defausse.get(choixDuJoueur); // la carte en question
             LoggerSevenWonders.ajoutln(s.getJoueurName() + " choisit de jouer gratuitement " + carteDefausse.getNom() + " depuis la défausse");
             if (s.getListeCarte().contains(carteDefausse.getNom())) { // si il possède déjà cette carte
