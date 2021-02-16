@@ -49,7 +49,7 @@ public class ActionDeJeu {
             int precedent=0;
             int suivant=0;
             for(int set = 0 ; set < inv.size() ; set++){
-                if(inv.get(set).getId() == s.getId()){
+                if(inv.get(set).getUrl() == s.getUrl()){
                     precedent =(set-1)%inv.size();
                     suivant = (set+1)% inv.size();
                     if (precedent<0){
@@ -83,7 +83,7 @@ public class ActionDeJeu {
             int precedent=0;
             int suivant=0;
             for(int set = 0 ; set < inv.size() ; set++){
-                if(inv.get(set).getId() == s.getId()){
+                if(inv.get(set).getUrl() == s.getUrl()){
                     precedent =(set-1)%inv.size();
                     suivant = (set+1)% inv.size();
                     if (precedent<0){
@@ -112,7 +112,7 @@ public class ActionDeJeu {
      * @return True si il souhaite et qu'il peut construire sa merveille / false sinon
      */
     public boolean constructionMerveille(SetInventaire s, Plateau plateau) throws NegativeNumberException {
-        DataToClient data = new DataToClient(mainJoueurs.get(s.getId()).getMain(),s,plateau);
+        DataToClient data = new DataToClient(mainJoueurs.get(s.getUrl()).getMain(),s,plateau);
         Boolean constructMerveille = webController.jouerMerveille(s,data );
         if(s.getMerveille().peutAmeliorerMerveille() && constructMerveille) {
             int pick = webController.constructMerveille(s, data);

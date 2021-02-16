@@ -13,13 +13,14 @@ public class EchangerMainsStepdefs implements Fr {
     DeroulementJeu jeu ;
     int[] hashcode;
     int nbJoueur;
+    private MoteurWebController web;
 
     public EchangerMainsStepdefs() {
 
         Etantdonné("Une partie de SevenWonders à {int} joueurs", (Integer nombreJoueurs) -> {
             nbJoueur = nombreJoueurs;
             sevenWonders = new SevenWonders(nbJoueur, false, false);
-            jeu = new DeroulementJeu(sevenWonders.inv);
+            jeu = new DeroulementJeu(web,sevenWonders.inv);
             genererCarte = new GenererCarte(1, nombreJoueurs);
             jeu.distribution(genererCarte.getCards());
 

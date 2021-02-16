@@ -49,8 +49,8 @@ public class IAmerveilleTest {
         setInv1 = new SetInventaire( "GRZBRZZRBZRBZR", "j1");
         setInv2 = new SetInventaire( "BEZBZRBZB", "j2");
 
-        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
-        joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName());
+        joueur1 = new Joueur(1,Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        joueur2 = new Joueur(2,Strategy.AMBITIEUSE,setInv2.getJoueurName());
 
 
         carte1 = new Carte(EnumCarte.V3, Collections.singletonList(EnumRessources.TISSU), Collections.singletonList(EnumRessources.COMPAS), 3, 1, EnumRessources.VERTE);

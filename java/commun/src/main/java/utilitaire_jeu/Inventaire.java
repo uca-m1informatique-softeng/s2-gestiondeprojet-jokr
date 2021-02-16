@@ -372,12 +372,6 @@ public class Inventaire {
      */
     public String getJoueurName() { return joueurName; }
 
-
-    /**
-     * @return Permet d'obtenir l'Id du joueur
-     */
-    public int getId(){ return id; }
-
     /**
      * Permet d'obtenir la quantité d'une ressource donnée que le joueur possède
      * @param s Chaine de caractère (key)

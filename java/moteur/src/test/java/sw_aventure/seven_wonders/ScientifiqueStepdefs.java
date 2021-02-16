@@ -15,7 +15,7 @@ public class ScientifiqueStepdefs implements Fr {
     public ScientifiqueStepdefs() {
 
         Etantdonné("Une fin de partie, les cartes scientifique sont convertis en points de victoire", () -> {
-            inv = new SetInventaire(1, "GZBZZQBE", "Enzo");
+            inv = new SetInventaire("GZBZZQBE", "Enzo");
         });
 
 

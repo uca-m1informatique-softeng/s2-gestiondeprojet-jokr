@@ -42,8 +42,8 @@ public class IAambitieuseTest {
         iAambitieuse = new IAambitieuse();
         setInv1 = new SetInventaire( "url1", "j1");
         SetInventaire setInv2 = new SetInventaire( "url2", "j2");
-        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
-        Joueur joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName());
+        joueur1 = new Joueur(1,Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        Joueur joueur2 = new Joueur(2,Strategy.AMBITIEUSE,setInv2.getJoueurName());
         carte1 = new Carte(EnumCarte.V3, Collections.singletonList(EnumRessources.TISSU), Collections.singletonList(EnumRessources.COMPAS), 3, 1, EnumRessources.VERTE);
         carte2 = new Carte(EnumCarte.P7, Arrays.asList(EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.MINERAI, EnumRessources.MINERAI), Collections.singletonList(EnumRessources.BONUSCPR), 3, 3, EnumRessources.VIOLETTE);
         carte4 = new Carte(EnumCarte.V4, Arrays.asList(EnumRessources.BOIS, EnumRessources.PAPYRUS), Collections.singletonList(EnumRessources.PDR), 3, 2, EnumRessources.VERTE);
@@ -188,8 +188,8 @@ public class IAambitieuseTest {
         setInvs.add(setVoisinGauche);
         List<Joueur> joueurs = new ArrayList<>();
         joueurs.add(joueur1);
-        joueurs.add(new Joueur(setVoisinDroit.getId(),Strategy.AMBITIEUSE,setVoisinDroit.getJoueurName()));
-        joueurs.add(new Joueur(setVoisinGauche.getId(),Strategy.AMBITIEUSE,setVoisinGauche.getJoueurName()));
+        joueurs.add(new Joueur(0,Strategy.AMBITIEUSE,setVoisinDroit.getJoueurName()));
+        joueurs.add(new Joueur(2,Strategy.AMBITIEUSE,setVoisinGauche.getJoueurName()));
         plateau = new Plateau(setInvs);
 
         assertFalse(iAambitieuse.besoinDeBouclier(joueur1,setInv1, plateau));
@@ -203,8 +203,8 @@ public class IAambitieuseTest {
         setInvs.add(setVoisinGauche);
         joueurs = new ArrayList<>();
         joueurs.add(joueur1);
-        joueurs.add(new Joueur(setVoisinDroit.getId(),Strategy.AMBITIEUSE,setVoisinDroit.getJoueurName()));
-        joueurs.add(new Joueur(setVoisinGauche.getId(),Strategy.AMBITIEUSE,setVoisinGauche.getJoueurName()));
+        joueurs.add(new Joueur(0,Strategy.AMBITIEUSE,setVoisinDroit.getJoueurName()));
+        joueurs.add(new Joueur(2,Strategy.AMBITIEUSE,setVoisinGauche.getJoueurName()));
         plateau = new Plateau(setInvs);
 
         assertTrue(iAambitieuse.besoinDeBouclier(joueur1,setInv1, plateau));
@@ -219,8 +219,8 @@ public class IAambitieuseTest {
         setInvs.add(setVoisinGauche);
         joueurs = new ArrayList<>();
         joueurs.add(joueur1);
-        joueurs.add(new Joueur(setVoisinDroit.getId(),Strategy.AMBITIEUSE,setVoisinDroit.getJoueurName()));
-        joueurs.add(new Joueur(setVoisinGauche.getId(),Strategy.AMBITIEUSE,setVoisinGauche.getJoueurName()));
+        joueurs.add(new Joueur(0,Strategy.AMBITIEUSE,setVoisinDroit.getJoueurName()));
+        joueurs.add(new Joueur(2,Strategy.AMBITIEUSE,setVoisinGauche.getJoueurName()));
         plateau = new Plateau(setInvs);
 
         assertTrue(iAambitieuse.besoinDeBouclier(joueur1,setInv1, plateau));

@@ -83,7 +83,7 @@ public class IAcompositeTest {
         listeInv.add(setInv2);
         listeInv.add(setInv3);
 
-        joueur2 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        joueur2 = new Joueur(1,Strategy.AMBITIEUSE,setInv1.getJoueurName());
 
         plateau = new Plateau(listeInv);
     }

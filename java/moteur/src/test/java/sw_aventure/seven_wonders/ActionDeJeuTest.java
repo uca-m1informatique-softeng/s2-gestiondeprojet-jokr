@@ -40,7 +40,7 @@ public class ActionDeJeuTest {
     private List<MainJoueur> mainJoueurs;
     private ArrayList<Carte> paquetDefausse;
     private GenererCarte fabriqueCarte;
-
+    private MoteurWebController web;
 
     /**
      * Preparation pour les tests de la classe ActionDeJeu
@@ -79,7 +79,7 @@ public class ActionDeJeuTest {
         paquetDefausse = new ArrayList<>();
 
         listSetInventaire = new ArrayList<>(){{add(setInv1);add(setInv2);add(setInv3);}};
-        actionDeJeu = new ActionDeJeu(listSetInventaire, mainJoueurs, paquetDefausse);
+        actionDeJeu = new ActionDeJeu(web,listSetInventaire, mainJoueurs, paquetDefausse);
     }
 
 

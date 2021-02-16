@@ -24,9 +24,9 @@ public class SevenWondersTest {
     public void setup() {
         sevenWonders = new SevenWonders(3, false, false);
 
-        setInv1 = new SetInventaire(1, "RHERBEN", "Enzo");
-        setInv2 = new SetInventaire(2, "EBREBEB", "Christina");
-        setInv3 = new SetInventaire(3, "GBREBEB", "Mona");
+        setInv1 = new SetInventaire( "RHERBEN", "Enzo");
+        setInv2 = new SetInventaire( "EBREBEB", "Christina");
+        setInv3 = new SetInventaire( "GBREBEB", "Mona");
 
 
         joueur1 = setInv1.getUrl();

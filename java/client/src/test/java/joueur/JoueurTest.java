@@ -42,12 +42,12 @@ public class JoueurTest {
         inv4 = new Inventaire( "url4", "Paul");
         inv5 = new Inventaire( "url5", "Lucie");
         inv6 = new Inventaire( "url6", "Thomas");
-        joueur1 = new Joueur(inv1.getId(),Strategy.RANDOM,inv1.getJoueurName());
-        joueur2 = new Joueur(inv2.getId(),Strategy.MERVEILLE,inv2.getJoueurName());
-        joueur3 = new Joueur(inv3.getId(),Strategy.MERVEILLE,inv3.getJoueurName());
-        joueur4 = new Joueur(inv4.getId(),Strategy.SCIENTIFIQUE,inv4.getJoueurName());
-        joueur5 = new Joueur(inv5.getId(),Strategy.AMBITIEUSE,inv5.getJoueurName());
-        joueur6 = new Joueur(inv6.getId(),Strategy.MILITAIRE,inv6.getJoueurName());
+        joueur1 = new Joueur(1,Strategy.RANDOM,inv1.getJoueurName());
+        joueur2 = new Joueur(2,Strategy.MERVEILLE,inv2.getJoueurName());
+        joueur3 = new Joueur(3,Strategy.MERVEILLE,inv3.getJoueurName());
+        joueur4 = new Joueur(4,Strategy.SCIENTIFIQUE,inv4.getJoueurName());
+        joueur5 = new Joueur(5,Strategy.AMBITIEUSE,inv5.getJoueurName());
+        joueur6 = new Joueur(6,Strategy.MILITAIRE,inv6.getJoueurName());
 
 
         ArrayList<Inventaire> listeInventaire = new ArrayList<>(){{add(inv1);add(inv2);add(inv3);add(inv4);add(inv5);add(inv6);}};
@@ -55,7 +55,7 @@ public class JoueurTest {
         plateau = new Plateau(listeInventaire);
 
         IAmock = Mockito.mock(IArandom.class);
-        joueurSpy = new Joueur(inv.getId(),Strategy.ULTIME,inv.getJoueurName());
+        joueurSpy = new Joueur(8,Strategy.ULTIME,inv.getJoueurName());
         joueurSpy.setBot(IAmock);
         joueurSpy = Mockito.spy(joueurSpy);
 
