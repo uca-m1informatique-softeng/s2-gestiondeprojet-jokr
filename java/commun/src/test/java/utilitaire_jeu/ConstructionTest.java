@@ -37,9 +37,9 @@ public class ConstructionTest {
     public void setUp() {
         construction = new Construction();
 
-        setInventaireCourant = new SetInventaire( "random","Melanie");
-        setInventaireGauche = new SetInventaire( "random","Davy");
-        setInventaireDroit = new SetInventaire( "random","Vincent");
+        setInventaireCourant = new SetInventaire(1, "random","Melanie");
+        setInventaireGauche = new SetInventaire(3, "random","Davy");
+        setInventaireDroit = new SetInventaire(2, "random","Vincent");
 
         ArrayList<Inventaire> listeInventaire = new ArrayList<>(){{add(setInventaireCourant);add(setInventaireDroit);add(setInventaireGauche);}};
         plateau = new Plateau(listeInventaire);

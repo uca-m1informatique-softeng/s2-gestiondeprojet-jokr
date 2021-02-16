@@ -47,8 +47,8 @@ public class IAmilitaireTest {
     public void setUp() {
         iAmilitaire = new IAmilitaire();
 
-        setInv1 = new SetInventaire("url1", "j1");
-        setInv2 = new SetInventaire( "url2", "j2");
+        setInv1 = new SetInventaire(1,"url1", "j1");
+        setInv2 = new SetInventaire( 2,"url2", "j2");
 
         joueur1 = new Joueur(1,Strategy.AMBITIEUSE,setInv1.getJoueurName());
 

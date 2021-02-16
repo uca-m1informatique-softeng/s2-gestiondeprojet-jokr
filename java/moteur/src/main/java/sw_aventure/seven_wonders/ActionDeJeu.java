@@ -113,7 +113,7 @@ public class ActionDeJeu {
      */
     public boolean constructionMerveille(SetInventaire s, Plateau plateau) throws NegativeNumberException {
         DataToClient data = new DataToClient(mainJoueurs.get(s.getId()).getMain(),s,plateau);
-        Boolean constructMerveille = webController.jouerMerveille(s,data );
+        boolean constructMerveille = webController.jouerMerveille(s,data );
         if(s.getMerveille().peutAmeliorerMerveille() && constructMerveille) {
             int pick = webController.constructMerveille(s, data);
             Carte aConstruire = s.getMerveille().getCarteAConstruire();

@@ -23,11 +23,11 @@ public class InventaireTest {
      */
     @Before
     public void setUp() {
-        setInv1 = new SetInventaire( "random", "Enzo");
-        setInv2 = new SetInventaire( "militaire", "Christina");
-        setInv3 = new SetInventaire( "scientifique", "Mona");
-        setInv4 = new SetInventaire( "random", "Paul");
-        setInv5 = new SetInventaire( "civile", "Lucie");
+        setInv1 = new SetInventaire( 1,"random", "Enzo");
+        setInv2 = new SetInventaire(2, "militaire", "Christina");
+        setInv3 = new SetInventaire( 3,"scientifique", "Mona");
+        setInv4 = new SetInventaire( 4,"random", "Paul");
+        setInv5 = new SetInventaire(5, "civile", "Lucie");
 
         listInv = new ArrayList<>();
         listInv.add(setInv1);

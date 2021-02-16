@@ -34,14 +34,14 @@ public class JoueurTest {
      */
     @Before
     public void setUp() {
-        inv = new Inventaire( "url", "Dupont et Dupont");
+        inv = new Inventaire( 0,"url", "Dupont et Dupont");
 
-        inv1 = new Inventaire( "url1", "Enzo");
-        inv2 = new Inventaire( "url2", "Christina");
-        inv3 = new Inventaire( "url3", "Mona");
-        inv4 = new Inventaire( "url4", "Paul");
-        inv5 = new Inventaire( "url5", "Lucie");
-        inv6 = new Inventaire( "url6", "Thomas");
+        inv1 = new Inventaire( 1,"url1", "Enzo");
+        inv2 = new Inventaire( 2,"url2", "Christina");
+        inv3 = new Inventaire( 3,"url3", "Mona");
+        inv4 = new Inventaire( 4,"url4", "Paul");
+        inv5 = new Inventaire( 5,"url5", "Lucie");
+        inv6 = new Inventaire( 6,"url6", "Thomas");
         joueur1 = new Joueur(1,Strategy.RANDOM,inv1.getJoueurName());
         joueur2 = new Joueur(2,Strategy.MERVEILLE,inv2.getJoueurName());
         joueur3 = new Joueur(3,Strategy.MERVEILLE,inv3.getJoueurName());

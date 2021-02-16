@@ -67,10 +67,10 @@ public class DeroulementJeuTest {
 
 
         inv = Mockito.mock(SetInventaire.class);
-        setInv1 = new SetInventaire( "BREBNREER", "Enzo");
-        setInv2 = new SetInventaire( "HENJEET", "Christina");
-        setInv3 = new SetInventaire( "REHRENJER", "Mona");
-        inv4 = new SetInventaire( "GRNERNERJS", "Paul");
+        setInv1 = new SetInventaire( 1,"BREBNREER", "Enzo");
+        setInv2 = new SetInventaire( 2,"HENJEET", "Christina");
+        setInv3 = new SetInventaire( 3,"REHRENJER", "Mona");
+        inv4 = new SetInventaire(4, "GRNERNERJS", "Paul");
 
         ArrayList<Carte> etape = new ArrayList<>();
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.MINERAI,EnumRessources.MINERAI), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));

@@ -43,11 +43,11 @@ public class IAscientifiqueTest {
     public void setup() {
         iAscientifique = new IAscientifique();
 
-        setInv1 = new SetInventaire( "url1", "j1");
+        setInv1 = new SetInventaire( 1,"url1", "j1");
         Merveille merveille1 = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, new ArrayList<>());
         setInv1.modifMerveille(merveille1);
 
-        setInv2 = new SetInventaire( "url2", "j2");
+        setInv2 = new SetInventaire( 2,"url2", "j2");
         Merveille merveille2 = new Merveille(Wonder.BABYLONNUIT, EnumRessources.BOIS, new ArrayList<>());
         setInv2.modifMerveille(merveille2);
         listeRessource = new ArrayList<>();
