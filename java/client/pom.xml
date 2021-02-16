@@ -35,7 +35,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>joueur.JoueurApplication</mainClass>
+                            <mainClass></mainClass>
                         </manifest>
                     </archive>
 
@@ -57,20 +57,19 @@
         </plugins>
     </build>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20090211</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>JOKR</groupId>
-            <artifactId>commun</artifactId>
-            <version>1.0</version>
-            <scope>compile</scope>
-        </dependency>
-
-    </dependencies>
+<dependencies>
+    <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20090211</version>
+        <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>JOKR</groupId>
+        <artifactId>commun</artifactId>
+        <version>1.0</version>
+        <scope>compile</scope>
+    </dependency>
+</dependencies>
 
 </project>
