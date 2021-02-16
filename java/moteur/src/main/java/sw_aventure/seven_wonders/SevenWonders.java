@@ -58,7 +58,7 @@ public class SevenWonders {
         List<String> url_Players = Arrays.asList("AZERTY","QSDGDSGS","EFGZBZZB","GZDBZBZ","ZBZRABT","ZBREZNBE","BAEABRBRA");
         List<Strategy> strategies = Arrays.asList(Strategy.RANDOM, Strategy.AMBITIEUSE, Strategy.COMPOSITE,Strategy.MONETAIRE, Strategy.MILITAIRE, Strategy.SCIENTIFIQUE,Strategy.CIVILE);
         for (int i = 0; i < nbJoueurs; i++) {
-            inv.add(new SetInventaire(url_Players.get(i), names.get(i)));
+            inv.add(new SetInventaire(i,url_Players.get(i), names.get(i)));
             FacadeJoueur.newJoueur(i,strategies.get(i),url_Players.get(i),names.get(i));
         }
         if(shuffle){

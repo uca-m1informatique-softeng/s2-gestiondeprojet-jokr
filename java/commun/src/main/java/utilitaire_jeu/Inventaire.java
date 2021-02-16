@@ -25,7 +25,7 @@ public class Inventaire {
      * @param name le nom du joueur
      */
 
-    public Inventaire(String url_player,String name) {  // Dictionnaire
+    public Inventaire(int id, String url_player,String name) {  // Dictionnaire
         this.joueurName = name; // création du joueur
         this.id = id;
         this.url = url_player;
@@ -397,6 +397,11 @@ public class Inventaire {
      */
     public Map<EnumRessources, Integer> getSac() {
         return sac;
+    }
+
+
+    public Integer getId() {
+        return id;
     }
 }
 

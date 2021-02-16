@@ -62,7 +62,7 @@ public class DeroulementJeu {
         List<Inventaire> joueurs = plateau.getListeInventaire();
         for(int i = 0 ; i<nbjoueurs ; i++){
             for (SetInventaire s : inv) {
-                if(s.getId()==i) {
+                if(s.getId()==i){
                     liste[s.getId()] = s.compteFinalScore(plateau.joueurGauche(s),plateau.joueurDroit(s), false);
                     joueurs.add(s);
                 }

@@ -112,7 +112,7 @@ public class ActionDeJeu {
      * @return True si il souhaite et qu'il peut construire sa merveille / false sinon
      */
     public boolean constructionMerveille(SetInventaire s, Plateau plateau) throws NegativeNumberException {
-        DataToClient data = new DataToClient(mainJoueurs.get(s.getUrl()).getMain(),s,plateau);
+        DataToClient data = new DataToClient(mainJoueurs.get(s.getId()).getMain(),s,plateau);
         Boolean constructMerveille = webController.jouerMerveille(s,data );
         if(s.getMerveille().peutAmeliorerMerveille() && constructMerveille) {
             int pick = webController.constructMerveille(s, data);

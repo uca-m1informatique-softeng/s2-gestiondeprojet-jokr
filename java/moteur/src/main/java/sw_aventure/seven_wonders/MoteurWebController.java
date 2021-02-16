@@ -13,11 +13,8 @@ import org.springframework.web.client.RestTemplate;
 import utilitaire_jeu.DataToClient;
 import utilitaire_jeu.Inventaire;
 
-import javax.swing.text.StyledEditorKit;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class MoteurWebController {
