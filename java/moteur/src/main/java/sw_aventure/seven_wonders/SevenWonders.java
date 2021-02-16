@@ -265,8 +265,7 @@ public class SevenWonders {
         catch (Exception ignored) {
             // Ignore
         }
-
-
+        
         if (multiPartieAvecStat) {
             //Thread.sleep(10000);
             Connexion.CONNEXION.setmSocket(IO.socket(url));
