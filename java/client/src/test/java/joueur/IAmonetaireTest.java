@@ -46,8 +46,8 @@ public class IAmonetaireTest {
     public void setup() {
         iAmonetaire = new IAmonetaire();
 
-        setInv1 = new SetInventaire(0, "url1", "j1");
-        setInv2 = new SetInventaire(1, "url2", "j2");
+        setInv1 = new SetInventaire( "url1", "j1");
+        setInv2 = new SetInventaire("url2", "j2");
 
         joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
         Joueur joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName());

@@ -47,8 +47,8 @@ public class IAcivilTest {
     public void setup() {
         iAcivil = new IAcivil();
 
-        setInv1 = new SetInventaire(0, "GREBERB", "j1");
-        setInv2 = new SetInventaire(1, "GRGERHER", "j2");
+        setInv1 = new SetInventaire( "GREBERB", "j1");
+        setInv2 = new SetInventaire( "GRGERHER", "j2");
 
         joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
         Joueur joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName());

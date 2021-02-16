@@ -40,8 +40,8 @@ public class IAambitieuseTest {
     @Before
     public void setup() {
         iAambitieuse = new IAambitieuse();
-        setInv1 = new SetInventaire(0, "url1", "j1");
-        SetInventaire setInv2 = new SetInventaire(1, "url2", "j2");
+        setInv1 = new SetInventaire( "url1", "j1");
+        SetInventaire setInv2 = new SetInventaire( "url2", "j2");
         joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
         Joueur joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName());
         carte1 = new Carte(EnumCarte.V3, Collections.singletonList(EnumRessources.TISSU), Collections.singletonList(EnumRessources.COMPAS), 3, 1, EnumRessources.VERTE);
@@ -177,8 +177,8 @@ public class IAambitieuseTest {
      */
     @Test
     public void besoinDeBouclierTest()  {
-        SetInventaire setVoisinDroit = new SetInventaire(10, "url3", "voisinDroit");
-        SetInventaire setVoisinGauche = new SetInventaire(10, "url4", "voisinDroit");
+        SetInventaire setVoisinDroit = new SetInventaire("url3", "voisinDroit");
+        SetInventaire setVoisinGauche = new SetInventaire( "url4", "voisinDroit");
 
         // Le joueur a plus de bouclier que ses voisin
         setInv1.increaseValue(EnumRessources.BOUCLIER, 1);

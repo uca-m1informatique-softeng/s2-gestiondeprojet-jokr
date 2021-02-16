@@ -15,12 +15,11 @@ public class SetInventaire extends Inventaire {
 
     /**
      * Constructeur de setInventaire
-     * @param id l'ID du joueur
      * @param name le nom du joueur
      */
 
-    public SetInventaire(int id,String url_player, String name) {
-        super(id ,url_player, name);
+    public SetInventaire(String url_player, String name) {
+        super(url_player, name);
     }
 
     /**

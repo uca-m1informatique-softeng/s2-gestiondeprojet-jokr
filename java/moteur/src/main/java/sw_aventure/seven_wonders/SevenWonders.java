@@ -9,6 +9,7 @@ import io.socket.client.IO;
 import metier.*;
 import objet_commun.Merveille;
 import joueur.FacadeJoueur;
+import org.springframework.beans.factory.annotation.Autowired;
 import sw_aventure.objetjeu.*;
 import org.json.JSONArray;
 import utilitaire_jeu.Inventaire;
@@ -27,6 +28,8 @@ public class SevenWonders {
     private final GenererMerveille genererMerveille = new GenererMerveille();
     private static boolean color = true;
 
+    @Autowired
+    MoteurWebController webController;
 
     /**
      * Initialise une partie avec le nombre de joueur
@@ -55,7 +58,7 @@ public class SevenWonders {
         List<String> url_Players = Arrays.asList("AZERTY","QSDGDSGS","EFGZBZZB","GZDBZBZ","ZBZRABT","ZBREZNBE","BAEABRBRA");
         List<Strategy> strategies = Arrays.asList(Strategy.RANDOM, Strategy.AMBITIEUSE, Strategy.COMPOSITE,Strategy.MONETAIRE, Strategy.MILITAIRE, Strategy.SCIENTIFIQUE,Strategy.CIVILE);
         for (int i = 0; i < nbJoueurs; i++) {
-            inv.add(new SetInventaire(i,url_Players.get(i), names.get(i)));
+            inv.add(new SetInventaire(url_Players.get(i), names.get(i)));
             FacadeJoueur.newJoueur(i,strategies.get(i),url_Players.get(i),names.get(i));
         }
         if(shuffle){
@@ -111,7 +114,7 @@ public class SevenWonders {
      */
     DeroulementJeu jeu;
 
-    public void partie(int nbJoueurs) throws NegativeNumberException {
+    public boolean partie(int nbJoueurs) throws NegativeNumberException {
 
         Plateau plateau = initPlateau();
 
@@ -119,12 +122,13 @@ public class SevenWonders {
         LoggerSevenWonders.ajoutln("____________________ Commencement du Jeu ________________________\n");
 
         attributionMerveille();
-         jeu = new DeroulementJeu(inv);
+         jeu = new DeroulementJeu(webController,inv);
         jeu.laPartie(plateau, nbJoueurs);
 
         LoggerSevenWonders.ajoutln("_____________________________ Fin de la partie _____________________________");
         inv = triInventaire(inv);
         envoyerStat(inv);
+        return true;
     }
 
 

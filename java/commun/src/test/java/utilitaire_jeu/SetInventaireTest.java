@@ -32,12 +32,12 @@ public class SetInventaireTest {
      */
     @Before
     public void setUp() {
-        set1 = new SetInventaire(1, "BETZNTNBTR", "j1");
-        set2 = new SetInventaire(2, "NTRNBTR", "j2");
-        set3 = new SetInventaire(3, "GZBRBERE", "j3");
-        set4 = new SetInventaire(4, "BREZNRZNB", "j4");
-        set5 = new SetInventaire(5, "ZTGHERBRT", "j5");
-        set6 = new SetInventaire(6, "GRBREB", "j6");
+        set1 = new SetInventaire( "BETZNTNBTR", "j1");
+        set2 = new SetInventaire( "NTRNBTR", "j2");
+        set3 = new SetInventaire( "GZBRBERE", "j3");
+        set4 = new SetInventaire( "BREZNRZNB", "j4");
+        set5 = new SetInventaire( "ZTGHERBRT", "j5");
+        set6 = new SetInventaire( "GRBREB", "j6");
 
 
         joueur1 = set1.getUrl();

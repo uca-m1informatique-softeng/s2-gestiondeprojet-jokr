@@ -24,9 +24,11 @@ public class DeroulementJeu {
     private final ArrayList<Carte> paquetDefausse = new ArrayList<>();
     private List<MainJoueur> mainJoueurs = new ArrayList<>();
     private final SecureRandom r = new SecureRandom();
+    private MoteurWebController webController;
 
-    public DeroulementJeu(List<SetInventaire> inv){
+    public DeroulementJeu(MoteurWebController webController, List<SetInventaire> inv){
         this.inv = inv;
+        this.webController = webController;
     }
 
     /**
@@ -174,7 +176,7 @@ public class DeroulementJeu {
      */
     public void joueAge(int age, int nbJoueurs, Plateau plateau) throws NegativeNumberException {
         plateau.restartTour();
-        ActionDeJeu action = new ActionDeJeu(inv,mainJoueurs,paquetDefausse);
+        ActionDeJeu action = new ActionDeJeu(webController,inv,mainJoueurs,paquetDefausse);
 
         for (int carteParMains = 7 ;carteParMains > 1 ; carteParMains--) {
             int tour = 7 - carteParMains+1 ;

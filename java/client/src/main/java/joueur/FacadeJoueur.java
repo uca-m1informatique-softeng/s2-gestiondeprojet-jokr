@@ -1,12 +1,20 @@
 package joueur;
 
 import metier.Strategy;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 import utilitaire_jeu.DataToClient;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
-
+@RestController
 public class FacadeJoueur {
+
+    @Autowired
+    Joueur joueur ;
 
     static Map<String,Joueur> joueursConnect = new HashMap<>();
 
@@ -21,6 +29,7 @@ public class FacadeJoueur {
      * @param name Le nom
      * @return Le nouveau joueur associé aux paramètres fournis
      */
+
     public static void newJoueur(int id, Strategy strategie, String url, String name) {
         Joueur new_player = new Joueur(id, strategie, name);
         joueursConnect.put(url,new_player);
@@ -32,7 +41,8 @@ public class FacadeJoueur {
      * @param url l'url du joueur
      * @return true si la carte est à défausser, false sinon
      */
-    public static boolean jouerDefausse(String url, DataToClient data) {
+    @PostMapping("/jouer/Defausse")
+    public static boolean jouerDefausse(String url,@RequestBody DataToClient data) {
         Joueur j = joueursConnect.get(url);
         return j.jouerdefausse(data.getListCarte(), data.getInvJoueur(), data.getPlateau());
     }
@@ -44,7 +54,8 @@ public class FacadeJoueur {
      * @param url l'url du joueur
      * @return Index de la carte à jouer depuis la défausse
      */
-    public static int jouerGratuitementDanslaDefausse(String url, DataToClient data){
+    @PostMapping("/jouer/GratuitementDanslaDefausse")
+    public static int jouerGratuitementDanslaDefausse(String url,@RequestBody DataToClient data){
         Joueur j = joueursConnect.get(url);
         return j.jouerGratuitementDanslaDefausse(data.getListCarte(), data.getInvJoueur(), data.getPlateau());
     }
@@ -55,7 +66,8 @@ public class FacadeJoueur {
      * @param url l'url du joueur
      * @return true si le joueur veut construire une étape, false sinon
      */
-    public static boolean jouerMerveille(String url, DataToClient data) {
+    @PostMapping("/jouer/Merveille")
+    public static boolean jouerMerveille(String url,@RequestBody DataToClient data) {
         Joueur j = joueursConnect.get(url);
         return j.jouerMerveille(data.getListCarte(), data.getInvJoueur(), data.getPlateau());
     }
@@ -67,7 +79,8 @@ public class FacadeJoueur {
      * @param url l'url du joueur
      * @return l'indice de la carte à sacrifier
      */
-    public static int constructMerveille(String url, DataToClient data) {
+    @PostMapping("/jouer/constructMerveille")
+    public static int constructMerveille(String url,@RequestBody DataToClient data) {
         Joueur j = joueursConnect.get(url);
         return j.constructMerveille(data.getListCarte(), data.getInvJoueur(), data.getPlateau());
     }
@@ -78,7 +91,8 @@ public class FacadeJoueur {
      * @param url l'url du joueur
      * @return l'indice de la carte renvoyée
      */
-    public static int choixCarte(String url, DataToClient data) {
+    @PostMapping("/jouer/choixCarte")
+    public static int choixCarte(String url,@RequestBody DataToClient data) {
         Joueur j = joueursConnect.get(url);
         return j.choixCarte(data.getListCarte(), data.getInvJoueur(), data.getPlateau());
     }
@@ -100,6 +114,26 @@ public class FacadeJoueur {
     public static String getStrategie(String url){
         Joueur j = joueursConnect.get(url);
         return j.getStrategie();
+    }
+
+    @PostMapping("/finir")
+    public void finir() {
+        // fin brutale (pour abréger sur travis), mais il faut répondre un peu après
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Joueur > fin du programme");
+                try {
+                    TimeUnit.MILLISECONDS.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    System.exit(0);
+                }
+
+            }
+        });
+        t.start();
     }
 
 }

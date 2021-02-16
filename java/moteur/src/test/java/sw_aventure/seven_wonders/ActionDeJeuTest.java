@@ -48,9 +48,9 @@ public class ActionDeJeuTest {
     @Before
     public void setup() {
         nbJoueurs = 3;
-        setInv1 = new SetInventaire(0, "AZERZGVB", "Enzo");
-        setInv2 = new SetInventaire(1, "BFNEEKLBK", "Christina");
-        setInv3 = new SetInventaire(2, "RHENBREBBEZ", "Mona");
+        setInv1 = new SetInventaire("AZERZGVB", "Enzo");
+        setInv2 = new SetInventaire("BFNEEKLBK", "Christina");
+        setInv3 = new SetInventaire("RHENBREBBEZ", "Mona");
 
         joueur1 = setInv1.getUrl();
         joueur2 = setInv2.getUrl();

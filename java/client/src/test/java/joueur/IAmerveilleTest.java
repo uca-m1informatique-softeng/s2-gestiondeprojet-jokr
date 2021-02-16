@@ -46,8 +46,8 @@ public class IAmerveilleTest {
     public void setup() {
         iAmerveille = new IAmerveille();
 
-        setInv1 = new SetInventaire(0, "GRZBRZZRBZRBZR", "j1");
-        setInv2 = new SetInventaire(1, "BEZBZRBZB", "j2");
+        setInv1 = new SetInventaire( "GRZBRZZRBZRBZR", "j1");
+        setInv2 = new SetInventaire( "BEZBZRBZB", "j2");
 
         joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
         joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName());

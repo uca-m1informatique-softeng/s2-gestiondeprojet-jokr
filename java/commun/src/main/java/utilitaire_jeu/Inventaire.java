@@ -22,11 +22,10 @@ public class Inventaire {
 
     /**
      * Constructeur de la classe inventaire prenant l'ID d'un joueur, l'IA et son Nom
-     * @param id l'ID du joueur
      * @param name le nom du joueur
      */
 
-    public Inventaire(int id, String url_player,String name) {  // Dictionnaire
+    public Inventaire(String url_player,String name) {  // Dictionnaire
         this.joueurName = name; // création du joueur
         this.id = id;
         this.url = url_player;

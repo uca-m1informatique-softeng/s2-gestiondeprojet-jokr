@@ -7,6 +7,11 @@ import utilitaire_jeu.*;
 import java.util.List;
 import java.util.Objects;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope("singleton")
 public class Joueur {
     private final int id;
     private IA bot;
