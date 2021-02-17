@@ -15,7 +15,7 @@ services:
 install:
   - cd java
   - mvn clean install -Dmaven.test.skip=true
-  - mvn test
+  #- mvn test
 
 
 before_script:
