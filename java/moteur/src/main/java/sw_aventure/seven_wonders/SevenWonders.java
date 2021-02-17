@@ -5,11 +5,13 @@ import java.net.URISyntaxException;
 import java.security.SecureRandom;
 import java.util.*;
 import exception.NegativeNumberException;
+import io.cucumber.java8.Da;
 import io.socket.client.IO;
 import metier.*;
 import objet_commun.Merveille;
 import joueur.FacadeJoueur;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import sw_aventure.objetjeu.*;
 import org.json.JSONArray;
 import utilitaire_jeu.Inventaire;
@@ -22,14 +24,23 @@ import reseau.Connexion;
 /**
  * Classe du main où la partie se lance
  */
+@Component
 public class SevenWonders {
     private final SecureRandom r = new SecureRandom();
     protected List<SetInventaire> inv = new ArrayList<>();
     private final GenererMerveille genererMerveille = new GenererMerveille();
     private static boolean color = true;
 
+    private static final long TIMEOUT = 3*60; // En secondes
+
     @Autowired
     MoteurWebController webController;
+
+    /**
+     * Besoin d'un constructeur vide pour cette classe car c'est un component
+     */
+    public SevenWonders() {
+    }
 
     /**
      * Initialise une partie avec le nombre de joueur
@@ -37,7 +48,6 @@ public class SevenWonders {
      * @param print (pour les tests) afficher ou non les prints
      * @param color afficher ou non en couleur
      */
-
     public SevenWonders(int nbJoueurs, boolean print, boolean color) {
         Colors.setColor(color);
         LoggerSevenWonders.init(print);
@@ -53,14 +63,30 @@ public class SevenWonders {
      * @param nbJoueurs le nombre de joueurs qui vont jouer
      */
     public void initPlayers(int nbJoueurs,boolean shuffle) {
+        /*
         inv = new ArrayList<>();
         List<String> names = Arrays.asList(Colors.igBleu("Enzo"), Colors.igJaune("Mona"),Colors.igCyan("Fred"), Colors.igVert("Paul"), Colors.igRouge("Lucy"),  Colors.igViolet("Dora"),Colors.igViolet("Alex"));
         List<String> url_Players = Arrays.asList("AZERTY","QSDGDSGS","EFGZBZZB","GZDBZBZ","ZBZRABT","ZBREZNBE","BAEABRBRA");
         List<Strategy> strategies = Arrays.asList(Strategy.RANDOM, Strategy.AMBITIEUSE, Strategy.COMPOSITE,Strategy.MONETAIRE, Strategy.MILITAIRE, Strategy.SCIENTIFIQUE,Strategy.CIVILE);
         for (int i = 0; i < nbJoueurs; i++) {
-            inv.add(new SetInventaire(i,url_Players.get(i), names.get(i)));
-            FacadeJoueur.newJoueur(i,strategies.get(i),url_Players.get(i),names.get(i));
+            //inv.add(new SetInventaire(i,url_Players.get(i), names.get(i)));
+            //FacadeJoueur.newJoueur(i,strategies.get(i),url_Players.get(i),names.get(i));
         }
+        */
+        long t0 = new Date().getTime();
+        long t1 = t0;
+        while (this.webController.listJoueurId.size() < nbJoueurs) {
+            try {
+                Thread.sleep(1000);
+                t1 = new Date().getTime();
+                if (t1 - t0 > 1000*SevenWonders.TIMEOUT) { System.exit(404); }
+                System.out.println("I'm waiting for joueurs my friend ;(");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        inv = this.webController.listJoueurId;
+
         if(shuffle){
             Collections.shuffle(inv);
             Collections.shuffle(inv);
@@ -175,7 +201,8 @@ public class SevenWonders {
         JSONArray jsonArray = new JSONArray();
         for (SetInventaire s : setInv) {
             nomJoueur = s.getJoueurName();
-            strategieJoueur = FacadeJoueur.getStrategie(s.getUrl());
+            //strategieJoueur = FacadeJoueur.getStrategie(s.getUrl());
+            strategieJoueur = webController.getStrategie(s.getUrl());
             inventaire = s.getSac();
             merveille = s.getMerveille().getNom().toString();
             cartes = s.getListeCarte();

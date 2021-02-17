@@ -2,6 +2,7 @@ package sw_aventure.seven_wonders;
 
 
 import exception.NegativeNumberException;
+import metier.Strategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -12,13 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import utilitaire_jeu.DataToClient;
 import utilitaire_jeu.Inventaire;
+import utilitaire_jeu.NameURL;
+import utilitaire_jeu.SetInventaire;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class MoteurWebController {
-    List<Inventaire> listJoueurId = new ArrayList<>();
+    List<SetInventaire> listJoueurId = new ArrayList<>();
 
     @Autowired
     SevenWonders moteur;
@@ -41,10 +44,11 @@ public class MoteurWebController {
 
 
     @PostMapping("/connexion/")
-    public boolean getValue(@RequestBody Inventaire newJoueurId) throws NegativeNumberException {
-        System.out.println("Moteur > connexion acceptée de "+newJoueurId.getJoueurName());
-        this.listJoueurId.add(newJoueurId);
-        if(listJoueurId.size()==3) { return moteur.partie(3); }
+    public boolean getValue(@RequestBody NameURL nameURL) throws NegativeNumberException {
+        System.out.println("Moteur > connexion acceptée de " + nameURL.getName());
+
+        this.listJoueurId.add(new SetInventaire(listJoueurId.size(), nameURL.getUrl(), nameURL.getName()));
+        //if(listJoueurId.size()==3) { return moteur.partie(3); }
         return true;
     }
 
@@ -86,6 +90,12 @@ public class MoteurWebController {
             resultat = restTemplate.postForObject(joueurId.getUrl()+"/jouer/GratuitementDanslaDefausse", data, Integer.class); // le "/" de /jouer par sécurité
         }
         return resultat ;
+    }
+
+    public String getStrategie(String url) {
+        String res;
+        res = restTemplate.postForObject(url + "/strategie", null, String.class);
+        return res;
     }
 
     /*

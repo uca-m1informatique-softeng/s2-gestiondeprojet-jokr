@@ -80,7 +80,8 @@ public class FacadeJoueur {
      * Cette méthode donne la stratégie d'un joueur donné
      * @return la stratégie du joueur
      */
-    public String getStrategie(String url){
+    @PostMapping("/strategie")
+    public String getStrategie(){
         return j.getStrategie();
     }
 
