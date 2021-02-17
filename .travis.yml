@@ -28,7 +28,7 @@ before_script:
 
 
 script:
-  - docker-compose up #--scale moteur=3
+  - docker-compose up --scale client=3
   #- docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
   - docker-compose logs # affichage des logs
   # on efface tous les containers qui sont éteints puis les images
