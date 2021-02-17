@@ -20,6 +20,9 @@ services:
 
   client:
     image: client
+    environment:
+      - SERVER_IP=http://10.0.0.253:8081
+      - NAMES=(Jean Jacques George Philippe Ralph Jeremy Ossama Kevin MBappe JeanNeymar Mathilda Chloe Barbara Julia)
     networks:
       testing_net:
 
