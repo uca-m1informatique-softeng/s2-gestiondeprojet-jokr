@@ -19,8 +19,8 @@ public class SetInventaire extends Inventaire {
      * @param name le nom du joueur
      */
 
-    public SetInventaire(int id,String url_player, String name) {
-        super(id ,url_player, name);
+    public SetInventaire(int id,String urlPlayer, String name) {
+        super(id ,urlPlayer, name);
     }
 
     /**

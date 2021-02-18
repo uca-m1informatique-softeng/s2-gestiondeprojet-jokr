@@ -199,11 +199,11 @@ public class InventaireTest {
      */
     @Test
     public void getJoueurNameTest() {
-        assertEquals(setInv1.getJoueurName(), "Enzo");
-        assertEquals(setInv2.getJoueurName(), "Christina");
-        assertEquals(setInv3.getJoueurName(), "Mona");
-        assertEquals(setInv4.getJoueurName(), "Paul");
-        assertEquals(setInv5.getJoueurName(), "Lucie");
+        assertEquals( "Enzo", setInv1.getJoueurName());
+        assertEquals("Christina", setInv2.getJoueurName());
+        assertEquals("Mona", setInv3.getJoueurName());
+        assertEquals("Paul", setInv4.getJoueurName());
+        assertEquals( "Lucie", setInv5.getJoueurName());
     }
 
 

@@ -52,11 +52,11 @@ public class SevenWonders {
     public void initPlayers(int nbJoueurs,boolean shuffle) {
         inv = new ArrayList<>();
         List<String> names = Arrays.asList(Colors.igBleu("Enzo"), Colors.igJaune("Mona"),Colors.igCyan("Fred"), Colors.igVert("Paul"), Colors.igRouge("Lucy"),  Colors.igViolet("Dora"),Colors.igViolet("Alex"));
-        List<String> url_Players = Arrays.asList("AZERTY","QSDGDSGS","EFGZBZZB","GZDBZBZ","ZBZRABT","ZBREZNBE","BAEABRBRA");
+        List<String> urlPlayers = Arrays.asList("AZERTY","QSDGDSGS","EFGZBZZB","GZDBZBZ","ZBZRABT","ZBREZNBE","BAEABRBRA");
         List<Strategy> strategies = Arrays.asList(Strategy.RANDOM, Strategy.AMBITIEUSE, Strategy.COMPOSITE,Strategy.MONETAIRE, Strategy.MILITAIRE, Strategy.SCIENTIFIQUE,Strategy.CIVILE);
         for (int i = 0; i < nbJoueurs; i++) {
-            inv.add(new SetInventaire(i,url_Players.get(i), names.get(i)));
-            FacadeJoueur.newJoueur(i,strategies.get(i),url_Players.get(i),names.get(i));
+            inv.add(new SetInventaire(i,urlPlayers.get(i), names.get(i)));
+            FacadeJoueur.newJoueur(i,strategies.get(i),urlPlayers.get(i),names.get(i));
         }
         if(shuffle){
             Collections.shuffle(inv);
@@ -70,10 +70,7 @@ public class SevenWonders {
      * @return le plateau de jeu
      */
     public Plateau initPlateau(){
-        ArrayList<Inventaire> listeInventaire = new ArrayList<>();
-        for (SetInventaire setInventaire : inv) {
-            listeInventaire.add(setInventaire);
-        }
+        ArrayList<Inventaire> listeInventaire = new ArrayList<>(inv);
         return new Plateau(listeInventaire);
     }
 
@@ -81,7 +78,7 @@ public class SevenWonders {
     /**
      * Donne une merveille aléatoirement à chaque joueurs
      */
-    public void attributionMerveille() throws NegativeNumberException {
+    public void attributionMerveille() {
         List<List<Wonder>> merveille = new ArrayList<>();
         merveille.add(Arrays.asList(Wonder.BABYLON,Wonder.BABYLONNUIT));
         merveille.add(Arrays.asList(Wonder.OLYMPIA,Wonder.OLYMPIANUIT));

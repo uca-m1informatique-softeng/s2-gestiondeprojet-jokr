@@ -44,7 +44,7 @@ public class ActionDeJeu {
      * @param plateau le plateau de jeu
      */
 
-    public void basicConstruire(Carte carte, SetInventaire s, Plateau plateau ) throws NegativeNumberException {
+    public void basicConstruire(Carte carte, SetInventaire s, Plateau plateau ) {
         if (construction.permisDeConstruction(carte,s, plateau.joueurGauche(s), plateau.joueurDroit(s) ,plateau)){
             int precedent=0;
             int suivant=0;
@@ -76,7 +76,7 @@ public class ActionDeJeu {
      * @return True si il a construit un étage de la merveille -ou défausse- / False sinon
      */
 
-    public boolean merveilleConstruire(Carte carte, SetInventaire s, Plateau plateau) throws NegativeNumberException {
+    public boolean merveilleConstruire(Carte carte, SetInventaire s, Plateau plateau) {
         if (construction.permisDeConstruction(carte,s,plateau.joueurGauche(s),plateau.joueurDroit(s),plateau)){
 
             LoggerSevenWonders.ajoutln(s.getJoueurName() + " décide de construire le "+ (s.getMerveille().getStade()+1)+  "e étage de sa merveille !");
