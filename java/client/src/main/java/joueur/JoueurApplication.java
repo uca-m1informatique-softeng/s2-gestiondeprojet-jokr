@@ -51,6 +51,7 @@ public class JoueurApplication {
                 NameURL nameURL = new NameURL(args[2], adresse);
                 Boolean val = restTemplate.postForObject(args[1] + "/connexion/", nameURL, Boolean.class);
                 // les traces sont là juste pour montrer le déroulement et le lancement
+                System.out.println("Nom du joueur : " + args[2]);
                 System.out.println("Joueur > état de la connexion : "+val);
             }
         };
