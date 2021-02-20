@@ -5,11 +5,9 @@ import java.net.URISyntaxException;
 import java.security.SecureRandom;
 import java.util.*;
 import exception.NegativeNumberException;
-import io.cucumber.java8.Da;
 import io.socket.client.IO;
 import metier.*;
 import objet_commun.Merveille;
-import joueur.FacadeJoueur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import sw_aventure.objetjeu.*;
@@ -75,7 +73,7 @@ public class SevenWonders {
         */
         long t0 = new Date().getTime();
         long t1 = t0;
-        while (this.webController.listJoueurId.size() < nbJoueurs) {
+        while (this.webController.listJoueurId.size() < nbJoueurs){
             try {
                 Thread.sleep(1000);
                 t1 = new Date().getTime();
@@ -105,6 +103,7 @@ public class SevenWonders {
         }
         return new Plateau(listeInventaire);
     }
+
 
 
     /**
@@ -201,7 +200,6 @@ public class SevenWonders {
         JSONArray jsonArray = new JSONArray();
         for (SetInventaire s : setInv) {
             nomJoueur = s.getJoueurName();
-            //strategieJoueur = FacadeJoueur.getStrategie(s.getUrl());
             strategieJoueur = webController.getStrategie(s.getUrl());
             inventaire = s.getSac();
             merveille = s.getMerveille().getNom().toString();
@@ -254,7 +252,7 @@ public class SevenWonders {
      *             4ème argument : indiquer false si on ne veut ne lancer qu'une partie (ne lance pas les statistiques et n'écrit pas dans un fichier)
      *             Par défaut : true 1 3 false : on lance une partie à 3 joueurs que l'on affiche sur la sortie standard avec les couleurs
      */
-    public static void main(String[] args) throws NegativeNumberException, URISyntaxException, InterruptedException {
+    public void main(String[] args) throws NegativeNumberException, URISyntaxException, InterruptedException {
         // Nombres de joueurs
         int nbJoueurs ;
         // Nombres de parties si option des statistique activée

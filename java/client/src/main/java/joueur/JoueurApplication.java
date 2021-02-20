@@ -7,7 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
-import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.NameURL;
 
 import java.net.InetAddress;
@@ -50,6 +49,7 @@ public class JoueurApplication {
                 System.out.println("mon adresse = " + adresse);
                 NameURL nameURL = new NameURL(args[2], adresse);
                 Boolean val = restTemplate.postForObject(args[1] + "/connexion/", nameURL, Boolean.class);
+
                 // les traces sont là juste pour montrer le déroulement et le lancement
                 System.out.println("Nom du joueur : " + args[2]);
                 System.out.println("Joueur > état de la connexion : "+val);

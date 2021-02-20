@@ -13,6 +13,7 @@ public class SevenWondersApplication {
     }
 
 
+
     @Bean
     public CommandLineRunner aGame(@Autowired SevenWonders moteur) {
         return args -> {
@@ -20,6 +21,7 @@ public class SevenWondersApplication {
 
             // pour faire la différence entre un lancement via les tests et un lancement par mvn exec:java@id
             if (args.length >0) {
+                moteur.main(args);
                 //moteur.setExitOnFinish(true);
 
             }

@@ -114,12 +114,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>JOKR</groupId>
-            <artifactId>client</artifactId>
-            <version>1.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
         </dependency>

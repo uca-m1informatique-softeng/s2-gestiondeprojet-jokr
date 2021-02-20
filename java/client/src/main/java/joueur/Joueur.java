@@ -7,11 +7,6 @@ import utilitaire_jeu.*;
 import java.util.List;
 import java.util.Objects;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-@Component
-@Scope("singleton")
 public class Joueur {
     private final int id;
     private IA bot;
@@ -26,7 +21,7 @@ public class Joueur {
      * @param strategie La stratégie du joueur
      * @param name Le nom du joueur
      */
-    public Joueur(int id, Strategy strategie, String name) {
+    public Joueur(Integer id, Strategy strategie, String name) {
         this.id = id;
         this.strategie = strategie;
         this.name = name;
