@@ -1,4 +1,4 @@
-package sw_aventure.seven_wonders;
+/*package sw_aventure.seven_wonders;
 import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.Cucumber;
 import org.junit.runner.RunWith;
@@ -11,4 +11,4 @@ public class RunCucumberTest {
     // in the same package as this class
 
 
-}
+}*/

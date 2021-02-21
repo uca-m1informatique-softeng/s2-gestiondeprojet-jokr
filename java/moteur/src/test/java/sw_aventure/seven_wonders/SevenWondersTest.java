@@ -1,4 +1,6 @@
+/*
 package sw_aventure.seven_wonders;
+
 
 import exception.NegativeNumberException;
 import org.junit.Before;
@@ -20,6 +22,7 @@ public class SevenWondersTest {
     /**
      * Preparation des tests de la classe SevenWonders
      */
+/*
     @Before
     public void setup() {
         sevenWonders = new SevenWonders(3, false, false);
@@ -44,6 +47,7 @@ public class SevenWondersTest {
     /**
      * Test de la méthode initPlayers()
      */
+/*
     @Test
     public void initPlayersTest() {
         SevenWonders sw = new SevenWonders(0, false,false);
@@ -71,6 +75,7 @@ public class SevenWondersTest {
     /**
      * Test de la méthode initPlateau()
      */
+/*
     @Test
     public void initPlateauTest() {
         Plateau plateau = sevenWonders.initPlateau();
@@ -81,6 +86,7 @@ public class SevenWondersTest {
     /**
      * Test de la méthode attributionMerveille()
      */
+/*
     @Test
     public void attributionMerveilleTest() throws NegativeNumberException {
         // Au départ les joueurs n'on pas de merveille donc NULL
@@ -95,3 +101,5 @@ public class SevenWondersTest {
         }
     }
 }
+
+*/
