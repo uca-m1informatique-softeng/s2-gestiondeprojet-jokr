@@ -38,7 +38,7 @@
                             <goal>java</goal>
                         </goals>
                         <configuration>
-                            <mainClass>sw_aventure.seven_wonders.SevenWonders</mainClass>  <!-- à changer : classe avec point d'entrée pour votre projet -->
+                            <mainClass>sw_aventure.seven_wonders.SevenWondersApplication</mainClass>  <!-- à changer : classe avec point d'entrée pour votre projet -->
 
                             <arguments>
                                 <argument> true </argument>
@@ -55,7 +55,7 @@
                             <goal>java</goal>
                         </goals>
                         <configuration>
-                            <mainClass>sw_aventure.seven_wonders.SevenWonders</mainClass>  <!-- à changer : classe avec point d'entrée pour votre projet -->
+                            <mainClass>sw_aventure.seven_wonders.SevenWondersApplication</mainClass>  <!-- à changer : classe avec point d'entrée pour votre projet -->
 
                             <arguments>
                                 <argument> true </argument>
@@ -73,7 +73,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>sw_aventure.seven_wonders.SevenWonders</mainClass>
+                            <mainClass>sw_aventure.seven_wonders.SevenWondersApplication</mainClass>
                         </manifest>
                     </archive>
 
