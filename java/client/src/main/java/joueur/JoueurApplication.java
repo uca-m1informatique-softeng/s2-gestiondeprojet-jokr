@@ -1,5 +1,6 @@
 package joueur;
 
+import metier.Strategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,8 +21,8 @@ public class JoueurApplication {
 
     public static void main(String[] args) {
         // les traces sont là juste pour montrer le déroulement et le lancement
-        System.out.println("args = "+args.length+" "+Arrays.toString(args));
-        SpringApplication.run(JoueurApplication.class, args);  //initializing Spring container , it tries to create all the objects with @Component
+        System.out.println("args = " + args.length+ " " + Arrays.toString(args));
+        SpringApplication.run(JoueurApplication.class, args);
     }
 
     @Bean public RestTemplate restTemplate(RestTemplateBuilder builder) {
@@ -40,19 +41,24 @@ public class JoueurApplication {
         System.out.println("----------------- CommandLineRunner -----------------");
         return args -> {
             // les traces sont là juste pour montrer le déroulement et le lancement
-            System.out.println("----------------- args = "+args.length+" "+Arrays.toString(args)+" -----------------");
+            System.out.println("----------------- args = " + args.length + " " +Arrays.toString(args) + " -----------------");
             if ((args.length > 0) && (args[0].equals("autoconnect"))) {
                 // les traces sont là juste pour montrer le déroulement et le lancement
                 System.out.println("----------------- début de joueur -----------------");
                 /// connexion
-                String adresse =  "http://"+InetAddress.getLocalHost().getHostAddress()+":8090/";
+                String port = "8090";
+                if (args.length == 4) port = args[3];
+                String adresse =  "http://" + InetAddress.getLocalHost().getHostAddress() + ":" + port;
                 System.out.println("mon adresse = " + adresse);
                 NameURL nameURL = new NameURL(args[2], adresse);
                 Boolean val = restTemplate.postForObject(args[1] + "/connexion/", nameURL, Boolean.class);
 
                 // les traces sont là juste pour montrer le déroulement et le lancement
                 System.out.println("Nom du joueur : " + args[2]);
-                System.out.println("Joueur > état de la connexion : "+val);
+                System.out.println("Joueur > état de la connexion : " + val);
+
+                FacadeJoueur facadeJoueur = new FacadeJoueur();
+                facadeJoueur.j = new Joueur(Strategy.COMPOSITE, args[2]);
             }
         };
     }
