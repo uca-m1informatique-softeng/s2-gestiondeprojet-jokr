@@ -1,9 +1,9 @@
 # Gestion de projet
 
 ## Groupe JOKR : 
+- Jérémy HIRTH DAUMAS
 - Ossama ASHRAF
 - Kevin LEVY
-- Jérémy HIRTH DAUMAS
 - Ralph EL CHALFOUN
 
 ## Livraison : 
