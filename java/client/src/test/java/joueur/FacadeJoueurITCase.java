@@ -23,8 +23,7 @@ public class FacadeJoueurITCase {
 
     @BeforeEach
     void setup() throws Exception {
-        this.id = new NameURL("HARLOD", "http://"+ InetAddress.getLocalHost().getHostAddress());
+        this.id = new NameURL("HARLOD", "http://" + InetAddress.getLocalHost().getHostAddress());
         this.j = new Joueur(Strategy.COMPOSITE, this.id.getName());
     }
-
 }
