@@ -21,7 +21,7 @@ public class JoueurApplication {
     public static void main(String[] args) {
         // les traces sont là juste pour montrer le déroulement et le lancement
         System.out.println("args = "+args.length+" "+Arrays.toString(args));
-        SpringApplication.run(JoueurApplication.class, args);
+        SpringApplication.run(JoueurApplication.class, args);  //initializing Spring container , it tries to create all the objects with @Component
     }
 
     @Bean public RestTemplate restTemplate(RestTemplateBuilder builder) {

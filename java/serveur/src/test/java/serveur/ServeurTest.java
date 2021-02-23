@@ -1,17 +1,17 @@
-package serveur;
+package java.serveur;
 
 import com.corundumstudio.socketio.SocketIOServer;
 import fichier.GestionnaireDeFichier;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
+import serveur.Serveur;
 
 import java.io.IOException;
 
 
 public class ServeurTest {
 
-    private SocketIOServer socketIOServer;
     private Serveur serveur;
 
     /**
@@ -19,20 +19,9 @@ public class ServeurTest {
      */
     @Before
     public void setup() {
-        socketIOServer = Mockito.mock(SocketIOServer.class);
 
-        serveur = new Serveur(socketIOServer);
+        serveur = new Serveur();
         serveur = Mockito.spy(serveur);
-    }
-
-
-    /**
-     * Test de la methode demarrer()
-     */
-    @Test
-    public void demarrerTest() {
-        serveur.demarrer();
-        Mockito.verify(socketIOServer).start();
     }
 
     /**
