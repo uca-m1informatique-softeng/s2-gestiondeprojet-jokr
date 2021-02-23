@@ -51,7 +51,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>serveur.Serveur</mainClass>
+                            <mainClass>serveur.ServeurApplication</mainClass>
                         </manifest>
                     </archive>
 
