@@ -41,12 +41,6 @@ public class SevenWonders {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder builder) {
-        // Do any additional configuration here
-        return builder.build();
-    }
-
     /**
      * Besoin d'un constructeur vide pour cette classe car c'est un component
      */
