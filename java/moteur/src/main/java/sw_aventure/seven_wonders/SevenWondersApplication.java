@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class SevenWondersApplication {
-
+/*
     @Autowired
-    static SevenWonders moteur;
+    static SevenWonders moteur;*/
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(SevenWondersApplication.class, args);
