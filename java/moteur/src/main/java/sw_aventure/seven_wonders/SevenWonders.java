@@ -31,7 +31,7 @@ public class SevenWonders {
     protected List<SetInventaire> inv = new ArrayList<>();
     private final GenererMerveille genererMerveille = new GenererMerveille();
     private static boolean color = true;
-    private String url;
+    private static String url;
 
     private static final long TIMEOUT = 3*60; // En secondes
 
@@ -39,7 +39,7 @@ public class SevenWonders {
     MoteurWebController webController;
 
     @Autowired
-    private RestTemplate restTemplate;
+    private static RestTemplate restTemplate;
 
     /**
      * Besoin d'un constructeur vide pour cette classe car c'est un component
@@ -255,7 +255,7 @@ public class SevenWonders {
      *             4ème argument : indiquer false si on ne veut ne lancer qu'une partie (ne lance pas les statistiques et n'écrit pas dans un fichier)
      *             Par défaut : true 1 3 false : on lance une partie à 3 joueurs que l'on affiche sur la sortie standard avec les couleurs
      */
-    public void main(String[] args) throws NegativeNumberException, URISyntaxException, InterruptedException {
+    public static void launch(String[] args) throws Exception {
         // Nombres de joueurs
         int nbJoueurs ;
         // Nombres de parties si option des statistique activée
@@ -263,7 +263,7 @@ public class SevenWonders {
         // Active plusieurs parties avec statistiques
         boolean multiPartieAvecStat = false;
 
-        this.url = "http://127.0.0.1:8081/";
+        SevenWonders.url = "http://127.0.0.1:8081/";
 
         try {
             if (args[0].equals("false")) {
@@ -292,7 +292,7 @@ public class SevenWonders {
             // Lancement d'une partie normale
         }
         try {
-            this.url = args[4];
+            SevenWonders.url = args[4];
         }
         catch (Exception ignored) {
             // Ignore
@@ -304,19 +304,19 @@ public class SevenWonders {
             //Connexion.CONNEXION.demarrerEcoute();
             //Connexion.CONNEXION.envoyerMessageBoolean("Initialisation", true);
             //Connexion.CONNEXION.envoyerMessageInt("NombresJoueur", nbJoueurs);
-            restTemplate.postForObject(this.url + "nbJoueur/", nbJoueurs, Integer.class);
+            restTemplate.postForObject(SevenWonders.url + "nbJoueur/", nbJoueurs, Integer.class);
             if (nbParties == 1) {
                 SevenWonders sevenWonders = new SevenWonders(nbJoueurs, true, color);
                 LoggerSevenWonders.init(true);
                 sevenWonders.partie(nbJoueurs);
                 LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
                 //Connexion.CONNEXION.envoyerMessageStringBuilder("Partie", LoggerSevenWonders.getStringBuilder());
-                restTemplate.postForObject(this.url + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
+                restTemplate.postForObject(SevenWonders.url + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
                 //Connexion.CONNEXION.disconnect();
             }
             else {
                 //Connexion.CONNEXION.envoyerMessageInt("NombresPartie", nbParties);
-                restTemplate.postForObject(this.url + "nbJoueur/", nbJoueurs, Integer.class);
+                restTemplate.postForObject(SevenWonders.url + "nbJoueur/", nbJoueurs, Integer.class);
                 for (int i = 0; i < nbParties; i++) {
                     SevenWonders sevenWonders = new SevenWonders(nbJoueurs, false, color);
                     sevenWonders.partie(nbJoueurs);

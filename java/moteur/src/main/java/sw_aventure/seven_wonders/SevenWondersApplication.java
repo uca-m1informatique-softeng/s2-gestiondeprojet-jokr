@@ -8,23 +8,13 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class SevenWondersApplication {
-    public static void main(String[] args) {
+
+    @Autowired
+    static SevenWonders moteur;
+
+    public static void main(String[] args) throws Exception {
         SpringApplication.run(SevenWondersApplication.class, args);
+        SevenWonders.launch(args);
     }
 
-
-
-    @Bean
-    public CommandLineRunner aGame(@Autowired SevenWonders moteur) {
-        return args -> {
-            System.out.println("************************** aGame **************************************");
-
-            // pour faire la différence entre un lancement via les tests et un lancement par mvn exec:java@id
-            if (args.length >0) {
-                moteur.main(args);
-                //moteur.setExitOnFinish(true);
-
-            }
-        };
-    }
 }

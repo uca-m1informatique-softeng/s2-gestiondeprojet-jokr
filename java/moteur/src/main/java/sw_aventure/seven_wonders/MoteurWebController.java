@@ -22,10 +22,6 @@ import java.util.List;
 public class MoteurWebController {
     List<SetInventaire> listJoueurId = new ArrayList<>();
 
-    @Autowired
-    SevenWonders moteur;
-
-
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         // Do any additional configuration here
