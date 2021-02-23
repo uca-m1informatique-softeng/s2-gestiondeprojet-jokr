@@ -16,8 +16,11 @@ L’objectif est de poursuivre l’apprentissage du Génie Logiciel commencé au
 Actuellement à la livraison n°2 nous avons : 
 
 - Implémenté Travis, Spring & Docker Compose
-- Nos statistiques dans Spring avec un 1er service REST
-- Des tests d’intégrations 
+- Les Statistiques sont maintenant transférées du moteur au serveur avec Spring. Les eventListeners de SocketIOServer
+  ont été remplacées par des routes POST avec un RestController Spring, et le moteur utilise son RestTemplate pour faire
+  les appels nécessaires, grâce à l'IP du serveur renseigné en paramètres.
+- Un test d'intégration Spring sur le moteur, qu'il faudra tester lorsque le liens entre le moteur et les clients seront
+  fonctionnels.
 - Nos modules moteur et client sont indépendant l'un de l'autre 
 - Le moteur lors de la communication avec le client va envoyer un objet DataToClient(Une liste de carte -sa main/défausse-, Son inventaire, Le plateau de Jeu) 
 - Plusieurs actions peuvent être demandées par le moteur au client <b>"http://" + adresse_IPV4_du_JOUEUR + ":PORT_DU_JOUEUR_/" + </b> 
