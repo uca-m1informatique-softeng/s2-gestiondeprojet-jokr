@@ -9,7 +9,10 @@ import io.socket.client.IO;
 import metier.*;
 import objet_commun.Merveille;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 import sw_aventure.objetjeu.*;
 import org.json.JSONArray;
 import utilitaire_jeu.Inventaire;
@@ -28,11 +31,21 @@ public class SevenWonders {
     protected List<SetInventaire> inv = new ArrayList<>();
     private final GenererMerveille genererMerveille = new GenererMerveille();
     private static boolean color = true;
+    private String url;
 
     private static final long TIMEOUT = 3*60; // En secondes
 
     @Autowired
     MoteurWebController webController;
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        // Do any additional configuration here
+        return builder.build();
+    }
 
     /**
      * Besoin d'un constructeur vide pour cette classe car c'est un component
@@ -197,21 +210,17 @@ public class SevenWonders {
         String merveille;
         Map<EnumRessources, Integer> inventaire;
 
-        JSONArray jsonArray = new JSONArray();
+        List<Data> datas = new ArrayList<>();
         for (SetInventaire s : setInv) {
             nomJoueur = s.getJoueurName();
             strategieJoueur = webController.getStrategie(s.getUrl());
             inventaire = s.getSac();
             merveille = s.getMerveille().getNom().toString();
             cartes = s.getListeCarte();
-            try {
-                jsonArray.put(new Data(nomJoueur, strategieJoueur, getSactoString(inventaire), merveille, getListeCarteToString(cartes)).toJSON());
-            }
-            catch (Exception ignored){
-                // JsonArray échoué
-            }
+            datas.add(new Data(nomJoueur, strategieJoueur, getSactoString(inventaire), merveille, getListeCarteToString(cartes)));
         }
-        Connexion.CONNEXION.envoyerMessageArray("DataPartie", jsonArray);
+        //Connexion.CONNEXION.envoyerMessageArray("DataPartie", jsonArray);
+        restTemplate.postForObject(this.url + "sendStats/", datas.toArray(), Data[].class);
     }
 
 
@@ -260,7 +269,7 @@ public class SevenWonders {
         // Active plusieurs parties avec statistiques
         boolean multiPartieAvecStat = false;
 
-        String url = "http://127.0.0.1:8081";
+        this.url = "http://127.0.0.1:8081/";
 
         try {
             if (args[0].equals("false")) {
@@ -289,36 +298,36 @@ public class SevenWonders {
             // Lancement d'une partie normale
         }
         try {
-            url = args[4];
+            this.url = args[4];
         }
         catch (Exception ignored) {
             // Ignore
         }
 
-
+        // Bout de code qui envoie les stats
         if (multiPartieAvecStat) {
-            //Thread.sleep(10000);
-            Connexion.CONNEXION.setmSocket(IO.socket(url));
-            Connexion.CONNEXION.demarrerEcoute();
-            Connexion.CONNEXION.envoyerMessageBoolean("Initialisation", true);
-            Connexion.CONNEXION.envoyerMessageInt("NombresJoueur", nbJoueurs);
+            //Connexion.CONNEXION.setmSocket(IO.socket(url));
+            //Connexion.CONNEXION.demarrerEcoute();
+            //Connexion.CONNEXION.envoyerMessageBoolean("Initialisation", true);
+            //Connexion.CONNEXION.envoyerMessageInt("NombresJoueur", nbJoueurs);
+            restTemplate.postForObject(this.url + "nbJoueur/", nbJoueurs, Integer.class);
             if (nbParties == 1) {
                 SevenWonders sevenWonders = new SevenWonders(nbJoueurs, true, color);
                 LoggerSevenWonders.init(true);
                 sevenWonders.partie(nbJoueurs);
                 LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
-                Connexion.CONNEXION.envoyerMessageStringBuilder("Partie", LoggerSevenWonders.getStringBuilder());
-                Connexion.CONNEXION.disconnect();
+                //Connexion.CONNEXION.envoyerMessageStringBuilder("Partie", LoggerSevenWonders.getStringBuilder());
+                restTemplate.postForObject(this.url + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
+                //Connexion.CONNEXION.disconnect();
             }
             else {
-                Connexion.CONNEXION.envoyerMessageInt("NombresPartie", nbParties);
+                //Connexion.CONNEXION.envoyerMessageInt("NombresPartie", nbParties);
+                restTemplate.postForObject(this.url + "nbJoueur/", nbJoueurs, Integer.class);
                 for (int i = 0; i < nbParties; i++) {
-                    SevenWonders sevenWonders  = new SevenWonders(nbJoueurs, false, color);
+                    SevenWonders sevenWonders = new SevenWonders(nbJoueurs, false, color);
                     sevenWonders.partie(nbJoueurs);
                 }
-                Connexion.CONNEXION.disconnect();
-                Thread.sleep(1000);
-                System.exit(0);
+
             }
         }
         else {
@@ -326,5 +335,7 @@ public class SevenWonders {
             sevenWonders.partie(nbJoueurs);
             LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
         }
+        Thread.sleep(1000);
+        System.exit(0);
     }
 }

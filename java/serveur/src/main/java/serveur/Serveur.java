@@ -23,8 +23,6 @@ import java.util.Date;
 
 /**
  *      Serveur permettant de recevoir les données du jeu
- * @see #server
- *          SocketIOServer
  * @see #nbPartie
  *          Le nombre de partie joué
  * @see #nbJoueur
@@ -51,24 +49,20 @@ public class Serveur {
         this.dataParties = new ArrayList<>();
     }
 
-    @PostMapping("/nbPartie/")
-    public void getNbPartie(@RequestBody Integer nbPartie){
-        this.nbPartie = nbPartie;
-    }
-
     @PostMapping("/nbJoueur/")
     public void getNbJoueur(@RequestBody Integer nbJoueur){
         this.nbJoueur = nbJoueur;
     }
 
+    @PostMapping("/nbPartie/")
+    public void getNbPartie(@RequestBody Integer nbPartie){
+        this.nbPartie = nbPartie;
+    }
+
     @PostMapping("/sendStats/")
-    public void getStats(@RequestBody Data[] data) throws IOException {
+    public void getStats(@RequestBody Data[] data) throws Exception {
         this.dataParties.add(data);
-        if (dataParties.size() == this.nbPartie) {
-            this.statistique = new Statistique(this.nbPartie, this.nbJoueur, this.dataParties);
-            this.statistique.calculStat();
-            this.statistique.afficheStat(new GestionnaireDeFichier());
-        }
+        this.traiterFinReception();
     }
 
     @PostMapping("/partie/")
@@ -91,5 +85,20 @@ public class Serveur {
         String path = "output/partie_unique/" + nbJoueur + " Joueurs/";
         String file = format.format(date) + ".txt";
         gestionnaireDeFichier.ecrireDansFichier(path, file, string.toString());
+    }
+
+    /**
+     * Vérifie si le serveur a fini de recevoir toutes les statistiques. Si c'est le cas, il calcule les stats, les
+     * affiche, puis s'arrête.
+     * @throws Exception Au cas où certains appels systèmes posent problème
+     */
+    private void traiterFinReception() throws Exception {
+        if (this.dataParties.size() == this.nbPartie) {
+            this.statistique = new Statistique(this.nbPartie, this.nbJoueur, this.dataParties);
+            this.statistique.calculStat();
+            this.statistique.afficheStat(new GestionnaireDeFichier());
+            Thread.sleep(1000);
+            System.exit(0);
+        }
     }
 }
