@@ -56,7 +56,7 @@ public class IAcompositeTest {
         lCart = Collections.singletonList(EnumRessources.BOIS);
         lCarte = Collections.singletonList("Atelier");
         main = new ArrayList<>();
-        joueur = new Joueur(0, Strategy.COMPOSITE, "Omega");
+        joueur = new Joueur(Strategy.COMPOSITE, "Omega");
         mocIA = Mockito.mock(IAcomposite.class);
         iaComposite = new IAcomposite();
 
@@ -83,7 +83,7 @@ public class IAcompositeTest {
         listeInv.add(setInv2);
         listeInv.add(setInv3);
 
-        joueur2 = new Joueur(1,Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        joueur2 = new Joueur(Strategy.AMBITIEUSE,setInv1.getJoueurName());
 
         plateau = new Plateau(listeInv);
     }

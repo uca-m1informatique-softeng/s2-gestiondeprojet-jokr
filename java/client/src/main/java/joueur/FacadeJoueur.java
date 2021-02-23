@@ -68,15 +68,6 @@ public class FacadeJoueur {
     }
 
     /**
-     * Cette méthode donne le nom d'un joueur donné
-     * @return le nom du joueur
-     */
-    public String getName(String url){
-        return j.getName();
-    }
-
-
-    /**
      * Cette méthode donne la stratégie d'un joueur donné
      * @return la stratégie du joueur
      */

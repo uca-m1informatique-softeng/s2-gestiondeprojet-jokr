@@ -48,10 +48,10 @@ public class IAcivilTest {
         iAcivil = new IAcivil();
 
         setInv1 = new SetInventaire(1,"GREBERB", "j1");
-        setInv2 = new SetInventaire( 2,"GRGERHER", "j2");
+        setInv2 = new SetInventaire(2,"GRGERHER", "j2");
 
-        joueur1 = new Joueur(1,Strategy.AMBITIEUSE,setInv1.getJoueurName());
-        Joueur joueur2 = new Joueur(2,Strategy.AMBITIEUSE,setInv2.getJoueurName());
+        joueur1 = new Joueur(Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        Joueur joueur2 = new Joueur(Strategy.AMBITIEUSE,setInv2.getJoueurName());
 
         chantier = new Carte(EnumCarte.M6, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.BOIS), 3, 1, EnumRessources.MARRON);
         puits = new Carte(EnumCarte.B13, Collections.singletonList(EnumRessources.GRATUIT), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE), 4, 1, EnumRessources.BLEUE);

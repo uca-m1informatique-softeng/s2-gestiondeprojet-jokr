@@ -24,7 +24,7 @@ public class FacadeMoteurITCase {
     @BeforeEach
     void setup() throws Exception {
         this.id = new NameURL("HARLOD", "http://"+ InetAddress.getLocalHost().getHostAddress());
-        this.j = new Joueur(0, Strategy.COMPOSITE, this.id.getName());
+        this.j = new Joueur(Strategy.COMPOSITE, this.id.getName());
     }
 
 }
