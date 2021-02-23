@@ -1,5 +1,6 @@
-package fichier;
+package java.fichier;
 
+import fichier.GestionnaireDeFichier;
 import org.junit.Before;
 import org.junit.Test;
 import java.io.BufferedReader;
