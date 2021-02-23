@@ -13,7 +13,7 @@ import java.net.InetAddress;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
-public class FacadeMoteurITCase {
+public class FacadeJoueurITCase {
 
     NameURL id;
     Joueur j;
