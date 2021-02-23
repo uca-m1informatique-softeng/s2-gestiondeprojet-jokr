@@ -3,6 +3,8 @@ package joueur;
 import metier.EnumRessources;
 import metier.Strategy;
 import objet_commun.Carte;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import utilitaire_jeu.*;
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +14,6 @@ public class Joueur {
     private IA bot;
     private final String name;
     private final Strategy strategie;
-
 
 
     /**
