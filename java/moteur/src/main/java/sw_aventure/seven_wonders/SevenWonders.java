@@ -1,26 +1,19 @@
 package sw_aventure.seven_wonders;
 
-
-import java.net.URISyntaxException;
 import java.security.SecureRandom;
 import java.util.*;
 import exception.NegativeNumberException;
-import io.socket.client.IO;
 import metier.*;
 import objet_commun.Merveille;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import sw_aventure.objetjeu.*;
-import org.json.JSONArray;
 import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 import utilitaire_jeu.SetInventaire;
 import utils.affichage.Colors;
 import utils.affichage.LoggerSevenWonders;
-import reseau.Connexion;
 
 /**
  * Classe du main où la partie se lance
@@ -300,23 +293,16 @@ public class SevenWonders {
 
         // Bout de code qui envoie les stats
         if (multiPartieAvecStat) {
-            //Connexion.CONNEXION.setmSocket(IO.socket(url));
-            //Connexion.CONNEXION.demarrerEcoute();
-            //Connexion.CONNEXION.envoyerMessageBoolean("Initialisation", true);
-            //Connexion.CONNEXION.envoyerMessageInt("NombresJoueur", nbJoueurs);
             restTemplate.postForObject(SevenWonders.url + "nbJoueur/", nbJoueurs, Integer.class);
             if (nbParties == 1) {
                 SevenWonders sevenWonders = new SevenWonders(nbJoueurs, true, color);
                 LoggerSevenWonders.init(true);
                 sevenWonders.partie(nbJoueurs);
                 LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
-                //Connexion.CONNEXION.envoyerMessageStringBuilder("Partie", LoggerSevenWonders.getStringBuilder());
                 restTemplate.postForObject(SevenWonders.url + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
-                //Connexion.CONNEXION.disconnect();
             }
             else {
-                //Connexion.CONNEXION.envoyerMessageInt("NombresPartie", nbParties);
-                restTemplate.postForObject(SevenWonders.url + "nbJoueur/", nbJoueurs, Integer.class);
+                restTemplate.postForObject(SevenWonders.url + "nbParties/", nbParties, Integer.class);
                 for (int i = 0; i < nbParties; i++) {
                     SevenWonders sevenWonders = new SevenWonders(nbJoueurs, false, color);
                     sevenWonders.partie(nbJoueurs);
