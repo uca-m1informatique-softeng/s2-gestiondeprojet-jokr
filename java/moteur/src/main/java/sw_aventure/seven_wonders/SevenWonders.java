@@ -31,8 +31,12 @@ public class SevenWonders {
     @Autowired
     MoteurWebController webController = new MoteurWebController();
 
-    @Autowired
     private static RestTemplate restTemplate;
+
+    @Autowired
+    private void setRestTemplate(RestTemplate restTemplate) {
+        SevenWonders.restTemplate = restTemplate;
+    }
 
     /**
      * Besoin d'un constructeur vide pour cette classe car c'est un component
