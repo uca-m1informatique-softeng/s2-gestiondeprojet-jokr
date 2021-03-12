@@ -29,7 +29,7 @@ public class SevenWonders {
     private static final long TIMEOUT = 3*60; // En secondes
 
     @Autowired
-    MoteurWebController webController;
+    MoteurWebController webController = new MoteurWebController();
 
     @Autowired
     private static RestTemplate restTemplate;
@@ -73,12 +73,19 @@ public class SevenWonders {
         */
         long t0 = new Date().getTime();
         long t1 = t0;
+        int oldNbJoueurs = 0;
+        int newNbJoueurs = 0;
         while (this.webController.listJoueurId.size() < nbJoueurs){
             try {
+                newNbJoueurs = this.webController.listJoueurId.size();
                 Thread.sleep(1000);
                 t1 = new Date().getTime();
                 if (t1 - t0 > 1000*SevenWonders.TIMEOUT) { System.exit(404); }
-                System.out.println("I'm waiting for joueurs my friend ;(");
+                System.out.println("I'm waiting for players !");
+                if (newNbJoueurs > oldNbJoueurs) {
+                    System.out.println("A new player has connected.");
+                    oldNbJoueurs = newNbJoueurs;
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
