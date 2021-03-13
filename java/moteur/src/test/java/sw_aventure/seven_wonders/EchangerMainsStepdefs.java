@@ -16,7 +16,7 @@ public class EchangerMainsStepdefs implements Fr {
     private MoteurWebController web;
 
     public EchangerMainsStepdefs() {
-
+        /*
         Etantdonné("Une partie de SevenWonders à {int} joueurs", (Integer nombreJoueurs) -> {
             nbJoueur = nombreJoueurs;
             sevenWonders = new SevenWonders(nbJoueur, false, false);
@@ -47,5 +47,7 @@ public class EchangerMainsStepdefs implements Fr {
             }
 
         });
+
+         */
     }
 }

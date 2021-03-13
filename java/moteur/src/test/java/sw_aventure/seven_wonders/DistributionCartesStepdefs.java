@@ -21,7 +21,7 @@ public class DistributionCartesStepdefs implements Fr {
     public DistributionCartesStepdefs() {
 
 
-        
+        /*
         Etantdonné("Une partie de sevenWonders a {int} joueur", (Integer nbJoueur) -> {
             nbJoueurs = nbJoueur;
             sevenWonders = new SevenWonders(nbJoueur, false, false);
@@ -51,5 +51,6 @@ public class DistributionCartesStepdefs implements Fr {
             }
 
         });
+        */
     }
 }

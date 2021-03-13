@@ -15,6 +15,7 @@ import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.NameURL;
 import utilitaire_jeu.SetInventaire;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +31,14 @@ public class MoteurWebController {
     @Autowired
     private RestTemplate restTemplate;
 
+    /**
+     * Constructeur vide pour Spring
+     */
+    public MoteurWebController() {}
+
+    public void setListJoueurId(List<SetInventaire> listJoueurId) {
+        this.listJoueurId = listJoueurId;
+    }
 
     // juste pour le MockMvcTest, sans param
     @PostMapping("/essai/")

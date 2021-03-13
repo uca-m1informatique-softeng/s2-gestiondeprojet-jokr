@@ -5,13 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class SevenWondersApplication {
-/*
-    @Autowired
-    static SevenWonders moteur;*/
+
+    public static String[] appArgs;
 
     public static void main(String[] args) throws Exception {
+        SevenWondersApplication.appArgs = args;
         SpringApplication.run(SevenWondersApplication.class, args);
-        SevenWonders.launch(args);
     }
 
 }

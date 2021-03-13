@@ -6,6 +6,7 @@ import exception.NegativeNumberException;
 import metier.*;
 import objet_commun.Merveille;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import sw_aventure.objetjeu.*;
@@ -29,19 +30,103 @@ public class SevenWonders {
     private static final long TIMEOUT = 3*60; // En secondes
 
     @Autowired
-    MoteurWebController webController = new MoteurWebController();
-
-    private static RestTemplate restTemplate;
+    MoteurWebController webController;
 
     @Autowired
-    private void setRestTemplate(RestTemplate restTemplate) {
-        SevenWonders.restTemplate = restTemplate;
-    }
+    private RestTemplate restTemplate;
 
     /**
-     * Besoin d'un constructeur vide pour cette classe car c'est un component
+     * main : lancement du jeu
+     * Arguments en lançant le programme par ligne de commande :
+     * 1ème argument : indiquer "false" pour afficher sans couleur (peut être utile si l'on souhaite lire directement le .txt ou si on utilise un terminal qui ne reconnait pas le code ANSI)
+     * 2ème argument : indiquer le nombre de parties à lancer (une si rien d'indiqué ou si pas un entier)
+     * 3ème argument : indiquer le nombre de joueurs qui vont participer aux parties (3-7)
+     * 4ème argument : indiquer false si on ne veut ne lancer qu'une partie (ne lance pas les statistiques et n'écrit pas dans un fichier)
+     * Par défaut : true 1 3 false : on lance une partie à 3 joueurs que l'on affiche sur la sortie standard avec les couleurs
      */
-    public SevenWonders() {
+    public SevenWonders() throws Exception {
+        System.out.println(this.webController);
+        /*
+        // Nombres de joueurs
+        int nbJoueurs ;
+        // Nombres de parties si option des statistique activée
+        int nbParties ;
+        // Active plusieurs parties avec statistiques
+        boolean multiPartieAvecStat = false;
+
+        SevenWonders.url = "http://127.0.0.1:8081/";
+
+        String[] args = SevenWondersApplication.appArgs;
+
+        try {
+            if (args[0].equals("false")) {
+                color = false;
+            }
+        } catch (Exception e) {
+            color = true;
+        }
+        try {
+            nbParties = Integer.parseInt(args[1]);
+        } catch(Exception e) {
+            nbParties = 1;
+        }
+        try {
+            nbJoueurs = Integer.parseInt(args[2]);
+        } catch(Exception e) {
+            nbJoueurs = 3;
+        }
+        try {
+            if (args[3].equals("true")) {
+                multiPartieAvecStat = true;
+                color = false;
+            }
+        }
+        catch (Exception ignored) {
+            // Lancement d'une partie normale
+        }
+        try {
+            SevenWonders.url = args[4];
+        }
+        catch (Exception ignored) {
+            // Ignore
+        }
+
+        // Bout de code qui envoie les stats
+        if (multiPartieAvecStat) {
+            restTemplate.postForObject(SevenWonders.url + "nbJoueur/", nbJoueurs, Integer.class);
+            if (nbParties == 1) {
+                //SevenWonders sevenWonders = new SevenWonders(nbJoueurs, true, color);
+                LoggerSevenWonders.init(true);
+                Colors.setColor(color);
+                this.initPlayers(nbJoueurs,true);
+                this.partie(nbJoueurs);
+                LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
+                restTemplate.postForObject(SevenWonders.url + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
+            }
+            else {
+                restTemplate.postForObject(SevenWonders.url + "nbParties/", nbParties, Integer.class);
+                for (int i = 0; i < nbParties; i++) {
+                    //SevenWonders sevenWonders = new SevenWonders(nbJoueurs, false, color);
+                    LoggerSevenWonders.init(false);
+                    Colors.setColor(color);
+                    this.initPlayers(nbJoueurs,true);
+                    this.partie(nbJoueurs);
+                }
+
+            }
+        }
+        else {
+            //SevenWonders sevenWonders  = new SevenWonders(nbJoueurs, true, color);
+            LoggerSevenWonders.init(true);
+            Colors.setColor(color);
+            this.initPlayers(nbJoueurs,true);
+            this.partie(nbJoueurs);
+            LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
+        }
+        Thread.sleep(1000);
+        System.exit(0);
+
+         */
     }
 
     /**
@@ -50,11 +135,12 @@ public class SevenWonders {
      * @param print (pour les tests) afficher ou non les prints
      * @param color afficher ou non en couleur
      */
+    /*
     public SevenWonders(int nbJoueurs, boolean print, boolean color) {
         Colors.setColor(color);
         LoggerSevenWonders.init(print);
         initPlayers(nbJoueurs,true);
-    }
+    }*/
 
 
     // METHODES //
@@ -82,10 +168,10 @@ public class SevenWonders {
         while (this.webController.listJoueurId.size() < nbJoueurs){
             try {
                 newNbJoueurs = this.webController.listJoueurId.size();
+                System.out.println("Joueurs Connectés : " + newNbJoueurs);
                 Thread.sleep(1000);
                 t1 = new Date().getTime();
                 if (t1 - t0 > 1000*SevenWonders.TIMEOUT) { System.exit(404); }
-                System.out.println("I'm waiting for players !");
                 if (newNbJoueurs > oldNbJoueurs) {
                     System.out.println("A new player has connected.");
                     oldNbJoueurs = newNbJoueurs;
@@ -247,86 +333,5 @@ public class SevenWonders {
             sactoString.put( key.getKey().toString(), key.getValue());
         }
         return sactoString ;
-    }
-
-
-    /**
-     * main : lancement du jeu
-     * @param args Arguments en lançant le programme par ligne de commande :
-     *             1ème argument : indiquer "false" pour afficher sans couleur (peut être utile si l'on souhaite lire directement le .txt ou si on utilise un terminal qui ne reconnait pas le code ANSI)
-     *             2ème argument : indiquer le nombre de parties à lancer (une si rien d'indiqué ou si pas un entier)
-     *             3ème argument : indiquer le nombre de joueurs qui vont participer aux parties (3-7)
-     *             4ème argument : indiquer false si on ne veut ne lancer qu'une partie (ne lance pas les statistiques et n'écrit pas dans un fichier)
-     *             Par défaut : true 1 3 false : on lance une partie à 3 joueurs que l'on affiche sur la sortie standard avec les couleurs
-     */
-    public static void launch(String[] args) throws Exception {
-        // Nombres de joueurs
-        int nbJoueurs ;
-        // Nombres de parties si option des statistique activée
-        int nbParties ;
-        // Active plusieurs parties avec statistiques
-        boolean multiPartieAvecStat = false;
-
-        SevenWonders.url = "http://127.0.0.1:8081/";
-
-        try {
-            if (args[0].equals("false")) {
-                color = false;
-            }
-        } catch (Exception e) {
-            color = true;
-        }
-        try {
-            nbParties = Integer.parseInt(args[1]);
-        } catch(Exception e) {
-            nbParties = 1;
-        }
-        try {
-            nbJoueurs = Integer.parseInt(args[2]);
-        } catch(Exception e) {
-            nbJoueurs = 3;
-        }
-        try {
-            if (args[3].equals("true")) {
-                multiPartieAvecStat = true;
-                color = false;
-            }
-        }
-        catch (Exception ignored) {
-            // Lancement d'une partie normale
-        }
-        try {
-            SevenWonders.url = args[4];
-        }
-        catch (Exception ignored) {
-            // Ignore
-        }
-
-        // Bout de code qui envoie les stats
-        if (multiPartieAvecStat) {
-            restTemplate.postForObject(SevenWonders.url + "nbJoueur/", nbJoueurs, Integer.class);
-            if (nbParties == 1) {
-                SevenWonders sevenWonders = new SevenWonders(nbJoueurs, true, color);
-                LoggerSevenWonders.init(true);
-                sevenWonders.partie(nbJoueurs);
-                LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
-                restTemplate.postForObject(SevenWonders.url + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
-            }
-            else {
-                restTemplate.postForObject(SevenWonders.url + "nbParties/", nbParties, Integer.class);
-                for (int i = 0; i < nbParties; i++) {
-                    SevenWonders sevenWonders = new SevenWonders(nbJoueurs, false, color);
-                    sevenWonders.partie(nbJoueurs);
-                }
-
-            }
-        }
-        else {
-            SevenWonders sevenWonders  = new SevenWonders(nbJoueurs, true, color);
-            sevenWonders.partie(nbJoueurs);
-            LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
-        }
-        Thread.sleep(1000);
-        System.exit(0);
     }
 }
