@@ -18,11 +18,11 @@ public class PlateauTest {
      */
     @Before
     public void setUp() {
-        setInv1 = new SetInventaire(1, "ultime", "Davy");
-        setInv2 = new SetInventaire(2, "random", "Vincent");
-        setInv3 = new SetInventaire(3, "random", "Pierre");
-        setInv4 = new SetInventaire(4, "ultime", "Hichem");
-        setInv5 = new SetInventaire(5, "random", "Thomas");
+        setInv1 = new SetInventaire(1, "url1", "Davy");
+        setInv2 = new SetInventaire(2, "url2", "Vincent");
+        setInv3 = new SetInventaire(3, "url3", "Pierre");
+        setInv4 = new SetInventaire(4, "url4", "Hichem");
+        setInv5 = new SetInventaire(5, "url5", "Thomas");
 
         listeInventaire = new ArrayList<>();
         listeInventaire.add(setInv1);
