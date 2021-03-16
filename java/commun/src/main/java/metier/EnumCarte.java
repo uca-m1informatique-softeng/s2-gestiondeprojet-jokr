@@ -5,6 +5,7 @@ package metier;
  */
 public enum EnumCarte {
 
+    VIDE(""),
             // CARTE MARRON
     M1("Exploitation Forestière"),
     M2("Fosse Argileuse"),

@@ -15,7 +15,6 @@ import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.NameURL;
 import utilitaire_jeu.SetInventaire;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +22,7 @@ import java.util.List;
 public class MoteurWebController {
     List<SetInventaire> listJoueurId = new ArrayList<>();
 
+    int nbJoueur = 0 ;
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         // Do any additional configuration here
@@ -49,9 +49,11 @@ public class MoteurWebController {
 
     @PostMapping("/connexion/")
     public boolean getValue(@RequestBody NameURL nameURL) throws NegativeNumberException {
-        System.out.println("Moteur > connexion acceptée de " + nameURL.getName());
+        System.out.println("Moteur > connexion acceptée de " + nameURL.getName() + " depuis l'adresse : " + nameURL.getUrl());
 
         this.listJoueurId.add(new SetInventaire(listJoueurId.size(), nameURL.getUrl(), nameURL.getName()));
+        System.out.println(this.listJoueurId.size());
+        this.nbJoueur++;
         //if(listJoueurId.size()==3) { return moteur.partie(3); }
         return true;
     }

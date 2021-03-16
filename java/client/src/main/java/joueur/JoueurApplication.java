@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 import utilitaire_jeu.NameURL;
@@ -19,13 +20,17 @@ public class JoueurApplication {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    Joueur j;
+
     public static void main(String[] args) {
         // les traces sont là juste pour montrer le déroulement et le lancement
         System.out.println("args = " + args.length+ " " + Arrays.toString(args));
         SpringApplication.run(JoueurApplication.class, args);
     }
 
-    @Bean public RestTemplate restTemplate(RestTemplateBuilder builder) {
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
         return builder.build();
     }
 
@@ -40,12 +45,13 @@ public class JoueurApplication {
         // les traces sont là juste pour montrer le déroulement et le lancement
         System.out.println("----------------- CommandLineRunner -----------------");
         return args -> {
+            j.setIABot(Strategy.COMPOSITE , args[2]);
             // les traces sont là juste pour montrer le déroulement et le lancement
             System.out.println("----------------- args = " + args.length + " " +Arrays.toString(args) + " -----------------");
             if ((args.length > 0) && (args[0].equals("autoconnect"))) {
                 // les traces sont là juste pour montrer le déroulement et le lancement
                 System.out.println("----------------- début de joueur -----------------");
-                /// connexion
+                // connexion
                 String port = "8090";
                 if (args.length == 4) port = args[3];
                 String adresse =  "http://" + InetAddress.getLocalHost().getHostAddress() + ":" + port;
@@ -58,7 +64,7 @@ public class JoueurApplication {
                 System.out.println("Joueur > état de la connexion : " + val);
 
                 FacadeJoueur facadeJoueur = new FacadeJoueur();
-                facadeJoueur.j = new Joueur(Strategy.COMPOSITE, args[2]);
+                facadeJoueur.j = j;
             }
         };
     }
