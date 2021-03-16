@@ -5,7 +5,7 @@ services:
   serveur:
     image: serveur
     networks:
-      testing_net:
+      ci_net:
         ipv4_address: 10.0.0.253
     depends_on:
       - moteur
@@ -15,20 +15,22 @@ services:
     environment:
       - SERVER_IP=http://10.0.0.253:8081
     networks:
-      testing_net:
-        - ipv4_address: 10.0.0.1
+      ci_net:
+        ipv4_address: 10.0.0.1
 
   client:
     image: client
     environment:
-      - SERVER_IP=http://10.0.0.1:8085
+      - ENGINE_IP=http://10.0.0.1:8085
       - NAMES=(Jean Jacques George Philippe Ralph Jeremy Ossama Kevin MBappe JeanNeymar Mathilda Chloe Barbara Julia)
     networks:
-      testing_net:
+      ci_net:
+    depends_on:
+      - moteur
 
 
 networks:
-  testing_net:
+  ci_net:
     ipam:
       driver: default
       config:
