@@ -337,6 +337,10 @@ public class Construction {
         for (int i = aPayer.size()-1; i >= 0 ; i--) {
             if (!aPayer.get(i).equals(ressource)) {
                 ressource = aPayer.get(i);
+                System.out.println(droite.getValue(ressource));
+                System.out.println(ressource);
+                System.out.println(gauche.getValue(ressource));
+
                 nbRessourceGauche = gauche.getValue(ressource);
                 nbRessourceDroite = droite.getValue(ressource);
                 if (ressource.equals(EnumRessources.BOIS) || ressource.equals(EnumRessources.PIERRE) || ressource.equals(EnumRessources.ARGILE) || ressource.equals(EnumRessources.MINERAI)) {
