@@ -18,7 +18,7 @@ public class Joueur {
     public Joueur(){
 
     }
-    public Joueur(Strategy strategie, String name) {
+    public void setIABot(Strategy strategie, String name) {
         this.strategie = strategie;
         this.name = name;
         switch (strategie) {
@@ -49,6 +49,38 @@ public class Joueur {
         }
     }
 
+
+
+    public Joueur(Strategy strategie, String name) {
+        this.strategie = strategie;
+        this.name = name;
+        switch (strategie) {
+            case MONETAIRE:
+                this.bot = new IAmonetaire();
+                break;
+            case MERVEILLE:
+                this.bot = new IAmerveille();
+                break;
+            case CIVILE:
+                this.bot = new IAcivil();
+                break;
+            case MILITAIRE:
+                this.bot = new IAmilitaire();
+                break;
+            case SCIENTIFIQUE:
+                this.bot = new IAscientifique();
+                break;
+            case COMPOSITE:
+                this.bot = new IAcomposite();
+                break;
+            case AMBITIEUSE:
+                this.bot = new IAambitieuse();
+                break;
+            default:
+                this.bot = new IArandom();
+                break;
+        }
+    }
 
 
     // METHODE
@@ -93,6 +125,7 @@ public class Joueur {
      * @return True Construire la merveille / False sinon
      */
     public Boolean jouerMerveille(List<Carte> main,Inventaire invJoueur, Plateau plateau){
+        System.out.println("PROBLEME LAAAAAA 22222 "+bot);
         return bot.choixMerveille(this, main,invJoueur, plateau);
     }
 

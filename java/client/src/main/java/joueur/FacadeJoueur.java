@@ -43,6 +43,7 @@ public class FacadeJoueur {
      */
     @PostMapping("/jouer/Merveille")
     public boolean jouerMerveille(@RequestBody DataToClient data) {
+        System.out.println("PROBLEME LAAAAAA 1 ");
         return j.jouerMerveille(data.getListCarte(), data.getInvJoueur(), data.getPlateau());
     }
 

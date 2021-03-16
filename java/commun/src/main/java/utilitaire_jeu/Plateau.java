@@ -7,7 +7,7 @@ import java.util.List;
  */
 
 public class Plateau {
-    private final List<Inventaire> listeInventaire;
+    private List<Inventaire> listeInventaire;
     private int tour ;
     private int age = 0 ;
 
@@ -19,7 +19,7 @@ public class Plateau {
         this.listeInventaire = listeInventaire;
     }
 
-
+    public Plateau(){}
     /**
      * @return  numéro de l'age en cours
      */
