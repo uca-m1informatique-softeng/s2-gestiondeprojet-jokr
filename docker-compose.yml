@@ -6,23 +6,22 @@ services:
     image: serveur
     networks:
       ci_net:
-        ipv4_address: 10.0.0.253
-    depends_on:
-      - moteur
+        ipv4_address: 192.168.1.250
 
   moteur:
     image: moteur
     environment:
-      - SERVER_IP=http://10.0.0.253:8081
+      - SERVER_IP=http://192.168.1.250:8080
     networks:
       ci_net:
-        ipv4_address: 10.0.0.1
+        ipv4_address: 192.168.1.240
 
   client:
     image: client
     environment:
-      - ENGINE_IP=http://10.0.0.1:8085
-      - NAMES=(Jean Jacques George Philippe Ralph Jeremy Ossama Kevin MBappe JeanNeymar Mathilda Chloe Barbara Julia)
+      - ENGINE_IP=http://192.168.1.240:8085
+      # - NAMES=(Jean Jacques George Philippe Ralph Jeremy Ossama Kevin MBappe JeanNeymar Mathilda Chloe Barbara Julia)
+      - NAME=Jacques
     networks:
       ci_net:
     depends_on:
@@ -34,4 +33,4 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 10.0.0.0/24
+        - subnet: 192.168.1.0/24
