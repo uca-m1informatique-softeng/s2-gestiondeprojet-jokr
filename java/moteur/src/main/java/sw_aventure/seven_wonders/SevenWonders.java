@@ -80,7 +80,6 @@ public class SevenWonders {
         */
         long t0 = new Date().getTime();
         long t1 = t0;
-        int oldNbJoueurs = 0;
         int newNbJoueurs = 0;
         while (this.webController.listJoueurId.size() < nbJoueurs){
             try {
@@ -89,14 +88,11 @@ public class SevenWonders {
                 Thread.sleep(1000);
                 t1 = new Date().getTime();
                 if (t1 - t0 > 1000*SevenWonders.TIMEOUT) { System.exit(404); }
-                if (newNbJoueurs > oldNbJoueurs) {
-                    System.out.println("A new player has connected.");
-                    oldNbJoueurs = newNbJoueurs;
-                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+        System.out.println("Tous les joueurs sont connectés !");
         inv = this.webController.listJoueurId;
 
         if(shuffle){

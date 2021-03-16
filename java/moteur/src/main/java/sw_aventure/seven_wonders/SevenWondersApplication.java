@@ -67,9 +67,11 @@ public class SevenWondersApplication {
             try {
                 url = args[4];
                 SevenWonders.statsServerURL = url;
+                System.out.println("url : ");
+                System.out.println(url + "nbJoueur/");
             }
             catch (Exception ignored) {
-                // Ignore
+
             }
 
             // Bout de code qui envoie les stats

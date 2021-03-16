@@ -11,15 +11,17 @@ services:
   moteur:
     image: moteur
     environment:
-      - SERVER_IP=http://192.168.1.250:8080
+      - SERVER_IP=http://192.168.1.250:8080/
     networks:
       ci_net:
         ipv4_address: 192.168.1.240
+    depends_on:
+      - serveur
 
   client:
     image: client
     environment:
-      - ENGINE_IP=http://192.168.1.240:8085
+      - ENGINE_IP=http://192.168.1.240:8085/
       # - NAMES=(Jean Jacques George Philippe Ralph Jeremy Ossama Kevin MBappe JeanNeymar Mathilda Chloe Barbara Julia)
       - NAME=Jacques
     networks:

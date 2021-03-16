@@ -45,7 +45,7 @@ public class Serveur {
         this.nbJoueur = nbJoueur;
     }
 
-    @PostMapping("/nbPartie/")
+    @PostMapping("/nbParties/")
     public void getNbPartie(@RequestBody Integer nbPartie){
         this.nbPartie = nbPartie;
     }
