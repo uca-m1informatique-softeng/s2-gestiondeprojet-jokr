@@ -73,7 +73,7 @@ public class Plateau {
 
     public Inventaire joueurDroit(Inventaire joueur) {
         for (int i = 0; i < listeInventaire.size(); i++) {
-            if (listeInventaire.get(i).getUrl().equals(joueur.getUrl())) {
+            if (listeInventaire.get(i) == joueur) {
                 return listeInventaire.get((i + 1) % listeInventaire.size());
             }
         }
@@ -87,14 +87,14 @@ public class Plateau {
 
     public Inventaire joueurGauche(Inventaire joueur) {
         for (int i = 0; i < listeInventaire.size(); i++) {
-            if (listeInventaire.get(i).getUrl().equals(joueur.getUrl())) {
-                if ((i - 1) % listeInventaire.size() < 0) {
-                    return listeInventaire.get(listeInventaire.size() + ((i - 1) % listeInventaire.size()));
+            if (listeInventaire.get(i).equals(joueur)) {
+                if((i-1) % listeInventaire.size()<0){
+                    return listeInventaire.get(listeInventaire.size() + ((i-1)% listeInventaire.size()));
                 }
                 return listeInventaire.get((i - 1) % listeInventaire.size());
             }
         }
-        return  null ;
+        return null;
     }
 
 }
