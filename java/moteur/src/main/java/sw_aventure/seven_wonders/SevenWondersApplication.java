@@ -89,10 +89,13 @@ public class SevenWondersApplication {
                         LoggerSevenWonders.init(false);
                         Colors.setColor(false);
                         sw.initPlayers(nbJoueurs,true);
+                        System.out.println("ON EST LAAAAAAAAAAAAAAA 0000000");
                         sw.partie(nbJoueurs, true);
+                        System.out.println("ON EST LAAAAAAAAAAAAAAA 1111111");
                     }
-
+                    System.out.println("ON EST LAAAAAAAAAAAAAAA 222222");
                 }
+                System.out.println("ON EST LAAAAAAAAAAAAAAA 3333333");
             }
             else {
                 //SevenWonders sevenWonders  = new SevenWonders(nbJoueurs, true, color);
