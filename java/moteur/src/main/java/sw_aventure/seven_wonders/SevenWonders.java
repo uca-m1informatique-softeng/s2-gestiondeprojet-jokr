@@ -149,7 +149,7 @@ public class SevenWonders {
      */
     DeroulementJeu jeu;
 
-    public boolean partie(int nbJoueurs) throws NegativeNumberException {
+    public boolean partie(int nbJoueurs, boolean stat) throws NegativeNumberException {
 
         Plateau plateau = initPlateau();
 
@@ -157,12 +157,12 @@ public class SevenWonders {
         LoggerSevenWonders.ajoutln("____________________ Commencement du Jeu ________________________\n");
 
         attributionMerveille();
-         jeu = new DeroulementJeu(webController,inv);
+        jeu = new DeroulementJeu(webController,inv);
         jeu.laPartie(plateau, nbJoueurs);
 
         LoggerSevenWonders.ajoutln("_____________________________ Fin de la partie _____________________________");
         inv = triInventaire(inv);
-        envoyerStat(inv);
+        if (stat) envoyerStat(inv);
         return true;
     }
 
