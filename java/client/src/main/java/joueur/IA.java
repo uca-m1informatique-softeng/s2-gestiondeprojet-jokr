@@ -173,6 +173,9 @@ public interface IA {
      */
     default String seDefendre(Joueur j ,Inventaire invJoueur, Plateau plateau , List<Carte> possibilites){
         int boucliers = invJoueur.getValue(EnumRessources.BOUCLIER);
+        System.out.println(boucliers);
+        System.out.println(plateau.joueurGauche(invJoueur));
+        System.out.println(plateau.joueurGauche(invJoueur).getValue(EnumRessources.BOUCLIER));
         String carte = "";
         if ((plateau.joueurGauche(invJoueur).getValue(EnumRessources.BOUCLIER) > boucliers || plateau.joueurDroit(invJoueur).getValue(EnumRessources.BOUCLIER) > boucliers)) {
             for (int i = 0; i < possibilites.size(); i++) {

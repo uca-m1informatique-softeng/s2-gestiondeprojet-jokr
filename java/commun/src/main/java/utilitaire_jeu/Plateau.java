@@ -73,7 +73,7 @@ public class Plateau {
 
     public Inventaire joueurDroit(Inventaire joueur) {
         for (int i = 0; i < listeInventaire.size(); i++) {
-            if (listeInventaire.get(i).equals(joueur)) {
+            if (listeInventaire.get(i) == joueur) {
                 return listeInventaire.get((i + 1) % listeInventaire.size());
             }
         }
