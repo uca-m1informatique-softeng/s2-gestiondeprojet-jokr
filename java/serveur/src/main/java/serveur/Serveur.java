@@ -88,8 +88,11 @@ public class Serveur {
             this.statistique = new Statistique(this.nbPartie, this.nbJoueur, this.dataParties);
             this.statistique.calculStat();
             this.statistique.afficheStat(new GestionnaireDeFichier());
+            System.out.println("ON EST LAAAAAAAAAAAAAAA ON A AFFICHER NOS STATS");
             Thread.sleep(1000);
+            System.out.println("ON EST LAAAAAAAAAAAAAAA ON A DORMI 1000 ms");
             System.exit(0);
+            System.out.println("ON EST LAAAAAAAAAAAAAAA ON A EXIT STATUS 0 ");
         }
     }
 }
