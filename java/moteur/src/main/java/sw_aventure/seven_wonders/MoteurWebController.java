@@ -118,5 +118,10 @@ public class MoteurWebController {
         restTemplate.exchange(joueurId.getUrl()+"/finir", HttpMethod.POST, null, Void.class);
     }
 
+    public void cleanInventory(){
+        for(int i = 0 ; i < listJoueurId.size() ; i++){
+            listJoueurId.get(i).clear();
+        }
+    }
 
 }
