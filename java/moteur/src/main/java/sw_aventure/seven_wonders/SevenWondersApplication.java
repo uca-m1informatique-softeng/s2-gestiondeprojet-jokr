@@ -1,18 +1,14 @@
 package sw_aventure.seven_wonders;
 
-import metier.Strategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
-import utilitaire_jeu.NameURL;
 import utils.affichage.Colors;
 import utils.affichage.LoggerSevenWonders;
 
-import java.net.InetAddress;
-import java.util.Arrays;
+
 
 @SpringBootApplication
 public class SevenWondersApplication {
@@ -82,7 +78,7 @@ public class SevenWondersApplication {
                     LoggerSevenWonders.init(true);
                     Colors.setColor(color);
                     sw.initPlayers(nbJoueurs,true);
-                    sw.partie(nbJoueurs);
+                    sw.partie(nbJoueurs, true);
                     LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
                     sw.restTemplate.postForObject(url + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
                 }
@@ -93,7 +89,7 @@ public class SevenWondersApplication {
                         LoggerSevenWonders.init(false);
                         Colors.setColor(color);
                         sw.initPlayers(nbJoueurs,true);
-                        sw.partie(nbJoueurs);
+                        sw.partie(nbJoueurs, true);
                     }
 
                 }
@@ -103,7 +99,7 @@ public class SevenWondersApplication {
                 LoggerSevenWonders.init(true);
                 Colors.setColor(color);
                 sw.initPlayers(nbJoueurs,true);
-                sw.partie(nbJoueurs);
+                sw.partie(nbJoueurs, false);
                 LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
             }
             Thread.sleep(1000);
