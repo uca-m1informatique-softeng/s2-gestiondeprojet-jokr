@@ -225,7 +225,7 @@ public class SevenWonders {
         for(int i = 0 ; i< inv.size() ; i++ ){
             webController.envoyerFin(inv.get(i));
         }
-        restTemplate.patchForObject(SevenWonders.statsServerURL + "/finir",null, Void.class);
+        restTemplate.postForObject(SevenWonders.statsServerURL + "/finir",null, Void.class);
 
         System.out.println("ON EST LAAAAAAAAAAAAAAA ON A ENVOYER LES STATS");
     }
