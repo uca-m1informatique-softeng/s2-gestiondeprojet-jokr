@@ -163,6 +163,7 @@ public class SevenWonders {
         LoggerSevenWonders.ajoutln("_____________________________ Fin de la partie _____________________________");
         inv = triInventaire(inv);
         if (stat) envoyerStat(inv);
+        clearGame();
         return true;
     }
 
@@ -218,6 +219,10 @@ public class SevenWonders {
         }
         //Connexion.CONNEXION.envoyerMessageArray("DataPartie", jsonArray);
         restTemplate.postForObject(SevenWonders.statsServerURL + "sendStats/", datas.toArray(), Data[].class);
+
+    }
+
+    public void clearGame(){
         this.webController.cleanInventory();
         inv = this.webController.listJoueurId;
     }
