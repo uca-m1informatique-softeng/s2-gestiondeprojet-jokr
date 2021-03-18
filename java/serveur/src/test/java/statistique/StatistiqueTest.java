@@ -1,4 +1,4 @@
-package java.statistique;
+package statistique;
 
 import fichier.GestionnaireDeFichier;
 import metier.Data;
@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 
 public class StatistiqueTest {
 

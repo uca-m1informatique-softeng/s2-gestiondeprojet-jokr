@@ -1,12 +1,9 @@
-package java.serveur;
+package serveur;
 
-import com.corundumstudio.socketio.SocketIOServer;
 import fichier.GestionnaireDeFichier;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-import serveur.Serveur;
-
 import java.io.IOException;
 
 
