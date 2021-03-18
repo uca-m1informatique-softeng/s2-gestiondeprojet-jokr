@@ -45,7 +45,11 @@ public class JoueurApplication {
         // les traces sont là juste pour montrer le déroulement et le lancement
         System.out.println("----------------- CommandLineRunner -----------------");
         return args -> {
-            j.setIABot(Strategy.COMPOSITE , args[2]);
+            if( args.length >=2) {
+                j.setIABot(Strategy.COMPOSITE, args[2]);
+            }else {
+                j.setIABot(Strategy.COMPOSITE, "Joueur non défini");
+            }
             // les traces sont là juste pour montrer le déroulement et le lancement
             System.out.println("----------------- args = " + args.length + " " +Arrays.toString(args) + " -----------------");
             if ((args.length > 0) && (args[0].equals("autoconnect"))) {

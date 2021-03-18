@@ -219,7 +219,6 @@ public class SevenWonders {
         }
         //Connexion.CONNEXION.envoyerMessageArray("DataPartie", jsonArray);
         restTemplate.postForObject(SevenWonders.statsServerURL + "sendStats/", datas.toArray(), Data[].class);
-
     }
 
     public void clearGame(){
