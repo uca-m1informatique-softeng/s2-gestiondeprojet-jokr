@@ -218,6 +218,7 @@ public class SevenWonders {
         }
         //Connexion.CONNEXION.envoyerMessageArray("DataPartie", jsonArray);
         restTemplate.postForObject(SevenWonders.statsServerURL + "sendStats/", datas.toArray(), Data[].class);
+        this.webController.cleanInventory();
         inv = this.webController.listJoueurId;
     }
 
