@@ -406,7 +406,7 @@ public class Inventaire {
         return id;
     }
 
-
+/*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -414,7 +414,7 @@ public class Inventaire {
         Inventaire that = (Inventaire) o;
         return Objects.equals(url+id, that.url+that.id);
     }
-
+*/
     @Override
     public int hashCode() {
         return Objects.hash(url);
