@@ -25,7 +25,7 @@ public class Inventaire {
      * @param name le nom du joueur
      */
 
-    public Inventaire(int id, String url_player,String name) {  // Dictionnaire
+    public Inventaire(int id, String urlPlayer,String name) {  // Dictionnaire
 
         this.joueurName = name; // création du joueur
         this.id = id;
