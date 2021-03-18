@@ -11,6 +11,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  *      Serveur permettant de recevoir les données du jeu
@@ -88,11 +89,27 @@ public class Serveur {
             this.statistique = new Statistique(this.nbPartie, this.nbJoueur, this.dataParties);
             this.statistique.calculStat();
             this.statistique.afficheStat(new GestionnaireDeFichier());
-            System.out.println("ON EST LAAAAAAAAAAAAAAA ON A AFFICHER NOS STATS");
-            Thread.sleep(1000);
-            System.out.println("ON EST LAAAAAAAAAAAAAAA ON A DORMI 1000 ms");
-            //System.exit(0);
-            System.out.println("ON EST LAAAAAAAAAAAAAAA ON A EXIT STATUS 0 ");
         }
+    }
+
+
+    @PostMapping("/finir")
+    public void finir() {
+        // fin brutale (pour abréger sur travis), mais il faut répondre un peu après
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Joueur > fin du programme");
+                try {
+                    TimeUnit.MILLISECONDS.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    System.exit(0);
+                }
+
+            }
+        });
+        t.start();
     }
 }
