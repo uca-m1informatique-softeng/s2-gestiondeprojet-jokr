@@ -22,8 +22,9 @@ services:
     image: client
     environment:
       - ENGINE_IP=http://192.168.1.240:8085/
-      # - NAMES=(Jean Jacques George Philippe Ralph Jeremy Ossama Kevin MBappe JeanNeymar Mathilda Chloe Barbara Julia)
-      - NAME=Jacques
+      - MR_ID=$((0 + RANDOM % 13))
+      - NAMES=(Jean Jacques George Philippe Ralph Jeremy Ossama Kevin MBappe JeanNeymar Mathilda Chloe Barbara Julia)
+      - NAME=NAMES[MR_ID]
     networks:
       ci_net:
     depends_on:
