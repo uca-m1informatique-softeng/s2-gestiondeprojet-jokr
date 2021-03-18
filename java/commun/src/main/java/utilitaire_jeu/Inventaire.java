@@ -412,7 +412,7 @@ public class Inventaire {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Inventaire that = (Inventaire) o;
-        return Objects.equals(url, that.url);
+        return Objects.equals(url+id, that.url+that.id);
     }
 
     @Override
