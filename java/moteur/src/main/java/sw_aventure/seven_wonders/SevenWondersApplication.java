@@ -87,7 +87,7 @@ public class SevenWondersApplication {
                     for (int i = 0; i < nbParties; i++) {
                         //SevenWonders sevenWonders = new SevenWonders(nbJoueurs, false, color);
                         LoggerSevenWonders.init(false);
-                        Colors.setColor(color);
+                        Colors.setColor(false);
                         sw.initPlayers(nbJoueurs,true);
                         sw.partie(nbJoueurs, true);
                     }
@@ -102,9 +102,11 @@ public class SevenWondersApplication {
                 sw.partie(nbJoueurs, false);
                 LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
             }
+            System.out.println("ON EST LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             Thread.sleep(1000);
             System.exit(0);
         };
+
     }
 
 }
