@@ -14,13 +14,16 @@ import utilitaire_jeu.DataToClient;
 import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.NameURL;
 import utilitaire_jeu.SetInventaire;
+import utils.affichage.Colors;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
 public class MoteurWebController {
     List<SetInventaire> listJoueurId = new ArrayList<>();
+    List<String> listName = Arrays.asList(Colors.igBleu("Enzo"), Colors.igJaune("Mona"),Colors.igCyan("Fred"), Colors.igVert("Paul"), Colors.igRouge("Lucy"),  Colors.igViolet("Dora"),Colors.igViolet("Alex"));
 
     int nbJoueur = 0 ;
     @Bean
@@ -51,7 +54,7 @@ public class MoteurWebController {
     public boolean getValue(@RequestBody NameURL nameURL) throws NegativeNumberException {
         System.out.println("Moteur > connexion acceptée de " + nameURL.getName() + " depuis l'adresse : " + nameURL.getUrl());
 
-        this.listJoueurId.add(new SetInventaire(listJoueurId.size(), nameURL.getUrl(), nameURL.getName()));
+        this.listJoueurId.add(new SetInventaire(listJoueurId.size(), nameURL.getUrl(), listName.get(listJoueurId.size())));
         System.out.println(this.listJoueurId.size());
         this.nbJoueur++;
         //if(listJoueurId.size()==3) { return moteur.partie(3); }
