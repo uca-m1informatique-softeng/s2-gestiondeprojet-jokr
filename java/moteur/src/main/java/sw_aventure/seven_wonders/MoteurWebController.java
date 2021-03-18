@@ -119,9 +119,11 @@ public class MoteurWebController {
     }
 
     public void cleanInventory(){
-        for(int i = 0 ; i < listJoueurId.size() ; i++){
-            listJoueurId.get(i).clear();
+        List<SetInventaire> newListJoueurID = new ArrayList<>();
+        for(int i = 0 ; i < this.listJoueurId.size() ; i++){
+            newListJoueurID.add(new SetInventaire(i, this.listJoueurId.get(i).getUrl(), this.listJoueurId.get(i).getJoueurName()));
         }
+        this.listJoueurId = newListJoueurID;
     }
 
 }
