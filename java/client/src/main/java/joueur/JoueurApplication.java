@@ -62,9 +62,6 @@ public class JoueurApplication {
                 // les traces sont là juste pour montrer le déroulement et le lancement
                 System.out.println("Nom du joueur : " + args[2]);
                 System.out.println("Joueur > état de la connexion : " + val);
-
-                FacadeJoueur facadeJoueur = new FacadeJoueur();
-                facadeJoueur.j = j;
             }
         };
     }

@@ -14,6 +14,10 @@ public class FacadeJoueur {
     @Autowired
     Joueur j ;
 
+    public FacadeJoueur() {
+        System.out.println(this);
+    }
+
 
     /**
      * Étant donné une carte et un plateau, renvoie si le joueur veut défausser la carte ou non

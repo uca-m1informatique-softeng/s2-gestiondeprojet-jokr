@@ -18,6 +18,7 @@ public class Joueur {
     public Joueur(){
 
     }
+
     public void setIABot(Strategy strategie, String name) {
         this.strategie = strategie;
         this.name = name;
