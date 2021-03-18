@@ -7,7 +7,7 @@ docker build moteur -t moteur
 docker build client -t client
 docker images
 
-docker-compose up --scale client=7
+docker-compose up --scale client=3
 
 docker rm $(docker ps -a -q)
 docker ps -a -q
