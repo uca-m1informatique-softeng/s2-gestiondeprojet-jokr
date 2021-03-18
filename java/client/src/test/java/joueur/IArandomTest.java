@@ -38,9 +38,9 @@ public class IArandomTest {
      */
     @Before
     public void setup() {
-        inventaire = new Inventaire(1, "FZEEGVB", "Enzo");
+        inventaire = new Inventaire( 1,"FZEEGVB", "Enzo");
 
-        joueur = new Joueur(   0, Strategy.RANDOM , "Enzo");
+        joueur = new Joueur(Strategy.RANDOM , "Enzo");
         main = new ArrayList<>();
         plateau = new Plateau(inv);
         bot = new  IArandom();

@@ -23,10 +23,10 @@ public class InventaireTest {
      */
     @Before
     public void setUp() {
-        setInv1 = new SetInventaire(1, "random", "Enzo");
+        setInv1 = new SetInventaire( 1,"random", "Enzo");
         setInv2 = new SetInventaire(2, "militaire", "Christina");
-        setInv3 = new SetInventaire(3, "scientifique", "Mona");
-        setInv4 = new SetInventaire(4, "random", "Paul");
+        setInv3 = new SetInventaire( 3,"scientifique", "Mona");
+        setInv4 = new SetInventaire( 4,"random", "Paul");
         setInv5 = new SetInventaire(5, "civile", "Lucie");
 
         listInv = new ArrayList<>();
@@ -207,19 +207,7 @@ public class InventaireTest {
     }
 
 
-    /**
-     * Test le getter getId() pour verifier si l identifant du joueur est bien affilie au bon inventaire
-     */
-    @Test
-    public void getIdTest() {
-        assertEquals(1, setInv1.getId());
-        assertEquals(2 , setInv2.getId());
-        assertEquals(3 , setInv3.getId());
-        assertEquals(4 , setInv4.getId());
-        assertEquals(5 , setInv5.getId());
-    }
-
-
+    
     /**
      * On vérifie si l'inventaire est bien initialisé en regardant la valeur des arguments avec seulement 3 pieces
      */

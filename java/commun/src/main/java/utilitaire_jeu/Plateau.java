@@ -7,7 +7,7 @@ import java.util.List;
  */
 
 public class Plateau {
-    private final List<Inventaire> listeInventaire;
+    private List<Inventaire> listeInventaire;
     private int tour ;
     private int age = 0 ;
 
@@ -19,7 +19,7 @@ public class Plateau {
         this.listeInventaire = listeInventaire;
     }
 
-
+    public Plateau(){}
     /**
      * @return  numéro de l'age en cours
      */
@@ -73,7 +73,7 @@ public class Plateau {
 
     public Inventaire joueurDroit(Inventaire joueur) {
         for (int i = 0; i < listeInventaire.size(); i++) {
-            if (listeInventaire.get(i) == joueur) {
+            if (listeInventaire.get(i).getUrl().equals(joueur.getUrl())) {
                 return listeInventaire.get((i + 1) % listeInventaire.size());
             }
         }
@@ -87,7 +87,7 @@ public class Plateau {
 
     public Inventaire joueurGauche(Inventaire joueur) {
         for (int i = 0; i < listeInventaire.size(); i++) {
-            if (listeInventaire.get(i).equals(joueur)) {
+            if (listeInventaire.get(i).getUrl().equals(joueur.getUrl())) {
                 if((i-1) % listeInventaire.size()<0){
                     return listeInventaire.get(listeInventaire.size() + ((i-1)% listeInventaire.size()));
                 }

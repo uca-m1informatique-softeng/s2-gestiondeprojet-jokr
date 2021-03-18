@@ -1,27 +1,20 @@
 package serveur;
 
-import com.corundumstudio.socketio.AckRequest;
-import com.corundumstudio.socketio.Configuration;
-import com.corundumstudio.socketio.SocketIOClient;
-import com.corundumstudio.socketio.SocketIOServer;
-import com.corundumstudio.socketio.listener.DataListener;
 import fichier.GestionnaireDeFichier;
 import metier.Data;
-import metier.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 import statistique.Statistique;
-import utils.affichage.LoggerSevenWonders;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  *      Serveur permettant de recevoir les données du jeu
- * @see #server
- *          SocketIOServer
  * @see #nbPartie
  *          Le nombre de partie joué
  * @see #nbJoueur
@@ -33,111 +26,42 @@ import java.util.Date;
  * @see #statistique
  *          Permet de calcumer les statistiques si plusieurs parties
  */
+@RestController
 public class Serveur {
 
-    private final SocketIOServer server;
-    private int nbPartie = 0;
-    private int nbJoueur = 0;
-    private ArrayList<Data[]> dataParties = new ArrayList<>();
+    private int nbPartie;
+    private int nbJoueur;
+    private ArrayList<Data[]> dataParties;
     private GestionnaireDeFichier gestionnaireDeFichier;
     private Statistique statistique;
 
-    /**
-     * Constructeur pour le serveur
-     * @param server SocketIOServer
-     */
-    public Serveur(SocketIOServer server) {
-        this.server = server;
-
-        /**
-         * Evénement qui signale que des données vont être envoyée
-         */
-        this.server.addEventListener("Initialisation", boolean.class, new DataListener<Boolean>() {
-            @Override
-            public void onData(SocketIOClient socketIOClient, Boolean aBoolean, AckRequest ackRequest) throws Exception {
-                if (Boolean.TRUE.equals(aBoolean)) {
-                    nbPartie = 0;
-                    nbJoueur = 0;
-                    dataParties = new ArrayList<>();
-                }
-            }
-        });
-
-        /**
-         * Evénement qui permet de recevoir le nombre de partie
-         */
-        this.server.addEventListener("NombresPartie", int.class, new DataListener<Integer>() {
-            @Override
-            public void onData(SocketIOClient socketIOClient, Integer integer, AckRequest ackRequest) throws Exception {
-                nbPartie = integer;
-            }
-        });
-
-        /**
-         * Evénement qui permet de recevoir le nombre de joueur
-         */
-        this.server.addEventListener("NombresJoueur", int.class, new DataListener<Integer>() {
-            @Override
-            public void onData(SocketIOClient socketIOClient, Integer integer, AckRequest ackRequest) throws Exception {
-                nbJoueur = integer;
-            }
-        });
-
-        /**
-         * Evénement qui permet de recevoir les données d'une partie
-         */
-        this.server.addEventListener("DataPartie", Data[].class, new DataListener<Data[]>() {
-            @Override
-            public void onData(SocketIOClient socketIOClient, Data[] data, AckRequest ackRequest) throws IOException {
-                dataParties.add(data);
-                if (dataParties.size() == nbPartie) {
-                    statistique = new Statistique(nbPartie, nbJoueur, dataParties);
-                    statistique.calculStat();
-                    statistique.afficheStat(new GestionnaireDeFichier());
-                    arreter();
-                }
-            }
-        });
-
-        /**
-         * Evénement qui permet de recevoir le déroulé d'une partie normale
-         */
-        this.server.addEventListener("Partie", StringBuilder.class, new DataListener<StringBuilder>() {
-            @Override
-            public void onData(SocketIOClient socketIOClient, StringBuilder stringBuilder, AckRequest ackRequest) throws Exception {
-                gestionnaireDeFichier = new GestionnaireDeFichier();
-                enregistrerPartie(gestionnaireDeFichier, nbJoueur, stringBuilder);
-            }
-        });
+    public Serveur(){
+        this.nbPartie = 0;
+        this.nbJoueur = 0;
+        this.dataParties = new ArrayList<>();
     }
 
-
-    /**
-     *  Methode demarrer qui lance le serveur
-     */
-    public void demarrer() {
-        server.start();
+    @PostMapping("/nbJoueur/")
+    public void getNbJoueur(@RequestBody Integer nbJoueur){
+        this.nbJoueur = nbJoueur;
     }
 
-
-    /**
-     * Méthode qui stop le server
-     */
-    public void arreter() {
-        server.removeAllListeners("Initialisation");
-        server.removeAllListeners("NombresPartie");
-        server.removeAllListeners("NombresJoueur");
-        server.removeAllListeners("Partie");
-
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                server.stop();
-            }
-        }).start();
+    @PostMapping("/nbParties/")
+    public void getNbPartie(@RequestBody Integer nbPartie){
+        this.nbPartie = nbPartie;
     }
 
+    @PostMapping("/sendStats/")
+    public void getStats(@RequestBody Data[] data) throws Exception {
+        this.dataParties.add(data);
+        this.traiterFinReception();
+    }
+
+    @PostMapping("/partie/")
+    public void showPartie(@RequestBody StringBuilder stringBuilder) throws IOException {
+        this.gestionnaireDeFichier = new GestionnaireDeFichier();
+        this.enregistrerPartie(this.gestionnaireDeFichier, this.nbJoueur, stringBuilder);
+    }
 
     /**
      * Méthode permettant d'enregistrer le déroulé d'une partie dans un fichier
@@ -155,21 +79,37 @@ public class Serveur {
         gestionnaireDeFichier.ecrireDansFichier(path, file, string.toString());
     }
 
-
     /**
-     * Methode du main
-     * @param args argument du main
+     * Vérifie si le serveur a fini de recevoir toutes les statistiques. Si c'est le cas, il calcule les stats, les
+     * affiche, puis s'arrête.
+     * @throws Exception Au cas où certains appels systèmes posent problème
      */
-    public static void main(String[] args) throws UnknownHostException {
-        LoggerSevenWonders.init(true);
-        Configuration config = new Configuration();
-        
-        config.setHostname(InetAddress.getLocalHost().getHostAddress());
-        config.setPort(8081);
-        SocketIOServer server = new SocketIOServer(config);
+    private void traiterFinReception() throws Exception {
+        if (this.dataParties.size() == this.nbPartie) {
+            this.statistique = new Statistique(this.nbPartie, this.nbJoueur, this.dataParties);
+            this.statistique.calculStat();
+            this.statistique.afficheStat(new GestionnaireDeFichier());
+        }
+    }
 
-        Serveur serveur = new Serveur(server);
 
-        serveur.demarrer();
+    @PostMapping("/finir")
+    public void finir() {
+        // fin brutale (pour abréger sur travis), mais il faut répondre un peu après
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Joueur > fin du programme");
+                try {
+                    TimeUnit.MILLISECONDS.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    System.exit(0);
+                }
+
+            }
+        });
+        t.start();
     }
 }

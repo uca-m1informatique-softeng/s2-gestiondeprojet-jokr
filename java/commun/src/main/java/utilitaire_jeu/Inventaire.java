@@ -22,11 +22,11 @@ public class Inventaire {
 
     /**
      * Constructeur de la classe inventaire prenant l'ID d'un joueur, l'IA et son Nom
-     * @param id l'ID du joueur
      * @param name le nom du joueur
      */
 
-    public Inventaire(int id, String urlPlayer,String name) {  // Dictionnaire
+    public Inventaire(int id, String url_player,String name) {  // Dictionnaire
+
         this.joueurName = name; // création du joueur
         this.id = id;
         this.url = urlPlayer;
@@ -34,6 +34,7 @@ public class Inventaire {
         initSac();
     }
 
+    public Inventaire(){}
     /**
      * Initialise le Sac
      */
@@ -373,12 +374,6 @@ public class Inventaire {
      */
     public String getJoueurName() { return joueurName; }
 
-
-    /**
-     * @return Permet d'obtenir l'Id du joueur
-     */
-    public int getId(){ return id; }
-
     /**
      * Permet d'obtenir la quantité d'une ressource donnée que le joueur possède
      * @param s Chaine de caractère (key)
@@ -405,6 +400,26 @@ public class Inventaire {
     public Map<EnumRessources, Integer> getSac() {
         return sac;
     }
+
+
+    public Integer getId() {
+        return id;
+    }
+
+/*
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Inventaire that = (Inventaire) o;
+        return Objects.equals(url+id, that.url+that.id);
+    }
+*/
+    @Override
+    public int hashCode() {
+        return Objects.hash(url);
+    }
 }
+
 
 

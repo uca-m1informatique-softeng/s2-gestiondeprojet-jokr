@@ -47,12 +47,13 @@ public class IAmilitaireTest {
     public void setUp() {
         iAmilitaire = new IAmilitaire();
 
-        setInv1 = new SetInventaire(0, "url1", "j1");
-        setInv2 = new SetInventaire(1, "url2", "j2");
+        setInv1 = new SetInventaire(1,"url1", "j1");
+        setInv2 = new SetInventaire( 2,"url2", "j2");
 
-        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        joueur1 = new Joueur(Strategy.AMBITIEUSE,setInv1.getJoueurName());
 
-        Joueur joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName());
+
+        Joueur joueur2 = new Joueur(Strategy.AMBITIEUSE,setInv2.getJoueurName());
 
         chantier = new Carte(EnumCarte.M6, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.BOIS), 3, 1, EnumRessources.MARRON);
         palissade = new Carte(EnumCarte.R3, Collections.singletonList(EnumRessources.PIERRE), Collections.singletonList(EnumRessources.BOUCLIER), 3, 1, EnumRessources.ROUGE);

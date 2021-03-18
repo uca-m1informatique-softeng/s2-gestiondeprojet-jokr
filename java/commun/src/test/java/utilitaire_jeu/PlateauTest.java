@@ -18,11 +18,11 @@ public class PlateauTest {
      */
     @Before
     public void setUp() {
-        setInv1 = new SetInventaire(1, "ultime", "Davy");
-        setInv2 = new SetInventaire(2, "random", "Vincent");
-        setInv3 = new SetInventaire(3, "random", "Pierre");
-        setInv4 = new SetInventaire(4, "ultime", "Hichem");
-        setInv5 = new SetInventaire(5, "random", "Thomas");
+        setInv1 = new SetInventaire(1, "http://192.168.1.1:8090", "Vincent");
+        setInv2 = new SetInventaire(2, "http://192.168.1.2:8090", "Vincent");
+        setInv3 = new SetInventaire(3, "http://192.168.1.3:8090", "Pierre");
+        setInv4 = new SetInventaire(4, "url4", "Hichem");
+        setInv5 = new SetInventaire(5, "url5", "Thomas");
 
         listeInventaire = new ArrayList<>();
         listeInventaire.add(setInv1);
@@ -142,4 +142,10 @@ public class PlateauTest {
         Plateau pl = new Plateau(new ArrayList<>());
         assertNull(pl.joueurGauche(setInv1));
     }
+/*
+    @Test
+    public void equals(){
+
+        assertFalse(setInv1.equals(setInv2));
+    }*/
 }

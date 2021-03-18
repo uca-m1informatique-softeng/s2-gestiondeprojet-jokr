@@ -6,12 +6,12 @@ import java.util.*;
 
 public class Carte {
 
-    private final EnumCarte nom;
-    private final List<EnumRessources> gain;
+    private EnumCarte nom;
+    private List<EnumRessources> gain;
     private int nbJoueur ;
     private int age ;
     private EnumRessources couleur;
-    private final List<EnumRessources> prix;
+    private List<EnumRessources> prix;
 
     /**
      * Constructeur de cartes Age
@@ -31,6 +31,7 @@ public class Carte {
         this.couleur = couleur ;
     }
 
+    public Carte(){}
     /**
      * Constructeur de carte merveille
      * @param nom le nom de la carte merveille

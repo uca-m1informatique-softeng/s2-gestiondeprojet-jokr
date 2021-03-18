@@ -34,7 +34,7 @@ public class DeroulementJeuTest {
     private DeroulementJeu deroulementJeu;
 
     private SetInventaire setInv1 , setInv2, setInv3;
-
+    private MoteurWebController web;
     private Plateau plateau;
 
     private SetInventaire inv4;
@@ -67,9 +67,9 @@ public class DeroulementJeuTest {
 
 
         inv = Mockito.mock(SetInventaire.class);
-        setInv1 = new SetInventaire(0, "BREBNREER", "Enzo");
-        setInv2 = new SetInventaire(1, "HENJEET", "Christina");
-        setInv3 = new SetInventaire(2, "REHRENJER", "Mona");
+        setInv1 = new SetInventaire( 1,"BREBNREER", "Enzo");
+        setInv2 = new SetInventaire( 2,"HENJEET", "Christina");
+        setInv3 = new SetInventaire( 3,"REHRENJER", "Mona");
         inv4 = new SetInventaire(4, "GRNERNERJS", "Paul");
 
         ArrayList<Carte> etape = new ArrayList<>();
@@ -86,7 +86,7 @@ public class DeroulementJeuTest {
         listeSetInventaire.add(setInv2);
         listeSetInventaire.add(setInv3);
 
-        deroulementJeu = new DeroulementJeu(listeSetInventaire);
+        deroulementJeu = new DeroulementJeu(web,listeSetInventaire);
     }
 
 
@@ -189,7 +189,7 @@ public class DeroulementJeuTest {
         listeSetInvenatire.add(setInv3);
 
         int hash = listeSetInvenatire.hashCode();
-        deroulementJeu = new DeroulementJeu(listeSetInvenatire);
+        deroulementJeu = new DeroulementJeu(web,listeSetInvenatire);
 
         assertEquals(hash, deroulementJeu.getSetInventaire().hashCode());
     }
@@ -384,7 +384,7 @@ public class DeroulementJeuTest {
         listeSetInventaire.add(setInv2);
         listeSetInventaire.add(setInv3);
 
-        deroulementJeu = new DeroulementJeu(listeSetInventaire);
+        deroulementJeu = new DeroulementJeu(web,listeSetInventaire);
         deroulementJeu.guerre(1);
         // Premier Âge, le joueur 1 a 10 bouclier et les autres joueurs n'ont en pas, donc il doit remporter 2 point de victoire,
         // car il gagne son joueur de droite et son joueur de gauche.
@@ -411,7 +411,7 @@ public class DeroulementJeuTest {
         listeSetInventaire.add(setInv1);
         listeSetInventaire.add(setInv2);
         listeSetInventaire.add(setInv3);
-        deroulementJeu = new DeroulementJeu(listeSetInventaire);
+        deroulementJeu = new DeroulementJeu(web,listeSetInventaire);
         deroulementJeu.guerre(2);
 
         for (SetInventaire s : deroulementJeu.getSetInventaire()) {
@@ -435,7 +435,7 @@ public class DeroulementJeuTest {
         listeSetInventaire.add(setInv1);
         listeSetInventaire.add(setInv2);
         listeSetInventaire.add(setInv3);
-        deroulementJeu = new DeroulementJeu(listeSetInventaire);
+        deroulementJeu = new DeroulementJeu(web,listeSetInventaire);
         deroulementJeu.guerre(3);
 
         for (SetInventaire s : deroulementJeu.getSetInventaire()) {

@@ -24,9 +24,11 @@ public class DeroulementJeu {
     private final ArrayList<Carte> paquetDefausse = new ArrayList<>();
     private List<MainJoueur> mainJoueurs = new ArrayList<>();
     private final SecureRandom r = new SecureRandom();
+    private MoteurWebController webController;
 
-    public DeroulementJeu(List<SetInventaire> inv){
+    public DeroulementJeu(MoteurWebController webController, List<SetInventaire> inv){
         this.inv = inv;
+        this.webController = webController;
     }
 
     /**
@@ -60,7 +62,7 @@ public class DeroulementJeu {
         List<Inventaire> joueurs = plateau.getListeInventaire();
         for(int i = 0 ; i<nbjoueurs ; i++){
             for (SetInventaire s : inv) {
-                if(s.getId()==i) {
+                if(s.getId()==i){
                     liste[s.getId()] = s.compteFinalScore(plateau.joueurGauche(s),plateau.joueurDroit(s), false);
                     joueurs.add(s);
                 }
@@ -174,7 +176,7 @@ public class DeroulementJeu {
      */
     public void joueAge(int age, int nbJoueurs, Plateau plateau) throws NegativeNumberException {
         plateau.restartTour();
-        ActionDeJeu action = new ActionDeJeu(inv,mainJoueurs,paquetDefausse);
+        ActionDeJeu action = new ActionDeJeu(webController,inv,mainJoueurs,paquetDefausse);
 
         for (int carteParMains = 7 ;carteParMains > 1 ; carteParMains--) {
             int tour = 7 - carteParMains+1 ;

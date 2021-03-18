@@ -210,6 +210,7 @@ public class SetInventaire extends Inventaire {
     public void clear() {
         initSac();
     }
+
 }
 
 

@@ -37,7 +37,7 @@
                             <goal>java</goal>
                         </goals>
                         <configuration>
-                            <mainClass>sw_aventure.seven_wonders.SevenWonders</mainClass>  <!-- à changer : classe avec point d'entrée pour votre projet -->
+                            <mainClass>sw_aventure.seven_wonders.SevenWondersApplication</mainClass>  <!-- à changer : classe avec point d'entrée pour votre projet -->
 
                             <arguments>
                                 <argument> true </argument>
@@ -54,7 +54,7 @@
                             <goal>java</goal>
                         </goals>
                         <configuration>
-                            <mainClass>sw_aventure.seven_wonders.SevenWonders</mainClass>  <!-- à changer : classe avec point d'entrée pour votre projet -->
+                            <mainClass>sw_aventure.seven_wonders.SevenWondersApplication</mainClass>  <!-- à changer : classe avec point d'entrée pour votre projet -->
 
                             <arguments>
                                 <argument> true </argument>
@@ -63,31 +63,6 @@
                                 <argument> true </argument>
                             </arguments>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>sw_aventure.seven_wonders.SevenWonders</mainClass>
-                        </manifest>
-                    </archive>
-
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
-
-                <executions>
-                    <execution>
-                        <id>single</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -102,20 +77,8 @@
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.7</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>JOKR</groupId>
             <artifactId>commun</artifactId>
-            <version>1.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>JOKR</groupId>
-            <artifactId>client</artifactId>
             <version>1.0</version>
             <scope>compile</scope>
         </dependency>
@@ -124,5 +87,4 @@
             <artifactId>junit-vintage-engine</artifactId>
         </dependency>
     </dependencies>
-
 </project>

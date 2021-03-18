@@ -40,7 +40,7 @@ public class ActionDeJeuTest {
     private List<MainJoueur> mainJoueurs;
     private ArrayList<Carte> paquetDefausse;
     private GenererCarte fabriqueCarte;
-
+    private MoteurWebController web;
 
     /**
      * Preparation pour les tests de la classe ActionDeJeu
@@ -48,9 +48,9 @@ public class ActionDeJeuTest {
     @Before
     public void setup() {
         nbJoueurs = 3;
-        setInv1 = new SetInventaire(0, "AZERZGVB", "Enzo");
-        setInv2 = new SetInventaire(1, "BFNEEKLBK", "Christina");
-        setInv3 = new SetInventaire(2, "RHENBREBBEZ", "Mona");
+        setInv1 = new SetInventaire(1,"AZERZGVB", "Enzo");
+        setInv2 = new SetInventaire(2,"BFNEEKLBK", "Christina");
+        setInv3 = new SetInventaire(3,"RHENBREBBEZ", "Mona");
 
         joueur1 = setInv1.getUrl();
         joueur2 = setInv2.getUrl();
@@ -79,7 +79,7 @@ public class ActionDeJeuTest {
         paquetDefausse = new ArrayList<>();
 
         listSetInventaire = new ArrayList<>(){{add(setInv1);add(setInv2);add(setInv3);}};
-        actionDeJeu = new ActionDeJeu(listSetInventaire, mainJoueurs, paquetDefausse);
+        actionDeJeu = new ActionDeJeu(web,listSetInventaire, mainJoueurs, paquetDefausse);
     }
 
 

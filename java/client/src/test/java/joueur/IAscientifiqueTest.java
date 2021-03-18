@@ -43,17 +43,17 @@ public class IAscientifiqueTest {
     public void setup() {
         iAscientifique = new IAscientifique();
 
-        setInv1 = new SetInventaire(0, "url1", "j1");
+        setInv1 = new SetInventaire( 1,"url1", "j1");
         Merveille merveille1 = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, new ArrayList<>());
         setInv1.modifMerveille(merveille1);
 
-        setInv2 = new SetInventaire(1, "url2", "j2");
+        setInv2 = new SetInventaire( 2,"url2", "j2");
         Merveille merveille2 = new Merveille(Wonder.BABYLONNUIT, EnumRessources.BOIS, new ArrayList<>());
         setInv2.modifMerveille(merveille2);
         listeRessource = new ArrayList<>();
 
-        joueur1 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
-        joueur2 = new Joueur(setInv2.getId(),Strategy.AMBITIEUSE,setInv2.getJoueurName());
+        joueur1 = new Joueur(Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        joueur2 = new Joueur(Strategy.AMBITIEUSE,setInv2.getJoueurName());
 
         officine = new Carte(EnumCarte.V3, Collections.singletonList(EnumRessources.TISSU), Collections.singletonList(EnumRessources.COMPAS), 3, 1, EnumRessources.VERTE);
         guildScientifiques = new Carte(EnumCarte.P7, Arrays.asList(EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.MINERAI, EnumRessources.MINERAI), Collections.singletonList(EnumRessources.BONUSCPR), 3, 3, EnumRessources.VIOLETTE);

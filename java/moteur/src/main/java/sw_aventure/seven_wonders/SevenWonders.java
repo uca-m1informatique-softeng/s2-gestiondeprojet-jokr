@@ -1,32 +1,50 @@
 package sw_aventure.seven_wonders;
 
-
-import java.net.URISyntaxException;
 import java.security.SecureRandom;
 import java.util.*;
 import exception.NegativeNumberException;
-import io.socket.client.IO;
 import metier.*;
 import objet_commun.Merveille;
-import joueur.FacadeJoueur;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 import sw_aventure.objetjeu.*;
-import org.json.JSONArray;
 import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 import utilitaire_jeu.SetInventaire;
-import utils.affichage.Colors;
 import utils.affichage.LoggerSevenWonders;
-import reseau.Connexion;
 
 /**
  * Classe du main où la partie se lance
  */
+@Component
 public class SevenWonders {
     private final SecureRandom r = new SecureRandom();
     protected List<SetInventaire> inv = new ArrayList<>();
     private final GenererMerveille genererMerveille = new GenererMerveille();
     private static boolean color = true;
+    public static String statsServerURL = "http://127.0.0.1:8080";
 
+    private static final long TIMEOUT = 3*60; // En secondes
+
+    @Autowired
+    MoteurWebController webController;
+
+    @Autowired
+    RestTemplate restTemplate;
+
+    /**
+     * main : lancement du jeu
+     * Arguments en lançant le programme par ligne de commande :
+     * 1ème argument : indiquer "false" pour afficher sans couleur (peut être utile si l'on souhaite lire directement le .txt ou si on utilise un terminal qui ne reconnait pas le code ANSI)
+     * 2ème argument : indiquer le nombre de parties à lancer (une si rien d'indiqué ou si pas un entier)
+     * 3ème argument : indiquer le nombre de joueurs qui vont participer aux parties (3-7)
+     * 4ème argument : indiquer false si on ne veut ne lancer qu'une partie (ne lance pas les statistiques et n'écrit pas dans un fichier)
+     * Par défaut : true 1 3 false : on lance une partie à 3 joueurs que l'on affiche sur la sortie standard avec les couleurs
+     */
+    public SevenWonders() {
+
+    }
 
     /**
      * Initialise une partie avec le nombre de joueur
@@ -34,12 +52,12 @@ public class SevenWonders {
      * @param print (pour les tests) afficher ou non les prints
      * @param color afficher ou non en couleur
      */
-
+    /*
     public SevenWonders(int nbJoueurs, boolean print, boolean color) {
         Colors.setColor(color);
         LoggerSevenWonders.init(print);
         initPlayers(nbJoueurs,true);
-    }
+    }*/
 
 
     // METHODES //
@@ -50,14 +68,35 @@ public class SevenWonders {
      * @param nbJoueurs le nombre de joueurs qui vont jouer
      */
     public void initPlayers(int nbJoueurs,boolean shuffle) {
+        /*
         inv = new ArrayList<>();
         List<String> names = Arrays.asList(Colors.igBleu("Enzo"), Colors.igJaune("Mona"),Colors.igCyan("Fred"), Colors.igVert("Paul"), Colors.igRouge("Lucy"),  Colors.igViolet("Dora"),Colors.igViolet("Alex"));
         List<String> urlPlayers = Arrays.asList("AZERTY","QSDGDSGS","EFGZBZZB","GZDBZBZ","ZBZRABT","ZBREZNBE","BAEABRBRA");
         List<Strategy> strategies = Arrays.asList(Strategy.RANDOM, Strategy.AMBITIEUSE, Strategy.COMPOSITE,Strategy.MONETAIRE, Strategy.MILITAIRE, Strategy.SCIENTIFIQUE,Strategy.CIVILE);
         for (int i = 0; i < nbJoueurs; i++) {
-            inv.add(new SetInventaire(i,urlPlayers.get(i), names.get(i)));
-            FacadeJoueur.newJoueur(i,strategies.get(i),urlPlayers.get(i),names.get(i));
+
+            //inv.add(new SetInventaire(i,url_Players.get(i), names.get(i)));
+            //FacadeJoueur.newJoueur(i,strategies.get(i),url_Players.get(i),names.get(i));
         }
+        */
+        long t0 = new Date().getTime();
+        long t1 = t0;
+        int newNbJoueurs = 0;
+        while (this.webController.listJoueurId.size() < nbJoueurs){
+            try {
+                newNbJoueurs = this.webController.listJoueurId.size();
+                System.out.println("Joueurs Connectés : " + newNbJoueurs);
+                Thread.sleep(1000);
+                t1 = new Date().getTime();
+                if (t1 - t0 > 1000*SevenWonders.TIMEOUT) { System.exit(404); }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+        System.out.println("Tous les joueurs sont connectés !");
+        inv = this.webController.listJoueurId;
+
         if(shuffle){
             Collections.shuffle(inv);
             Collections.shuffle(inv);
@@ -73,6 +112,7 @@ public class SevenWonders {
         ArrayList<Inventaire> listeInventaire = new ArrayList<>(inv);
         return new Plateau(listeInventaire);
     }
+
 
 
     /**
@@ -108,7 +148,7 @@ public class SevenWonders {
      */
     DeroulementJeu jeu;
 
-    public void partie(int nbJoueurs) throws NegativeNumberException {
+    public boolean partie(int nbJoueurs, boolean stat) throws NegativeNumberException {
 
         Plateau plateau = initPlateau();
 
@@ -116,12 +156,15 @@ public class SevenWonders {
         LoggerSevenWonders.ajoutln("____________________ Commencement du Jeu ________________________\n");
 
         attributionMerveille();
-         jeu = new DeroulementJeu(inv);
+        jeu = new DeroulementJeu(webController,inv);
         jeu.laPartie(plateau, nbJoueurs);
 
         LoggerSevenWonders.ajoutln("_____________________________ Fin de la partie _____________________________");
         inv = triInventaire(inv);
-        envoyerStat(inv);
+        if (stat) envoyerStat(inv);
+        clearGame();
+        System.out.println("ON EST LAAAAAAAAAAAAAAA APRES CLEAR GAME AVANT RETURN TRUE");
+        return true;
     }
 
 
@@ -159,27 +202,42 @@ public class SevenWonders {
      * @param setInv Liste des SetInventaires
      */
     public void envoyerStat(List<SetInventaire> setInv) {
+        System.out.println("ON EST LAAAAAAAAAAAAAAA ON ENVOIE LES STATS");
         String nomJoueur;
         String strategieJoueur;
         List<EnumCarte> cartes;
         String merveille;
         Map<EnumRessources, Integer> inventaire;
 
-        JSONArray jsonArray = new JSONArray();
+        List<Data> datas = new ArrayList<>();
         for (SetInventaire s : setInv) {
             nomJoueur = s.getJoueurName();
-            strategieJoueur = FacadeJoueur.getStrategie(s.getUrl());
+            strategieJoueur = webController.getStrategie(s.getUrl());
             inventaire = s.getSac();
             merveille = s.getMerveille().getNom().toString();
             cartes = s.getListeCarte();
-            try {
-                jsonArray.put(new Data(nomJoueur, strategieJoueur, getSactoString(inventaire), merveille, getListeCarteToString(cartes)).toJSON());
-            }
-            catch (Exception ignored){
-                // JsonArray échoué
-            }
+            datas.add(new Data(nomJoueur, strategieJoueur, getSactoString(inventaire), merveille, getListeCarteToString(cartes)));
         }
-        Connexion.CONNEXION.envoyerMessageArray("DataPartie", jsonArray);
+        //Connexion.CONNEXION.envoyerMessageArray("DataPartie", jsonArray);
+        System.out.println("ON EST LAAAAAAAAAAAAAAA ON VA TRES TRES BIENTOT ENVOYER LES STATS");
+        restTemplate.postForObject(SevenWonders.statsServerURL + "sendStats/", datas.toArray(), Data[].class);
+
+
+
+        System.out.println("ON EST LAAAAAAAAAAAAAAA ON A ENVOYER LES STATS");
+    }
+
+    public void sendEndToCLient(){
+        for(int i = 0 ; i< inv.size() ; i++ ){
+            webController.envoyerFin(inv.get(i));
+        }
+    }
+
+    public void clearGame(){
+        System.out.println("ON EST LAAAAAAAAAAAAAAA ON TENTE CLEAR GAME");
+        this.webController.cleanInventory();
+        inv = this.webController.listJoueurId;
+        System.out.println("ON EST LAAAAAAAAAAAAAAA ON A CLEAR GAME");
     }
 
 
@@ -208,91 +266,5 @@ public class SevenWonders {
             sactoString.put( key.getKey().toString(), key.getValue());
         }
         return sactoString ;
-    }
-
-
-    /**
-     * main : lancement du jeu
-     * @param args Arguments en lançant le programme par ligne de commande :
-     *             1ème argument : indiquer "false" pour afficher sans couleur (peut être utile si l'on souhaite lire directement le .txt ou si on utilise un terminal qui ne reconnait pas le code ANSI)
-     *             2ème argument : indiquer le nombre de parties à lancer (une si rien d'indiqué ou si pas un entier)
-     *             3ème argument : indiquer le nombre de joueurs qui vont participer aux parties (3-7)
-     *             4ème argument : indiquer false si on ne veut ne lancer qu'une partie (ne lance pas les statistiques et n'écrit pas dans un fichier)
-     *             Par défaut : true 1 3 false : on lance une partie à 3 joueurs que l'on affiche sur la sortie standard avec les couleurs
-     */
-    public static void main(String[] args) throws NegativeNumberException, URISyntaxException, InterruptedException {
-        // Nombres de joueurs
-        int nbJoueurs ;
-        // Nombres de parties si option des statistique activée
-        int nbParties ;
-        // Active plusieurs parties avec statistiques
-        boolean multiPartieAvecStat = false;
-
-        String url = "http://127.0.0.1:8081";
-
-        try {
-            if (args[0].equals("false")) {
-                color = false;
-            }
-        } catch (Exception e) {
-            color = true;
-        }
-        try {
-            nbParties = Integer.parseInt(args[1]);
-        } catch(Exception e) {
-            nbParties = 1;
-        }
-        try {
-            nbJoueurs = Integer.parseInt(args[2]);
-        } catch(Exception e) {
-            nbJoueurs = 3;
-        }
-        try {
-            if (args[3].equals("true")) {
-                multiPartieAvecStat = true;
-                color = false;
-            }
-        }
-        catch (Exception ignored) {
-            // Lancement d'une partie normale
-        }
-        try {
-            url = args[4];
-        }
-        catch (Exception ignored) {
-            // Ignore
-        }
-
-
-        if (multiPartieAvecStat) {
-            //Thread.sleep(10000);
-            Connexion.CONNEXION.setmSocket(IO.socket(url));
-            Connexion.CONNEXION.demarrerEcoute();
-            Connexion.CONNEXION.envoyerMessageBoolean("Initialisation", true);
-            Connexion.CONNEXION.envoyerMessageInt("NombresJoueur", nbJoueurs);
-            if (nbParties == 1) {
-                SevenWonders sevenWonders = new SevenWonders(nbJoueurs, true, color);
-                LoggerSevenWonders.init(true);
-                sevenWonders.partie(nbJoueurs);
-                LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
-                Connexion.CONNEXION.envoyerMessageStringBuilder("Partie", LoggerSevenWonders.getStringBuilder());
-                Connexion.CONNEXION.disconnect();
-            }
-            else {
-                Connexion.CONNEXION.envoyerMessageInt("NombresPartie", nbParties);
-                for (int i = 0; i < nbParties; i++) {
-                    SevenWonders sevenWonders  = new SevenWonders(nbJoueurs, false, color);
-                    sevenWonders.partie(nbJoueurs);
-                }
-                Connexion.CONNEXION.disconnect();
-                Thread.sleep(1000);
-                System.exit(0);
-            }
-        }
-        else {
-            SevenWonders sevenWonders  = new SevenWonders(nbJoueurs, true, color);
-            sevenWonders.partie(nbJoueurs);
-            LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
-        }
     }
 }

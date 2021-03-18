@@ -1,4 +1,4 @@
-package sw_aventure.seven_wonders;
+/*package sw_aventure.seven_wonders;
 
 import objet_commun.Carte;
 import sw_aventure.objetjeu.GenererCarte;
@@ -8,10 +8,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SevenWondersStepdefs implements Fr {
+
     public SevenWondersStepdefs() {
         SevenWonders sw = new SevenWonders(3,false,false);
 
-    Etantdonné("une liste de carte composé de Carte d'Age1",
+        Etantdonné("une liste de carte composé de Carte d'Age1",
                        () -> // besoin de refactorer int en Integer car utilisation de la généricité par Cucumber Java 8
     {
         GenererCarte carteA1 = new GenererCarte(1, 3);
@@ -33,9 +34,8 @@ public class SevenWondersStepdefs implements Fr {
             assertEquals(21 , ls.size());
         });
 
-
     }
  }
-
+*/
 
 

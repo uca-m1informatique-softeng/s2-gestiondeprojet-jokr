@@ -1,7 +1,6 @@
 package sw_aventure.seven_wonders;
 
 import exception.NegativeNumberException;
-import joueur.FacadeJoueur;
 import metier.EnumRessources;
 import objet_commun.Carte;
 import sw_aventure.objetjeu.MainJoueur;
@@ -23,15 +22,16 @@ public class ActionDeJeu {
     protected List<MainJoueur> mainJoueurs ;
     protected Construction construction = new Construction();
     protected List<Carte> paquetDefausse ;
-
+    protected MoteurWebController webController;
     /**
      * constructeur de ActionDeJeu
      * @param inv liste des Setinventaires de la partie
      * @param mainJoueurs liste des mains des joueurs
      * @param paquetDefausse le paquet de la défausse
      */
-    public ActionDeJeu(List<SetInventaire> inv, List<MainJoueur> mainJoueurs, List<Carte> paquetDefausse){
+    public ActionDeJeu(MoteurWebController webControlleur, List<SetInventaire> inv, List<MainJoueur> mainJoueurs, List<Carte> paquetDefausse){
         this.inv = inv;
+        this.webController = webControlleur;
         this.mainJoueurs = mainJoueurs;
         this.paquetDefausse = paquetDefausse ;
     }
@@ -49,7 +49,7 @@ public class ActionDeJeu {
             int precedent=0;
             int suivant=0;
             for(int set = 0 ; set < inv.size() ; set++){
-                if(inv.get(set).getId() == s.getId()){
+                if(inv.get(set).getUrl() == s.getUrl()){
                     precedent =(set-1)%inv.size();
                     suivant = (set+1)% inv.size();
                     if (precedent<0){
@@ -83,7 +83,7 @@ public class ActionDeJeu {
             int precedent=0;
             int suivant=0;
             for(int set = 0 ; set < inv.size() ; set++){
-                if(inv.get(set).getId() == s.getId()){
+                if(inv.get(set).getUrl() == s.getUrl()){
                     precedent =(set-1)%inv.size();
                     suivant = (set+1)% inv.size();
                     if (precedent<0){
@@ -113,9 +113,9 @@ public class ActionDeJeu {
      */
     public boolean constructionMerveille(SetInventaire s, Plateau plateau) throws NegativeNumberException {
         DataToClient data = new DataToClient(mainJoueurs.get(s.getId()).getMain(),s,plateau);
-        Boolean constructMerveille = FacadeJoueur.jouerMerveille(s.getUrl(),data );
+        boolean constructMerveille = webController.jouerMerveille(s,data);
         if(s.getMerveille().peutAmeliorerMerveille() && constructMerveille) {
-            int pick = FacadeJoueur.constructMerveille(s.getUrl(), data);
+            int pick = webController.constructMerveille(s, data);
             Carte aConstruire = s.getMerveille().getCarteAConstruire();
             if (!merveilleConstruire(aConstruire, s , plateau)){
                 paquetDefausse.add(mainJoueurs.get(s.getId()).getMain().get(pick));
@@ -140,7 +140,7 @@ public class ActionDeJeu {
                 List<Carte> la7eCarte = new ArrayList<>();
                 la7eCarte.add(la7emeCarte);
                 DataToClient data = new DataToClient( la7eCarte,s, plateau);
-                boolean defausse = FacadeJoueur.jouerDefausse(s.getUrl(),data);
+                boolean defausse = webController.jouerDefausse(s,data);
                 if (defausse) { // défausser
                     s.casDefausse();
                     paquetDefausse.add(la7emeCarte);
@@ -195,13 +195,13 @@ public class ActionDeJeu {
                 choix[i][0] = 1 ; // construire merveille
             } else {
                 DataToClient data = new DataToClient( mainJoueurs.get(s.getId()).getMain(),s, plateau);
-                int pick = FacadeJoueur.choixCarte(s.getUrl(),data);
+                int pick = webController.choixCarte(s,data);
                 Carte choixCarte = mainJoueurs.get(s.getId()).getMain().get(pick);
                 choix[i][1] = pick; // quelle carte jouer
                 List<Carte> listCard = new ArrayList<>();
                 listCard.add(choixCarte);
                 DataToClient databis = new DataToClient(listCard,s, plateau);
-                boolean defausse = FacadeJoueur.jouerDefausse(s.getUrl(),databis);
+                boolean defausse = webController.jouerDefausse(s,databis);
                 if (defausse) {
                     choix[i][0] = 3 ; // défausser
                 } else {
@@ -227,7 +227,7 @@ public class ActionDeJeu {
         boolean choisirUneCarte = true; // le joueur doit choisir une carte a jouer depuis la defausse
         while (choisirUneCarte && !paquetDefausse.isEmpty()) { // tant qu'il doit choisir et que la défausse n'est pas vide
             DataToClient data = new DataToClient(defausse,s, plateau);
-            int choixDuJoueur = FacadeJoueur.jouerGratuitementDanslaDefausse(s.getUrl(),data); // le n° de la carte choisie
+            int choixDuJoueur = webController.jouerGratuitementDanslaDefausse(s,data); // le n° de la carte choisie
             Carte carteDefausse = defausse.get(choixDuJoueur); // la carte en question
             LoggerSevenWonders.ajoutln(s.getJoueurName() + " choisit de jouer gratuitement " + carteDefausse.getNom() + " depuis la défausse");
             if (s.getListeCarte().contains(carteDefausse.getNom())) { // si il possède déjà cette carte

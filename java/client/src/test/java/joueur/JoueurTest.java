@@ -34,20 +34,20 @@ public class JoueurTest {
      */
     @Before
     public void setUp() {
-        inv = new Inventaire(10, "url", "Dupont et Dupont");
+        inv = new Inventaire( 0,"url", "Dupont et Dupont");
 
-        inv1 = new Inventaire(1, "url1", "Enzo");
-        inv2 = new Inventaire(2, "url2", "Christina");
-        inv3 = new Inventaire(3, "url3", "Mona");
-        inv4 = new Inventaire(4, "url4", "Paul");
-        inv5 = new Inventaire(5, "url5", "Lucie");
-        inv6 = new Inventaire(5, "url6", "Thomas");
-        joueur1 = new Joueur(inv1.getId(),Strategy.RANDOM,inv1.getJoueurName());
-        joueur2 = new Joueur(inv2.getId(),Strategy.MERVEILLE,inv2.getJoueurName());
-        joueur3 = new Joueur(inv3.getId(),Strategy.MERVEILLE,inv3.getJoueurName());
-        joueur4 = new Joueur(inv4.getId(),Strategy.SCIENTIFIQUE,inv4.getJoueurName());
-        joueur5 = new Joueur(inv5.getId(),Strategy.AMBITIEUSE,inv5.getJoueurName());
-        joueur6 = new Joueur(inv6.getId(),Strategy.MILITAIRE,inv6.getJoueurName());
+        inv1 = new Inventaire( 1,"url1", "Enzo");
+        inv2 = new Inventaire( 2,"url2", "Christina");
+        inv3 = new Inventaire( 3,"url3", "Mona");
+        inv4 = new Inventaire( 4,"url4", "Paul");
+        inv5 = new Inventaire( 5,"url5", "Lucie");
+        inv6 = new Inventaire( 6,"url6", "Thomas");
+        joueur1 = new Joueur(Strategy.RANDOM,inv1.getJoueurName());
+        joueur2 = new Joueur(Strategy.MERVEILLE,inv2.getJoueurName());
+        joueur3 = new Joueur(Strategy.MERVEILLE,inv3.getJoueurName());
+        joueur4 = new Joueur(Strategy.SCIENTIFIQUE,inv4.getJoueurName());
+        joueur5 = new Joueur(Strategy.AMBITIEUSE,inv5.getJoueurName());
+        joueur6 = new Joueur(Strategy.MILITAIRE,inv6.getJoueurName());
 
 
         ArrayList<Inventaire> listeInventaire = new ArrayList<>(){{add(inv1);add(inv2);add(inv3);add(inv4);add(inv5);add(inv6);}};
@@ -55,7 +55,7 @@ public class JoueurTest {
         plateau = new Plateau(listeInventaire);
 
         IAmock = Mockito.mock(IArandom.class);
-        joueurSpy = new Joueur(inv.getId(),Strategy.ULTIME,inv.getJoueurName());
+        joueurSpy = new Joueur(Strategy.ULTIME,inv.getJoueurName());
         joueurSpy.setBot(IAmock);
         joueurSpy = Mockito.spy(joueurSpy);
 
@@ -145,46 +145,7 @@ public class JoueurTest {
         assertEquals("Lucie",joueur5.getName());
     }
 
-    /**
-     * Test du getter getId() pour verifier si on a bien selectionner le bon identifiant pour un joueur specifique
-     */
-    @Test
-    public void getId() {
-        assertEquals(1,joueur1.getId());
-        assertEquals(2,joueur2.getId());
-        assertEquals(3,joueur3.getId());
-        assertEquals(4,joueur4.getId());
-        assertEquals(5,joueur5.getId());
-    }
 
-    /**
-     * Test du getter hashCode() pour donner le hash de l'id d'un joueur
-     */
-    @Test
-    public void hashCodeTest() {
-
-        assertEquals(32, joueur1.hashCode());
-        assertEquals(33,joueur2.hashCode());
-        assertEquals(34,joueur3.hashCode());
-        assertEquals(35,joueur4.hashCode());
-        assertEquals(36,joueur5.hashCode());
-    }
-
-
-
-    /**
-     * Test de la méthode equals()
-     */
-    @Test
-    public void equals() {
-        assertEquals(new Joueur(1, Strategy.RANDOM, "j1"), joueur1);
-        assertEquals(new Joueur(2, Strategy.RANDOM, "j2"), joueur2);
-        assertNotEquals(new Joueur(2, Strategy.RANDOM, "j3"), joueur3);
-        assertNotEquals(joueur1.hashCode(), joueur2.hashCode());
-        assertNotEquals(joueur2.hashCode(), joueur3.hashCode());
-        assertNotEquals(joueur3.hashCode(), joueur4.hashCode());
-        assertNotEquals(joueur1 , inv);
-    }
 
     /**
      * Test de la méthode getStrategie()

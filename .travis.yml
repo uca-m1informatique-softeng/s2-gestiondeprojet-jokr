@@ -7,15 +7,13 @@ cache:
   directories:
     - $HOME/.m2
 
-
 services:
   - docker
 
-
 install:
   - cd java
-  - mvn clean install #-Dmaven.test.skip=true
-
+  - mvn clean install -Dmaven.test.skip=true
+  #- mvn test
 
 before_script:
   - docker-compose --version
@@ -25,9 +23,8 @@ before_script:
   - docker build client -t client
   - docker images
 
-
 script:
-  - docker-compose up #--scale moteur=3
+  - docker-compose up --scale client=3
   #- docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
   - docker-compose logs # affichage des logs
   # on efface tous les containers qui sont éteints puis les images

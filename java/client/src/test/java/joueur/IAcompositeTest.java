@@ -51,18 +51,18 @@ public class IAcompositeTest {
     */
     @Before
     public void setUp() {
-        Inventaire inv0 = new Inventaire(1,"EBREERBBE", "Omega");
+        Inventaire inv0 = new Inventaire(0,"EBREERBBE", "Omega");
         cart = new Carte(EnumCarte.B2, Collections.singletonList(EnumRessources.GRATUIT), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE), 3, 1, EnumRessources.BLEUE);
         lCart = Collections.singletonList(EnumRessources.BOIS);
         lCarte = Collections.singletonList("Atelier");
         main = new ArrayList<>();
-        joueur = new Joueur(0, Strategy.COMPOSITE, "Omega");
+        joueur = new Joueur(Strategy.COMPOSITE, "Omega");
         mocIA = Mockito.mock(IAcomposite.class);
         iaComposite = new IAcomposite();
 
-        setInv1 = new SetInventaire(1, "GFBSENZN", "j1");
-        SetInventaire setInv2 = new SetInventaire(2, "GEBEZNEQBN", "j2");
-        SetInventaire setInv3 = new SetInventaire(3, "GREKCKEOKF", "j3");
+        setInv1 = new SetInventaire(1,"GFBSENZN", "j1");
+        SetInventaire setInv2 = new SetInventaire( 2,"GEBEZNEQBN", "j2");
+        SetInventaire setInv3 = new SetInventaire(3,"GREKCKEOKF", "j3");
 
         carteGratuite = new Carte(EnumCarte.B2, Collections.singletonList(EnumRessources.GRATUIT), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE), 3, 1, EnumRessources.BLEUE);
         cartePayante = new Carte(EnumCarte.B2, Collections.singletonList(EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE), 3, 1, EnumRessources.BLEUE);
@@ -83,7 +83,7 @@ public class IAcompositeTest {
         listeInv.add(setInv2);
         listeInv.add(setInv3);
 
-        joueur2 = new Joueur(setInv1.getId(),Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        joueur2 = new Joueur(Strategy.AMBITIEUSE,setInv1.getJoueurName());
 
         plateau = new Plateau(listeInv);
     }

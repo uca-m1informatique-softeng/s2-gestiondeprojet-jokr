@@ -5,24 +5,21 @@ import metier.Strategy;
 import objet_commun.Carte;
 import utilitaire_jeu.*;
 import java.util.List;
-import java.util.Objects;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component
+@Scope("singleton")
 public class Joueur {
-    private final int id;
-    private IA bot;
-    private final String name;
-    private final Strategy strategie;
+    protected IA bot;
+    protected String name;
+    protected Strategy strategie;
 
+    public Joueur(){
 
+    }
 
-    /**
-     * Constructeur Joueur
-     * @param id L'identifiant unique du joueur
-     * @param strategie La stratégie du joueur
-     * @param name Le nom du joueur
-     */
-    public Joueur(int id, Strategy strategie, String name) {
-        this.id = id;
+    public void setIABot(Strategy strategie, String name) {
         this.strategie = strategie;
         this.name = name;
         switch (strategie) {
@@ -52,6 +49,40 @@ public class Joueur {
                 break;
         }
     }
+
+
+
+    public Joueur(Strategy strategie, String name) {
+        this.strategie = strategie;
+        this.name = name;
+        switch (strategie) {
+            case MONETAIRE:
+                this.bot = new IAmonetaire();
+                break;
+            case MERVEILLE:
+                this.bot = new IAmerveille();
+                break;
+            case CIVILE:
+                this.bot = new IAcivil();
+                break;
+            case MILITAIRE:
+                this.bot = new IAmilitaire();
+                break;
+            case SCIENTIFIQUE:
+                this.bot = new IAscientifique();
+                break;
+            case COMPOSITE:
+                this.bot = new IAcomposite();
+                break;
+            case AMBITIEUSE:
+                this.bot = new IAambitieuse();
+                break;
+            default:
+                this.bot = new IArandom();
+                break;
+        }
+    }
+
 
     // METHODE
 
@@ -134,38 +165,6 @@ public class Joueur {
         return name;
     }
 
-    /**
-     * @return l'ID du joueur
-     */
-    public int getId() {
-        return id;
-    }
-
-
-    /**
-     * Redefinition de la la méthode equals
-     * @param obj L'objet a comparer
-     * @return True les deux objets sont égaux / False sinon
-     */
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Joueur) {
-            Joueur j = (Joueur) obj;
-            return this.getId() == (j.getId());
-        }
-        return false;
-    }
-
-
-    /**
-     * Redéfinition de la méthode hashCode
-     * @return Hash
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
 
     /**
      * Pour les tests Mockito
@@ -202,5 +201,13 @@ public class Joueur {
             default:
                 return strategie.toString();
         }
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setStrategie(Strategy strategie) {
+        this.strategie = strategie;
     }
 }

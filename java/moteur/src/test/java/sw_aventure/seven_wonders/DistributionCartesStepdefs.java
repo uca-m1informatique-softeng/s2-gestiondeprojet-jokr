@@ -16,15 +16,16 @@ public class DistributionCartesStepdefs implements Fr {
     private List<Carte> cards;
     private int nbJoueurs;
     private int age;
+    private MoteurWebController web;
 
     public DistributionCartesStepdefs() {
 
 
-        
+        /*
         Etantdonné("Une partie de sevenWonders a {int} joueur", (Integer nbJoueur) -> {
             nbJoueurs = nbJoueur;
             sevenWonders = new SevenWonders(nbJoueur, false, false);
-            jeu = new DeroulementJeu(sevenWonders.inv);
+            jeu = new DeroulementJeu(web,sevenWonders.inv);
         });
 
         Quand("L'âge N°{int} commence, on récupère le paquet de carte correspondant a cet âge", (Integer ages) -> {
@@ -50,5 +51,6 @@ public class DistributionCartesStepdefs implements Fr {
             }
 
         });
+        */
     }
 }
