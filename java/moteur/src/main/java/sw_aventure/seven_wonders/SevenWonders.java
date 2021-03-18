@@ -222,12 +222,16 @@ public class SevenWonders {
         //Connexion.CONNEXION.envoyerMessageArray("DataPartie", jsonArray);
         System.out.println("ON EST LAAAAAAAAAAAAAAA ON VA TRES TRES BIENTOT ENVOYER LES STATS");
         restTemplate.postForObject(SevenWonders.statsServerURL + "sendStats/", datas.toArray(), Data[].class);
-        /*for(int i = 0 ; i< inv.size() ; i++ ){
-            webController.envoyerFin(inv.get(i));
-        }*/
+
 
 
         System.out.println("ON EST LAAAAAAAAAAAAAAA ON A ENVOYER LES STATS");
+    }
+
+    public void sendEndToCLient(){
+        for(int i = 0 ; i< inv.size() ; i++ ){
+            webController.envoyerFin(inv.get(i));
+        }
     }
 
     public void clearGame(){

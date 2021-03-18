@@ -108,6 +108,7 @@ public class SevenWondersApplication {
             System.out.println("ON EST LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             Thread.sleep(1000);
             sw.restTemplate.postForObject(SevenWonders.statsServerURL + "/finir",null, Void.class);
+            sw.sendEndToCLient();
             System.exit(0);
         };
 
