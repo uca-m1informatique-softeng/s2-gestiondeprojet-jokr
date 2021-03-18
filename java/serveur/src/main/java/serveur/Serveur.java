@@ -91,7 +91,7 @@ public class Serveur {
             System.out.println("ON EST LAAAAAAAAAAAAAAA ON A AFFICHER NOS STATS");
             Thread.sleep(1000);
             System.out.println("ON EST LAAAAAAAAAAAAAAA ON A DORMI 1000 ms");
-            System.exit(0);
+            //System.exit(0);
             System.out.println("ON EST LAAAAAAAAAAAAAAA ON A EXIT STATUS 0 ");
         }
     }
