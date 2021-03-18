@@ -164,6 +164,7 @@ public class SevenWonders {
         inv = triInventaire(inv);
         if (stat) envoyerStat(inv);
         clearGame();
+        System.out.println("ON EST LAAAAAAAAAAAAAAA APRES CLEAR GAME AVANT RETURN TRUE");
         return true;
     }
 
@@ -202,6 +203,7 @@ public class SevenWonders {
      * @param setInv Liste des SetInventaires
      */
     public void envoyerStat(List<SetInventaire> setInv) {
+        System.out.println("ON EST LAAAAAAAAAAAAAAA ON ENVOIE LES STATS");
         String nomJoueur;
         String strategieJoueur;
         List<EnumCarte> cartes;
@@ -218,12 +220,16 @@ public class SevenWonders {
             datas.add(new Data(nomJoueur, strategieJoueur, getSactoString(inventaire), merveille, getListeCarteToString(cartes)));
         }
         //Connexion.CONNEXION.envoyerMessageArray("DataPartie", jsonArray);
+        System.out.println("ON EST LAAAAAAAAAAAAAAA ON VA TRES TRES BIENTOT ENVOYER LES STATS");
         restTemplate.postForObject(SevenWonders.statsServerURL + "sendStats/", datas.toArray(), Data[].class);
+        System.out.println("ON EST LAAAAAAAAAAAAAAA ON A ENVOYER LES STATS");
     }
 
     public void clearGame(){
+        System.out.println("ON EST LAAAAAAAAAAAAAAA ON TENTE CLEAR GAME");
         this.webController.cleanInventory();
         inv = this.webController.listJoueurId;
+        System.out.println("ON EST LAAAAAAAAAAAAAAA ON A CLEAR GAME");
     }
 
 
