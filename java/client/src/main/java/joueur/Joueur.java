@@ -125,7 +125,6 @@ public class Joueur {
      * @return True Construire la merveille / False sinon
      */
     public Boolean jouerMerveille(List<Carte> main,Inventaire invJoueur, Plateau plateau){
-        System.out.println("PROBLEME LAAAAAA 22222 "+bot);
         return bot.choixMerveille(this, main,invJoueur, plateau);
     }
 
