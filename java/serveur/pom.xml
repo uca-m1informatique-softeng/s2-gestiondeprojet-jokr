@@ -46,7 +46,9 @@
         </plugins>
     </build>
 
+
     <dependencies>
+
         <dependency>
             <groupId>com.corundumstudio.socketio</groupId>
             <artifactId>netty-socketio</artifactId>

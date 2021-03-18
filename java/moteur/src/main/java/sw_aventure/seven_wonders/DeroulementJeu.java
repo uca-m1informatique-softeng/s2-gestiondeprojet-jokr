@@ -104,7 +104,7 @@ public class DeroulementJeu {
         int rand = r.nextInt(gagnant.size());
         LoggerSevenWonders.ajoutln(Colors.gJaune("Le Vainqueur est ") + gagnant.get(rand).getJoueurName() + Colors.gJaune(" avec " + max + " points !!!"));
         for (SetInventaire s : inv) {
-            if (s.getUrl() == gagnant.get(rand).getUrl())
+            if (s.getUrl().equals(gagnant.get(rand).getUrl()))
                 s.getSac().put(EnumRessources.VICTOIRETOTAL, 1);
             else s.getSac().put(EnumRessources.VICTOIRETOTAL, 0);
         }
