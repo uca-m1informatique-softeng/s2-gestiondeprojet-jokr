@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(value = "prototype")
+@Scope("singleton")
 public class Joueur {
     protected IA bot;
     protected String name;
