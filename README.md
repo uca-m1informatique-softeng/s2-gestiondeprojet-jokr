@@ -11,7 +11,7 @@
 - [X] Livraison 1 : https://github.com/uca-m1informatique-softeng/s2-gestiondeprojet-jokr/releases/tag/livraison1
 
 ## Livraison :
-- [X] Livraison 2 :
+- [X] Livraison 2 : https://github.com/uca-m1informatique-softeng/s2-gestiondeprojet-jokr/releases/tag/Livraison2
 
 L’objectif est de poursuivre l’apprentissage du Génie Logiciel commencé au semestre 1 dans les cours Projet de Développement et Génie Logiciel.
 Actuellement à la livraison n°2 nous avons :
@@ -35,3 +35,7 @@ Actuellement à la livraison n°2 nous avons :
     -  <b>"/strategie"</b>  -- Uniquement pour les statistiques -- :<i> connaitre la stratégie du joueur </i>
 - Les actions demandées par le Client au moteur <b>"http://" + adresse_DU_SERVEUR + ":PORT_DU_SERVEUR_/"</b>
     -  <b>"/connexion/"</b>  return Boolean :<i> Demande de connexion au Moteur du jeu  </i>
+
+## Livraison :
+- [X] Livraison 3 : https://github.com/uca-m1informatique-softeng/s2-gestiondeprojet-jokr/releases/tag/Livraison3
+  
