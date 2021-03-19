@@ -84,7 +84,7 @@ public class Serveur {
      * affiche, puis s'arrête.
      * @throws Exception Au cas où certains appels systèmes posent problème
      */
-    private void traiterFinReception() throws Exception {
+    public void traiterFinReception() throws Exception {
         if (this.dataParties.size() == this.nbPartie) {
             this.statistique = new Statistique(this.nbPartie, this.nbJoueur, this.dataParties);
             this.statistique.calculStat();
@@ -111,5 +111,17 @@ public class Serveur {
             }
         });
         t.start();
+    }
+
+    public int getNbJoueur() {
+        return nbJoueur;
+    }
+
+    public int getNbPartie() {
+        return nbPartie;
+    }
+
+    public ArrayList<Data[]> getDataParties() {
+        return dataParties;
     }
 }
