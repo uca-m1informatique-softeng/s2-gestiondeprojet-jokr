@@ -21,4 +21,9 @@ jobs:
       with:
         java-version: 11
     - name: Build with Maven
-      run: mvn -B package install --file java/pom.xml
+      run: mvn -B package install --file java/serveur/pom.xml
+      mvn -B package install --file java/client/pom.xml
+      mvn -B package install --file java/moteur/pom.xml
+
+      # mvn -B package install --file java/pom.xml
+
