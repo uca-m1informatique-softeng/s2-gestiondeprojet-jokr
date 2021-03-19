@@ -1,4 +1,4 @@
-package sw_aventure.seven_wonders;
+/*package sw_aventure.seven_wonders;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,4 +15,4 @@ public class MoteurTests {
         assertEquals("Hala Madrid" , "Hala " + "Madrid");
     }
 
-}
+}*/

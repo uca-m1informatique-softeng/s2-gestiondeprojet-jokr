@@ -54,7 +54,6 @@ public class Joueur {
         }
     }
 
-
     /**
      * retourne la réponse du joueur selon son IA de si oui ou non il choisit de défausser sa carte
      * @param carte La carte que le joueur va joueur ou défausser
