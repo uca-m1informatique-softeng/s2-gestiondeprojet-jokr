@@ -11,7 +11,7 @@
 - [X] Livraison 1 : https://github.com/uca-m1informatique-softeng/s2-gestiondeprojet-jokr/releases/tag/livraison1
 
 ## Livraison :
-- [X] Livraison 2 :
+- [X] Livraison 2 : https://github.com/uca-m1informatique-softeng/s2-gestiondeprojet-jokr/releases/tag/Livraison2
 
 L’objectif est de poursuivre l’apprentissage du Génie Logiciel commencé au semestre 1 dans les cours Projet de Développement et Génie Logiciel.
 Actuellement à la livraison n°2 nous avons :
