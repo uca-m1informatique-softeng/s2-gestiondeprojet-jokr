@@ -23,31 +23,6 @@
 
     <packaging>pom</packaging>
 
-    <profiles>
-        <profile>
-            <id>profile-1</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <modules>
-                <module>commun</module>
-                <module>serveur</module>
-                <module>moteur</module>
-                <module>report</module>
-                <module>client</module>
-            </modules> <!-- module set 1 -->
-        </profile>
-        <profile>
-            <id>profile-2</id>
-            <modules>
-                <module>commun</module>
-                <module>serveur</module>
-                <module>moteur</module>
-                <module>client</module>
-            </modules> <!-- module set 2 -->
-        </profile>
-    </profiles>
-
 
     <properties>
         <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/report/target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
