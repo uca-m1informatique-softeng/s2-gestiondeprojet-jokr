@@ -24,7 +24,7 @@ public class SevenWonders {
     private final GenererMerveille genererMerveille = new GenererMerveille();
     public static String statsServerURL = "http://127.0.0.1:8080";
 
-    private static final int TIMEOUT = 30; // En secondes
+    private static final int TIMEOUT = 3*60; // En secondes
 
     @Autowired
     MoteurWebController webController;
@@ -57,34 +57,25 @@ public class SevenWonders {
         long t0 = new Date().getTime();
         long t1 = t0;
         int newNbJoueurs = 0;
-        int lastNbJoueurs = 0 ;
         while (this.webController.listJoueurId.size() < nbJoueurs){
             try {
                 newNbJoueurs = this.webController.listJoueurId.size();
                 System.out.println("Joueurs Connectés : " + newNbJoueurs);
-                if(lastNbJoueurs<newNbJoueurs){
-                    lastNbJoueurs = newNbJoueurs;
-                    t0 = new Date().getTime();
-                }
                 Thread.sleep(1000);
                 t1 = new Date().getTime();
-                if (t1 - t0 > 1000*SevenWonders.TIMEOUT) {
-                    System.out.println("Le serveur n'a recu aucune demande depuis 30 secondes.");
-                    this.webController.finir();
-                }
+                if (t1 - t0 > 1000*SevenWonders.TIMEOUT) { System.exit(404); }
             } catch (Exception e) {
                 //e.printStackTrace();
             }
 
         }
         System.out.println("Tous les joueurs sont connectés !");
-            inv = this.webController.listJoueurId;
+        inv = this.webController.listJoueurId;
 
-            if (shuffle) {
-                Collections.shuffle(inv);
-                Collections.shuffle(inv);
-            }
-
+        if(shuffle){
+            Collections.shuffle(inv);
+            Collections.shuffle(inv);
+        }
     }
 
 

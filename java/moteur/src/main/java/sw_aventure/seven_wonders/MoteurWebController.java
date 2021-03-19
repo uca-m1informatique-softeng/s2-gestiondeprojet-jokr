@@ -19,7 +19,6 @@ import utils.affichage.Colors;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @RestController
 public class MoteurWebController {
@@ -128,26 +127,6 @@ public class MoteurWebController {
             newListJoueurID.add(new SetInventaire(this.listJoueurId.get(i).getId(), this.listJoueurId.get(i).getUrl(), this.listJoueurId.get(i).getJoueurName()));
         }
         this.listJoueurId = newListJoueurID;
-    }
-
-
-    public void finir() {
-        // fin brutale (pour abréger sur travis), mais il faut répondre un peu après
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("Joueur > fin du programme");
-                try {
-                    TimeUnit.MILLISECONDS.sleep(5);
-                } catch (Exception e) {
-                    //e.printStackTrace();
-                } finally {
-                    System.exit(0);
-                }
-
-            }
-        });
-        t.start();
     }
 
 }
