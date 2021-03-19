@@ -6,12 +6,13 @@ import metier.Strategy;
 import metier.Wonder;
 import objet_commun.Carte;
 import objet_commun.Merveille;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 import utilitaire_jeu.SetInventaire;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -20,12 +21,14 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-
-public class IAmonetaireTest {
+@SpringBootTest
+public class IAmonetaireSpringTest {
 
     private IAmonetaire iAmonetaire;
 
     private SetInventaire setInv1, setInv2;
+
+    @Autowired
     private Joueur joueur1;
 
     private Carte chantier, taverne, vignoble, phare;
@@ -34,7 +37,6 @@ public class IAmonetaireTest {
     private Merveille ephesos;
 
     private List<Inventaire> listeInventaire;
-    private List<Joueur> listeJoueur;
 
     private Plateau plateau;
 
@@ -42,15 +44,15 @@ public class IAmonetaireTest {
     /**
      * Preparation des tests de la classe IAmonetaire
      */
-    @Before
+    @BeforeEach
     public void setup() {
         iAmonetaire = new IAmonetaire();
 
         setInv1 = new SetInventaire( 1,"url1", "j1");
         setInv2 = new SetInventaire(2,"url2", "j2");
 
-        joueur1 = new Joueur(Strategy.AMBITIEUSE,setInv1.getJoueurName());
-        Joueur joueur2 = new Joueur(Strategy.AMBITIEUSE,setInv2.getJoueurName());
+        joueur1.setStrategie(Strategy.MONETAIRE);
+        joueur1.setName(setInv1.getJoueurName());
 
         chantier = new Carte(EnumCarte.M6, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.BOIS), 3, 1, EnumRessources.MARRON);
         taverne = new Carte(EnumCarte.J4, Collections.singletonList(EnumRessources.GRATUIT), Arrays.asList(EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE, EnumRessources.PIECE), 7, 1, EnumRessources.JAUNE);
@@ -61,12 +63,7 @@ public class IAmonetaireTest {
         listeInventaire.add(setInv1);
         listeInventaire.add(setInv2);
 
-        listeJoueur = new ArrayList<>();
-        listeJoueur.add(joueur1);
-        listeJoueur.add(joueur2);
-
         plateau = new Plateau(listeInventaire);
-
 
         List<Carte> etape = new ArrayList<>();
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.ARGILE, EnumRessources.ARGILE), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
