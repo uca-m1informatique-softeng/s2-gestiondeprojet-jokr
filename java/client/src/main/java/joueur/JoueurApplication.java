@@ -41,7 +41,7 @@ public class JoueurApplication {
      * @return un CommandLineRunner super stylé
      */
     @Bean
-    public CommandLineRunner unClient(RestTemplate restTemplate) {
+    public CommandLineRunner unClient(RestTemplate restTemplate) {//It allows you to do operations before the Spring Boot’s run() method finishes its execution.
         // les traces sont là juste pour montrer le déroulement et le lancement
         System.out.println("----------------- CommandLineRunner -----------------");
         return args -> {
