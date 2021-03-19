@@ -21,7 +21,7 @@ public class SevenWondersApplication {
     }
 
     @Bean
-    public CommandLineRunner unClient() {
+    public CommandLineRunner sevenWonder() {
         // les traces sont là juste pour montrer le déroulement et le lancement
         return args -> {
             // Nombres de joueurs
@@ -33,7 +33,10 @@ public class SevenWondersApplication {
             boolean color = false;
 
             String url = "http://127.0.0.1:8081/";
-
+/*
+            if(args.length == 0){
+                System.exit(0);
+            }*/
             try {
                 if (args[0].equals("false")) {
                     color = false;
