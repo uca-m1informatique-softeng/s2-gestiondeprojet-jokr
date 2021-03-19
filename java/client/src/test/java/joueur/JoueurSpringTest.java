@@ -131,16 +131,16 @@ public class JoueurSpringTest {
     @Test
     public void getBot() {
         joueur1.setIABot(Strategy.RANDOM , "MBappé");
-        joueur2.setIABot(Strategy.MERVEILLE , "MBappé");
-        joueur3.setIABot(Strategy.MERVEILLE , "MBappé");
-        joueur4.setIABot(Strategy.SCIENTIFIQUE , "MBappé");
-        joueur5.setIABot(Strategy.AMBITIEUSE , "MBappé");
-        joueur6.setIABot(Strategy.MILITAIRE , "MBappé");
         assertTrue(joueur1.getBot() instanceof IArandom);
+        joueur2.setIABot(Strategy.MERVEILLE , "MBappé");
         assertTrue(joueur2.getBot() instanceof IAmerveille);
+        joueur3.setIABot(Strategy.MERVEILLE , "MBappé");
         assertTrue(joueur3.getBot() instanceof IAmerveille);
+        joueur4.setIABot(Strategy.SCIENTIFIQUE , "MBappé");
         assertTrue(joueur4.getBot() instanceof IAscientifique);
+        joueur5.setIABot(Strategy.AMBITIEUSE , "MBappé");
         assertTrue(joueur5.getBot() instanceof IAambitieuse);
+        joueur6.setIABot(Strategy.MILITAIRE , "MBappé");
         assertTrue(joueur6.getBot() instanceof IAmilitaire);
     }
 
@@ -150,16 +150,16 @@ public class JoueurSpringTest {
     @Test
     public void getName() {
         joueur1.setIABot(Strategy.RANDOM , "Enzo");
-        joueur2.setIABot(Strategy.MERVEILLE , "Christina");
-        joueur3.setIABot(Strategy.MERVEILLE , "Mona");
-        joueur4.setIABot(Strategy.SCIENTIFIQUE , "Paul");
-        joueur5.setIABot(Strategy.AMBITIEUSE , "Lucie");
-        joueur6.setIABot(Strategy.MILITAIRE , "MBappé");
         assertEquals("Enzo", joueur1.getName());
+        joueur2.setIABot(Strategy.MERVEILLE , "Christina");
         assertEquals("Christina",joueur2.getName());
+        joueur3.setIABot(Strategy.MERVEILLE , "Mona");
         assertEquals("Mona",joueur3.getName());
+        joueur4.setIABot(Strategy.SCIENTIFIQUE , "Paul");
         assertEquals("Paul",joueur4.getName());
+        joueur5.setIABot(Strategy.AMBITIEUSE , "Lucie");
         assertEquals("Lucie",joueur5.getName());
+        joueur6.setIABot(Strategy.MILITAIRE , "MBappé");
         assertEquals("MBappé",joueur6.getName());
     }
 
@@ -169,18 +169,18 @@ public class JoueurSpringTest {
     @Test
     public void getStrategieTest() {
         joueur1.setIABot(Strategy.RANDOM , "MBappé");
-        joueur2.setIABot(Strategy.MERVEILLE , "MBappé");
-        joueur3.setIABot(Strategy.MERVEILLE , "MBappé");
-        joueur4.setIABot(Strategy.SCIENTIFIQUE , "MBappé");
-        joueur5.setIABot(Strategy.AMBITIEUSE , "MBappé");
-        joueur6.setIABot(Strategy.MILITAIRE , "MBappé");
-        joueurSpy.setIABot(Strategy.ULTIME , "MBappé");
         assertEquals("IA Random", joueur1.getStrategie());
+        joueur2.setIABot(Strategy.MERVEILLE , "MBappé");
         assertEquals("IA Merveille", joueur2.getStrategie());
-        assertEquals("ultime!", joueurSpy.getStrategie());
+        joueur3.setIABot(Strategy.MERVEILLE , "MBappé");
         assertEquals("IA Merveille", joueur3.getStrategie());
+        joueur4.setIABot(Strategy.SCIENTIFIQUE , "MBappé");
         assertEquals("IA Scientifique", joueur4.getStrategie());
+        joueur5.setIABot(Strategy.AMBITIEUSE , "MBappé");
         assertEquals("IA Ambitieuse", joueur5.getStrategie());
+        joueur6.setIABot(Strategy.MILITAIRE , "MBappé");
         assertEquals("IA Militaire", joueur6.getStrategie());
+        joueurSpy.setIABot(Strategy.ULTIME , "MBappé");
+        assertEquals("ultime!", joueurSpy.getStrategie());
     }
 }
