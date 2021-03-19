@@ -1,7 +1,7 @@
 package joueur;
 
-import metier.Strategy;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,6 +16,8 @@ import java.net.InetAddress;
 public class FacadeJoueurITCase {
 
     NameURL id;
+
+    @Autowired
     Joueur j;
 
     @SpyBean
@@ -24,6 +26,5 @@ public class FacadeJoueurITCase {
     @BeforeEach
     void setup() throws Exception {
         this.id = new NameURL("HARLOD", "http://" + InetAddress.getLocalHost().getHostAddress());
-        this.j = new Joueur(Strategy.COMPOSITE, this.id.getName());
     }
 }
