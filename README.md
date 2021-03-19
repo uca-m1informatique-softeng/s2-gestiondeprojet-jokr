@@ -35,3 +35,7 @@ Actuellement à la livraison n°2 nous avons :
     -  <b>"/strategie"</b>  -- Uniquement pour les statistiques -- :<i> connaitre la stratégie du joueur </i>
 - Les actions demandées par le Client au moteur <b>"http://" + adresse_DU_SERVEUR + ":PORT_DU_SERVEUR_/"</b>
     -  <b>"/connexion/"</b>  return Boolean :<i> Demande de connexion au Moteur du jeu  </i>
+
+## Livraison :
+- [X] Livraison 3 : https://github.com/uca-m1informatique-softeng/s2-gestiondeprojet-jokr/releases/tag/Livraison3
+  
