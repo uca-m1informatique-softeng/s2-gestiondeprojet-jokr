@@ -89,13 +89,9 @@ public class SevenWondersApplication {
                         LoggerSevenWonders.init(false);
                         Colors.setColor(false);
                         sw.initPlayers(nbJoueurs,true);
-                        System.out.println("ON EST LAAAAAAAAAAAAAAA 0000000");
                         sw.partie(nbJoueurs, true);
-                        System.out.println("ON EST LAAAAAAAAAAAAAAA 1111111");
                     }
-                    System.out.println("ON EST LAAAAAAAAAAAAAAA 222222");
                 }
-                System.out.println("ON EST LAAAAAAAAAAAAAAA 3333333");
             }
             else {
                 //SevenWonders sevenWonders  = new SevenWonders(nbJoueurs, true, color);
@@ -105,7 +101,6 @@ public class SevenWondersApplication {
                 sw.partie(nbJoueurs, false);
                 LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
             }
-            System.out.println("ON EST LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             Thread.sleep(1000);
             sw.restTemplate.postForObject(SevenWonders.statsServerURL + "/finir",null, Void.class);
             sw.sendEndToCLient();
