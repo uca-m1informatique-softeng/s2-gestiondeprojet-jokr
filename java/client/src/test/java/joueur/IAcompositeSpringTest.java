@@ -6,10 +6,14 @@ import metier.Strategy;
 import metier.Wonder;
 import objet_commun.Carte;
 import objet_commun.Merveille;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 import utilitaire_jeu.SetInventaire;
@@ -21,8 +25,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-public class IAcompositeTest {
+@SpringBootTest
+@ExtendWith(SpringExtension.class)
+public class IAcompositeSpringTest {
 
     private IAcomposite iaComposite;
 
@@ -34,12 +39,21 @@ public class IAcompositeTest {
 
     private List<Carte> mainJoueur;
 
+    @Autowired
     private Joueur joueur;
-    private Carte cart;
-    private List<EnumRessources> lCart;
-    private List<String> lCarte;
-    private List<Carte> main;
+    @Autowired
     private Joueur joueur2;
+
+    private Carte cart;
+
+    private List<EnumRessources> lCart;
+
+    private List<String> lCarte;
+
+    private List<Carte> main;
+
+    private Inventaire inv0;
+
 
     @Mock
     private IA mocIA;
@@ -49,9 +63,10 @@ public class IAcompositeTest {
     /**
      * Preparation des tests de la classe IAcomposite
     */
-    @Before
+    @BeforeEach
     public void setUp() {
-        Inventaire inv0 = new Inventaire(0,"EBREERBBE", "Omega");
+
+        inv0 = new Inventaire(0,"url", "Omega");
         cart = new Carte(EnumCarte.B2, Collections.singletonList(EnumRessources.GRATUIT), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE), 3, 1, EnumRessources.BLEUE);
         lCart = Collections.singletonList(EnumRessources.BOIS);
         lCarte = Collections.singletonList("Atelier");
