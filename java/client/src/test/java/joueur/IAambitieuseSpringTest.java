@@ -6,7 +6,10 @@ import metier.Strategy;
 import objet_commun.Carte;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 import utilitaire_jeu.SetInventaire;
@@ -18,6 +21,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
+@ExtendWith(SpringExtension.class)
 public class IAambitieuseSpringTest {
 
     private IAambitieuse iAambitieuse;
