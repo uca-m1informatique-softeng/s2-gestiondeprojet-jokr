@@ -2,12 +2,15 @@ package joueur;
 
 import metier.EnumCarte;
 import metier.EnumRessources;
-import metier.Strategy;
 import metier.Wonder;
 import objet_commun.Carte;
 import objet_commun.Merveille;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 import utilitaire_jeu.SetInventaire;
@@ -20,14 +23,20 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-
-public class IAcivilTest {
+@SpringBootTest
+@ExtendWith(SpringExtension.class)
+public class IACivilSpringTest {
 
 
     private IAcivil iAcivil;
 
     private SetInventaire setInv1, setInv2;
+
+    @Autowired
     private Joueur joueur1;
+
+    @Autowired
+    private Joueur joueur2;
 
     private Carte chantier, puits, statue, pantheon;
     private List<Carte> main;
@@ -43,15 +52,15 @@ public class IAcivilTest {
     /**
      * Preparation pour les tests de la classe IAcivil
      */
-    @Before
-    public void setup() {
+    @BeforeEach
+    public void setUp() {
         iAcivil = new IAcivil();
 
         setInv1 = new SetInventaire(1,"GREBERB", "j1");
         setInv2 = new SetInventaire(2,"GRGERHER", "j2");
 
-        joueur1 = new Joueur(Strategy.AMBITIEUSE,setInv1.getJoueurName());
-        Joueur joueur2 = new Joueur(Strategy.AMBITIEUSE,setInv2.getJoueurName());
+        //joueur1 = new Joueur(Strategy.AMBITIEUSE,setInv1.getJoueurName());
+        //Joueur joueur2 = new Joueur(Strategy.AMBITIEUSE,setInv2.getJoueurName());
 
         chantier = new Carte(EnumCarte.M6, Collections.singletonList(EnumRessources.GRATUIT), Collections.singletonList(EnumRessources.BOIS), 3, 1, EnumRessources.MARRON);
         puits = new Carte(EnumCarte.B13, Collections.singletonList(EnumRessources.GRATUIT), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE), 4, 1, EnumRessources.BLEUE);
@@ -76,7 +85,6 @@ public class IAcivilTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.PIERRE, EnumRessources.PIERRE, EnumRessources.PIERRE, EnumRessources.PIERRE), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE)));
         gizah = new Merveille(Wonder.GIZAH, EnumRessources.PIERRE, etape);
     }
-
 
     /**
      * Test de la méthode choixMain()
@@ -108,14 +116,11 @@ public class IAcivilTest {
         //assertEquals(0, iAcivil.choixMain(joueur1, main, plateau, false));
     }
 
-
     /**
      * Test de la méthode choixMerveille()
      */
     @Test
     public void choixMerveilleTest() {
-
-      
         main = new ArrayList<>();
         main.add(chantier);
         main.add(pantheon);
@@ -184,7 +189,6 @@ public class IAcivilTest {
         assertEquals(rendu,iAcivil.rechercheRessources(joueur1,setInv1, plateau));
     }
 
-
     /**
      * Test de méthode choixCartePourMerveille()
      */
@@ -223,7 +227,6 @@ public class IAcivilTest {
         assertEquals(1, iAcivil.choixCartePourMerveille(joueur1, main,setInv1, plateau));
     }
 
-
     /**
      * Test de la méthode choisirCarteDeLaDefausse()
      */
@@ -237,6 +240,4 @@ public class IAcivilTest {
         // L'IA choisie en priorité la carte puits pour l'âge 1, donc l'index 1
         assertEquals(1, iAcivil.choisirCarteDeLaDefausse(joueur1, main,setInv1, plateau));
     }
-
-
 }

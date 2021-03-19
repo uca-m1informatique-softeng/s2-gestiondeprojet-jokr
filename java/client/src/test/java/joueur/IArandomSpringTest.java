@@ -4,10 +4,12 @@ import metier.EnumCarte;
 import metier.EnumRessources;
 import metier.Strategy;
 import objet_commun.Carte;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 
@@ -17,18 +19,23 @@ import java.util.Collections;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.doReturn;
 
-public class IArandomTest {
+
+@SpringBootTest
+public class IArandomSpringTest {
 
     private ArrayList<Carte> main;
+
+    @Autowired
     private Joueur joueur;
+
     private Inventaire inventaire;
     private Plateau plateau;
-    private ArrayList<Inventaire> inv;
-
 
     private IA bot;
+
     @Mock
     private IA mbot;
+
     private Joueur mjoe;
     private Plateau mplateau;
     private Carte mcart;
@@ -36,13 +43,15 @@ public class IArandomTest {
     /**
      * Preparation des tests de la classe IArandom
      */
-    @Before
+    @BeforeEach
     public void setup() {
         inventaire = new Inventaire( 1,"FZEEGVB", "Enzo");
 
-        joueur = new Joueur(Strategy.RANDOM , "Enzo");
+        joueur.setStrategie(Strategy.RANDOM);
+        joueur.setName(inventaire.getJoueurName());
+
         main = new ArrayList<>();
-        plateau = new Plateau(inv);
+        plateau = new Plateau(new ArrayList<>());
         bot = new  IArandom();
 
         mbot = Mockito.mock (IArandom.class);
