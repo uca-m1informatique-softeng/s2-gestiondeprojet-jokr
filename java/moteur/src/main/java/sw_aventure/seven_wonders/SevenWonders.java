@@ -22,10 +22,9 @@ public class SevenWonders {
     private final SecureRandom r = new SecureRandom();
     protected List<SetInventaire> inv = new ArrayList<>();
     private final GenererMerveille genererMerveille = new GenererMerveille();
-    private static boolean color = true;
     public static String statsServerURL = "http://127.0.0.1:8080";
 
-    private static final long TIMEOUT = 3*60; // En secondes
+    private static final int TIMEOUT = 3*60; // En secondes
 
     @Autowired
     MoteurWebController webController;
@@ -46,19 +45,6 @@ public class SevenWonders {
 
     }
 
-    /**
-     * Initialise une partie avec le nombre de joueur
-     * @param nbJoueurs le nombre de joueurs
-     * @param print (pour les tests) afficher ou non les prints
-     * @param color afficher ou non en couleur
-     */
-    /*
-    public SevenWonders(int nbJoueurs, boolean print, boolean color) {
-        Colors.setColor(color);
-        LoggerSevenWonders.init(print);
-        initPlayers(nbJoueurs,true);
-    }*/
-
 
     // METHODES //
 
@@ -68,17 +54,6 @@ public class SevenWonders {
      * @param nbJoueurs le nombre de joueurs qui vont jouer
      */
     public void initPlayers(int nbJoueurs,boolean shuffle) {
-        /*
-        inv = new ArrayList<>();
-        List<String> names = Arrays.asList(Colors.igBleu("Enzo"), Colors.igJaune("Mona"),Colors.igCyan("Fred"), Colors.igVert("Paul"), Colors.igRouge("Lucy"),  Colors.igViolet("Dora"),Colors.igViolet("Alex"));
-        List<String> urlPlayers = Arrays.asList("AZERTY","QSDGDSGS","EFGZBZZB","GZDBZBZ","ZBZRABT","ZBREZNBE","BAEABRBRA");
-        List<Strategy> strategies = Arrays.asList(Strategy.RANDOM, Strategy.AMBITIEUSE, Strategy.COMPOSITE,Strategy.MONETAIRE, Strategy.MILITAIRE, Strategy.SCIENTIFIQUE,Strategy.CIVILE);
-        for (int i = 0; i < nbJoueurs; i++) {
-
-            //inv.add(new SetInventaire(i,url_Players.get(i), names.get(i)));
-            //FacadeJoueur.newJoueur(i,strategies.get(i),url_Players.get(i),names.get(i));
-        }
-        */
         long t0 = new Date().getTime();
         long t1 = t0;
         int newNbJoueurs = 0;
@@ -89,8 +64,8 @@ public class SevenWonders {
                 Thread.sleep(1000);
                 t1 = new Date().getTime();
                 if (t1 - t0 > 1000*SevenWonders.TIMEOUT) { System.exit(404); }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                //e.printStackTrace();
             }
 
         }
@@ -145,6 +120,7 @@ public class SevenWonders {
     /**
      * Méthode permettant de créer la partie en appelant les différentes méthode/étapes du jeu
      * @param nbJoueurs le nombre de joueurs
+     * @param stat si les stats sont activée
      */
     DeroulementJeu jeu;
 
@@ -164,17 +140,6 @@ public class SevenWonders {
         if (stat) envoyerStat(inv);
         clearGame();
         return true;
-    }
-
-
-    /**
-     * Set la graine du SecureRandom à une valeur fixe
-     * @param mySeed la valeur initale auquel on préfixe le SecureRandom
-     */
-    public void setTheSeed( int mySeed ) {
-        r.nextBytes(new byte[8]);
-        r.setSeed(mySeed);
-        jeu.setTheSeed(mySeed);
     }
 
 
@@ -221,8 +186,8 @@ public class SevenWonders {
     }
 
     public void sendEndToCLient(){
-        for(int i = 0 ; i< inv.size() ; i++ ){
-            webController.envoyerFin(inv.get(i));
+        for (SetInventaire setInventaire : inv) {
+            webController.envoyerFin(setInventaire);
         }
     }
 

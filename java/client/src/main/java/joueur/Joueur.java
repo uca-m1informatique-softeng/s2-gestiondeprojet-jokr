@@ -19,6 +19,10 @@ public class Joueur {
 
     }
 
+    public Joueur(Strategy strategie, String name) {
+        setIABot(strategie, name);
+    }
+
     public void setIABot(Strategy strategie, String name) {
         this.strategie = strategie;
         this.name = name;
@@ -49,42 +53,6 @@ public class Joueur {
                 break;
         }
     }
-
-
-
-    public Joueur(Strategy strategie, String name) {
-        this.strategie = strategie;
-        this.name = name;
-        switch (strategie) {
-            case MONETAIRE:
-                this.bot = new IAmonetaire();
-                break;
-            case MERVEILLE:
-                this.bot = new IAmerveille();
-                break;
-            case CIVILE:
-                this.bot = new IAcivil();
-                break;
-            case MILITAIRE:
-                this.bot = new IAmilitaire();
-                break;
-            case SCIENTIFIQUE:
-                this.bot = new IAscientifique();
-                break;
-            case COMPOSITE:
-                this.bot = new IAcomposite();
-                break;
-            case AMBITIEUSE:
-                this.bot = new IAambitieuse();
-                break;
-            default:
-                this.bot = new IArandom();
-                break;
-        }
-    }
-
-
-    // METHODE
 
 
     /**

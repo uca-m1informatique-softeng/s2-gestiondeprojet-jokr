@@ -49,7 +49,7 @@ public class ActionDeJeu {
             int precedent=0;
             int suivant=0;
             for(int set = 0 ; set < inv.size() ; set++){
-                if(inv.get(set).getUrl() == s.getUrl()){
+                if(inv.get(set).getUrl().equals(s.getUrl())){
                     precedent =(set-1)%inv.size();
                     suivant = (set+1)% inv.size();
                     if (precedent<0){
@@ -83,7 +83,7 @@ public class ActionDeJeu {
             int precedent=0;
             int suivant=0;
             for(int set = 0 ; set < inv.size() ; set++){
-                if(inv.get(set).getUrl() == s.getUrl()){
+                if(inv.get(set).getUrl().equals(s.getUrl())){
                     precedent =(set-1)%inv.size();
                     suivant = (set+1)% inv.size();
                     if (precedent<0){

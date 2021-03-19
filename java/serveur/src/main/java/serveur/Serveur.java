@@ -102,8 +102,8 @@ public class Serveur {
                 System.out.println("Joueur > fin du programme");
                 try {
                     TimeUnit.MILLISECONDS.sleep(5);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
+                    //e.printStackTrace();
                 } finally {
                     System.exit(0);
                 }

@@ -405,20 +405,6 @@ public class Inventaire {
     public Integer getId() {
         return id;
     }
-
-/*
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Inventaire that = (Inventaire) o;
-        return Objects.equals(url+id, that.url+that.id);
-    }
-*/
-    @Override
-    public int hashCode() {
-        return Objects.hash(url);
-    }
 }
 
 
