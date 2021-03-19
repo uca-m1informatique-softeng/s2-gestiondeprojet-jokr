@@ -6,8 +6,8 @@ import metier.Strategy;
 import metier.Wonder;
 import objet_commun.Carte;
 import objet_commun.Merveille;
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -40,9 +40,7 @@ public class IAcompositeSpringTest {
     private List<Carte> mainJoueur;
 
     @Autowired
-    private Joueur joueur;
-    @Autowired
-    private Joueur joueur2;
+    private Joueur joueur, joueur2;
 
     private Carte cart;
 
@@ -51,8 +49,6 @@ public class IAcompositeSpringTest {
     private List<String> lCarte;
 
     private List<Carte> main;
-
-    private Inventaire inv0;
 
 
     @Mock
@@ -65,8 +61,6 @@ public class IAcompositeSpringTest {
     */
     @BeforeEach
     public void setUp() {
-
-        inv0 = new Inventaire(0,"url", "Omega");
         cart = new Carte(EnumCarte.B2, Collections.singletonList(EnumRessources.GRATUIT), Arrays.asList(EnumRessources.SCORE, EnumRessources.SCORE, EnumRessources.SCORE), 3, 1, EnumRessources.BLEUE);
         lCart = Collections.singletonList(EnumRessources.BOIS);
         lCarte = Collections.singletonList("Atelier");
@@ -91,14 +85,11 @@ public class IAcompositeSpringTest {
         etape.add(new Carte(EnumCarte.MERVEILLE, Arrays.asList(EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.BOIS, EnumRessources.BOIS), Arrays.asList(EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE,EnumRessources.SCORE)));
         Merveille babylon = new Merveille(Wonder.BABYLON, EnumRessources.BOIS, etape);
 
-
         setInv1.modifMerveille(babylon);
         List<Inventaire> listeInv = new ArrayList<>();
         listeInv.add(setInv1);
         listeInv.add(setInv2);
         listeInv.add(setInv3);
-
-        joueur2 = new Joueur(Strategy.AMBITIEUSE,setInv1.getJoueurName());
 
         plateau = new Plateau(listeInv);
     }
