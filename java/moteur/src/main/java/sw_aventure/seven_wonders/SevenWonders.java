@@ -13,6 +13,7 @@ import sw_aventure.objetjeu.*;
 import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.Plateau;
 import utilitaire_jeu.SetInventaire;
+import utils.affichage.Colors;
 import utils.affichage.LoggerSevenWonders;
 
 /**
@@ -71,7 +72,10 @@ public class SevenWonders {
                 this.restTemplate.postForObject(url + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
             }
             else{
-                for(int i = 0 ; i < nbParties ; i++){
+                this.partie(nbJoueurs, true);
+                for(int i = 0 ; i < nbParties-1 ; i++){
+                    LoggerSevenWonders.init(false);
+                    Colors.setColor(false);
                     this.initPlayers(nbJoueurs, true);
                     this.partie(nbJoueurs, true);
                 }
