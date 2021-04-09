@@ -1,5 +1,6 @@
 package joueur;
 
+import com.github.javafaker.Faker;
 import metier.Strategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -34,6 +35,7 @@ public class JoueurApplication {
         return builder.build();
     }
 
+    Faker faker = new Faker();
 
     /**
      * Appel du client. On se connecte au serveur avec args[1] l'adresse du serveur, et args[2] le nom du joueur.
@@ -60,7 +62,8 @@ public class JoueurApplication {
                 if (args.length == 4) port = args[3];
                 String adresse =  "http://" + InetAddress.getLocalHost().getHostAddress() + ":" + port;
                 System.out.println("mon adresse = " + adresse);
-                NameURL nameURL = new NameURL(args[2], adresse);
+                String firstName = faker.name().firstName();
+                NameURL nameURL = new NameURL(firstName , adresse);
                 Boolean val = restTemplate.postForObject(args[1] + "/connexion/", nameURL, Boolean.class);
 
                 // les traces sont là juste pour montrer le déroulement et le lancement
