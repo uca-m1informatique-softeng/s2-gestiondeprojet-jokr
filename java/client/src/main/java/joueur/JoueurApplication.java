@@ -47,11 +47,8 @@ public class JoueurApplication {
         // les traces sont là juste pour montrer le déroulement et le lancement
         System.out.println("----------------- CommandLineRunner -----------------");
         return args -> {
-            if( args.length >=2) {
-                j.setIABot(Strategy.COMPOSITE, args[2]);
-            }else {
-                j.setIABot(Strategy.COMPOSITE, "Joueur non défini");
-            }
+            String firstName = faker.name().firstName();
+            j.setIABot(Strategy.COMPOSITE, firstName);
             // les traces sont là juste pour montrer le déroulement et le lancement
             System.out.println("----------------- args = " + args.length + " " +Arrays.toString(args) + " -----------------");
             if ((args.length > 0) && (args[0].equals("autoconnect"))) {
@@ -59,15 +56,15 @@ public class JoueurApplication {
                 System.out.println("----------------- début de joueur -----------------");
                 // connexion
                 String port = "8090";
-                if (args.length == 4) port = args[3];
+                if (args.length == 3) port = args[2];
                 String adresse =  "http://" + InetAddress.getLocalHost().getHostAddress() + ":" + port;
                 System.out.println("mon adresse = " + adresse);
-                String firstName = faker.name().firstName();
+
                 NameURL nameURL = new NameURL(firstName , adresse);
                 Boolean val = restTemplate.postForObject(args[1] + "/connexion/", nameURL, Boolean.class);
 
                 // les traces sont là juste pour montrer le déroulement et le lancement
-                System.out.println("Nom du joueur : " + args[2]);
+                System.out.println("Nom du joueur : " + firstName);
                 System.out.println("Joueur > état de la connexion : " + val);
             }
         };
