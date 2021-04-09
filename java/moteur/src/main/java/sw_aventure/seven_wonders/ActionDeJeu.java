@@ -196,7 +196,6 @@ public class ActionDeJeu {
             } else {
                 DataToClient data = new DataToClient( mainJoueurs.get(s.getId()).getMain(),s, plateau);
                 int pick = webController.choixCarte(s,data);
-                System.out.println(s.getJoueurName() + " POSSEDE "+data.getListCarte().size() + " ET CHOISIT LA CARTE : " + pick);
                 Carte choixCarte = mainJoueurs.get(s.getId()).getMain().get(pick);
                 choix[i][1] = pick; // quelle carte jouer
                 List<Carte> listCard = new ArrayList<>();
