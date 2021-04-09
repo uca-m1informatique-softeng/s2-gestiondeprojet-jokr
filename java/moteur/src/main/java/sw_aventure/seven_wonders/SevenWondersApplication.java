@@ -7,9 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import utils.affichage.Colors;
 import utils.affichage.LoggerSevenWonders;
-
-
-
 @SpringBootApplication
 public class SevenWondersApplication {
 
