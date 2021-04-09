@@ -17,8 +17,6 @@ public class ServeurApplication {
     public static void main(String[] args) {
         SpringApplication.run(ServeurApplication.class,args);
         LoggerSevenWonders.init(true);
-        System.out.println("I'm listening on " + ServeurApplication.serverAddress + ":" + ServeurApplication.serverPort + " !");
-
     }
 
 }
