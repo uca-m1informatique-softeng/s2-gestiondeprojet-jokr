@@ -14,7 +14,6 @@ import utilitaire_jeu.NameURL;
 import utilitaire_jeu.SetInventaire;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController

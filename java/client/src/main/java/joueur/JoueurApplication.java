@@ -38,7 +38,7 @@ public class JoueurApplication {
     Faker faker = new Faker();
 
     /**
-     * Appel du client. On se connecte au serveur avec args[1] l'adresse du serveur, et args[2] le nom du joueur.
+     * Appel du client. On se connecte au serveur avec args[1] l'adresse du serveur, et args[2] le port.
      * @param restTemplate le restTemplate à utiliser pour faire les requêtes au moteur
      * @return un CommandLineRunner super stylé
      */
