@@ -51,11 +51,13 @@ public class MoteurWebController {
     public boolean getValue(@RequestBody NameURL nameURL) throws Exception {
         System.out.println("Moteur > connexion acceptée de " + nameURL.getName() + " depuis l'adresse : " + nameURL.getUrl());
 
-        this.listJoueurId.add(new SetInventaire(listJoueurId.size(), nameURL.getUrl(), nameURL.getName()));
-        System.out.println(this.listJoueurId.size() + "/" + Integer.parseInt(SevenWonders.args[2]) + " joueurs.");
+        synchronized (listJoueurId) {
+            this.listJoueurId.add(new SetInventaire(listJoueurId.size(), nameURL.getUrl(), nameURL.getName()));
+            System.out.println(this.listJoueurId.size() + "/" + Integer.parseInt(SevenWonders.args[2]) + " joueurs.");
 
-        if (this.listJoueurId.size() == Integer.parseInt(SevenWonders.args[2])) {
-            sw.launchGame();
+            if (this.listJoueurId.size() == Integer.parseInt(SevenWonders.args[2])) {
+                sw.launchGame();
+            }
         }
 
         return true;
