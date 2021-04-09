@@ -1,7 +1,6 @@
 package sw_aventure.seven_wonders;
 
 import java.security.SecureRandom;
-import java.sql.SQLOutput;
 import java.util.*;
 import exception.NegativeNumberException;
 import metier.*;
@@ -239,7 +238,7 @@ public class SevenWonders {
             }else{
                 System.out.print("perd ");
             }
-            System.out.println("avec : " + setInv.get(i).getValue(EnumRessources.SCOREFINAL));
+            System.out.println("avec : " + setInv.get(i).getValue(EnumRessources.SCOREFINAL) + " points");
         }
     }
 

@@ -1,7 +1,5 @@
 package sw_aventure.seven_wonders;
 
-
-import exception.NegativeNumberException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -14,8 +12,6 @@ import utilitaire_jeu.DataToClient;
 import utilitaire_jeu.Inventaire;
 import utilitaire_jeu.NameURL;
 import utilitaire_jeu.SetInventaire;
-import utils.affichage.Colors;
-import utils.affichage.LoggerSevenWonders;
 
 import java.util.ArrayList;
 import java.util.Arrays;
