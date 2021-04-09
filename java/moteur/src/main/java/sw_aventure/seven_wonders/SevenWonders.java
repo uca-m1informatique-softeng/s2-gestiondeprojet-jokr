@@ -57,13 +57,13 @@ public class SevenWonders {
 
         int nbJoueurs = Integer.parseInt(SevenWonders.args[2]);
         int nbParties = Integer.parseInt(SevenWonders.args[1]);
-        boolean multiPartieAvecStat = SevenWonders.args[3].equals("true") ? true : false;
+        boolean multiPartieAvecStat = SevenWonders.args[3].equals("true");
         String url = SevenWonders.args[4];
 
         this.initPlayers(nbJoueurs, true);
+
         if (multiPartieAvecStat) {
             this.partie(nbJoueurs, true);
-
             if (nbParties == 1) {
                 LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
                 this.restTemplate.postForObject(url + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
