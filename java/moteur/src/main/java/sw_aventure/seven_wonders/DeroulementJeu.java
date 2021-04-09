@@ -188,7 +188,9 @@ public class DeroulementJeu {
                 SetInventaire s = inv.get(i);
                 if (choix[i][0] != 1) {  // si il ne veut pas construire sa merveille
                     // jouer ou défausser une carte
+                    System.out.println("AVANT");
                     Carte choixCarte = mainJoueurs.get(s.getId()).getMain().get(choix[i][1]);
+                    System.out.println("APRES");
                     if (choix[i][0]==3) { // défausser
                         s.casDefausse();
                         paquetDefausse.add(choixCarte);
