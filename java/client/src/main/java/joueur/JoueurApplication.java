@@ -50,18 +50,18 @@ public class JoueurApplication {
             String firstName = faker.name().firstName();
             j.setIABot(Strategy.COMPOSITE, firstName);
             // les traces sont là juste pour montrer le déroulement et le lancement
-            System.out.println("----------------- args = " + args.length + " " +Arrays.toString(args) + " -----------------");
-            if ((args.length > 0) && (args[0].equals("autoconnect"))) {
+            System.out.println("----------------- args = " + args.length + " " + Arrays.toString(args) + " -----------------");
+            if (args.length > 0) {
                 // les traces sont là juste pour montrer le déroulement et le lancement
                 System.out.println("----------------- début de joueur -----------------");
                 // connexion
                 String port = "8090";
-                if (args.length == 3) port = args[2];
+                if (args.length == 2) port = args[1];
                 String adresse =  "http://" + InetAddress.getLocalHost().getHostAddress() + ":" + port;
                 System.out.println("mon adresse = " + adresse);
 
                 NameURL nameURL = new NameURL(firstName , adresse);
-                Boolean val = restTemplate.postForObject(args[1] + "/connexion/", nameURL, Boolean.class);
+                Boolean val = restTemplate.postForObject(args[0] + "/connexion/", nameURL, Boolean.class);
 
                 // les traces sont là juste pour montrer le déroulement et le lancement
                 System.out.println("Nom du joueur : " + firstName);
