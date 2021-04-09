@@ -95,11 +95,12 @@ public class Serveur {
 
     @PostMapping("/finir")
     public void finir() {
+        System.out.println("ON EST LAAAAAAAAAAAAA on termine le serveur ");
         // fin brutale (pour abréger sur travis), mais il faut répondre un peu après
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
-                System.out.println("Joueur > fin du programme");
+                System.out.println("Serveur > fin du programme");
                 try {
                     TimeUnit.MILLISECONDS.sleep(5);
                 } catch (Exception e) {

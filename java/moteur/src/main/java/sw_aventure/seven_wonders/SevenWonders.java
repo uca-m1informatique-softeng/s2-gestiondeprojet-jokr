@@ -1,6 +1,7 @@
 package sw_aventure.seven_wonders;
 
 import java.security.SecureRandom;
+import java.sql.SQLOutput;
 import java.util.*;
 import exception.NegativeNumberException;
 import metier.*;
@@ -63,10 +64,17 @@ public class SevenWonders {
         this.initPlayers(nbJoueurs, true);
 
         if (multiPartieAvecStat) {
-            this.partie(nbJoueurs, true);
+
             if (nbParties == 1) {
+                this.partie(nbJoueurs, true);
                 LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
                 this.restTemplate.postForObject(url + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
+            }
+            else{
+                for(int i = 0 ; i < nbParties ; i++){
+                    this.initPlayers(nbJoueurs, true);
+                    this.partie(nbJoueurs, true);
+                }
             }
         } else {
             this.partie(nbJoueurs, false);
@@ -74,7 +82,9 @@ public class SevenWonders {
         }
 
         Thread.sleep(1000);
+        System.out.println("ON EST LAAAAAAAAAAAAA on envois les stats");
         this.restTemplate.postForObject(SevenWonders.statsServerURL + "/finir",null, Void.class);
+        System.out.println("ON EST LAAAAAAAAAAAAA on a envoyé les stats");
         this.sendEndToCLient();
         System.exit(0);
     }
