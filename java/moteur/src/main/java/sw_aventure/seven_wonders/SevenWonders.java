@@ -23,6 +23,7 @@ public class SevenWonders {
     protected List<SetInventaire> inv = new ArrayList<>();
     private final GenererMerveille genererMerveille = new GenererMerveille();
     public static String statsServerURL = "http://127.0.0.1:8080";
+    public static String[] args;
 
     private static final int TIMEOUT = 3*60; // En secondes
 
@@ -54,6 +55,7 @@ public class SevenWonders {
      * @param nbJoueurs le nombre de joueurs qui vont jouer
      */
     public void initPlayers(int nbJoueurs,boolean shuffle) {
+        /*
         long t0 = new Date().getTime();
         long t1 = t0;
         int newNbJoueurs = 0;
@@ -68,7 +70,8 @@ public class SevenWonders {
                 //e.printStackTrace();
             }
 
-        }
+        }*/
+
         System.out.println("Tous les joueurs sont connectés !");
         inv = this.webController.listJoueurId;
 

@@ -24,6 +24,7 @@ public class SevenWondersApplication {
     public CommandLineRunner sevenWonder() {
         // les traces sont là juste pour montrer le déroulement et le lancement
         return args -> {
+            SevenWonders.args = args;
             // Nombres de joueurs
             int nbJoueurs ;
             // Nombres de parties si option des statistique activée
@@ -80,10 +81,12 @@ public class SevenWondersApplication {
                     //SevenWonders sevenWonders = new SevenWonders(nbJoueurs, true, color);
                     LoggerSevenWonders.init(true);
                     Colors.setColor(color);
+                    /*
                     sw.initPlayers(nbJoueurs,true);
                     sw.partie(nbJoueurs, true);
                     LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
                     sw.restTemplate.postForObject(url + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
+                     */
                 }
                 else {
                     sw.restTemplate.postForObject(url + "nbParties/", nbParties, Integer.class);
@@ -91,8 +94,10 @@ public class SevenWondersApplication {
                         //SevenWonders sevenWonders = new SevenWonders(nbJoueurs, false, color);
                         LoggerSevenWonders.init(false);
                         Colors.setColor(false);
+                        /*
                         sw.initPlayers(nbJoueurs,true);
                         sw.partie(nbJoueurs, true);
+                         */
                     }
                 }
             }
@@ -100,14 +105,19 @@ public class SevenWondersApplication {
                 //SevenWonders sevenWonders  = new SevenWonders(nbJoueurs, true, color);
                 LoggerSevenWonders.init(true);
                 Colors.setColor(color);
+                /*
                 sw.initPlayers(nbJoueurs,true);
                 sw.partie(nbJoueurs, false);
                 LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
+                 */
             }
+
+            /*
             Thread.sleep(1000);
             sw.restTemplate.postForObject(SevenWonders.statsServerURL + "/finir",null, Void.class);
             sw.sendEndToCLient();
             System.exit(0);
+             */
         };
 
     }
