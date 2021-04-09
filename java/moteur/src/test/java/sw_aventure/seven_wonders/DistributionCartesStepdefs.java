@@ -8,6 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/*
 public class DistributionCartesStepdefs implements Fr {
 
     private GenererCarte genererCarte;
@@ -21,7 +22,7 @@ public class DistributionCartesStepdefs implements Fr {
     public DistributionCartesStepdefs() {
 
 
-        /*
+
         Etantdonné("Une partie de sevenWonders a {int} joueur", (Integer nbJoueur) -> {
             nbJoueurs = nbJoueur;
             sevenWonders = new SevenWonders(nbJoueur, false, false);
@@ -51,6 +52,7 @@ public class DistributionCartesStepdefs implements Fr {
             }
 
         });
-        */
+
     }
 }
+*/

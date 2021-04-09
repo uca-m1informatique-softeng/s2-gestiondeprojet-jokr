@@ -2,7 +2,6 @@ package sw_aventure.seven_wonders;
 
 import exception.NegativeNumberException;
 import metier.EnumRessources;
-import metier.Strategy;
 import utilitaire_jeu.SetInventaire;
 import io.cucumber.java8.Fr;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,7 +12,7 @@ public class SetInventaireStepdefs implements Fr {
     private SetInventaire setInventaire;
     private int nbPiece;
 
-/*
+
     public SetInventaireStepdefs() {
         Etantdonné("Le joueur {string} allant jouer son premier coup de la partie", (String nom) -> {
             setInventaire = new SetInventaire(1,"BFDGFNSGNS", nom);
@@ -37,7 +36,6 @@ public class SetInventaireStepdefs implements Fr {
             else {
                 setInventaire.increaseValue(EnumRessources.MINERAI, minerai);
             }
-
         });
 
         Alors("Son inventaire doit contenir {int} bois, {int} pierre, {int} argile, et {int} minerai", (Integer bois, Integer pierre, Integer argile, Integer minerai) -> {
@@ -52,9 +50,6 @@ public class SetInventaireStepdefs implements Fr {
 
             if( minerai < 0 ) { assertEquals(0, setInventaire.getValue(EnumRessources.MINERAI));  }
             else { assertEquals(setInventaire.getValue(EnumRessources.MINERAI), minerai); }
-
-
-
         });
 
 
@@ -67,6 +62,5 @@ public class SetInventaireStepdefs implements Fr {
             assertEquals(setInventaire.getValue(EnumRessources.PIECE), nbPiece + 3);
         });
     }
-    */
 
 }
