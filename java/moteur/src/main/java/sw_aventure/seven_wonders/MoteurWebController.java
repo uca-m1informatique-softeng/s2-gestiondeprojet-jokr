@@ -28,7 +28,6 @@ public class MoteurWebController {
     @Autowired
     SevenWonders sw;
 
-    int nbJoueur = 0 ;
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         // Do any additional configuration here
@@ -55,11 +54,10 @@ public class MoteurWebController {
 
     @PostMapping("/connexion/")
     public boolean getValue(@RequestBody NameURL nameURL) throws Exception {
-        System.out.println("Moteur > connexion acceptée de " + nameURL.getName() + " depuis l'adresse : " + nameURL.getUrl());
+        System.out.println("Moteur > connexion acceptée de " + listName.get(listJoueurId.size() + 1) + " depuis l'adresse : " + nameURL.getUrl());
 
         this.listJoueurId.add(new SetInventaire(listJoueurId.size(), nameURL.getUrl(), listName.get(listJoueurId.size())));
-        System.out.println(this.listJoueurId.size());
-        this.nbJoueur++;
+        System.out.println(this.listJoueurId.size() + "/" + Integer.parseInt(SevenWonders.args[2]) + " joueurs.");
 
         if (this.listJoueurId.size() == Integer.parseInt(SevenWonders.args[2])) {
             sw.launchGame();
