@@ -24,7 +24,7 @@ import java.util.List;
 @RestController
 public class MoteurWebController {
     List<SetInventaire> listJoueurId = new ArrayList<>();
-    List<String> listName = Arrays.asList(Colors.igBleu("Enzo"), Colors.igJaune("Mona"),Colors.igCyan("Fred"), Colors.igVert("Paul"), Colors.igRouge("Lucy"),  Colors.igViolet("Dora"),Colors.igViolet("Alex"));
+
     @Autowired
     SevenWonders sw;
 
@@ -54,9 +54,9 @@ public class MoteurWebController {
 
     @PostMapping("/connexion/")
     public boolean getValue(@RequestBody NameURL nameURL) throws Exception {
-        System.out.println("Moteur > connexion acceptée de " + listName.get(listJoueurId.size() + 1) + " depuis l'adresse : " + nameURL.getUrl());
+        System.out.println("Moteur > connexion acceptée de " + nameURL.getName() + " depuis l'adresse : " + nameURL.getUrl());
 
-        this.listJoueurId.add(new SetInventaire(listJoueurId.size(), nameURL.getUrl(), listName.get(listJoueurId.size())));
+        this.listJoueurId.add(new SetInventaire(listJoueurId.size(), nameURL.getUrl(), nameURL.getName()));
         System.out.println(this.listJoueurId.size() + "/" + Integer.parseInt(SevenWonders.args[2]) + " joueurs.");
 
         if (this.listJoueurId.size() == Integer.parseInt(SevenWonders.args[2])) {
