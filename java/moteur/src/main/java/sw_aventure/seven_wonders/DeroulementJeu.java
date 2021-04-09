@@ -185,12 +185,14 @@ public class DeroulementJeu {
             int[][] choix = action.decisionDeJeu(nbJoueurs,plateau);
             for (int j = nbJoueurs-1; j>=0; j--) {
                 int i = nbJoueurs-1-j;
+                System.out.println("AVANT");
                 SetInventaire s = inv.get(i);
+                System.out.println("APRES");
                 if (choix[i][0] != 1) {  // si il ne veut pas construire sa merveille
                     // jouer ou défausser une carte
-                    System.out.println("AVANT");
+
                     Carte choixCarte = mainJoueurs.get(s.getId()).getMain().get(choix[i][1]);
-                    System.out.println("APRES");
+
                     if (choix[i][0]==3) { // défausser
                         s.casDefausse();
                         paquetDefausse.add(choixCarte);
