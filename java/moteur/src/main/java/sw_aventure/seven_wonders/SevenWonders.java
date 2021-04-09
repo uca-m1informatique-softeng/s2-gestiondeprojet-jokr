@@ -86,9 +86,7 @@ public class SevenWonders {
         }
 
         Thread.sleep(1000);
-        System.out.println("ON EST LAAAAAAAAAAAAA on envois les stats");
         this.restTemplate.postForObject(SevenWonders.statsServerURL + "/finir",null, Void.class);
-        System.out.println("ON EST LAAAAAAAAAAAAA on a envoyé les stats");
         this.sendEndToCLient();
         System.exit(0);
     }
@@ -116,7 +114,7 @@ public class SevenWonders {
 
         }*/
 
-        System.out.println("Tous les joueurs sont connectés !");
+        System.out.println("Tous les joueurs sont connectés lancement de la partie !");
         inv = this.webController.listJoueurId;
 
         if(shuffle){
@@ -229,7 +227,20 @@ public class SevenWonders {
             datas.add(new Data(nomJoueur, strategieJoueur, getSactoString(inventaire), merveille, getListeCarteToString(cartes)));
         }
         //Connexion.CONNEXION.envoyerMessageArray("DataPartie", jsonArray);
+        afficherResumePartie(setInv);
         restTemplate.postForObject(SevenWonders.statsServerURL + "sendStats/", datas.toArray(), Data[].class);
+    }
+
+    public void afficherResumePartie(List<SetInventaire> setInv){
+        for(int i = 0; i<setInv.size();i++){
+            System.out.print(setInv.get(i).getJoueurName()+ " à obtenu la merveille : " + setInv.get(i).getMerveille().getNom() + " et ") ;
+            if(setInv.get(i).getValue(EnumRessources.VICTOIRETOTAL) == 1 ){
+                System.out.print("gagne ");
+            }else{
+                System.out.print("perd ");
+            }
+            System.out.println("avec : " + setInv.get(i).getValue(EnumRessources.SCOREFINAL));
+        }
     }
 
     public void sendEndToCLient(){
