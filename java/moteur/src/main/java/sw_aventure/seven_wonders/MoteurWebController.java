@@ -62,25 +62,8 @@ public class MoteurWebController {
         this.nbJoueur++;
 
         if (this.listJoueurId.size() == Integer.parseInt(SevenWonders.args[2])) {
-            sw.initPlayers(Integer.parseInt(SevenWonders.args[2]), true);
-            if (SevenWonders.args[3].equals("true")) {
-                if (Integer.parseInt(SevenWonders.args[1]) == 1) {
-                    sw.partie(Integer.parseInt(SevenWonders.args[2]), true);
-                    LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
-                    sw.restTemplate.postForObject(SevenWonders.args[4] + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
-                } else {
-                    sw.partie(Integer.parseInt(SevenWonders.args[2]), true);
-                }
-            } else {
-                sw.partie(Integer.parseInt(SevenWonders.args[2]), false);
-                LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
-            }
+            sw.launchGame();
         }
-
-        Thread.sleep(1000);
-        sw.restTemplate.postForObject(SevenWonders.statsServerURL + "/finir",null, Void.class);
-        sw.sendEndToCLient();
-        System.exit(0);
 
         return true;
     }

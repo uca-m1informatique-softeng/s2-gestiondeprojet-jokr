@@ -49,6 +49,36 @@ public class SevenWonders {
 
     // METHODES //
 
+    /**
+     * Méthode appelée lorsque tous les joueurs se sont connectés
+     * @throws Exception
+     */
+    public void launchGame() throws Exception {
+
+        int nbJoueurs = Integer.parseInt(SevenWonders.args[2]);
+        int nbParties = Integer.parseInt(SevenWonders.args[1]);
+        boolean multiPartieAvecStat = SevenWonders.args[3].equals("true") ? true : false;
+        String url = SevenWonders.args[4];
+
+        this.initPlayers(nbJoueurs, true);
+        if (multiPartieAvecStat) {
+            this.partie(nbJoueurs, true);
+
+            if (nbParties == 1) {
+                LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
+                this.restTemplate.postForObject(url + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
+            }
+        } else {
+            this.partie(nbJoueurs, false);
+            LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
+        }
+
+        Thread.sleep(1000);
+        this.restTemplate.postForObject(SevenWonders.statsServerURL + "/finir",null, Void.class);
+        this.sendEndToCLient();
+        System.exit(0);
+    }
+
 
     /**
      * Crée les joueurs, rempli la liste des inventaires
