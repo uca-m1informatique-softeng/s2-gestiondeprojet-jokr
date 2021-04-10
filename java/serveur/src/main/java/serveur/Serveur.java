@@ -95,7 +95,6 @@ public class Serveur {
 
     @PostMapping("/finir")
     public void finir() {
-        System.out.println("ON EST LAAAAAAAAAAAAA on termine le serveur ");
         // fin brutale (pour abréger sur travis), mais il faut répondre un peu après
         Thread t = new Thread(new Runnable() {
             @Override
