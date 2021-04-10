@@ -82,9 +82,28 @@ public class FacadeJoueurITCase {
     @Test
     public void jouerDefausseTest() throws Exception {
         facade.jouerDefausse(data);
-
         Thread.sleep(2000);
-
         verify(joueur, times(1)).jouerdefausse(any(), any(), any());
+
+        facade.jouerGratuitementDanslaDefausse(data);
+        Thread.sleep(2000);
+        verify(joueur, times(1)).jouerGratuitementDanslaDefausse(any(), any(), any());
+
+        facade.jouerMerveille(data);
+        Thread.sleep(2000);
+        verify(joueur, times(1)).jouerMerveille(any(), any(), any());
+
+        facade.constructMerveille(data);
+        Thread.sleep(2000);
+        verify(joueur, times(1)).constructMerveille(any(), any(), any());
+
+        facade.choixCarte(data);
+        Thread.sleep(2000);
+        verify(joueur, times(1)).choixCarte(any(), any(), any());
+
+        facade.getStrategie();
+        Thread.sleep(2000);
+        verify(joueur, times(1)).getStrategie();
+
     }
 }
