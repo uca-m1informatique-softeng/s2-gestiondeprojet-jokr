@@ -13,7 +13,7 @@ services:
 install:
   - cd java
   - mvn clean install
-  #- mvn test
+  - mvn verify
 
 before_script:
   - docker-compose --version
