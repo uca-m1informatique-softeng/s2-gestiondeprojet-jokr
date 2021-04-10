@@ -131,7 +131,6 @@ public class ConstructionTest {
         // Via bonus couleur
         setInventaireCourant.clear();
         setInventaireCourant.listeCarte = new ArrayList<>();
-        System.out.println(setInventaireCourant.getValue(EnumRessources.BLEUE));
         setInventaireCourant.increaseValue(EnumRessources.BONUSAGECOULEUR, 1);
         assertEquals(0, Construction.laConstruction(carteStatue, setInventaireCourant, plateau, false).size());
 
