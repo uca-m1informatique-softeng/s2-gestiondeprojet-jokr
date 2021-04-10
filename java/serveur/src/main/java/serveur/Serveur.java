@@ -124,4 +124,12 @@ public class Serveur {
     public ArrayList<Data[]> getDataParties() {
         return dataParties;
     }
+
+    public Statistique getStatistique() {
+        return statistique;
+    }
+
+    public GestionnaireDeFichier getGestionnaireDeFichier() {
+        return gestionnaireDeFichier;
+    }
 }
