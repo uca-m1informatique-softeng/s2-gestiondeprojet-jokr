@@ -1,6 +1,6 @@
 package sw_aventure.seven_wonders;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -33,8 +33,8 @@ public class MoteurWebControlleurITCase {
     @BeforeEach
     void setup() {
         this.nameURL1 = new NameURL("GEORGE", "http://127.0.0.1:8091");
-        this.nameURL1 = new NameURL("BOB", "http://127.0.0.1:8092");
-        this.nameURL1 = new NameURL("JACQUES", "http://127.0.0.1:8093");
+        this.nameURL2 = new NameURL("BOB", "http://127.0.0.1:8092");
+        this.nameURL3 = new NameURL("JACQUES", "http://127.0.0.1:8093");
 
         swSpy = Mockito.spy(sevenWonders);
         ReflectionTestUtils.setField(webController, "moteur", swSpy);
