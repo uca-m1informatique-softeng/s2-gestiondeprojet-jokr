@@ -83,31 +83,60 @@ public class ServeurITCase {
 
     }
 
+    /**
+     * On vérifie la réception du nombre de joueur
+     * @throws Exception
+     */
     @Test
-    public void serveurTest() throws Exception {
-        assertEquals(0,serveur.getNbJoueur());
+    public void getNbJoueurTest() throws Exception {
+        assertEquals(0, serveur.getNbJoueur());
         serveur.getNbJoueur(nbJoueurRecu);
         Thread.sleep(2000);
-        assertEquals(3,serveur.getNbJoueur());
+        assertEquals(3, serveur.getNbJoueur());
+    }
 
-        assertEquals(0,serveur.getNbPartie());
+    /**
+     * On vérifie la réception du nombre de partie attendu
+     * @throws Exception
+     */
+    @Test
+    public void getNbPartieTest() throws Exception {
+        assertEquals(0, serveur.getNbPartie());
         serveur.getNbPartie(nbPartiesRecu);
         Thread.sleep(2000);
-        assertEquals(2,serveur.getNbPartie());
+        assertEquals(2, serveur.getNbPartie());
+    }
 
-        assertEquals(0,serveur.getDataParties().size());
+    /**
+     * On vérifie la réceptions des datas des parties ainsi que la réaction du serveur lorsque le nombre de partie reçu est atteint
+     * @throws Exception
+     */
+    @Test
+    public void getStatsTest() throws Exception {
+        serveur.getNbJoueur(nbJoueurRecu);
+        serveur.getNbPartie(nbPartiesRecu);
+
+
+        assertEquals(0, serveur.getDataParties().size());
         serveur.getStats(dataPartie1);
         Thread.sleep(2000);
         assertNull(serveur.getStatistique());
-        assertEquals(1,serveur.getDataParties().size());
-        verify(serveur , times(1)).traiterFinReception();
+        assertEquals(1, serveur.getDataParties().size());
+        verify(serveur, times(1)).traiterFinReception();
 
         serveur.getStats(dataPartie2);
         Thread.sleep(2000);
-        assertEquals(2,serveur.getDataParties().size());
+        assertEquals(2, serveur.getDataParties().size());
         assertNotNull(serveur.getStatistique());
-        verify(serveur , times(2)).traiterFinReception();
+        verify(serveur, times(2)).traiterFinReception();
+    }
 
+    /**
+     * On vérifie que showpartie test lorqu'il est appelé crée bien un GestionnaireDeFichier
+     * @throws Exception
+     */
+    @Test
+    public void showPartieTest() throws Exception {
         assertNull(serveur.getGestionnaireDeFichier());
         serveur.showPartie(stringBuilders);
         Thread.sleep(2000);
@@ -116,5 +145,7 @@ public class ServeurITCase {
 
 
     }
+
+
 
 }

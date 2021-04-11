@@ -32,9 +32,9 @@ public class MoteurWebControlleurITCase {
 
     @BeforeEach
     void setup() {
-        this.nameURL1 = new NameURL("GEORGE", "http://127.0.0.1:8091");
-        this.nameURL2 = new NameURL("BOB", "http://127.0.0.1:8092");
-        this.nameURL3 = new NameURL("JACQUES", "http://127.0.0.1:8093");
+        nameURL1 = new NameURL("GEORGE", "http://127.0.0.1:8091");
+        nameURL2 = new NameURL("BOB", "http://127.0.0.1:8092");
+        nameURL3 = new NameURL("JACQUES", "http://127.0.0.1:8093");
 
         swSpy = Mockito.spy(sevenWonders);
         ReflectionTestUtils.setField(webController, "moteur", swSpy);

@@ -79,31 +79,69 @@ public class FacadeJoueurITCase {
         ReflectionTestUtils.setField(facade, "j", joueur);
     }
 
+    /**
+     * Test de la fonction jouerDefausse
+     * @throws Exception
+     */
     @Test
     public void jouerDefausseTest() throws Exception {
         facade.jouerDefausse(data);
         Thread.sleep(2000);
         verify(joueur, times(1)).jouerdefausse(any(), any(), any());
+    }
 
+    /**
+     * Test de la fonction jouerGratuitementDanslaDefausse
+     * @throws Exception
+     */
+    @Test
+    public void jouerGratuitementDanslaDefausseTest() throws Exception {
         facade.jouerGratuitementDanslaDefausse(data);
         Thread.sleep(2000);
         verify(joueur, times(1)).jouerGratuitementDanslaDefausse(any(), any(), any());
+    }
 
+    /**
+     * Test de la fonction jouerMerveille
+     * @throws Exception
+     */
+    @Test
+    public void jouerMerveilleTest() throws Exception {
         facade.jouerMerveille(data);
         Thread.sleep(2000);
         verify(joueur, times(1)).jouerMerveille(any(), any(), any());
+    }
 
+    /**
+     * Test de la fonction constructMerveille
+     * @throws Exception
+     */
+    @Test
+    public void constructMerveilleTest() throws Exception {
         facade.constructMerveille(data);
         Thread.sleep(2000);
         verify(joueur, times(1)).constructMerveille(any(), any(), any());
+    }
 
+    /**
+     * Test de la fonction choixCarte
+     * @throws Exception
+     */
+    @Test
+    public void choixCarteTest() throws Exception {
         facade.choixCarte(data);
         Thread.sleep(2000);
         verify(joueur, times(1)).choixCarte(any(), any(), any());
+    }
 
+    /**
+     * Test de la fonction getStrategie
+     * @throws Exception
+     */
+    @Test
+    public void getStrategieTest() throws Exception {
         facade.getStrategie();
         Thread.sleep(2000);
         verify(joueur, times(1)).getStrategie();
-
     }
 }
