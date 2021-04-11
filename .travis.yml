@@ -28,7 +28,13 @@ script:
   #- docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
   #- docker-compose logs # affichage des logs
   # on efface tous les containers qui sont éteints puis les images
-  - mvn failsafe:integration-test 
+  - mvn failsafe:integration-test -Dit.test=client.src.test.FacadeJoueurITCase
+  - mvn failsafe:integration-test -Dit.test=moteur.src.test.MoteurWebControlleurITCase
+  - mvn failsafe:integration-test -Dit.test=serveur.src.test.ServeurITCase.getNbJoueurTest
+  - mvn failsafe:integration-test -Dit.test=serveur.src.test.ServeurITCase.getNbPartieTest
+  - mvn failsafe:integration-test -Dit.test=serveur.src.test.ServeurITCase.getStatsTest
+  - mvn failsafe:integration-test -Dit.test=serveur.src.test.ServeurITCase.showPartieTest
+  
   - docker rm $(docker ps -a -q)
   - docker ps -a -q
   - docker rmi serveur
