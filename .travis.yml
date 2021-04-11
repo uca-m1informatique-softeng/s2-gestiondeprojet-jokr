@@ -24,24 +24,11 @@ before_script:
   - docker images
 
 script:
-  - mvn failsafe:integration-test 
-  #-Dit.test=client.src.test.FacadeJoueurITCase.jouerDefausseTest
-  #- mvn failsafe:integration-test -Dit.test=client.src.test.FacadeJoueurITCase.jouerGratuitementDanslaDefausseTest
-  #- mvn failsafe:integration-test -Dit.test=client.src.test.FacadeJoueurITCase.jouerMerveilleTest
-  #- mvn failsafe:integration-test -Dit.test=client.src.test.FacadeJoueurITCase.constructMerveille
-  #- mvn failsafe:integration-test -Dit.test=client.src.test.FacadeJoueurITCase.choixCarteTest
-  #- mvn failsafe:integration-test -Dit.test=client.src.test.FacadeJoueurITCase.getStrategieTest
-  #- mvn failsafe:integration-test -Dit.test=moteur.src.test.MoteurWebControlleurITCase.connexionTest
-  #- mvn failsafe:integration-test -Dit.test=client.src.test.MoteurWebControlleurITCase.jouerTest
-  #- mvn failsafe:integration-test -Dit.test=serveur.src.test.ServeurITCase.getNbJoueurTest
-  #- mvn failsafe:integration-test -Dit.test=serveur.src.test.ServeurITCase.getNbPartieTest
-  #- mvn failsafe:integration-test -Dit.test=serveur.src.test.ServeurITCase.getStatsTest
-  #- mvn failsafe:integration-test -Dit.test=serveur.src.test.ServeurITCase.showPartieTest
-  #- docker-compose up --scale client=3
+ - mvn failsafe:integration-test 
+ - docker-compose up --scale client=3
   #- docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
   #- docker-compose logs # affichage des logs
   # on efface tous les containers qui sont éteints puis les images
-  
   - docker rm $(docker ps -a -q)
   - docker ps -a -q
   - docker rmi serveur
