@@ -13,7 +13,7 @@ services:
 install:
   - cd java
   - mvn clean install
-  #- mvn test
+  - mvn verify
 
 before_script:
   - docker-compose --version
@@ -28,6 +28,7 @@ script:
   #- docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
   #- docker-compose logs # affichage des logs
   # on efface tous les containers qui sont éteints puis les images
+  - mvn failsafe:integration-test 
   - docker rm $(docker ps -a -q)
   - docker ps -a -q
   - docker rmi serveur

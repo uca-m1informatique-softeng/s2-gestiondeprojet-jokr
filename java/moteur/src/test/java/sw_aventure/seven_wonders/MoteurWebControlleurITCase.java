@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.util.ReflectionTestUtils;
+import static org.junit.jupiter.api.Assertions.*;
 import utilitaire_jeu.NameURL;
 
 @SpringBootTest
@@ -41,6 +42,17 @@ public class MoteurWebControlleurITCase {
     }
 
     @Test
+    public void connexionTest() throws Exception {
+        int taille = webController.listJoueurId.size();
+
+        webController.getValue(nameURL1);
+
+        Thread.sleep(2000);
+
+        assertEquals(taille + 1, webController.listJoueurId.size());
+    }
+
+    @Test
     public void jouerTest() throws Exception {
         webController.getValue(nameURL1);
         webController.getValue(nameURL2);
@@ -48,9 +60,11 @@ public class MoteurWebControlleurITCase {
 
         Thread.sleep(2000);
 
+        assertEquals(3, webController.listJoueurId.size());
+
+        verify(swSpy, times(1)).launchGame();
         verify(swSpy, times(1)).initPlayers(any(), any());
-        verify(webController, times(3)).choixCarte(any(), any());
-        verify(webController, times(1)).envoyerFin(any());
+        verify(swSpy, times(1)).partie(any(), any());
     }
 
 }
