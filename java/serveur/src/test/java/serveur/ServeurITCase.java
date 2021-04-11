@@ -87,6 +87,7 @@ public class ServeurITCase {
      * On vérifie la réception du nombre de joueur
      * @throws Exception
      */
+    /*
     @Test
     public void getNbJoueurTest() throws Exception {
         assertEquals(0, serveur.getNbJoueur());
@@ -94,18 +95,20 @@ public class ServeurITCase {
         Thread.sleep(2000);
         assertEquals(3, serveur.getNbJoueur());
     }
+     */
 
     /**
      * On vérifie la réception du nombre de partie attendu
      * @throws Exception
      */
+    /*
     @Test
     public void getNbPartieTest() throws Exception {
         assertEquals(0, serveur.getNbPartie());
         serveur.getNbPartie(nbPartiesRecu);
         Thread.sleep(2000);
         assertEquals(2, serveur.getNbPartie());
-    }
+    }*/
 
     /**
      * On vérifie la réceptions des datas des parties ainsi que la réaction du serveur lorsque le nombre de partie reçu est atteint
