@@ -75,47 +75,21 @@ public class SevenWondersApplication {
             if (multiPartieAvecStat) {
                 sw.restTemplate.postForObject(url + "nbJoueur/", nbJoueurs, Integer.class);
                 if (nbParties == 1) {
-                    //SevenWonders sevenWonders = new SevenWonders(nbJoueurs, true, color);
                     LoggerSevenWonders.init(true);
                     Colors.setColor(color);
-
-/*
-                    sw.initPlayers(nbJoueurs,true);
-                    sw.partie(nbJoueurs, true);
-                    LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
-                    sw.restTemplate.postForObject(url + "partie/", LoggerSevenWonders.getStringBuilder(), StringBuilder.class);
-*/
-
                 }
                 else {
                     sw.restTemplate.postForObject(url + "nbParties/", nbParties, Integer.class);
                     for (int i = 0; i < nbParties; i++) {
-                        //SevenWonders sevenWonders = new SevenWonders(nbJoueurs, false, color);
                         LoggerSevenWonders.init(false);
                         Colors.setColor(false);
-
-                        /*sw.initPlayers(nbJoueurs,true);
-                        sw.partie(nbJoueurs, true);*/
                     }
                 }
             }
             else {
-                //SevenWonders sevenWonders  = new SevenWonders(nbJoueurs, true, color);
                 LoggerSevenWonders.init(true);
                 Colors.setColor(color);
-/*
-                sw.initPlayers(nbJoueurs,true);
-                sw.partie(nbJoueurs, false);
-                LoggerSevenWonders.show(LoggerSevenWonders.getStringBuilder());
-*/
             }
-
-            /*
-            Thread.sleep(1000);
-            sw.restTemplate.postForObject(SevenWonders.statsServerURL + "/finir",null, Void.class);
-            sw.sendEndToCLient();
-            System.exit(0);
-             */
         };
 
     }

@@ -63,7 +63,7 @@ public class MoteurWebControlleurITCase {
         assertEquals(3, webController.listJoueurId.size());
 
         verify(swSpy, times(1)).launchGame();
-        verify(swSpy, times(1)).initPlayers(any(), any());
+        verify(swSpy, times(1)).initPlayers(any());
         verify(swSpy, times(1)).partie(any(), any());
     }
 

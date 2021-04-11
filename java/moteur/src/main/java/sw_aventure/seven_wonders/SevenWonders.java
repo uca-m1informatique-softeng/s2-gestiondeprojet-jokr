@@ -61,7 +61,7 @@ public class SevenWonders {
         boolean multiPartieAvecStat = SevenWonders.args[3].equals("true");
         String url = SevenWonders.args[4];
 
-        this.initPlayers(nbJoueurs, true);
+        this.initPlayers(true);
 
         if (multiPartieAvecStat) {
 
@@ -75,7 +75,7 @@ public class SevenWonders {
                 for(int i = 0 ; i < nbParties-1 ; i++){
                     LoggerSevenWonders.init(false);
                     Colors.setColor(false);
-                    this.initPlayers(nbJoueurs, true);
+                    this.initPlayers(true);
                     this.partie(nbJoueurs, true);
                 }
             }
@@ -90,29 +90,10 @@ public class SevenWonders {
         System.exit(0);
     }
 
-
     /**
      * Crée les joueurs, rempli la liste des inventaires
-     * @param nbJoueurs le nombre de joueurs qui vont jouer
      */
-    public void initPlayers(int nbJoueurs,boolean shuffle) {
-        /*
-        long t0 = new Date().getTime();
-        long t1 = t0;
-        int newNbJoueurs = 0;
-        while (this.webController.listJoueurId.size() < nbJoueurs){
-            try {
-                newNbJoueurs = this.webController.listJoueurId.size();
-                System.out.println("Joueurs Connectés : " + newNbJoueurs);
-                Thread.sleep(1000);
-                t1 = new Date().getTime();
-                if (t1 - t0 > 1000*SevenWonders.TIMEOUT) { System.exit(404); }
-            } catch (Exception e) {
-                //e.printStackTrace();
-            }
-
-        }*/
-
+    public void initPlayers(boolean shuffle) {
         System.out.println("Tous les joueurs sont connectés lancement de la partie !");
         inv = this.webController.listJoueurId;
 
@@ -122,7 +103,6 @@ public class SevenWonders {
         }
     }
 
-
     /**
      * Crée le plateau de jeu en lui attribuant les inventaires et les joueurs
      * @return le plateau de jeu
@@ -131,8 +111,6 @@ public class SevenWonders {
         ArrayList<Inventaire> listeInventaire = new ArrayList<>(inv);
         return new Plateau(listeInventaire);
     }
-
-
 
     /**
      * Donne une merveille aléatoirement à chaque joueurs
@@ -160,7 +138,6 @@ public class SevenWonders {
         }
     }
 
-
     /**
      * Méthode permettant de créer la partie en appelant les différentes méthode/étapes du jeu
      * @param nbJoueurs le nombre de joueurs
@@ -186,7 +163,6 @@ public class SevenWonders {
         return true;
     }
 
-
     /**
      * Permet de ré-ordonner les joueurs pour permettre au serveur de faire des statistiques correctes
      * @param setInv la liste de tous les SetInventaires
@@ -203,7 +179,6 @@ public class SevenWonders {
         }
         return inventaireClasse;
     }
-
 
     /**
      * Méthode permettant d'envoyer les données de la partie au serveur
@@ -266,7 +241,6 @@ public class SevenWonders {
         }
         return listeCarte ;
     }
-
 
     /**
      * Permet d'obtenir les strings des enumsRessources pour les envoyer au serveur
